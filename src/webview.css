@@ -1,0 +1,301 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: rgba(4, 9, 21, 0.9);
+    color: rgba(65, 87, 139, 0.028)
+}
+
+/* Navegação */
+.navbar {
+    background-color: rgba(65, 87, 139, 0.028);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    width: 100%;
+    z-index: 10;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 98%;
+    margin: 0;
+}
+
+.nav-logo {
+    display: absolute;
+    width: 20%;
+    height: 50%;
+    padding-left: 2%;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-item {
+    margin-left: 2rem;
+}
+
+.nav-links {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links:hover {
+    color: rgba(65, 87, 139);
+}
+
+.img-login {
+    width: 30%;
+    padding: 10px;
+}
+
+.btn-login {
+    background-color: white;
+    color: rgba(4, 9, 21) !important;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.ys {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(65, 87, 139, 0.028) ;
+}
+
+/* Carrossel de Imagens */
+.carousel-section {
+    padding: 4rem 0;
+    background-color: rgba(65, 87, 139, 0.028);
+}
+
+.title-car {
+    color: #fff;
+    text-align: center;
+    justify-content: space-between;
+    font-size:30px;
+    font-style: bold;
+}
+
+.carousel-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 1200px;
+    margin-left: 15%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 800px;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 41%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 9, 90, 0.151);
+    color: #000000;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 0%;
+    display: none; /* Inicialmente escondido */
+}
+
+.left-btn {
+    left: 10px;
+}
+
+.right-btn {
+    right: 10px;
+}
+
+.carousel-container:hover .carousel-btn {
+    display: block; /* Mostra os botões ao passar o mouse no carrossel */
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 100%; 
+    height: 750px;
+    margin-right: 0; 
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.carousel-item:hover img {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    opacity: 0;
+}
+
+img.view {
+    margin: 0;
+    display: absolute;
+    width: 5%;
+    height: 12%;
+    padding-right: 5px;
+}
+
+.carousel-item:hover .overlay {
+    background-color: rgba(0,0,0,0.6);
+    opacity: 1;
+}
+.overlay span {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Seção de Planos */
+.planos-section {
+    padding: 4rem 0;
+    background-color: rgba(65, 87, 139, 0.028);
+}
+
+.planos-container {
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.planos-item {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.planos-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.overlay-planos {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    opacity: 0;
+}
+
+.planos-item:hover .overlay-planos {
+    background-color: rgba(0,0,0,0.6);
+    opacity: 1;
+}
+
+.btn-planos {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-planos:hover {
+    background-color: #0056b3;
+}
+
+/* Botão de Voltar ao Topo */
+#btn-topo {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease;
+    z-index: 100;
+}
+
+#btn-topo:hover {
+    background-color: #0056b3;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: -100%;
+        width: 100%;
+        background-color: rgba(65, 87, 139, 0.028) ;
+        transition: right 0.3s ease;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-icon {
+        display: block;
+    }
+
+    .nav-item {
+        margin: 1.5rem 0;
+        text-align: center;
+    }
+}
