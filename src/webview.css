@@ -9,13 +9,12 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     background-color: rgba(4, 9, 21, 0.9);
-    color: rgba(65, 87, 139, 0.028)
+    color: white
 }
 
 /* Navegação */
 .navbar {
     background-color: rgba(65, 87, 139, 0.028);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: relative;
     width: 100%;
     z-index: 10;
@@ -30,7 +29,7 @@ body {
 }
 
 .nav-logo {
-    display: absolute;
+    display: flex;
     width: 20%;
     height: 50%;
     padding-left: 2%;
@@ -76,16 +75,70 @@ body {
     cursor: pointer;
 }
 
-.ys {
-    margin: 0;
-    padding: 0;
-    background-color: rgba(65, 87, 139, 0.028) ;
+/* Seção de Destaque */
+.highlight-section {
+    position: relative;
+    width: 100%;
+    height: 700px; /* Ajuste conforme necessário */
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.highlight-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.highlight-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: filter 0.3s ease; /* Adiciona uma transição suave */
+}
+
+/* Adiciona um filtro escuro ao vídeo quando o overlay está visível */
+.highlight-container:hover .highlight-video {
+    filter: brightness(30%);
+}
+
+.highlight-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: none; /* Inicialmente escondido */
+    color: #fff;
+    transition: opacity 0.3s ease; /* Adiciona uma transição suave */
+}
+
+.highlight-image {
+    width: 100px; /* Ajuste conforme necessário */
+    margin-bottom: 1rem; /* Ajuste conforme necessário */
+}
+
+.highlight-text {
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    padding: 1rem;
+    /* Remover o fundo do texto */
+    background: none;
+    border-radius: 0; /* Remove o arredondamento do fundo */
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-weight: bold;
 }
 
 /* Carrossel de Imagens */
 .carousel-section {
     padding: 4rem 0;
-    background-color: rgba(65, 87, 139, 0.028);
 }
 
 .title-car {
@@ -277,17 +330,17 @@ img.view {
 /* Responsividade */
 @media screen and (max-width: 768px) {
     .nav-menu {
+        display: none; /* Oculta o menu completamente */
         flex-direction: column;
         position: absolute;
         top: 80px;
-        right: -100%;
+        right: 0px;
         width: 100%;
-        background-color: rgba(65, 87, 139, 0.028) ;
-        transition: right 0.3s ease;
+        background-color: rgb(65, 87, 139);
     }
 
     .nav-menu.active {
-        right: 0;
+        display: flex; /* Mostra o menu quando ativo */
     }
 
     .nav-icon {

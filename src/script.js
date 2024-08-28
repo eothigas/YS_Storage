@@ -6,6 +6,28 @@ navIcon.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
+// Vídeos em Destaque
+const highlightVideo = document.getElementById('highlight-video');
+const highlightOverlay = document.querySelector('.highlight-overlay');
+
+// Função para mostrar o overlay ao passar o mouse sobre o vídeo
+function showOverlay() {
+    highlightOverlay.style.display = 'block';
+}
+
+// Função para ocultar o overlay ao sair o mouse do vídeo
+function hideOverlay() {
+    highlightOverlay.style.display = 'none';
+}
+
+// Adiciona eventos de mouseover e mouseout ao vídeo
+highlightVideo.addEventListener('mouseover', showOverlay);
+highlightVideo.addEventListener('mouseout', hideOverlay);
+
+// Adiciona eventos de mouseover e mouseout ao overlay para manter a visibilidade
+highlightOverlay.addEventListener('mouseover', showOverlay);
+highlightOverlay.addEventListener('mouseout', hideOverlay);
+
 // Botão Voltar ao Topo
 const btnTopo = document.getElementById('btn-topo');
 const carouselSection = document.getElementById('carousel');
