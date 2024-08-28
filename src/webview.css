@@ -119,13 +119,14 @@ body {
 .highlight-image {
     width: 100px; /* Ajuste conforme necessário */
     margin-bottom: 1rem; /* Ajuste conforme necessário */
+    margin: 0;
 }
 
 .highlight-text {
     color: #fff;
     font-size: 2rem;
     text-align: center;
-    padding: 1rem;
+    padding: 1px;
     /* Remover o fundo do texto */
     background: none;
     border-radius: 0; /* Remove o arredondamento do fundo */
