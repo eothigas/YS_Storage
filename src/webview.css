@@ -403,6 +403,7 @@ body {
 
     .nav-icon {
         display: block;
+        padding-right: 10px;
     }
 
     .nav-item {
