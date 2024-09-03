@@ -109,20 +109,18 @@ p.form {
     }
 
     p.form {
-        display: flex;
+        display: grid;
         font-size: 20px;
         justify-content: center;
         align-items: center;
-        padding: 10px;
+        padding: 10px 10px;
     }
-
 
     #form-name, #form-email, #form-tel, #form-message {
         display: flex;
         font-size: 15px;
         padding: 8px;
-        margin-left: 45px;
-        width: 250px;
+        width: 320px;
         background-color: transparent;
         color: white;
         border: rgba(255, 255, 255, 0.452) solid 3px;
