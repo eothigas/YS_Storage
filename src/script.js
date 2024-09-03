@@ -48,43 +48,62 @@ btnTopo.addEventListener('click', () => {
     });
 });
 
-// Evento de clique nas imagens do carrossel
-const carouselItems = document.querySelectorAll('.carousel-item');
+// Funções Carrossel
 
-carouselItems.forEach(item => {
-    item.addEventListener('click', () => {
-        // Aqui você pode adicionar o código para exibir os dados adicionais da imagem
-        alert('Dados da imagem serão exibidos aqui.');
-    });
-});
-
+const carouselImg = document.querySelectorAll('.carousel-item');
 const leftBtn = document.querySelector('.left-btn');
 const rightBtn = document.querySelector('.right-btn');
-const carouselContainer = document.querySelector('.carousel-container');
-const items = document.querySelectorAll('.carousel-item');
-
 let currentIndex = 0;
 
 function updateCarousel() {
-    items.forEach((item, index) => {
-        item.style.transform = `translateX(-${currentIndex * 100}%)`;
+    const transformValue = -currentIndex * 100;
+    carouselImg.forEach((item) => {
+        item.style.transform = `translateX(${transformValue}%)`;
     });
-    leftBtn.style.display = currentIndex > 0 ? 'block' : 'none';
-    rightBtn.style.display = currentIndex < items.length - 1 ? 'block' : 'none';
-}
 
-rightBtn.addEventListener('click', () => {
-    if (currentIndex < items.length - 1) {
-        currentIndex++;
-        updateCarousel();
-    }
-});
+    // Controle da visibilidade dos botões
+    leftBtn.style.display = currentIndex === 0 ? 'none' : 'block';
+    rightBtn.style.display = currentIndex === carouselImg.length - 1 ? 'none' : 'block';
+}
 
 leftBtn.addEventListener('click', () => {
     if (currentIndex > 0) {
-        currentIndex--;
+        currentIndex -= 1;
         updateCarousel();
     }
 });
 
-updateCarousel(); // Inicializa o estado do carrossel
+rightBtn.addEventListener('click', () => {
+    if (currentIndex < carouselImg.length - 1) {
+        currentIndex += 1;
+        updateCarousel();
+    }
+});
+
+updateCarousel();
+
+// Seleciona todos os overlays e infoboxes
+const overlays = document.querySelectorAll('.overlay');
+const infoBoxes = document.querySelectorAll('.info-box');
+
+// Adiciona um evento de clique a cada overlay
+overlays.forEach(overlay => {
+    overlay.addEventListener('click', () => {
+        const infoId = overlay.parentElement.dataset.info; // Obtém o ID da info correspondente
+        const infoBox = document.getElementById(infoId);
+        infoBox.style.display = 'flex'; // Exibe a infobox
+        overlay.style.display = 'none'; // Oculta o overlay
+        document.querySelector('.left-btn').style.display = 'none'; // Oculta botões de navegação
+        document.querySelector('.right-btn').style.display = 'none'; // Oculta botões de navegação
+    });
+});
+
+// Adiciona um evento de clique a cada botão de fechar na infobox
+document.querySelectorAll('.close-info').forEach(button => {
+    button.addEventListener('click', () => {
+        button.parentElement.parentElement.style.display = 'none'; // Oculta a infobox
+        document.querySelector(`.carousel-item[data-info="${button.parentElement.parentElement.id}"] .overlay`).style.display = 'flex'; // Exibe o overlay correspondente
+        document.querySelector('.left-btn').style.display = currentIndex === 0 ? 'none' : 'block';
+        document.querySelector('.right-btn').style.display = currentIndex === carouselImg.length - 1 ? 'none' : 'block';
+    });
+});

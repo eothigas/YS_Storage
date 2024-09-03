@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webview Example</title>
+    <link rel="icon" href="/YS_Storage/src/images/Logo_reduzido.svg" type="image/png">
+    <title>Your Storage - Home</title>
     <link rel="stylesheet" href="./src/webview.css">
     <!-- Importação de ícones (por exemplo, Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -13,7 +14,7 @@
     <!-- Navegação -->
     <nav class="navbar">
         <div class="nav-container">
-                <img src="./src/images/Logo.svg" class="nav-logo">
+                <img src="./src/images/Logo.svg" class="nav-logo" width="200">
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="#sobre-nos" class="nav-links">Sobre Nós</a>
@@ -55,42 +56,81 @@
 
 
     <!--Botão Orçamento-->
-
-    <div class="add-orc">
-        <button class="orcamento">Adquira já seu orçameneto!</button>
-    </div>
-
-
-    <!-- Carrossel de Imagens -->
-    <section class="carousel-section" id="carousel">
-        <div class="title-car">Confira nossos principais storages!
-        </div>
-        <div class="carousel-container">
-            <button class="carousel-btn left-btn"><i class="fas fa-chevron-left"></i></button>
-            <div class="carousel-item">
-                <img src="./src/images/Storage_1.png">
-                <div class="overlay">
-                    <img src="./src/images/olho_aberto.png" class="view">
-                    <span>Visualizar</span>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="./src/images/Storage_2.png">
-                <div class="overlay">
-                    <img src="./src/images/olho_aberto.png" class="view">
-                    <span>Visualizar</span>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="./src/images/Storage_3.png">
-                <div class="overlay">
-                    <img src="./src/images/olho_aberto.png" class="view">
-                    <span>Visualizar</span>
-                </div>
-            </div>
-            <button class="carousel-btn right-btn"><i class="fas fa-chevron-right"></i></button>
+    <section class="add-orc">
+        <div class="add-orc">
+            <button class="orcamento">Adquira já seu orçamento!</button>
         </div>
     </section>
+
+    <img src="/YS_Storage/src/images/esquerdo.png" id="esq"> <img src="/YS_Storage/src/images/direito.png" id="dir">
+
+        <!-- Carrossel de Imagens -->
+    <section class="carousel-section" id="carousel">
+        <div class="title-car">
+            Confira nossos principais storages!
+        </div>
+
+        <button class="left-btn"><i class="fas fa-chevron-left"></i></button>
+        <button class="right-btn"><i class="fas fa-chevron-right"></i></button>
+
+        <div class="carousel-container">
+            <div class="carousel-item" data-info="info1">
+                <img src="/YS_Storage/src/images/Storage_1.png" width="1000" height="600">
+                <div class="overlay">
+                    <img src="./src/images/olho_aberto.png" class="view">
+                    Visualizar
+                </div>
+            </div>
+
+            <div class="carousel-item" data-info="info2">
+                <img src="./src/images/Storage_2.png" width="1000">
+                <div class="overlay">
+                    <img src="./src/images/olho_aberto.png" class="view">
+                    Visualizar
+                </div>
+            </div>
+
+            <div class="carousel-item" data-info="info3">
+                <img src="./src/images/Storage_3.png" width="1000">
+                <div class="overlay">
+                    <img src="./src/images/olho_aberto.png" class="view">
+                    Visualizar
+                </div>
+            </div>
+
+            <!-- Info Boxes -->
+            <div class="info-box" id="info1">
+                <div class="info-content">
+                    <h2>Informações do Storage 1</h2>
+                    <p>Altura: 5 metros</p>
+                    <p>Largura: 5 metros</p>
+                    <p>Comprimento: 10 metros</p>
+                    <button class="close-info">Voltar</button>
+                </div>
+            </div>
+
+            <div class="info-box" id="info2">
+                <div class="info-content">
+                    <h2>Informações do Storage 2</h2>
+                    <p>Altura: 8 metros</p>
+                    <p>Largura: 8 metros</p>
+                    <p>Comprimento: 16 metros</p>
+                    <button class="close-info">Voltar</button>
+                </div>
+            </div>
+
+            <div class="info-box" id="info3">
+                <div class="info-content">
+                    <h2>Informações do Storage 3</h2>
+                    <p>Altura: 3 metros</p>
+                    <p>Largura: 3 metros</p>
+                    <p>Comprimento: 6 metros</p>
+                    <button class="close-info">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Link para Página de Planos -->
     <section class="planos-section" id="planos">

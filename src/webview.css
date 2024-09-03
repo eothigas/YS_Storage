@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Stoke', sans-serif;
     line-height: 1.6;
     background-color: rgba(4, 9, 21, 0.9);
     color: white
@@ -24,15 +24,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 98%;
+    max-width: 100%;
+    padding: 10px 10px 10px 10px;
     margin: 0;
 }
 
 .nav-logo {
+    margin: 0;
     display: flex;
-    width: 20%;
-    height: 50%;
-    padding-left: 2%;
 }
 
 .nav-menu {
@@ -79,7 +78,7 @@ body {
 .highlight-section {
     position: relative;
     width: 100%;
-    height: 700px; /* Ajuste conforme necessário */
+    height: 765px; /* Ajuste conforme necessário */
     overflow: hidden;
     background: rgba(0, 0, 0, 0.5);
 }
@@ -137,111 +136,175 @@ body {
     font-weight: bold;
 }
 
-/* Carrossel de Imagens */
-.carousel-section {
-    padding: 4rem 0;
+/* Imagens laterais */
+
+#esq, #dir {
+    display: inline-flex;
+    position: relative;
+    padding-top: 30px; padding-bottom: 30px;
+    padding-left: 11px;  
 }
 
+#esq {
+    left: 1px;
+}
+
+#dir {
+    left: 1495px;
+}
+
+/* Botão Orçamento */
+
+.add-orc{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3px;
+}
+
+.orcamento {
+    font-size: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.orcamento:hover {
+    background-color: rgb(29, 34, 46);
+    color: white;
+    transition: 0.3s ease;
+}
+
+
+
+/* Estilos Carrossel */
+
 .title-car {
-    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    text-wrap: wrap;
     text-align: center;
-    justify-content: space-between;
-    font-size:30px;
-    font-style: bold;
+    padding-top: 15px; padding-bottom: 15px;
+}
+
+.carousel-section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0px;
 }
 
 .carousel-container {
     display: flex;
     flex-direction: row;
-    align-items: center;
     max-width: 1200px;
-    margin-left: 15%;
+    max-height: 800px;
+    margin-left: 23.1%;
     overflow-x: hidden;
     overflow-y: hidden;
-    height: 800px;
     scroll-behavior: smooth;
-    white-space: nowrap;
-}
-
-.carousel-btn {
-    position: absolute;
-    top: 41%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 9, 90, 0.151);
-    color: #000000;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-    z-index: 1;
-    border-radius: 0%;
-    display: none; /* Inicialmente escondido */
-}
-
-.left-btn {
-    left: 10px;
-}
-
-.right-btn {
-    right: 10px;
-}
-
-.carousel-container:hover .carousel-btn {
-    display: block; /* Mostra os botões ao passar o mouse no carrossel */
 }
 
 .carousel-item {
-    flex: 0 0 auto;
-    width: 100%; 
-    height: 750px;
-    margin-right: 0; 
+    flex: 0 0 100%;
+    width: 1300px;
+    height: 100%;
     position: relative;
     overflow: hidden;
-    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-btn, .right-btn {
+    width: 80px; height: 80px;
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    border: none;
+    padding: 10px;
     cursor: pointer;
+    z-index: 10;
 }
 
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+.left-btn, .right-btn:hover {
+    background-color: rgb(50, 65, 102);
 }
 
-.carousel-item:hover img {
-    transform: scale(1.05);
+.left-btn {
+    left: 0; /* Ajuste a posição conforme necessário */
+}
+
+.right-btn {
+    right: 0;/* Ajuste a posição conforme necessário */
 }
 
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0);
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.550);
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease;
     opacity: 0;
+    z-index: 10;
 }
 
-img.view {
-    margin: 0;
-    display: absolute;
-    width: 5%;
-    height: 12%;
-    padding-right: 5px;
-}
-
-.carousel-item:hover .overlay {
-    background-color: rgba(0,0,0,0.6);
+.overlay:hover {
+    width: 83.4%; height: 98.7%;
+    border-radius: 20px;
     opacity: 1;
+    cursor: pointer;
 }
-.overlay span {
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: bold;
+
+/* Estilo informações */
+
+.info-box {
+    display: none;
+    position: absolute;
+    width: 52.6%;
+    height: 94.7%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 20;
 }
+
+.info-content {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.info-content h2 {
+    margin-bottom: 20px;
+}
+
+.close-info {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #555;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.close-info:hover {
+    background-color: #777;
+}
+
 
 /* Seção de Planos */
 .planos-section {
@@ -334,10 +397,10 @@ img.view {
         display: none; /* Oculta o menu completamente */
         flex-direction: column;
         position: absolute;
-        top: 80px;
+        top: 90px;
         right: 0px;
         width: 100%;
-        background-color: rgb(65, 87, 139);
+        background-color: rgb(29, 34, 46);
     }
 
     .nav-menu.active {
