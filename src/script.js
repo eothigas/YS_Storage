@@ -4,6 +4,7 @@ const navMenu = document.querySelector('.nav-menu');
 
 navIcon.addEventListener('click', () => {
     navMenu.classList.toggle('active');
+    navIcon.classList.toggle('rotated'); // Adiciona/Remove a classe de rotação
 });
 
 // Vídeos em Destaque

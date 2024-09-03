@@ -74,6 +74,14 @@ body {
     cursor: pointer;
 }
 
+.nav-icon i {
+    transition: transform 0.3s ease;
+}
+
+.nav-icon.rotated i {
+    transform: rotate(90deg); /* Muda para a rotação desejada, aqui 90 graus */
+}
+
 /* Seção de Destaque */
 .highlight-section {
     position: relative;
