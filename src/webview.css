@@ -144,23 +144,6 @@ body {
     font-weight: bold;
 }
 
-/* Imagens laterais */
-
-#esq, #dir {
-    display: inline-flex;
-    position: relative;
-    padding-top: 30px; padding-bottom: 30px;
-    padding-left: 11px;  
-}
-
-#esq {
-    left: 1px;
-}
-
-#dir {
-    left: 1495px;
-}
-
 /* Botão Orçamento */
 
 .add-orc{
@@ -183,8 +166,6 @@ body {
     color: white;
     transition: 0.3s ease;
 }
-
-
 
 /* Estilos Carrossel */
 
@@ -217,8 +198,6 @@ body {
 
 .carousel-item {
     flex: 0 0 100%;
-    width: 1300px;
-    height: 100%;
     position: relative;
     overflow: hidden;
     justify-content: center;
@@ -328,17 +307,16 @@ body {
 }
 
 .planos-container {
-    max-width: 800px;
-    margin: auto;
     display: flex;
+    scroll-behavior: smooth;
     justify-content: center;
     align-items: center;
 }
 
 .planos-item {
     position: relative;
-    width: 100%;
-    height: 400px;
+    width: 50%;
+    height: 50%;
     overflow: hidden;
     border-radius: 10px;
     cursor: pointer;
@@ -408,6 +386,7 @@ body {
 
 /* Responsividade */
 @media screen and (max-width: 768px) {
+
     .nav-menu {
         display: none; /* Oculta o menu completamente */
         flex-direction: column;
@@ -429,5 +408,55 @@ body {
     .nav-item {
         margin: 1.5rem 0;
         text-align: center;
+    }
+
+    /* Botão Orçamento */
+    .add-orc {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .orcamento {
+        font-size: 20px; /* Reduz o tamanho da fonte */
+        padding: 15px; /* Ajusta o padding */
+    }
+
+    /* Estilos Carrossel */
+    .title-car {
+        font-size: 25px; /* Reduz o tamanho da fonte */
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .carousel-container {
+        max-width: 100%; /* Define a largura máxima como 100% */
+        max-height: 400px; /* Ajusta a altura máxima */
+    }
+
+    .carousel-item {
+        flex: 0 0 100%; /* Ocupa 100% da largura disponível */
+    }
+
+    .left-btn, .right-btn {
+        width: 50px; height: 50px; /* Reduz o tamanho dos botões */
+    }
+
+    .overlay {
+        width: 100%; height: 100%; /* Ocupa 100% da largura e altura do item do carrossel */
+    }
+
+    .info-box {
+        width: 80%; /* Reduz a largura da caixa de informação */
+        height: auto; /* Ajusta a altura automaticamente */
+    }
+
+    .info-content {
+        width: 100%; /* Define a largura como 100% */
+        max-width: 100%; /* Remove a restrição de largura máxima */
+    }
+
+    .close-info {
+        width: 100%; /* Botão ocupa 100% da largura */
+        font-size: 18px; /* Reduz o tamanho da fonte */
     }
 }
