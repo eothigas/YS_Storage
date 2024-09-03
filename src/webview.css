@@ -162,7 +162,7 @@ body {
 }
 
 .orcamento:hover {
-    background-color: rgb(29, 34, 46);
+    background-color: rgb(40, 42, 47);
     color: white;
     transition: 0.3s ease;
 }

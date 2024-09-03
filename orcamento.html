@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/YS_Storage/src/images/Logo_reduzido.svg" type="image/png">
+    <title>Your Storage - Orçamento</title>
+    <link rel='stylesheet' href="./src/orcamento.css">
+</head>
+<body>
+    
+    <div id="principal">
+        <div id="lateral-esq">
+            <h2>Orçamento</h2>
+            <p id="text1">Chegou a hora de visualizar sua nova área de estoque!</p>
+            <p id="text2">Preencha os campos ao lado com suas informações, para que
+                um de nossos agentes comerciais entre em contato com você!
+            </p>
+
+            <img id='box' src="./src/images/caixa.png">
+        </div>
+
+        <div id="lateral-dir">
+            <form>
+                <p class="form">
+                    <label for="nome">Nome Completo </label>
+                </p>
+                    <input type="text" name="nome" id="form-name" 
+                    autocomplete='name' required> <br>
+                
+                <p class="form">
+                    <label for="email">Email </label> <br>
+                </p>
+                    <input type="email" name="email" id='form-email'
+                    inputmode="email" autocomplete='email' required>
+                
+                <p class="form">    
+                    <label for="fone">Telefone </label> <br>
+                </p>
+                    <input type="tel" name="fone" id="form-tel"
+                    autocomplete='tel' inputmode='tel' required minlength="11" maxlength="15">
+                
+                <p class="form">
+                    <label for="message">Mensagem </label> <br>
+                </p>
+                    <textarea name="message" 
+                    rows="10" maxlength="200"></textarea>
+                </p>
+
+                <button id='send' type="submit">Enviar</button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>
