@@ -174,7 +174,8 @@ body {
     font-weight: bold;
     text-wrap: wrap;
     text-align: center;
-    padding-top: 15px; padding-bottom: 15px;
+    padding-top: 80px;
+    padding-bottom: 30px;
 }
 
 .carousel-section {
@@ -207,7 +208,7 @@ body {
 .left-btn, .right-btn {
     width: 80px; height: 80px;
     position: absolute;
-    top: 45%;
+    top: 55%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0);
     color: #fff;
@@ -215,6 +216,8 @@ body {
     padding: 10px;
     cursor: pointer;
     z-index: 10;
+    margin: 20px;
+    border-radius: 50px;
 }
 
 .left-btn, .right-btn:hover {
@@ -244,7 +247,7 @@ body {
 }
 
 .overlay:hover {
-    width: 83.4%; height: 98.7%;
+    width: 1000px; height: 600px;
     border-radius: 20px;
     opacity: 1;
     cursor: pointer;
@@ -255,15 +258,16 @@ body {
 .info-box {
     display: none;
     position: absolute;
-    width: 52.6%;
-    height: 85.5%;
-    background-color: rgba(0, 0, 0, 0.9);
+    width: 1000px;
+    height: 580px;
+    background-color: transparent;
     color: white;
-    border-radius: 20px;
     justify-content: center;
     align-items: center;
     text-align: center;
     z-index: 20;
+    border-radius: 15px 10px 10px 10px;
+    padding-left: 0; padding-right: 0;
 }
 
 .info-content {
@@ -424,9 +428,9 @@ body {
 
     /* Estilos Carrossel */
     .title-car {
-        font-size: 60px; /* Reduz o tamanho da fonte */
-        padding-top: 10px;
-        padding-bottom: 80px;
+        font-size: 50px; /* Reduz o tamanho da fonte */
+        padding-top: 80px;
+        padding-bottom: 30px;
         text-wrap: wrap;
     }
 
@@ -444,16 +448,18 @@ body {
 
     .left-btn, .right-btn {
         width: 50px; height: 50px; /* Reduz o tamanho dos botões */
-        top: 55%;
+        top: 65%;
     }
 
     .overlay {
-        width: 100%; height: 100%; /* Ocupa 100% da largura e altura do item do carrossel */
+        max-width: 640px;
     }
 
     .info-box {
         width: 100%; /* Reduz a largura da caixa de informação */
-        height: 87%; /* Ajusta a altura automaticamente */
+        bottom: 10%;
+        height: 50%; /* Ajusta a altura automaticamente */
+        background-color: transparent;
         border-radius: 15px 10px 10px 10px;
         padding-left: 20px; padding-right: 20px;
     }
