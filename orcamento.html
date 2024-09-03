@@ -12,30 +12,32 @@
     <div id="principal">
         <div id="lateral-esq">
             <h2>Orçamento</h2>
-            <p id="text1">Chegou a hora de visualizar sua nova área de estoque!</p>
-            <p id="text2">Preencha os campos ao lado com suas informações, para que
+            <p id="text1">Chegou a hora de visualizar sua nova área de estoque!
+                Preencha os campos ao lado com suas informações, para que
                 um de nossos agentes comerciais entre em contato com você!
             </p>
 
-            <img id='box' src="./src/images/caixa.png">
+            <p id="box">
+                <img src="./src/images/caixa.png">
+            </p>
         </div>
 
         <div id="lateral-dir">
             <form>
                 <p class="form">
-                    <label for="nome">Nome Completo</label>
+                    <label for="nome">Nome Completo *</label>
                     <input type="text" name="nome" id="form-name" 
                     autocomplete='name' required> 
                 </p>
                 
                 <p class="form">
-                    <label for="email">Email</label> 
+                    <label for="email">Email *</label> 
                     <input type="email" name="email" id='form-email'
                     inputmode="email" autocomplete='email' required>
                 </p>
 
                 <p class="form">    
-                    <label for="fone">Telefone</label> 
+                    <label for="fone">Telefone *</label> 
                     <input type="tel" name="fone" id="form-tel"
                     autocomplete='tel' inputmode='tel' required minlength="11" 
                     maxlength="15"> 
@@ -44,7 +46,7 @@
                 <p class="form">
                     <label for="message">Mensagem</label> 
                     <textarea name="message" id="form-message"
-                    rows="10" maxlength="200" ></textarea> 
+                    rows="10" maxlength="450" ></textarea> 
                 </p>
 
                 <p class="form">
