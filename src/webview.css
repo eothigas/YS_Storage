@@ -423,16 +423,17 @@ body {
 
     /* Estilos Carrossel */
     .title-car {
-        font-size: 25px; /* Reduz o tamanho da fonte */
+        font-size: 60px; /* Reduz o tamanho da fonte */
         padding-top: 10px;
-        padding-bottom: 10px;
+        padding-bottom: 80px;
+        text-wrap: wrap;
     }
 
     .carousel-container {
         margin-left: 0px;
         padding: 0; /* Remove o espaçamento lateral */
         max-width: 100%; /* Define a largura máxima como 100% */
-        max-height: 400px; /* Ajusta a altura máxima */
+        max-height: 7500px; /* Ajusta a altura máxima */
     }
 
     .carousel-item {
