@@ -62,51 +62,55 @@ p.form {
 }
 
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 600px) {
 
     #principal{
-        height: 700px;
+        margin: 0;
+        padding: 0;
+        display: flex;
     }
 
     #lateral-esq {
-        margin: 0;
-        margin-left: 10px;
-        margin-top: 10px;
-        width: 70%;
-        height: 670px;
-        font-size:smaller;
-        text-align: center;
+        /* display: none; */
         position: absolute;
-        align-items: center;
-        justify-content: center;
+        margin: 0px 80px 0px 80px;
+        width: 80%;
+        height: 500px;
+        text-align: center;
         border-radius: 30px 30px 0px 0px;
     }
 
     h2 {
-        font-size: 30px;
-    }
-    
-    p#text1, p#text2 {
         font-size: 20px;
     }
     
+    p#text1, p#text2 {
+        font-size: 15px;
+    }
+    
     #text2 {
-            padding-bottom: 5px;
+            padding-top: 10px;
+            padding-bottom: 100px;
     }
 
     #box {
-        width: 80%;
-        height: 30%;
-        padding: 0;
+        display: none;
     }
 
     #lateral-dir {
+        display: flex;
+        position: absolute;
         border-radius: 0px 0px 30px 30px;
-        width: 70%;
-        height: 670px;
-        margin-top: 700px;
-        margin-left: 10px;
+        width: 80%;
+        height: 590px;
+        margin: 0px 80px 0px 80px;
+        margin-top: 1000px;
         font-size: smaller;
+        padding: 10px 0px 0px 10px;
+    }
+
+    p.form {
+        font-size: 15px;
     }
 
     .form {
@@ -119,13 +123,13 @@ p.form {
         border-radius: 10px;
         background-color: transparent;
         color: white;
-        width: 405px;
+        width: 200px;
         height: 50px;
     }
         
     input {
         padding-left: 10px;
-        font-size: 20px;
+        font-size: 15px;
         font-weight: bold;
     }
         
@@ -135,11 +139,12 @@ p.form {
         background-color: transparent;
         color: white;
         resize: none;
-        width: 405px;
+        width: 200px;
         height: 150px;
         padding-left: 10px;
+        padding-right: 10px;
         padding-top: 10px;
-        font-size: 20px;
+        font-size: 15px;
     }
 
 }
