@@ -14,11 +14,10 @@ body {
 #principal {
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ocupa toda a altura da viewport */
+    height: 1000px;
 }
 
 #lateral-esq {
-    /* border: red solid 1px; */
     width: 500px;
     height: 700px;
     background-color: rgb(68, 68, 75);
@@ -27,7 +26,6 @@ body {
     align-items: center;
     justify-content: center;
     margin-left: 384px; margin-top: 7%;
-    padding: 30px;
     border-radius: 30px 0px 0px 30px;
 }
 
@@ -64,87 +62,89 @@ p.form {
 
 @media screen and (max-width: 600px) {
 
-    #principal{
-        margin: 0;
-        padding: 0;
-        display: flex;
+    #principal {
+        height: 1230px;
     }
 
-    #lateral-esq {
-        /* display: none; */
-        position: absolute;
-        margin: 0px 80px 0px 80px;
-        width: 80%;
-        height: 500px;
-        text-align: center;
+    #lateral-esq, #lateral-dir {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        margin: 20px 20px 20px 20px;
+    }
+
+    #lateral-esq {  
+        padding: 10px;
         border-radius: 30px 30px 0px 0px;
+        width: 90%;
+        height: 75%;
     }
 
     h2 {
+        font-size: 30px;
+        padding: 0;
+        padding: 20px 0px 20px 0px;
+
+    }
+
+    p#text1, #text2 {
         font-size: 20px;
-    }
-    
-    p#text1, p#text2 {
-        font-size: 15px;
-    }
-    
-    #text2 {
-            padding-top: 10px;
-            padding-bottom: 100px;
+        padding: 0px 10px 10px 10px;
     }
 
     #box {
-        display: none;
+        padding: 0;
+        width: 150px; height: 150px;
+        padding-top: 10px;
     }
 
     #lateral-dir {
-        display: flex;
-        position: absolute;
+        /* display: none; */
+        padding: 0;
         border-radius: 0px 0px 30px 30px;
-        width: 80%;
-        height: 590px;
-        margin: 0px 80px 0px 80px;
-        margin-top: 1000px;
-        font-size: smaller;
-        padding: 10px 0px 0px 10px;
+        width: 90%;
+        height: 75%;
+        margin-bottom: 100px;
+        margin-top: 600px; 
     }
 
     p.form {
-        font-size: 15px;
+        display: flex;
+        font-size: 20px;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
     }
 
-    .form {
-        padding: 20px 0px 10px 0px;
-    }
-        
-        
+
     #form-name, #form-email, #form-tel, #form-message {
-        border: rgba(255, 255, 255, 0.533) solid 3px;
-        border-radius: 10px;
+        display: flex;
+        font-size: 15px;
+        padding: 8px;
+        margin-left: 45px;
+        width: 250px;
         background-color: transparent;
         color: white;
-        width: 200px;
-        height: 50px;
-    }
-        
-    input {
-        padding-left: 10px;
-        font-size: 15px;
-        font-weight: bold;
-    }
-        
-    textarea {
-        border: rgba(255, 255, 255, 0.533) solid 3px;
+        border: rgba(255, 255, 255, 0.452) solid 3px;
         border-radius: 10px;
-        background-color: transparent;
-        color: white;
-        resize: none;
-        width: 200px;
-        height: 150px;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 10px;
-        font-size: 15px;
     }
 
+    #send {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        color: white;
+        font-weight: bold;
+        border: rgba(255, 255, 255, 0.452) solid 3px;
+        padding: 10px;
+        margin-left: 105px; margin-top: 20px;
+        width: 120px;
+        border-radius: 10px;
+    }
+
+    #send:hover {
+        background-color: rgb(67, 68, 75);
+    }
 }
+
