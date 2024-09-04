@@ -29,13 +29,40 @@ body {
     border-radius: 30px 0px 0px 30px;
 }
 
+#back {
+    position: absolute; /* Garante que o ícone se sobreponha à div */
+    top: 10px; /* Distância do topo da div */
+    right: 10px; /* Distância da borda direita da div */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Faz o ícone ficar circular */
+    color: white; /* Cor do ícone */
+    font-size: 30px; /* Tamanho do ícone */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    z-index: 10000; /* Certifica-se de que o ícone está acima de outros elementos */
+}
+
+#back i {
+    color: rgb(255, 255, 255);
+}
+
 #lateral-dir {
     display: grid;
+    position: relative; /* Mantém a div relativa para o posicionamento do ícone */
     width: 560px;
     height: 700px;
     background-color: rgb(20, 22, 27);
-    padding: 30px;
+    padding: 60px 30px 30px 30px;
     border-radius: 0px 30px 30px 0px;
+    z-index: 0; /* Deve ser menor que o z-index do ícone */
+}
+
+#back:hover {
+    background-color: red;
+    color: black;
 }
 
 h2 {
@@ -208,6 +235,23 @@ textarea {
         width: 92%;
         height: 630px;
         margin: 0px 20px 20px 20px;
+    }
+
+    
+    #back {
+        position: absolute; /* Garante que o ícone se sobreponha à div */
+        top: -415px; /* Distância do topo da div */
+        right: 16px; /* Distância da borda direita da div */
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%; /* Faz o ícone ficar circular */
+        color: white; /* Cor do ícone */
+        font-size: 30px; /* Tamanho do ícone */
+        cursor: pointer; /* Muda o cursor para indicar que é clicável */
+        z-index: 10000; /* Certifica-se de que o ícone está acima de outros elementos */
     }
 
     p.form {
