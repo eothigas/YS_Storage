@@ -15,7 +15,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 1000px;
+    height: 950px;
+    margin: 0 auto;
 }
 
 #lateral-esq {  
@@ -30,7 +31,6 @@ body {
 
 #lateral-dir {
     display: grid;
-    /* border: red solid 1px; */
     width: 560px;
     height: 700px;
     background-color: rgb(20, 22, 27);
@@ -46,12 +46,16 @@ h2 {
     padding: 20px 20px
 }
 
-p#text1, #text2 {
+p#text1 {
     display: grid;
     justify-content: center;
     align-items: center;
     font-size: 25px;
     padding: 20px 20px;
+}
+
+p#vazia {
+    display: none;
 }
 
 p.form {
@@ -98,81 +102,141 @@ textarea {
 }
 
 
+@media screen and (max-width: 870px) {
+    
+    #lateral-esq {
+        margin-left: 100px;
+    }
+    
+    #lateral-dir {
+        margin-right: 100px;
+        margin-left: 0px;
+    }
+
+
+}
+
+@media screen and (max-width: 980px) {
+
+
+    #lateral-esq {
+        margin-left: 100px;
+    }
+
+    #lateral-dir {
+        margin-right: 100px;
+        margin-left: 0px;
+    }
+
+    h2 {
+        font-size: 2.5em;
+    }
+
+    p#text1 {
+        font-size: 24px;
+    }
+
+    p#vazia {
+        display: grid;
+    }
+
+    p#box {
+        display: none;
+    }
+
+}
+
+
 @media screen and (max-width: 600px) {
 
     #principal {
         display: block;
-        height: 1230px;
+        height: 1080px;
     }
 
     #lateral-esq, #lateral-dir {
         margin: 0;
         width: 100%;
         height: 100%;
-        margin: 20px 20px 20px 20px;
+        margin: 20px auto;
     }
 
     #lateral-esq {  
         padding: 10px;
         border-radius: 30px 30px 0px 0px;
-        width: 90%;
-        height: 60%;
+        width: 92%;
+        height: 40%;
         text-align: center;
+        justify-content: center;
         margin: 20px 20px 0px 20px;
     }
 
     h2 {
+        display: block;
         font-size: 30px;
-        padding: 0;
-        padding: 30px 0px 100px 0px;
+        padding: 0px 0px 30px 0px;
+        height: 10px;
 
     }
 
     p#text1 {
-        height: 200px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: block;
+        height: 300px;
         font-size: 25px;
-        padding: 0px 0px 100px 0px;
+        padding: 20px 15px 0px 15px;
+    }
+
+    
+    p#vazia {
+        display: none;
     }
 
     img {
-        padding: 0;
-        width: 250px; height: 250px;
-        padding-top: 0px;
+        display: none;
     }
 
     p#box {
         padding: 30px 0 0 0;
-        height: 330px;
+        height: 0px;
     }
 
     #lateral-dir {
-        padding: 50px 10px 0px 10px;
+        display: flex;
+        justify-content: center;
+        padding: 20px 0 0 0;
         border-radius: 0px 0px 30px 30px;
-        width: 90%;
-        height: 650px;
-        margin: 0px 20px 20px 20px
+        width: 92%;
+        height: 630px;
+        margin: 0px 20px 20px 20px;
     }
 
     p.form {
         display: grid;
+        width: auto;
         font-size: 20px;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 10px;
+        padding: 0;
+        margin: 0;
     }
 
     #form-name, #form-email, #form-tel, #form-message {
-        display: flex;
+        display: grid;
         font-size: 15px;
         padding: 8px;
-        width: 420px;
+        width: 400px;
         background-color: transparent;
         color: white;
         border: rgba(255, 255, 255, 0.452) solid 3px;
         border-radius: 10px;
+        margin: 0 0 20px 0px;
+    }
+
+    label {
+        width: 400px;
+        margin-bottom: 5px;
+    }
+
+    textarea#form-message {
+        margin-bottom:  10px;
     }
 
     #send {
