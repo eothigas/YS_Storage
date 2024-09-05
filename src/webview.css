@@ -188,10 +188,10 @@ body {
 
 .carousel-container {
     display: flex;
-    flex-direction: row;
+    grid-column: auto;
     max-width: 1200px;
     max-height: 800px;
-    margin-left: 23.1%;
+    margin: 0 auto;
     overflow-x: hidden;
     overflow-y: hidden;
     scroll-behavior: smooth;
@@ -199,10 +199,16 @@ body {
 
 .carousel-item {
     flex: 0 0 100%;
+    display: inline-block;
     position: relative;
-    overflow: hidden;
     justify-content: center;
     align-items: center;
+}
+
+.carousel-item img{
+    display: block;
+    width: 100%; /* Garante que a imagem ocupe 100% da largura disponível */
+    height: auto;
 }
 
 .left-btn, .right-btn {
@@ -236,18 +242,34 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%; height: 100%;
+    width: 100%; 
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.550);
+    color:#fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
     opacity: 0;
     z-index: 10;
+    border-radius: 0;
+}
+
+/* Estilos para o conteúdo dentro do overlay */
+.overlay img.view {
+    width: 40px; /* Ajuste o tamanho do ícone conforme necessário */
+    height: auto; /* Mantém a proporção do ícone */
+    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+}
+
+.overlay p {
+    font-size: 18px; /* Ajuste o tamanho do texto conforme necessário */
+    margin: 0;
 }
 
 .overlay:hover {
-    width: 1000px; height: 600px;
+    width: 100%; 
+    height: 100%;
     border-radius: 20px;
     opacity: 1;
     cursor: pointer;
@@ -256,18 +278,24 @@ body {
 /* Estilo informações */
 
 .info-box {
+    margin: 0 auto;
     display: none;
     position: absolute;
-    width: 1000px;
-    height: 580px;
-    background-color: transparent;
+    top: 59.6%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta o centro da caixa */
+    width: 80%; /* Ajuste conforme necessário */
+    max-width: 1200px; /* Limite máximo da largura */
+    height: 100%; /* Ajuste conforme necessário */
+    max-height: 760px; /* Limite máximo da altura */
     color: white;
     justify-content: center;
     align-items: center;
     text-align: center;
+    border-radius: 10px;
+    box-sizing: border-box;
     z-index: 20;
-    border-radius: 15px 10px 10px 10px;
-    padding-left: 0; padding-right: 0;
+    padding: 20px; /* Ajuste conforme necessário */
 }
 
 .info-content {
@@ -296,19 +324,10 @@ body {
     background-color: #777;
 }
 
-/* Estilo Separa */
-
-.separa {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 0 50px 0;
-}
-
 /* Seção de Planos */
-.planos-section {
+/* .planos-section {
     padding: 4rem 0;
-}
+} */
 
 .planos-container {
     display: flex;
@@ -371,21 +390,20 @@ body {
     position: fixed;
     bottom: 40px;
     right: 40px;
-    background-color: #007BFF;
+    background-color: transparent;
     color: #fff;
-    border: none;
+    border-radius: 10px;
+    border: 4px solid white;
     padding: 0.8rem 1rem;
-    border-radius: 50%;
     font-size: 1.5rem;
     cursor: pointer;
     display: none;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     transition: background-color 0.3s ease;
     z-index: 100;
 }
 
 #btn-topo:hover {
-    background-color: #0056b3;
+    background-color: rgb(120, 120, 120);
 }
 
 /* Responsividade */
@@ -448,17 +466,21 @@ body {
 
     .left-btn, .right-btn {
         width: 50px; height: 50px; /* Reduz o tamanho dos botões */
-        top: 65%;
+        top: 71%;
     }
 
     .overlay {
         max-width: 640px;
     }
 
+    .overlay:hover {
+        border-radius: 10px;
+    }
+
     .info-box {
-        width: 100%; /* Reduz a largura da caixa de informação */
-        bottom: 10%;
-        height: 50%; /* Ajusta a altura automaticamente */
+        transform: translate(-50%, -35.3%);
+        width: 100%;
+        height: 62.6%; 
         background-color: transparent;
         border-radius: 15px 10px 10px 10px;
         padding-left: 20px; padding-right: 20px;

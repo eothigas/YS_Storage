@@ -35,7 +35,7 @@ const carouselSection = document.getElementById('carousel');
 
 window.addEventListener('scroll', () => {
     const carouselPosition = carouselSection.getBoundingClientRect().top;
-    if (carouselPosition <= window.innerWidth) {
+    if (carouselPosition < window.innerWidth) {
         btnTopo.style.display = 'block';
     } else {
         btnTopo.style.display = 'none';
@@ -47,6 +47,11 @@ btnTopo.addEventListener('click', () => {
         top: 0,
         behavior: 'smooth'
     });
+
+    // Aguarda o término do scroll suave antes de ocultar o botão
+    setTimeout(() => {
+        btnTopo.style.display = 'none';
+    }, 300); // Tempo suficiente para o scroll suave (ajuste conforme necessário)
 });
 
 // Funções Carrossel
