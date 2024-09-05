@@ -143,14 +143,22 @@ textarea {
 
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1025px) {
 
+
+    #principal {
+        height: 720px;
+    }
 
     #lateral-esq {
+        height: 90%;
+        margin: 0;
         margin-left: 100px;
     }
 
     #lateral-dir {
+        padding-top: 20px;
+        height: 90%;
         margin-right: 100px;
         margin-left: 0px;
     }
