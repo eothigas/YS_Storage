@@ -409,7 +409,7 @@ body {
 }
 
 /* Responsividade */
-@media screen and (min-width: 500px) and (max-width: 810px) {
+@media screen and (max-width: 810px) {
 
     .nav-menu {
         display: none; /* Oculta o menu completamente */
