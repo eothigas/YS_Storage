@@ -1,0 +1,552 @@
+/* reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Stoke', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body { 
+    background-color: rgb(4, 9, 21);
+}
+
+/* Div Principal */
+
+#principal {
+    /* border: 1px red solid; */
+    display: flex;
+    width: 1920px;
+    height: 953px;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: rgb(4, 9, 21);
+}
+
+/* Botão Fechar página (retorna na webview) */
+
+#back {
+    position: absolute; /* Garante que o ícone se sobreponha à div */
+    top: 15px; /* Distância do topo da div */
+    right: 15px; /* Distância da borda direita da div */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Faz o ícone ficar circular */
+    background-color: rgb(41, 57, 93);
+    color: white; /* Cor do ícone */
+    font-size: 30px; /* Tamanho do ícone */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    z-index: 1; /* Certifica-se de que o ícone está acima de outros elementos */
+}
+
+#back i {
+    color: rgb(255, 255, 255);
+}
+
+#back:hover {
+    background-color: red;
+    color: black;
+}
+
+/* Cada Seção de Planos */
+
+#item1, #item2, #item3 {
+    display: flex;
+    flex-direction: column; /* Coloca os elementos em coluna */
+    align-items: center; /* Centraliza os textos e caixas horizontalmente */
+    margin: auto 0;
+}
+
+/* Box de Conteúdos dos Planos */
+
+#box1, #box2, #box3 {
+    background-color: rgb(19, 23, 32);
+    border: 0px white solid;
+    border-radius: 13px;
+    width: 540px;
+    height: 690px;
+    position: relative;
+    float: left;
+    margin: 0px auto 0 auto;
+    display: grid;
+    grid-auto-rows: max-content;
+    z-index: 0;
+}
+
+/* TAG de cada Box */
+
+li.destaque {
+    width: 100%;
+    padding: 10px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px 10px 0px;
+}
+
+li.desconto1 {
+    width: 100%;
+    padding: 10px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px 10px 0px;
+}
+
+li.desconto2 {
+    width: 100%;
+    padding: 10px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px 10px 0px;
+}
+
+/* Div fundo destaque */
+#recomend {
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    float: right;
+    width: 160px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 69, 100);
+    color: white;
+    border-radius: 0px 10px 0px 10px;
+}
+
+#hyper {
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    float: right;
+    width: 160px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(152, 255, 152);
+    color: rgb(19, 23, 32);
+    border-radius: 0px 10px 0px 10px;
+} 
+
+#hyper2 {
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    float: right;
+    width: 160px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(200, 171, 10);
+    color: rgb(19, 23, 32);
+    border-radius: 0px 10px 0px 10px;
+}
+
+/* Campo Título do Plano */
+.logo {
+    font-size: 25px;
+    display: grid;
+    grid-template-columns: 120px 200px;
+    padding: 10px 0px 10px 20px;
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 69, 100)
+}
+
+.logo2 {
+    font-size: 25px;
+    display: grid;
+    grid-template-columns: 120px 250px;
+    padding: 10px 0px 10px 20px;
+    align-items: center;
+    text-align: center;
+    color: rgb(152, 255, 152);
+}
+
+.logo3 {
+        font-size: 25px;
+        display: grid;
+        grid-template-columns: 120px 260px;
+        padding: 10px 0px 10px 20px;
+        align-items: center;
+        text-align: center;
+        color: rgb(200, 171, 10);
+}
+
+/* Separa Título */
+hr#item1 {
+    border: 2px rgb(255, 69, 100) solid;
+    border-radius: 3px;
+    margin: 0 20px 0 20px;
+}
+
+hr#item2 {
+    border: 2px rgb(152, 255, 152) solid;
+    border-radius: 3px;
+    margin: 0 20px 0 20px;
+}
+
+hr#item3 {
+    border: 2px rgb(200, 171, 10) solid;
+    border-radius: 3px;
+    margin: 0 20px 0 20px;
+}
+
+/* Descrição do Plano */
+.text1 {
+    border: 0px red solid;
+    display: grid;
+    align-items: center;
+    background-color: transparent;
+    color: White;
+    font-size: 16px;
+}
+
+.text2 {
+    display: grid;
+    align-items: center;
+    background-color: transparent;
+    color: White;
+    font-size: 16px;
+}
+
+.text3 {
+    display: grid;
+    align-items: center;
+    background-color: transparent;
+    color: White;
+    font-size: 16px;
+}
+
+/* Plano Contém: */
+.plan-cont {
+    padding: 60px 0 0 30px;
+    font-size: 25px;
+}
+
+/* Lista do que o plano contém */
+.point {
+    padding: 10px 0px 60px 60px;
+}
+
+/* Título de cada ponto (basic) */
+.info, .info2, .info3 {
+    width: 220px;
+    padding: 30px 0 0px 0;
+    color: rgb(255, 69, 100);
+    cursor: pointer;
+    position: relative;
+}
+
+/* Título de cada ponto (logistico) */
+
+.info4, .info5, .info6 {
+    width: 220px;
+    padding: 30px 0 0px 0;
+    color: rgb(152, 255, 152);
+    cursor: pointer;
+    position: relative;
+}
+
+/* Título de cada ponto (premium) */
+
+.info7, .info8, .info9 {
+    width: 220px;
+    padding: 30px 0 0px 0;
+    color: rgb(200, 171, 10);
+    cursor: pointer;
+    position: relative;
+}
+
+/* Descrição de cada ponto (basic) */
+p.desc1 {
+    display: none;
+    width: 300px;
+    margin: 10px 0 15px 10px;
+    font-size: 12px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    color: white;
+}
+
+p.desc2 {
+    display: none;
+    width: 300px;
+    margin: 10px 0 15px 10px;
+    font-size: 12px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    color: white;
+}
+
+p.desc3 {
+    display: none;
+    width: 300px;
+    margin: 10px 0 15px 10px;
+    font-size: 12px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    color: white;
+}
+
+/* Descrição de cada ponto (logistico) */
+
+p.desc4 {
+    display: none;
+    width: 300px;
+    margin: 10px 0 15px 10px;
+    font-size: 12px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    color: white;
+}
+
+p.desc5 {
+    display: none;
+    width: 300px;
+    margin: 10px 0 15px 10px;
+    font-size: 12px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    color: white;
+}
+
+p.desc6 {
+    display: none;
+    width: 300px;
+    margin: 10px 0 15px 10px;
+    font-size: 12px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    color: white;
+}
+
+/* Descrição de cada ponto (premium) */
+
+p.desc7 {
+    display: none;
+    width: 300px;
+    margin: 10px 0 15px 10px;
+    font-size: 12px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    color: white;
+}
+
+p.desc8 {
+    display: none;
+    width: 300px;
+    margin: 10px 0 15px 10px;
+    font-size: 12px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    color: white;
+}
+
+p.desc9 {
+    display: none;
+    width: 300px;
+    margin: 10px 0 15px 10px;
+    font-size: 12px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    color: white;
+}
+
+/* Bloco desc1 ao hover */
+
+li.info:hover p.desc1 {
+    display: block;
+}
+
+.info:hover ~ .info2,
+.info:hover ~ .info3 {
+    color: transparent;
+}
+
+/* Bloco desc2 ao hover */
+
+li.info2:hover p.desc2 {
+    display: block;
+}
+
+li.info2:hover ~ .info3 {
+    color: transparent;
+}
+
+/* Bloco desc3 ao hover */
+
+li.info3:hover p.desc3 {
+    display: block;
+}
+
+/* Bloco desc4 ao hover */
+
+li.info4:hover p.desc4 {
+    display: block;
+}
+
+.info4:hover ~ .info5,
+.info4:hover ~ .info6 {
+    color: transparent;
+}
+
+/* Bloco desc5 ao hover */
+
+li.info5:hover p.desc5 {
+    display: block;
+}
+
+li.info5:hover ~ .info6 {
+    color: transparent;
+}
+
+/* Bloco desc6 ao hover */
+
+li.info6:hover p.desc6 {
+    display: block;
+}
+
+/* Bloco desc7 ao hover */
+
+li.info7:hover p.desc7 {
+    display: block;
+}
+
+.info7:hover ~ .info8,
+.info7:hover ~ .info9 {
+    color: transparent;
+}
+
+/* Bloco desc8 ao hover */
+
+li.info8:hover p.desc8 {
+    display: block;
+}
+
+li.info8:hover ~ .info9 {
+    color: transparent;
+}
+
+/* Bloco desc9 ao hover */
+
+li.info9:hover p.desc9 {
+    display: block;
+}
+
+/* Div Orçamento */
+.orc1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0 30px 0;
+}
+
+.orc2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0 30px 0;
+}
+
+.orc3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0 30px 0;
+}
+
+/* Botão Orcamento */
+.btn-orc1 {
+    padding: 20px 50px 20px 50px;
+    background-color: rgb(255, 69, 100);
+    color: white;
+    border-radius: 40px;
+    font-weight: bold;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-orc2 {
+    padding: 20px 50px 20px 50px;
+    background-color: rgb(152, 255, 152);
+    color: rgb(19, 23, 32);
+    border-radius: 40px;
+    font-weight: bold;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-orc3 {
+    padding: 20px 50px 20px 50px;
+    background-color: rgb(200, 171, 10);
+    color: rgb(19, 23, 32);
+    border-radius: 40px;
+    font-weight: bold;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Botão Orçamento ao passar com mouse */
+.btn-orc1:hover {
+    box-shadow: 10px;
+    transform: scale(1.02);
+}
+
+.btn-orc2:hover {
+    box-shadow: 10px;
+    transform: scale(1.02);
+}
+
+.btn-orc3:hover {
+    box-shadow: 10px;
+    transform: scale(1.02);
+}
+
+/* Descanso da box */
+#rest1 {
+    position: static;
+    height: 73px;
+    background-color: rgb(255, 69, 100);
+    border-radius: 0 0 13px 13px;
+}
+
+#rest2 {
+    position: static;
+    height: 73px;
+    background-color: rgb(152, 255, 152);
+    border-radius: 0 0 13px 13px;
+}
+
+#rest3 {
+    position: static;
+    height: 73px;
+    background-color: rgb(200, 171, 10);
+    border-radius: 0 0 13px 13px;
+}
