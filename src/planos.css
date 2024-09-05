@@ -554,7 +554,62 @@ li.info9:hover p.desc9 {
 /* Responsividade */
 
 /* Estilos para dispositivos móveis */
-@media screen and (max-width: 768px) {
+
+/* Estilos para telas entre 100px e 768px */
+@media screen and (min-width: 100px) and (max-width: 529px) {
+/* Div Principal */
+#principal {
+    display: grid;
+    width: 100%;
+}
+
+/* Box de Conteúdos dos Planos */
+#box1, #box2, #box3 {
+    width: 100%;
+    margin: 20px 100px;
+}
+
+/* Ajuste dos Títulos dos Planos */
+.logo, .logo2, .logo3 {
+    grid-template-columns: 100px 200px;
+    font-size: 22px;
+}
+
+/* Botão de Retorno */
+#back {
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    right: 10px;
+}
+
+/* Link */
+
+a {
+    text-decoration: none;
+}
+
+/* Box de Conteúdos dos Planos */
+#box1, #box2, #box3 {
+    width: 80%;
+    height: auto;
+    margin: 20px 70px;
+}
+
+/* Botão de Orçamento */
+.btn-orc1, .btn-orc2, .btn-orc3 {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px 30px;
+    font-size: 15px;
+}
+}
+
+
+@media screen and (min-width: 530px) and (max-width: 768px) {
     /* Div Principal */
     #principal {
         display: grid;
