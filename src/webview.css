@@ -3,13 +3,34 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Stoke', sans-serif;
 }
 
 body {
-    font-family: 'Stoke', sans-serif;
     line-height: 1.6;
     background-color: rgba(4, 9, 21, 0.9);
     color: white
+}
+
+/* Botão de Voltar ao Topo */
+#btn-topo {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 10px;
+    border: 4px solid white;
+    padding: 0.8rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    transition: background-color 0.3s ease;
+    z-index: 100;
+}
+
+#btn-topo:hover {
+    background-color: rgb(120, 120, 120);
 }
 
 /* Navegação */
@@ -159,12 +180,14 @@ body {
     border-radius: 10px;
     cursor: pointer;
     justify-content: center;
+    border: none;
+    transition: transform 0.3s ease-in-out;
 }
 
 .orcamento:hover {
     background-color: rgb(40, 42, 47);
     color: white;
-    transition: 0.3s ease;
+    transform: scale(0.98);
 }
 
 /* Estilos Carrossel */
@@ -325,9 +348,9 @@ body {
 }
 
 /* Seção de Planos */
-/* .planos-section {
+.planos-section {
     padding: 4rem 0;
-} */
+}
 
 .planos-container {
     display: flex;
@@ -385,29 +408,8 @@ body {
     background-color: #0056b3;
 }
 
-/* Botão de Voltar ao Topo */
-#btn-topo {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    background-color: transparent;
-    color: #fff;
-    border-radius: 10px;
-    border: 4px solid white;
-    padding: 0.8rem 1rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: none;
-    transition: background-color 0.3s ease;
-    z-index: 100;
-}
-
-#btn-topo:hover {
-    background-color: rgb(120, 120, 120);
-}
-
 /* Responsividade */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 500px) and (max-width: 810px) {
 
     .nav-menu {
         display: none; /* Oculta o menu completamente */

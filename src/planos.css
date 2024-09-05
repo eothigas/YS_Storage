@@ -550,3 +550,176 @@ li.info9:hover p.desc9 {
     background-color: rgb(200, 171, 10);
     border-radius: 0 0 13px 13px;
 }
+
+/* Responsividade */
+
+/* Estilos para dispositivos móveis */
+@media screen and (max-width: 768px) {
+    /* Div Principal */
+    #principal {
+        display: grid;
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    /* Box de Conteúdos dos Planos */
+    #box1, #box2, #box3 {
+        width: 100%;
+        height: auto;
+        margin: 20px 70px;
+    }
+
+    /* Ajuste dos Títulos dos Planos */
+    .logo, .logo2, .logo3 {
+        grid-template-columns: 100px 160px;
+        font-size: 20px;
+    }
+
+    /* Botão de Retorno */
+    #back {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
+
+    /* Textos descritivos */
+    p.desc1, p.desc2, p.desc3, p.desc4, p.desc5, p.desc6, p.desc7, p.desc8, p.desc9 {
+        width: 100%;
+        font-size: 10px;
+    }
+
+      /* Link */
+
+      a {
+        text-decoration: none;
+    }
+
+    /* Botão de Orçamento */
+    .btn-orc1, .btn-orc2, .btn-orc3 {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+
+}
+
+/* Estilos para tablets */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    /* Div Principal */
+    #principal {
+        display: grid;
+        width: 100%;
+    }
+
+    /* Box de Conteúdos dos Planos */
+    #box1, #box2, #box3 {
+        width: 100%;
+        margin: 20px 50px;
+    }
+
+    /* Ajuste dos Títulos dos Planos */
+    .logo, .logo2, .logo3 {
+        grid-template-columns: 100px 200px;
+        font-size: 22px;
+    }
+
+    /* Botão de Retorno */
+    #back {
+        width: 40px;
+        height: 40px;
+        font-size: 25px;
+    }
+
+    /* Link */
+
+    a {
+        text-decoration: none;
+    }
+
+    /* Botão de Orçamento */
+    .btn-orc1, .btn-orc2, .btn-orc3 {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        padding: 10px 30px;
+        font-size: 15px;
+    }
+}
+
+/* Estilos para desktops menores */
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+    /* Ajuste geral */
+    #principal {
+        width: 100%;
+        height: auto;
+        display: grid;
+    }
+
+    /* Box de Conteúdos dos Planos */
+    #box1, #box2, #box3 {
+        width: 100%;
+        margin: 20px auto;
+    }
+    
+    /* Botão de Orçamento */
+    .btn-orc1, .btn-orc2, .btn-orc3 {
+        padding: 18px 45px;
+    }
+
+    /* Descanso da Div */
+
+    #rest1, #rest2, #rest3 {
+        height: 77px;
+    }
+
+
+}
+
+/* Estilos para telas entre 1367px e 2000px */
+@media screen and (min-width: 1367px) and (max-width: 2000px) {
+    /* Ajustes gerais */
+    #principal {
+        width: 100%;
+        margin: auto;
+    }
+
+    /* Box de Conteúdos dos Planos */
+    #box1, #box2, #box3 {
+        width: 100%;
+        margin: auto;
+    }
+
+    /* Ajuste dos Títulos dos Planos */
+    .logo, .logo2, .logo3 {
+        grid-template-columns: 100px 1fr;
+        font-size: 24px;
+    }
+
+    /* Botão de Retorno */
+    #back {
+        width: 40px;
+        height: 40px;
+        font-size: 28px;
+    }
+
+    /* Textos descritivos */
+    p.desc1, p.desc2, p.desc3, p.desc4, p.desc5, p.desc6, p.desc7, p.desc8, p.desc9 {
+        width: 120%;
+    }
+
+    /* Botão de Orçamento */
+    .btn-orc1, .btn-orc2, .btn-orc3 {
+        margin: 0 20px;
+        padding: 20px 50px;
+        font-size: 18px;
+    }
+}
+
