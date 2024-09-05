@@ -25,9 +25,9 @@ body {
 /* Botão Fechar página (retorna na webview) */
 
 #back {
-    position: absolute; /* Garante que o ícone se sobreponha à div */
-    top: 15px; /* Distância do topo da div */
-    right: 15px; /* Distância da borda direita da div */
+    position: fixed; /* Garante que o ícone se sobreponha à div */
+    top: 2%; /* Distância do topo da div */
+    right: 2%; /* Distância da borda direita da div */
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +38,7 @@ body {
     color: white; /* Cor do ícone */
     font-size: 30px; /* Tamanho do ícone */
     cursor: pointer; /* Muda o cursor para indicar que é clicável */
-    z-index: 1; /* Certifica-se de que o ícone está acima de outros elementos */
+    z-index: 9999; /* Certifica-se de que o ícone está acima de outros elementos */
 }
 
 #back i {
