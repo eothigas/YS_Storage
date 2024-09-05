@@ -555,32 +555,49 @@ li.info9:hover p.desc9 {
 
 /* Estilos para dispositivos móveis */
 
-/* Estilos para telas entre 100px e 768px */
-@media screen and (min-width: 100px) and (max-width: 529px) {
+/* Estilos para telas entre 400px e 768px */
+@media screen and (min-width: 400px) and (max-width: 529px) {
 /* Div Principal */
 #principal {
     display: grid;
     width: 100%;
 }
 
+#item1, #item2, #item3 {
+    width: 100%;
+}
+
+hr#item1, hr#item2, hr#item3 {
+    width: 90%;
+    margin: 0 auto;
+}
+
 /* Box de Conteúdos dos Planos */
 #box1, #box2, #box3 {
-    width: 100%;
-    margin: 20px 100px;
+    width: 80%;
+    margin: 0px auto;
 }
 
 /* Ajuste dos Títulos dos Planos */
 .logo, .logo2, .logo3 {
-    grid-template-columns: 100px 200px;
+    grid-template-columns: 100px 100px;
     font-size: 22px;
 }
 
 /* Botão de Retorno */
 #back {
-    width: 40px;
-    height: 40px;
-    font-size: 30px;
-    right: 10px;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    right: 0px;
+    left: 7px;
+    top: 20px;
+}
+
+p.desc1, p.desc2, p.desc3, p.desc4, p.desc5, p.desc6, p.desc7, p.desc8, p.desc9 {
+    width: 90%;
+    font-size: 9px;
 }
 
 /* Link */
@@ -613,7 +630,7 @@ a {
     /* Div Principal */
     #principal {
         display: grid;
-        width: 100%;
+        width: 10%;
         height: auto;
         justify-content: center;
         margin: 0 auto;
@@ -634,9 +651,11 @@ a {
 
     /* Botão de Retorno */
     #back {
+        position: absolute;
         width: 30px;
         height: 30px;
         font-size: 20px;
+        right: 25px;
     }
 
     /* Textos descritivos */
@@ -686,9 +705,11 @@ a {
 
     /* Botão de Retorno */
     #back {
+        position: absolute;
         width: 40px;
         height: 40px;
         font-size: 25px;
+        right: 30px;
     }
 
     /* Link */
@@ -723,6 +744,14 @@ a {
         width: 100%;
         margin: 20px auto;
     }
+
+    #back {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        font-size: 25px;
+        right: 35px;
+    }
     
     /* Botão de Orçamento */
     .btn-orc1, .btn-orc2, .btn-orc3 {
@@ -734,6 +763,8 @@ a {
     #rest1, #rest2, #rest3 {
         height: 77px;
     }
+
+
 
 
 }
