@@ -139,6 +139,8 @@ body {
     background-color: rgb(67, 68, 75);
 }
 
+
+
 /* Responsividade */
 
 @media screen and (max-width: 100px) {
@@ -179,7 +181,7 @@ body {
     }
 }
 
-@media screen and (min-width: 300px) and (max-width: 768px) {
+@media screen and (min-width: 300px) and (max-width: 449px) {
     body {
         flex-direction: column;
         height: auto;
@@ -218,12 +220,156 @@ body {
 
     /* Ajuste do botão #back */
     #back {
-        width: 40px; height: 40px;
-        position: fixed; /* Fica fixo no topo da tela */
-        top: 30px;
-        right: 30px;
-        z-index: 1000; /* Certifique-se de que o botão esteja acima de outros elementos */
+        width: 30px; height: 30px;
+        font-size: 20px;
+        position: relative;
+        top: -445px;
+        z-index: 10000000000000000000000000;/* Certifique-se de que o botão esteja acima de outros elementos */
     }
+}
+
+@media screen and (min-width: 450px) and (max-width: 519px) {
+
+    body {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        position: relative; /* Para permitir o overlay do botão */
+    }
+
+    #container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #caixa-esquerda, #caixa-direita {
+        width: 100%;
+        padding: 20px;
+    }
+
+    #caixa-esquerda h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    #caixa-esquerda p {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    #caixa-direita input, #caixa-direita textarea {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    #enviar {
+        width: 100%;
+    }
+
+    /* Ajuste do botão #back */
+    #back {
+        width: 30px; height: 30px;
+        font-size: 20px;
+        position: relative;
+        top: -410px;
+    }
+
+}
+
+@media screen and (min-width: 520px) and (max-width: 675px) {
+
+    body {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        position: relative; /* Para permitir o overlay do botão */
+    }
+
+    #container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #caixa-esquerda, #caixa-direita {
+        width: 100%;
+        padding: 20px;
+    }
+
+    #caixa-esquerda h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    #caixa-esquerda p {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    #caixa-direita input, #caixa-direita textarea {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    #enviar {
+        width: 100%;
+    }
+
+    /* Ajuste do botão #back */
+    #back {
+        width: 30px; height: 30px;
+        font-size: 20px;
+        position: relative;
+        top: -396px;
+    }
+
+}
+
+@media screen and (min-width: 676px) and (max-width: 767px) {
+
+    body {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        position: relative; /* Para permitir o overlay do botão */
+    }
+
+    #container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #caixa-esquerda, #caixa-direita {
+        width: 100%;
+        padding: 20px;
+    }
+
+    #caixa-esquerda h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    #caixa-esquerda p {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    #caixa-direita input, #caixa-direita textarea {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    #enviar {
+        width: 100%;
+    }
+
+    /* Ajuste do botão #back */
+    #back {
+        width: 30px; height: 30px;
+        font-size: 20px;
+        position: relative;
+        top: -376px;
+    }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
