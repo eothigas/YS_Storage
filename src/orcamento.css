@@ -2,31 +2,48 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Stoke', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 body {
-    font-family: 'Stoke', sans-serif;
-    line-height: 1.6;
     background-image: linear-gradient(to right, rgba(4, 9, 21, 1), rgba(23, 53, 123, 1), rgba(4, 9, 21, 1));
-    color: white
-}
-
-#principal {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 950px;
-    margin: 0 auto;
+    height: 100vh;
 }
 
-#lateral-esq {  
-    display: grid;
-    width: 560px;
-    height: 700px;
+#container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+#caixa-esquerda, #caixa-direita {
+    flex: 1;
+    padding: 40px;
+}
+
+#caixa-esquerda {
     background-color: rgb(68, 68, 75);
+    color: white;
     text-align: center;
-    justify-content: center;
-    border-radius: 30px 0px 0px 30px;
+}
+
+#caixa-esquerda h2 {
+    font-size: 40px;
+    margin-bottom: 90px;
+}
+
+#caixa-esquerda p {
+    font-size: 30px;
+    margin-bottom: 70px;
+}
+
+#caixa-esquerda img {
+    max-width: 100%;
 }
 
 #back {
@@ -42,22 +59,11 @@ body {
     color: white; /* Cor do ícone */
     font-size: 30px; /* Tamanho do ícone */
     cursor: pointer; /* Muda o cursor para indicar que é clicável */
-    z-index: 10000; /* Certifica-se de que o ícone está acima de outros elementos */
+    z-index: 1; /* Certifica-se de que o ícone está acima de outros elementos */
 }
 
 #back i {
     color: rgb(255, 255, 255);
-}
-
-#lateral-dir {
-    display: grid;
-    position: relative; /* Mantém a div relativa para o posicionamento do ícone */
-    width: 560px;
-    height: 700px;
-    background-color: rgb(20, 22, 27);
-    padding: 60px 30px 30px 30px;
-    border-radius: 0px 30px 30px 0px;
-    z-index: 0; /* Deve ser menor que o z-index do ícone */
 }
 
 #back:hover {
@@ -65,248 +71,247 @@ body {
     color: black;
 }
 
-h2 {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    font-size: 35px;
-    padding: 20px 20px
-}
-
-p#text1 {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    font-size: 25px;
-    padding: 20px 20px;
-}
-
-p#vazia {
-    display: none;
-}
-
-p.form {
-    display: grid;
-    font-size: 25px;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-#form-name, #form-email, #form-tel, #form-message {
-    display: flex;
-    font-size: 15px;
-    padding: 8px;
-    width: 500px;
-    background-color: transparent;
+#caixa-direita {
+    position: relative;
+    background-color: rgb(20, 22, 27);
     color: white;
-    border: rgba(255, 255, 255, 0.452) solid 3px;
-    border-radius: 10px;
-}
-
-textarea {
-    resize: none;
-}
-
-#send {
-    font-family: 'Stoke', sans-serif;
-    display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
-    color: white;
+}
+
+#caixa-direita form {
+    display: flex;
+    flex-direction: column;
+    margin: 10% auto;
+}
+
+#caixa-direita label {
+    margin-bottom: 5px;
     font-size: 20px;
-    font-weight: bold;
-    border: rgba(255, 255, 255, 0.452) solid 3px;
+}
+
+#caixa-direita input {
+    margin-bottom: 0px;
     padding: 10px;
-    width: 350px;
+    background-color: transparent;
+    border: 2px rgba(255, 255, 255, 0.504) solid;
+    color: white;
     border-radius: 10px;
 }
 
-#send:hover {
+.size {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    display: flex;
+    align-items: right;
+    justify-content: right;
+    font-size: 10px;
+    padding-right: 5px;
+    color: rgba(255, 255, 255, 0.748);
+}
+
+#caixa-direita textarea {
+    margin-bottom: 70px;
+    resize: none;
+    background-color: transparent;
+    border: 2px rgba(255, 255, 255, 0.504) solid;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    height: 200px;
+}
+
+#enviar {
+    font-size: 15px;
+    padding: 10px;
+    background-color: transparent;
+    border: 2px rgba(255, 255, 255, 0.504) solid;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 200px;
+    margin: 0 auto;
+}
+
+#enviar:hover {
     background-color: rgb(67, 68, 75);
 }
 
-/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* Responsividade */
 
-@media screen and (max-width: 870px) {
-    
-    #lateral-esq {
-        margin-left: 100px;
-    }
-    
-    #lateral-dir {
-        margin-right: 100px;
-        margin-left: 0px;
+@media screen and (max-width: 100px) {
+    body {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
     }
 
-
-}
-
-@media screen and (max-width: 1025px) {
-
-
-    #principal {
-        height: 720px;
-    }
-
-    #lateral-esq {
-        height: 90%;
-        margin: 0;
-        margin-left: 100px;
-    }
-
-    #lateral-dir {
-        padding-top: 20px;
-        height: 90%;
-        margin-right: 100px;
-        margin-left: 0px;
-    }
-
-    h2 {
-        font-size: 2.5em;
-    }
-
-    p#text1 {
-        font-size: 24px;
-    }
-
-    p#vazia {
-        display: grid;
-    }
-
-    p#box {
-        display: none;
-    }
-
-}
-
-
-@media screen and (max-width: 600px) {
-
-    #principal {
-        display: block;
-        height: 1080px;
-    }
-
-    #lateral-esq, #lateral-dir {
-        margin: 0;
+    #container {
+        flex-direction: column;
         width: 100%;
-        height: 100%;
-        margin: 20px auto;
-    }
-
-    #lateral-esq {  
         padding: 10px;
-        border-radius: 30px 30px 0px 0px;
-        width: 92%;
-        height: 40%;
-        text-align: center;
-        justify-content: center;
-        margin: 20px 20px 0px 20px;
     }
 
-    h2 {
-        display: block;
-        font-size: 30px;
-        padding: 0px 0px 30px 0px;
-        height: 10px;
-
+    #caixa-esquerda, #caixa-direita {
+        width: 100%;
+        padding: 10px;
     }
 
-    p#text1 {
-        display: block;
-        height: 300px;
-        font-size: 25px;
-        padding: 20px 15px 0px 15px;
-    }
-
-    
-    p#vazia {
-        display: none;
-    }
-
-    img {
-        display: none;
-    }
-
-    p#box {
-        padding: 30px 0 0 0;
-        height: 0px;
-    }
-
-    #lateral-dir {
-        display: flex;
-        justify-content: center;
-        padding: 20px 0 0 0;
-        border-radius: 0px 0px 30px 30px;
-        width: 92%;
-        height: 630px;
-        margin: 0px 20px 20px 20px;
-    }
-
-    
-    #back {
-        position: absolute; /* Garante que o ícone se sobreponha à div */
-        top: -415px; /* Distância do topo da div */
-        right: 16px; /* Distância da borda direita da div */
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%; /* Faz o ícone ficar circular */
-        color: white; /* Cor do ícone */
-        font-size: 30px; /* Tamanho do ícone */
-        cursor: pointer; /* Muda o cursor para indicar que é clicável */
-        z-index: 10000; /* Certifica-se de que o ícone está acima de outros elementos */
-    }
-
-    p.form {
-        display: grid;
-        width: auto;
+    #caixa-esquerda h2 {
         font-size: 20px;
-        padding: 0;
-        margin: 0;
+        margin-bottom: 20px;
     }
 
-    #form-name, #form-email, #form-tel, #form-message {
-        display: grid;
+    #caixa-esquerda p {
         font-size: 15px;
-        padding: 8px;
-        width: 400px;
-        background-color: transparent;
-        color: white;
-        border: rgba(255, 255, 255, 0.452) solid 3px;
-        border-radius: 10px;
-        margin: 0 0 20px 0px;
+        margin-bottom: 20px;
     }
 
-    label {
-        width: 400px;
-        margin-bottom: 5px;
+    #caixa-direita input, #caixa-direita textarea {
+        width: 100%;
+        font-size: 12px;
     }
 
-    textarea#form-message {
-        margin-bottom:  10px;
-    }
-
-    #send {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: transparent;
-        color: white;
-        font-weight: bold;
-        border: rgba(255, 255, 255, 0.452) solid 3px;
-        padding: 10px;
-        width: 120px;
-        border-radius: 10px;
-    }
-
-    #send:hover {
-        background-color: rgb(67, 68, 75);
+    #enviar {
+        width: 100%;
     }
 }
+
+@media screen and (min-width: 300px) and (max-width: 768px) {
+    body {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        position: relative; /* Para permitir o overlay do botão */
+    }
+
+    #container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #caixa-esquerda, #caixa-direita {
+        width: 100%;
+        padding: 20px;
+    }
+
+    #caixa-esquerda h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    #caixa-esquerda p {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    #caixa-direita input, #caixa-direita textarea {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    #enviar {
+        width: 100%;
+    }
+
+    /* Ajuste do botão #back */
+    #back {
+        width: 40px; height: 40px;
+        position: fixed; /* Fica fixo no topo da tela */
+        top: 30px;
+        right: 30px;
+        z-index: 1000; /* Certifique-se de que o botão esteja acima de outros elementos */
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    body {
+        flex-direction: column;
+        height: auto;
+        padding: 30px;
+        position: relative;
+    }
+
+    #container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #caixa-esquerda, #caixa-direita {
+        width: 100%;
+        padding: 30px;
+    }
+
+    #caixa-esquerda h2 {
+        font-size: 28px;
+        margin-bottom: 50px;
+    }
+
+    #caixa-esquerda p {
+        font-size: 20px;
+        margin-bottom: 50px;
+    }
+
+    #caixa-direita input, #caixa-direita textarea {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    #enviar {
+        width: 100%;
+    }
+
+     /* Ajuste do botão #back */
+     #back {
+        width: 40px; height: 40px;
+        position: fixed; /* Fica fixo no topo da tela */
+        top: 43px;
+        right: 43px;
+        z-index: 1000; /* Certifique-se de que o botão esteja acima de outros elementos */
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1950px) {
+    body {
+        padding: 40px;
+    }
+
+    #container {
+        flex-direction: row;
+        width: 100%;
+        max-width: 1200px; /* Ajuste se necessário */
+    }
+
+    #caixa-esquerda, #caixa-direita {
+        width: 50%;
+        padding: 40px;
+    }
+
+    #caixa-esquerda h2 {
+        font-size: 36px;
+        margin-bottom: 80px;
+    }
+
+    #caixa-esquerda p {
+        font-size: 24px;
+        margin-bottom: 60px;
+    }
+
+    #caixa-direita input, #caixa-direita textarea {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    #enviar {
+        width: 100%;
+    }
+
+    #caixa-esquerda p {
+        font-size: 30px;
+        margin-bottom: 90px;
+    }
+    
+
+}
+
 
