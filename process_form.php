@@ -1,7 +1,4 @@
 <?php
-// Inicializa as variáveis de mensagem
-$mensagemErro = '';
-
 // Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Configurações do banco de dados
@@ -37,12 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Executa a consulta
         $stmt->execute();
 
-        // Redireciona para a mesma página para evitar reenvio do formulário
-        header("Location: " . $_SERVER['PHP_SELF']);
+        // Redireciona para a página de confirmação
+        header("Location: orcamentopendente.html"); // Certifique-se de criar esta página de confirmação
         exit();
     } catch (PDOException $e) {
-        // Define a mensagem de erro
-        $mensagemErro = "Falha ao enviar os dados: " . $e->getMessage();
+        // Redireciona para a página de erro se necessário
+        // header("Location: erro.html"); // Opcional: Página de erro genérica
+        exit();
     }
 }
 ?>
