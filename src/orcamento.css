@@ -129,8 +129,10 @@ body {
     color: white;
     border-radius: 10px;
     cursor: pointer;
-    width: 200px;
+    max-width: 250px;
     margin: 0 auto;
+    align-items: center;
+    justify-content: center;
 }
 
 #enviar:hover {
