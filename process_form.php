@@ -4,8 +4,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Configurações do banco de dados
     $host = 'localhost';
     $dbname = 'tqvguepm_orcamento';
-    $user = 'tqvguepm_Thiago';
-    $password = 'editorys';
+    $user = 'tqvguepm_orcamento';
+    $password = 'yourstorage';
 
     $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
 
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mensagem = $_POST['mensagem'];
 
         // Prepara a consulta SQL
-        $sql = "INSERT INTO envio (nome, email, telefone, mensagem) VALUES (:nome, :email, :telefone, :mensagem)";
+        $sql = "INSERT INTO orcamento (nome, email, telefone, mensagem) VALUES (:nome, :email, :telefone, :mensagem)";
         $stmt = $pdo->prepare($sql);
 
         // Vincula os parâmetros
@@ -37,16 +37,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Configurações do e-mail
         $to = $email;
         $subject = "Recebimento de Formulário - Your Storage";
-        $message = "Olá $nome,\n\n Agradecemos pelo envio das suas informações! Gostaríamos de informar que recebemos e salvamos os dados em nosso banco de dados com sucesso.\n\n
-        Um de nossos agentes comerciais entrará em contato com você dentro de 1 a 2 dias úteis para discutir mais detalhes e esclarecer quaisquer dúvidas que você possa ter. O contato será feito através do e-mail e telefone fornecidos no formulário.n\n\n
-        Agradecemos por escolher nossa empresa e pelo tempo dedicado para preencher o formulário. Valorizamos cada dado recebido e faremos uma análise cuidadosa para garantir que possamos oferecer o melhor atendimento possível.\n\n
-        Se precisar de mais informações ou tiver alguma dúvida imediata, não hesite em nos contatar.\r\n
-        Atenciosamente,\r\n
-        Thiago Freitas // Your Storage
-        ";
+        $message = "
+        <html>
+        <head>
+            <meta charset='UTF-8'>
+        </head>
+        <body>
+            <p>Olá $nome,</p>
+            <p>Agradecemos pelo envio das suas informações! Gostaríamos de informar que recebemos e salvamos os dados em nosso banco de dados com sucesso.</p>
+            <p>Um de nossos agentes comerciais entrará em contato com você dentro de <b>1 a 2 dias úteis</b> para discutir mais detalhes e esclarecer quaisquer dúvidas que você possa ter. O contato poderá ser realizado através do <b>e-mail</b> ou <b>telefone</b> fornecidos no formulário.</p>
+            <p>Agradecemos por escolher nossa empresa e pelo tempo dedicado para preencher o formulário. Valorizamos cada dado recebido e faremos uma análise cuidadosa para garantir que possamos oferecer o melhor atendimento possível.</p>
+            <p>Se precisar de mais informações ou tiver alguma dúvida imediata, não hesite em nos contatar.</p>
+            <hr>
+            <p>Atenciosamente,<br>Thiago Freitas / Your Storage</p>
+        </body>
+        </html>";
 
-
-        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        $headers .= "Content-type: text/html; charset=UTF-8\r\n";
 
         // Envia o e-mail
         if (mail($to, $subject, $message, $headers)) {
