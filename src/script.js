@@ -112,17 +112,23 @@ document.querySelectorAll('.close-info').forEach(button => {
     });
 });
 
-// Carrossel imagens clientes
+// Carrossel Clientes
 document.addEventListener('DOMContentLoaded', () => {
     const navIt = document.querySelectorAll('.nav-itens');
     const carouselImages = document.querySelector('.carousel-images-inner');
-    const imageWidth = document.querySelector('.carousel-images-inner img').clientWidth;
+    let imageWidth = document.querySelector('.carousel-images-inner img').clientWidth;
     let index = 0;
-    let autoSlideInterval = null; // Define a variável para armazenar o intervalo
+    let autoSlideInterval = null;
+
+    // Função para atualizar a largura da imagem
+    function updateImageWidth() {
+        imageWidth = document.querySelector('.carousel-images-inner img').clientWidth;
+    }
 
     // Atualiza a visualização do carrossel com base no índice
     function updateCarousel(newIndex) {
         index = newIndex;
+        updateImageWidth(); // Recalcula a largura da imagem a cada atualização
         carouselImages.style.transform = `translateX(${-index * imageWidth}px)`;
         navIt.forEach(item => item.classList.remove('active'));
         navIt[index].classList.add('active');
@@ -143,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function startAutoSlide() {
         if (autoSlideInterval === null) { // Verifica se já não existe um intervalo
             autoSlideInterval = setInterval(() => {
-                index = (index + 1) % navIt.length;
+                index = (index + 1) % navIt.length; // Incrementa o índice ciclicamente
                 updateCarousel(index);
             }, 5000);
         }
@@ -159,16 +165,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Função para atualizar o comportamento com base na largura da tela
     function updateCarouselBehavior() {
-        if (window.innerWidth > 600) {
-            startAutoSlide(); // Inicia o auto slide para larguras maiores que 600px
+        if (window.innerWidth > 808) {
+            startAutoSlide(); // Inicia o auto slide para larguras maiores que 808px
         } else {
-            stopAutoSlide(); // Para o auto slide para larguras menores ou iguais a 600px
+            stopAutoSlide(); // Para o auto slide para larguras menores ou iguais a 808px
         }
     }
 
     // Inicializa o comportamento do carrossel com base na tela
     updateCarouselBehavior();
 
-    // Atualiza o comportamento ao redimensionar a janela
-    window.addEventListener('resize', updateCarouselBehavior);
+    // Atualiza o comportamento e o estado do carrossel ao redimensionar a janela
+    window.addEventListener('resize', () => {
+        updateImageWidth(); // Atualiza a largura da imagem ao redimensionar
+        updateCarousel(index); // Reposiciona corretamente a imagem
+        updateCarouselBehavior(); // Verifica se o auto slide deve continuar ou parar
+    });
 });

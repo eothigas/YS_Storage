@@ -7,6 +7,7 @@
     <title>Your Storage - Home</title>
     <link rel="stylesheet" href="./src/webview.css">
     <link rel="stylesheet" href="./src/webview2.css">
+    <link rel="stylesheet" href="./src/webview-responsive.css">
     <!-- Importação de ícones (por exemplo, Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -72,11 +73,21 @@
             Confira nossos principais storages!
         </div>
 
-        <button class="left-btn"><i class="fas fa-chevron-left"></i></button>
-        <button class="right-btn"><i class="fas fa-chevron-right"></i></button>
-
         <div class="carousel-container">
+            
+            <button class="left-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="right-btn"><i class="fas fa-chevron-right"></i></button>
+
             <div class="carousel-item" data-info="info1">
+                <div class="info-box" id="info1">
+                    <div class="info-content">
+                        <h2>Informações do Storage 1</h2>
+                        <p>Altura: 8 metros</p>
+                        <p>Largura: 8 metros</p>
+                        <p>Comprimento: 16 metros</p>
+                        <button class="close-info">Voltar</button>
+                    </div>
+                </div>
                 <img src="./src/images/Storage_1.png" width="1000" height="600">
                 <div class="overlay">
                     <img src="./src/images/olho_aberto.png" class="view">
@@ -87,6 +98,15 @@
             </div>
 
             <div class="carousel-item" data-info="info2">
+                <div class="info-box" id="info2">
+                    <div class="info-content">
+                        <h2>Informações do Storage 2</h2>
+                        <p>Altura: 5 metros</p>
+                        <p>Largura: 5 metros</p>
+                        <p>Comprimento: 10 metros</p>
+                        <button class="close-info">Voltar</button>
+                    </div>
+                </div>
                 <img src="./src/images/Storage_2.png" width="1000">
                 <div class="overlay">
                     <img src="./src/images/olho_aberto.png" class="view">
@@ -95,41 +115,19 @@
             </div>
 
             <div class="carousel-item" data-info="info3">
+                <div class="info-box" id="info3">
+                    <div class="info-content">
+                        <h2>Informações do Storage 3</h2>
+                        <p>Altura: 3 metros</p>
+                        <p>Largura: 3 metros</p>
+                        <p>Comprimento: 6 metros</p>
+                        <button class="close-info">Voltar</button>
+                    </div>
+                </div>
                 <img src="./src/images/Storage_3.png" width="1000">
                 <div class="overlay">
                     <img src="./src/images/olho_aberto.png" class="view">
                     Visualizar
-                </div>
-            </div>
-
-            <!-- Info Boxes -->
-            <div class="info-box" id="info1">
-                <div class="info-content">
-                    <h2>Informações do Storage 1</h2>
-                    <p>Altura: 5 metros</p>
-                    <p>Largura: 5 metros</p>
-                    <p>Comprimento: 10 metros</p>
-                    <button class="close-info">Voltar</button>
-                </div>
-            </div>
-
-            <div class="info-box" id="info2">
-                <div class="info-content">
-                    <h2>Informações do Storage 2</h2>
-                    <p>Altura: 8 metros</p>
-                    <p>Largura: 8 metros</p>
-                    <p>Comprimento: 16 metros</p>
-                    <button class="close-info">Voltar</button>
-                </div>
-            </div>
-
-            <div class="info-box" id="info3">
-                <div class="info-content">
-                    <h2>Informações do Storage 3</h2>
-                    <p>Altura: 3 metros</p>
-                    <p>Largura: 3 metros</p>
-                    <p>Comprimento: 6 metros</p>
-                    <button class="close-info">Voltar</button>
                 </div>
             </div>
         </div>
@@ -202,6 +200,10 @@
                     <div class="nav-itens" data-index="6"></div>
                     <div class="nav-itens" data-index="7"></div>
                     <div class="nav-itens" data-index="8"></div>
+                    <div class="nav-itens" data-index="9"></div>
+                    <div class="nav-itens" data-index="10"></div>
+                    <div class="nav-itens" data-index="11"></div>
+                    <div class="nav-itens" data-index="12"></div>
                 </div>
             </div>
         </div>  
@@ -279,6 +281,8 @@
             <img src="./src/images/Icon2.png" width="70" height="70" alt="Icon 2">
             <img src="./src/images/Icon1.png" width="70" height="70" alt="Icon 1">
         </div>
+
+        <hr id="meio-responsive">
     
         <div class="lado-direito">
             <h2>Horário de atendimento</h2>

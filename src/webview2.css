@@ -134,19 +134,21 @@ body {
     display: flex;
     transition: transform 0.5s ease;
     width: 100%;
-    background-color: rgba(4, 9, 21, 0.9);
+    background-color: rgba(251, 251, 251, 0.9);
 }
 
 .carousel-images-inner {
     display: flex;
     transition: transform 0.6s ease-in-out;
+    margin: 0;
 }
 
 img.img-client {
     /* border: 1px silver solid; */
     margin: 0 auto;
-    width: 477px;
+    width: 480px;
     height: 480px;
+    margin: 0 50px 0 80px;
 }
 
 .carousel-images-inner img {
@@ -347,6 +349,10 @@ a:hover {
     margin-right: 50px;
 }
 
+#meio-responsive {
+    display: none;
+}
+
 .meio {
     display: flex;
     align-items: center;
@@ -380,210 +386,3 @@ a:hover {
     text-align: center;
     padding: 15px;
 }
-
-
-/* Estilos gerais para telas pequenas */
-@media (max-width: 300px) {
-
-    /* Seção Clientes */
-    .cliente-secao {
-        padding: 20px;
-    }
-
-    .titulo-secao, .titulo-carrossel {
-        font-size: 1.1em;
-    }
-
-    .card {
-        flex-direction: column;
-        padding: 20px;
-        margin-bottom: 20px;
-    }
-
-    .card:hover {
-        transform: none; /* Remove o efeito de transformação em telas pequenas */
-    }
-
-    #separa-texto-cima, #separa-texto-baixo {
-        margin: 10px auto;
-    }
-
-    .texto-esquerda, .texto-direita {
-        width: 100%;
-        font-size: 0.8em;
-    }
-
-    .imagem-esquerda, .imagem-direita {
-        width: 100%;
-        padding: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: none;
-    }
-
-    .imagem-esquerda img, .imagem-direita img {
-        width: 100px; /* Ajuste o tamanho da imagem */
-    }
-
-    /* Carrossel */
-    .carrossel-images {
-        flex-direction: column; /* Ajuste a direção para vertical */
-    }
-
-    .carousel-images-inner {
-        flex-direction: column; /* Ajuste a direção para vertical */
-    }
-
-    img.img-client {
-        width: 100%; /* Ajustado para ocupar toda a largura disponível */
-        height: auto;
-    }
-
-    .nav-client {
-        display: none;
-        position: fixed; /* Fixa a barra de navegação ao lado da tela */
-        right: 0; /* Ajuste conforme necessário */
-        top: 0; /* Ajuste conforme necessário */
-        height: 20%; /* Ajuste a altura para a tela inteira */
-        rotate: 90deg;
-    }
-
-    /* Seção Planos */
-    .planos-secao {
-        padding: 20px;
-    }
-
-    .titulo-planos {
-        font-size: 1.8em;
-    }
-
-    .subtitulo-planos {
-        font-size: 1em;
-    }
-
-    .imagem-planos-container {
-        display: grid;
-        flex-direction: row;
-        margin: 0, auto;
-    }
-
-    .imagem-planos {
-        width: 100%;
-    }
-
-    #fundo-plano {
-        width: 100%;
-        height: auto;
-    }
-
-    .seta {
-        display: none;
-    }
-
-    .logo-container {
-        display: grid;
-        margin: 0;
-    }
-
-    .imagem-planos:hover #logo-plan {
-        display: none;
-        align-items: center;
-        margin: 0 auto;
-    }
-
-    .imagem-planos:hover span {
-        display: grid;
-        overflow: hidden;
-        margin: 0;
-        justify-content: center;
-    }
-
-    /* Seção Atendimento */
-    .atendimento {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .lado-esquerdo, .meio, .lado-direito {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .lado-esquerdo h2, .lado-direito h2 {
-        font-size: 1.5em;
-        text-align: center;
-    }
-
-    .formas-contato {
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        font-size: 0.9rem;
-    }
-
-
-    .contato-item {
-        width: 100%;
-    }
-
-    a {
-        width:100%;
-    }
-
-    .formas-contato img, .redes-sociais img {
-        display: grid;
-        width: 20px;
-        align-items: center;
-        margin: 0 auto;
-        margin-bottom: 10px;
-    }
-
-    .redes-sociais img {
-        width: 50%;
-        margin: 0 auto;
-    }
-
-    .redes-sociais {
-        margin-bottom: 40px;
-    }
-
-    .meio img { 
-        display: none;
-    }
-
-    .lado-direito {
-        display: grid;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto; 
-    }
-
-    .info-horario, .info-localizacao {
-        display: grid;
-        margin: 10px auto;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .info-horario img, .info-localizacao img {
-        display: grid;
-        margin: 0 auto;
-        margin-bottom: 10px;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #footer-page {
-        width: 100%;
-        font-size: 8px;
-    }
-
-}
-
