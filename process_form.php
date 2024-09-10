@@ -3,8 +3,8 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Configurações do banco de dados
     $host = 'localhost';
-    $dbname = 'tqvguepm_orcamento';
-    $user = 'tqvguepm_orcamento';
+    $dbname = 'pgudxdii_yourstorage';
+    $user = 'pgudxdii__jC6639eHtW8oWN3WcFLoKVfzDG1JKEwu';
     $password = 'yourstorage';
 
     $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
