@@ -15,7 +15,7 @@ body {
 /* Botão de Voltar ao Topo */
 #btn-topo {
     position: fixed;
-    bottom: 40px;
+    bottom: 70px;
     right: 40px;
     background-color: transparent;
     color: #fff;
@@ -24,11 +24,20 @@ body {
     padding: 0.8rem 1rem;
     font-size: 1.5rem;
     cursor: pointer;
-    display: none;
-    transition: background-color 0.3s ease;
+    opacity: 0; /* Começa invisível */
+    transform: translateY(20px); /* Deslocado para baixo inicialmente */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transição suave */
     z-index: 100;
 }
 
+/* Botão visível com animação */
+#btn-topo.show {
+    display: block; /* Mostrar o botão */
+    opacity: 1; /* Tornar visível */
+    transform: translateY(0); /* Retornar à posição original */
+}
+
+/* Efeito hover para o botão */
 #btn-topo:hover {
     background-color: rgb(120, 120, 120);
 }
@@ -206,7 +215,7 @@ body {
     width: 100%;
     height: 100%;
     margin: 0;
-    padding: 0px;
+    padding: 40px;
 }
 
 .carousel-container {
@@ -347,65 +356,366 @@ body {
     background-color: #777;
 }
 
-/* Seção de Planos */
-.planos-section {
-    padding: 4rem 0;
+/* Seção Clientes */
+.cliente-secao {
+    padding: 40px;
+    text-align: center;
 }
 
-.planos-container {
+.titulo-secao {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.titulo-carrossel {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 30px 0;
+}
+
+.card {
     display: flex;
-    scroll-behavior: smooth;
+    justify-content: space-around;
+    align-items: center;
+    background-image: linear-gradient(to left, rgba(46, 81, 176, 1), rgb(28, 33, 43));
+    color: white;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.linha-inferior {
+    background-image: linear-gradient(to right, rgba(46, 81, 176, 1), rgb(28, 33, 43));
+}
+
+#separa-texto-cima {
+    margin: 0 220px 15px 220px;
+    border: 2px white solid;
+    border-radius: 10px;
+}
+
+#client {
+    color: rgba(100, 149, 237);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#separa-texto-baixo {
+    margin: 15px 220px 10px 220px;
+    border: 2px white solid;
+    border-radius: 10px;
+}
+
+.texto-esquerda, .texto-direita {
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.1em;
+    line-height: 1.6em;
+}
+
+.imagem-esquerda {
+    display: flex;
+    align-items: center;
+    border-bottom: 10px rgb(255, 255, 255) solid;
+    border-top: 10px rgb(28, 33, 43) solid;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.imagem-direita {
+    display: flex;
+    align-items: center;
+    border-top: 10px rgb(255, 255, 255) solid;
+    border-bottom: 10px rgb(28, 33, 43) solid;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.imagem-direita img, .imagem-esquerda img {
+    width: 200px; /* Aumentando o tamanho da imagem */
+    height: auto;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.imagem-direita img:hover, .imagem-esquerda img:hover {
+    transform: scale(1.1); /* Zoom na imagem ao passar o mouse */
+}
+
+/* Carrossel imagem clientes */
+
+.carrossel-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Carrossel */
+.carrossel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+/* Imagens do Carrossel */
+.carrossel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    background-color: rgba(4, 9, 21, 0.9);
+}
+
+.carousel-images-inner {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+}
+
+img.img-client {
+    /* border: 1px silver solid; */
+    margin: 0 auto;
+    width: 477px;
+    height: 480px;
+}
+
+.carousel-images-inner img {
+    width: 80%; /* Ajuste para mostrar 4 imagens por vez */
+    transition: transform 0.3s ease;
+}
+
+.carousel-images-inner img:hover {
+    transform: scale(1.05); /* Pequeno zoom ao passar o mouse */
+}
+
+/* Barra de Navegação Horizontal */
+.nav-client {
+    display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    background-color: rgba(4, 9, 21, 0.367); /* Cor de fundo leve */
+    padding: 10px 0;
 }
 
-.planos-item {
-    position: relative;
-    width: 50%;
-    height: 50%;
-    overflow: hidden;
-    border-radius: 10px;
+.nav-itens {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.8s ease-in-out;
+}
+
+.nav-itens.active {
+    background-color: rgba(46, 81, 176, 1); /* Cor ativa */
+}
+
+.nav-itens:hover {
+    background-color: rgba(100, 149, 237, 0.7); /* Cor ao passar o mouse */
+}
+
+
+/* Seção Planos */
+.planos-secao {
+    text-align: center;
+    padding: 40px;
+    position: relative; /* Garante que a posição relativa seja aplicada ao contêiner dos planos */
+}
+
+.titulo-planos {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.subtitulo-planos {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.imagem-planos-container {
+    display: flex;
+    align-items: center; /* Alinha verticalmente as setas e a imagem */
+    justify-content: center; /* Alinha horizontalmente o contêiner */
+    position: relative; /* Permite o posicionamento absoluto das setas */
+    gap: 20px; /* Espaço entre a imagem e as setas */
+}
+
+.imagem-planos {
+    position: relative; /* Faz com que o logo-plan e o texto sejam posicionados em relação a este contêiner */
+    display: inline-block; /* Faz com que o contêiner ajuste seu tamanho à imagem */
+    overflow: hidden; /* Garante que o logo não saia do contêiner */
     cursor: pointer;
 }
 
-.planos-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.3s ease;
+#fundo-plano {
+    display: block;
+    filter: brightness(70%);
+    border-radius: 10px;
 }
 
-.overlay-planos {
+.imagem-planos:hover #fundo-plano {
+    filter: brightness(20%); /* Ajuste o brilho para um efeito mais suave */
+    transition: 0.2s ease-in-out;
+}
+
+.logo-container {
+    display: none;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0);
+    top: 50%; /* Ajuste conforme necessário */
+    left: 50%; /* Ajuste conforme necessário */
+    transform: translate(-50%, -50%); /* Centraliza o contêiner do logo */
+    display: flex;
+    align-items: center; /* Alinha o texto e o logo verticalmente */
+    gap: 10px; /* Espaçamento entre o logo e o texto */
+    z-index: 10; /* Garante que o logo e o texto estejam sobre a imagem de fundo */
+    filter: brightness(100%)
+}
+
+.logo-container span {
+    display: none;
+}
+
+#logo-plan {
+    width: 200px; /* Ajuste o tamanho do logo conforme necessário */
+    height: auto;
+    opacity: 0; /* Inicialmente invisível */
+    visibility: hidden; /* Inicialmente escondido */
+}
+
+
+.imagem-planos:hover #logo-plan, 
+.imagem-planos:hover .logo-container span {
+    display: grid;
+    opacity: 1; /* Torna o logo visível ao passar o mouse */
+    visibility: visible; /* Garante que o logo seja visível */
+    font-size: 30px; /* Ajuste o tamanho da fonte conforme necessário */
+    color: white; /* Cor do texto */
+    padding: 10px; /* Espaçamento interno do texto */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: 1s ease-in-out;
+}
+
+/* Estilos das setas */
+.seta {
+    font-size: 2em; /* Ajuste o tamanho das setas conforme necessário */
+    transition: color 0.3s ease; /* Transição suave para a cor das setas */
+}
+
+.seta-esquerda {
+    margin-right: 50px; /* Espaço entre a seta esquerda e a imagem */
+}
+
+.seta-direita {
+    margin-left: 50px; /* Espaço entre a seta direita e a imagem */
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    color: #d6d6d6ca;
+}
+
+/* HR Separa Section */
+
+#separa-section {
+    border: 3px rgb(50, 65, 102) solid;
+    border-radius: 10px;
+    margin: 0 35px;
+}
+
+
+/* Seção Atendimento */
+
+.atendimento {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+}
+
+.lado-esquerdo, .meio, .lado-direito {
+    width: 30%;
+}
+
+.lado-esquerdo h2, .lado-direito h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.formas-contato .contato-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.formas-contato img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.redes-sociais {
+    display: flex;
+    margin-top: 20px;
+}
+
+.redes-sociais img {
+    width: 40px;
+    margin-right: 50px;
+}
+
+.meio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.meio img {
+    margin-bottom: 50px;
+}
+
+.info-horario, .info-localizacao {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.info-horario img, .info-localizacao img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+/* Rodapé */
+
+#footer-page {
+    background-color: rgb(30, 30, 30);
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background-color 0.3s ease;
-    opacity: 0;
-}
-
-.planos-item:hover .overlay-planos {
-    background-color: rgba(0,0,0,0.6);
-    opacity: 1;
-}
-
-.btn-planos {
-    background-color: #007BFF;
-    color: #fff;
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease;
-}
-
-.btn-planos:hover {
-    background-color: #0056b3;
+    text-align: center;
+    padding: 15px;
 }
 
 /* Responsividade */

@@ -29,16 +29,19 @@ highlightVideo.addEventListener('mouseout', hideOverlay);
 highlightOverlay.addEventListener('mouseover', showOverlay);
 highlightOverlay.addEventListener('mouseout', hideOverlay);
 
-// Botão Voltar ao Topo
+// Botão voltar ao Topo
+
 const btnTopo = document.getElementById('btn-topo');
-const carouselSection = document.getElementById('carousel');
+const carousel = document.getElementById('carousel');
 
 window.addEventListener('scroll', () => {
-    const carouselPosition = carouselSection.getBoundingClientRect().top;
-    if (carouselPosition < window.innerWidth) {
-        btnTopo.style.display = 'block';
+    const sectionBottom = carousel.getBoundingClientRect().bottom;
+    
+    // Verifica se o usuário passou do final do carousel
+    if (sectionBottom <= 0) {
+        btnTopo.classList.add('show'); // Adiciona a classe para exibir o botão com animação
     } else {
-        btnTopo.style.display = 'none';
+        btnTopo.classList.remove('show'); // Remove a classe para ocultar o botão com animação
     }
 });
 
@@ -47,11 +50,6 @@ btnTopo.addEventListener('click', () => {
         top: 0,
         behavior: 'smooth'
     });
-
-    // Aguarda o término do scroll suave antes de ocultar o botão
-    setTimeout(() => {
-        btnTopo.style.display = 'none';
-    }, 300); // Tempo suficiente para o scroll suave (ajuste conforme necessário)
 });
 
 // Funções Carrossel
@@ -113,3 +111,39 @@ document.querySelectorAll('.close-info').forEach(button => {
         document.querySelector('.right-btn').style.display = currentIndex === carouselImg.length - 1 ? 'none' : 'block';
     });
 });
+
+// Carrossel imagens clientes
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Seleciona os elementos da barra de navegação e imagens do carrossel
+    const navIt = document.querySelectorAll('.nav-itens');
+    const carouselImages = document.querySelector('.carousel-images-inner');
+    const imageWidth = document.querySelector('.carousel-images-inner img').clientWidth;
+    let index = 0;
+
+    // Atualiza a visualização do carrossel com base no índice
+    function updateCarousel(newIndex) {
+        index = newIndex;
+        carouselImages.style.transform = `translateX(${-index * imageWidth}px)`;
+        navIt.forEach(item => item.classList.remove('active'));
+        navIt[index].classList.add('active');
+    }
+
+    // Adiciona eventos de clique para cada item da barra de navegação
+    navIt.forEach(item => {
+        item.addEventListener('click', () => {
+            const newIndex = parseInt(item.getAttribute('data-index'));
+            updateCarousel(newIndex);
+        });
+    });
+
+    // Inicializa o carrossel com o primeiro item ativo
+    updateCarousel(0);
+
+    // Adiciona um intervalo automático para mudar as imagens a cada 5 segundos
+    setInterval(() => {
+        index = (index + 1) % navIt.length;
+        updateCarousel(index);
+    }, 5000);
+});
+
