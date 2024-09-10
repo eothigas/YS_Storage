@@ -113,13 +113,12 @@ document.querySelectorAll('.close-info').forEach(button => {
 });
 
 // Carrossel imagens clientes
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Seleciona os elementos da barra de navegação e imagens do carrossel
     const navIt = document.querySelectorAll('.nav-itens');
     const carouselImages = document.querySelector('.carousel-images-inner');
     const imageWidth = document.querySelector('.carousel-images-inner img').clientWidth;
     let index = 0;
+    let autoSlideInterval = null; // Define a variável para armazenar o intervalo
 
     // Atualiza a visualização do carrossel com base no índice
     function updateCarousel(newIndex) {
@@ -140,10 +139,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicializa o carrossel com o primeiro item ativo
     updateCarousel(0);
 
-    // Adiciona um intervalo automático para mudar as imagens a cada 5 segundos
-    setInterval(() => {
-        index = (index + 1) % navIt.length;
-        updateCarousel(index);
-    }, 5000);
-});
+    // Função para iniciar o auto slide
+    function startAutoSlide() {
+        if (autoSlideInterval === null) { // Verifica se já não existe um intervalo
+            autoSlideInterval = setInterval(() => {
+                index = (index + 1) % navIt.length;
+                updateCarousel(index);
+            }, 5000);
+        }
+    }
 
+    // Função para parar o auto slide
+    function stopAutoSlide() {
+        if (autoSlideInterval !== null) { // Verifica se existe um intervalo ativo
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = null; // Limpa o intervalo
+        }
+    }
+
+    // Função para atualizar o comportamento com base na largura da tela
+    function updateCarouselBehavior() {
+        if (window.innerWidth > 600) {
+            startAutoSlide(); // Inicia o auto slide para larguras maiores que 600px
+        } else {
+            stopAutoSlide(); // Para o auto slide para larguras menores ou iguais a 600px
+        }
+    }
+
+    // Inicializa o comportamento do carrossel com base na tela
+    updateCarouselBehavior();
+
+    // Atualiza o comportamento ao redimensionar a janela
+    window.addEventListener('resize', updateCarouselBehavior);
+});

@@ -211,6 +211,7 @@ img.img-client {
     justify-content: center; /* Alinha horizontalmente o contêiner */
     position: relative; /* Permite o posicionamento absoluto das setas */
     gap: 20px; /* Espaço entre a imagem e as setas */
+    overflow: hidden;
 }
 
 .imagem-planos {
@@ -224,11 +225,13 @@ img.img-client {
     display: block;
     filter: brightness(70%);
     border-radius: 10px;
+    overflow: hidden;
 }
 
 .imagem-planos:hover #fundo-plano {
     filter: brightness(20%); /* Ajuste o brilho para um efeito mais suave */
     transition: 0.2s ease-in-out;
+    overflow: hidden;
 }
 
 .logo-container {
@@ -241,11 +244,13 @@ img.img-client {
     align-items: center; /* Alinha o texto e o logo verticalmente */
     gap: 10px; /* Espaçamento entre o logo e o texto */
     z-index: 10; /* Garante que o logo e o texto estejam sobre a imagem de fundo */
-    filter: brightness(100%)
+    filter: brightness(100%);
+    overflow: hidden;
 }
 
 .logo-container span {
     display: none;
+    overflow: hidden;
 }
 
 #logo-plan {
@@ -253,6 +258,7 @@ img.img-client {
     height: auto;
     opacity: 0; /* Inicialmente invisível */
     visibility: hidden; /* Inicialmente escondido */
+    overflow: hidden;
 }
 
 
@@ -266,6 +272,7 @@ img.img-client {
     padding: 10px; /* Espaçamento interno do texto */
     border-radius: 5px; /* Bordas arredondadas */
     transition: 1s ease-in-out;
+    overflow: hidden;
 }
 
 /* Estilos das setas */
@@ -374,93 +381,209 @@ a:hover {
     padding: 15px;
 }
 
-/* Responsividade */
-@media screen and (max-width: 810px) {
 
-    .nav-menu {
-        display: none; /* Oculta o menu completamente */
+/* Estilos gerais para telas pequenas */
+@media (max-width: 300px) {
+
+    /* Seção Clientes */
+    .cliente-secao {
+        padding: 20px;
+    }
+
+    .titulo-secao, .titulo-carrossel {
+        font-size: 1.1em;
+    }
+
+    .card {
         flex-direction: column;
-        position: absolute;
-        top: 90px;
-        right: 0px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .card:hover {
+        transform: none; /* Remove o efeito de transformação em telas pequenas */
+    }
+
+    #separa-texto-cima, #separa-texto-baixo {
+        margin: 10px auto;
+    }
+
+    .texto-esquerda, .texto-direita {
         width: 100%;
-        background-color: rgb(29, 34, 46);
+        font-size: 0.8em;
     }
 
-    .nav-menu.active {
-        display: flex; /* Mostra o menu quando ativo */
+    .imagem-esquerda, .imagem-direita {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
     }
 
-    .nav-icon {
-        display: block;
-        padding-right: 10px;
+    .imagem-esquerda img, .imagem-direita img {
+        width: 100px; /* Ajuste o tamanho da imagem */
     }
 
-    .nav-item {
-        margin: 1.5rem 0;
+    /* Carrossel */
+    .carrossel-images {
+        flex-direction: column; /* Ajuste a direção para vertical */
+    }
+
+    .carousel-images-inner {
+        flex-direction: column; /* Ajuste a direção para vertical */
+    }
+
+    img.img-client {
+        width: 100%; /* Ajustado para ocupar toda a largura disponível */
+        height: auto;
+    }
+
+    .nav-client {
+        display: none;
+        position: fixed; /* Fixa a barra de navegação ao lado da tela */
+        right: 0; /* Ajuste conforme necessário */
+        top: 0; /* Ajuste conforme necessário */
+        height: 20%; /* Ajuste a altura para a tela inteira */
+        rotate: 90deg;
+    }
+
+    /* Seção Planos */
+    .planos-secao {
+        padding: 20px;
+    }
+
+    .titulo-planos {
+        font-size: 1.8em;
+    }
+
+    .subtitulo-planos {
+        font-size: 1em;
+    }
+
+    .imagem-planos-container {
+        display: grid;
+        flex-direction: row;
+        margin: 0, auto;
+    }
+
+    .imagem-planos {
+        width: 100%;
+    }
+
+    #fundo-plano {
+        width: 100%;
+        height: auto;
+    }
+
+    .seta {
+        display: none;
+    }
+
+    .logo-container {
+        display: grid;
+        margin: 0;
+    }
+
+    .imagem-planos:hover #logo-plan {
+        display: none;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .imagem-planos:hover span {
+        display: grid;
+        overflow: hidden;
+        margin: 0;
+        justify-content: center;
+    }
+
+    /* Seção Atendimento */
+    .atendimento {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .lado-esquerdo, .meio, .lado-direito {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .lado-esquerdo h2, .lado-direito h2 {
+        font-size: 1.5em;
         text-align: center;
     }
 
-    /* Botão Orçamento */
-    .add-orc {
-        padding-top: 10px;
-        padding-bottom: 10px;
+    .formas-contato {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 0.9rem;
     }
 
-    .orcamento {
-        font-size: 20px; /* Reduz o tamanho da fonte */
-        padding: 15px; /* Ajusta o padding */
-    }
 
-    /* Estilos Carrossel */
-    .title-car {
-        font-size: 50px; /* Reduz o tamanho da fonte */
-        padding-top: 80px;
-        padding-bottom: 30px;
-        text-wrap: wrap;
-    }
-
-    .carousel-container {
-        margin-left: 0px;
-        padding: 0; /* Remove o espaçamento lateral */
-        max-width: 100%; /* Define a largura máxima como 100% */
-        max-height: 7500px; /* Ajusta a altura máxima */
-    }
-
-    .carousel-item {
-        flex: 0 0 100%; /* Ocupa 100% da largura disponível */
-        border-radius: 10px;
-    }
-
-    .left-btn, .right-btn {
-        width: 50px; height: 50px; /* Reduz o tamanho dos botões */
-        top: 71%;
-    }
-
-    .overlay {
-        max-width: 640px;
-    }
-
-    .overlay:hover {
-        border-radius: 10px;
-    }
-
-    .info-box {
-        transform: translate(-50%, -35.3%);
+    .contato-item {
         width: 100%;
-        height: 62.6%; 
-        background-color: transparent;
-        border-radius: 15px 10px 10px 10px;
-        padding-left: 20px; padding-right: 20px;
     }
 
-    .info-content {
-        width: 100%; /* Define a largura como 100% */
-        max-width: 100%; /* Remove a restrição de largura máxima */
+    a {
+        width:100%;
     }
 
-    .close-info {
-        width: 100%; /* Botão ocupa 100% da largura */
-        font-size: 18px; /* Reduz o tamanho da fonte */
+    .formas-contato img, .redes-sociais img {
+        display: grid;
+        width: 20px;
+        align-items: center;
+        margin: 0 auto;
+        margin-bottom: 10px;
     }
+
+    .redes-sociais img {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .redes-sociais {
+        margin-bottom: 40px;
+    }
+
+    .meio img { 
+        display: none;
+    }
+
+    .lado-direito {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto; 
+    }
+
+    .info-horario, .info-localizacao {
+        display: grid;
+        margin: 10px auto;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .info-horario img, .info-localizacao img {
+        display: grid;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #footer-page {
+        width: 100%;
+        font-size: 8px;
+    }
+
 }
+
