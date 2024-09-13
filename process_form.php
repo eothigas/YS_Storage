@@ -4,8 +4,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Configurações do banco de dados
     $host = 'localhost';
     $dbname = 'pgudxdii_yourstorage';
-    $user = 'pgudxdii__jC6639eHtW8oWN3WcFLoKVfzDG1JKEwu';
-    $password = 'yourstorage';
+    $user = 'pgudxdii_yourstorage';
+    $password = 'thigas_07';
 
     $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
 
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Configurações do e-mail
         $to = $email;
-        $subject = "Recebimento de Formulário - Your Storage";
+        $subject = "Recebimento de Formulario - Your Storage";
         $message = "
         <html>
         <head>
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </body>
         </html>";
 
-        $headers .= "Content-type: text/html; charset=UTF-8\r\n";
+        $headers = "Content-type: text/html; charset=UTF-8\r\n";
 
         // Envia o e-mail
         if (mail($to, $subject, $message, $headers)) {
@@ -61,13 +61,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Location: orcamentopendente.html");
             exit();
         } else {
-            // Se o e-mail não foi enviado, você pode redirecionar para uma página de erro ou mostrar uma mensagem de erro
-            echo "Email não enviado";
+            // Se o e-mail não foi enviado, mostra uma mensagem de erro
+            echo "Erro ao enviar o e-mail.";
             exit();
         }
     } catch (PDOException $e) {
-        // Redireciona para a página de erro se necessário
-        header("Location: index.html"); // Opcional: Página de erro genérica
+        // Mostra o erro para depuração
+        echo "Erro: " . $e->getMessage();
         exit();
     }
 }
