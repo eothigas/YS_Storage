@@ -14,32 +14,33 @@ body {
 
 /* Botão de Voltar ao Topo */
 #btn-topo {
+    opacity: 0;
+    visibility: hidden;
     position: fixed;
     bottom: 70px;
-    right: 40px;
-    background-color: transparent;
+    right: 20px;
+    background-color:  rgba(120, 120, 120, 0.13);
     color: #fff;
-    border-radius: 10px;
+    border-radius: 20px;
     border: 4px solid white;
     padding: 0.8rem 1rem;
     font-size: 1.5rem;
     cursor: pointer;
-    opacity: 0; /* Começa invisível */
     transform: translateY(20px); /* Deslocado para baixo inicialmente */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Transição suave */
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease; /* Transição suave */
     z-index: 100;
 }
 
 /* Botão visível com animação */
 #btn-topo.show {
-    display: block; /* Mostrar o botão */
     opacity: 1; /* Tornar visível */
+    visibility: visible; /* Mostrar o botão */
     transform: translateY(0); /* Retornar à posição original */
 }
 
 /* Efeito hover para o botão */
 #btn-topo:hover {
-    background-color: rgb(120, 120, 120);
+    background-color: rgba(4, 9, 21, 0.9);
 }
 
 /* Navegação */
@@ -112,66 +113,79 @@ body {
     transform: rotate(90deg); /* Muda para a rotação desejada, aqui 90 graus */
 }
 
-/* Seção de Destaque */
 .highlight-section {
     position: relative;
-    width: 100%;
-    height: 765px; /* Ajuste conforme necessário */
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.5);
+    width: 100%; /* Define a largura do container */
+    height: 750px; /* Define a altura do container */
+}
+
+.highlight-carousel {
+    position: relative; /* Define a posição relativa para os itens filhos */
+    width: 100%;
+    height: 100%;
 }
 
 .highlight-container {
-    position: relative;
+    position: absolute; /* Faz as imagens se sobreporem */
     width: 100%;
     height: 100%;
 }
 
-.highlight-video {
+.highlight-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute; /* Faz as imagens se sobreporem */
+    top: 0;
+    left: 0;
+    opacity: 1; /* Inicialmente invisível */
+    transition: opacity 1s ease-in-out; /* Transição suave de opacidade */
+}
+
+.highlight-img.active {
+    opacity: 1; /* A imagem ativa será visível */
+}
+
+.highlight-over {
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
-    transition: filter 0.3s ease; /* Adiciona uma transição suave */
-}
-
-/* Adiciona um filtro escuro ao vídeo quando o overlay está visível */
-.highlight-container:hover .highlight-video {
-    filter: brightness(30%);
-}
-
-.highlight-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    display: none; /* Inicialmente escondido */
-    color: #fff;
-    transition: opacity 0.3s ease; /* Adiciona uma transição suave */
-}
-
-.highlight-image {
-    width: 100px; /* Ajuste conforme necessário */
-    margin-bottom: 1rem; /* Ajuste conforme necessário */
-    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.349); /* Ajuste a opacidade se necessário */
 }
 
 .highlight-text {
-    color: #fff;
-    font-size: 2rem;
+    display: none;
+    font-size: 24px;
     text-align: center;
-    padding: 1px;
-    /* Remover o fundo do texto */
-    background: none;
-    border-radius: 0; /* Remove o arredondamento do fundo */
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    font-weight: bold;
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.5s ease-in-out; /* Transição suave para a opacidade */
+}
+
+.highlight-image {
+    display: none;
+    width: 100px;
+    margin-bottom: 20px;
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.5s ease-in-out; /* Transição suave para a opacidade */
+}
+
+.highlight-over:hover {
+    background-color: rgba(0, 0, 0, 0.750);
+}
+
+.highlight-over:hover .highlight-text,
+.highlight-over:hover .highlight-image{
+    display: block;
+    opacity: 1;
 }
 
 /* Botão Orçamento */
@@ -358,7 +372,7 @@ body {
     border-radius: 5px;
     color: white;
     cursor: pointer;
-    font-size: 10px ;
+    font-size: 15px ;
 }
 
 .close-info:hover {

@@ -2,8 +2,7 @@
 
 /* Botão MENU-NAV deve aparecer com resoluções menores ou igual que 808px */
 
-
-@media screen and (min-width: 300px) and (max-width: 808px) {
+@media screen and (min-width: 300px) and (max-width: 500px) {
 
     .nav-menu {
         display: none; /* Oculta o menu completamente */
@@ -29,13 +28,18 @@
         text-align: center;
     }
 
-    /* Texto Vídeo */
+    .highlight-section {
+        height: 300px; /* Ajuste a altura conforme necessário */
+    }
 
     .highlight-text {
-        font-size: 1.2rem;
+        font-size: 18px; /* Reduz o tamanho da fonte para telas menores */
+    }
+
+    .highlight-image {
+        width: 80px; /* Ajusta o tamanho da imagem para telas menores */
     }
     
-
     /* Botão Orçamento */
     .add-orc {
         padding-top: 10px;
@@ -97,15 +101,16 @@
     }
 
     .info-content h2 {
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 
     .info-content p {
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     }
 
     .close-info {
         margin-top: 10px;
+        font-size: 1rem;
     }
 
      /* Seção Clientes */
@@ -121,10 +126,6 @@
         flex-direction: column;
         padding: 20px;
         margin-bottom: 20px;
-    }
-
-    .card:hover {
-        transform: none; /* Remove o efeito de transformação em telas pequenas */
     }
 
     #separa-texto-cima, #separa-texto-baixo {
@@ -149,29 +150,42 @@
         width: 100px; /* Ajuste o tamanho da imagem */
     }
 
-    /* Carrossel */
-    .carrossel-images {
-        flex-direction: column; /* Ajuste a direção para vertical */
+    .carousel-images {
+        padding: 0px;
     }
 
     .carousel-images-inner {
-        flex-direction: column; /* Ajuste a direção para vertical */
+        flex-direction: row; /* Direção horizontal para o carrossel */
+        width: 100%;
+        margin: 0;
+        padding: 0px;
     }
 
     img.img-client {
-        width: 80%; /* Ajustado para ocupar toda a largura disponível */
-        height: auto;
-        margin: 5px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 300px;
+        object-fit: cover; /* Ajusta a imagem para cobrir o container */
+        margin: 0 25px 0 5px;
+        padding: 0px;   
     }
 
     .nav-client {
-        display: none;
-        position: fixed; /* Fixa a barra de navegação ao lado da tela */
-        right: 0; /* Ajuste conforme necessário */
-        top: 0; /* Ajuste conforme necessário */
-        height: 20%; /* Ajuste a altura para a tela inteira */
-        rotate: 90deg;
+        position: absolute; /* Fixa a barra de navegação ao lado da tela */
+        bottom: 0px; /* Ajuste a posição conforme necessário */
+        left: 50%; /* Centraliza horizontalmente */
+        transform: translateX(-50%); /* Compensa a centralização */
+        display: flex; /* Flexbox para itens de navegação */
+        flex-direction: row; /* Alinha os itens horizontalmente */
+        align-items: center; /* Alinha os itens verticalmente */
     }
+
+    .nav-itens {
+        width: 7px;
+        height: 7px;
+    }    
 
     /* Seção Planos */
     .planos-secao {
@@ -227,15 +241,20 @@
     .atendimento {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
+        padding: 20px ;
         justify-content: center;
         align-items: center;
+        margin-top: 0px;
+        overflow: hidden;
+        height: 800px;
     }
 
     .lado-esquerdo, .meio, .lado-direito {
-        width: 100%;
-        margin-bottom: 20px;
+        display: grid;
+        width: 100px;
+        margin-bottom: 0px;
+        align-items: center;
+        justify-content: center;
     }
 
     .lado-esquerdo h2, .lado-direito h2 {
@@ -251,13 +270,20 @@
         font-size: 0.9rem;
     }
 
-
     .contato-item {
         width: 100%;
     }
 
     a {
-        width:100%;
+        width: 100%;
+    }
+
+    .lado-esquerdo h2, .lado-direito h2 {
+        font-size: 1.4em;
+        margin-bottom: 20px;
+        text-decoration: underline;
+        width: 200px;
+        text-align: center;
     }
 
     .formas-contato img, .redes-sociais img {
@@ -265,11 +291,12 @@
         width: 20px;
         align-items: center;
         margin: 0 auto;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
     }
 
     .redes-sociais img {
-        width: 50%;
+        width: 20px;
+        height: 20px;
         margin: 0 auto;
     }
 
@@ -319,6 +346,346 @@
 
 }
 
+@media screen and (min-width: 501px) and (max-width: 808px) {
+
+    .nav-menu {
+        display: none; /* Oculta o menu completamente */
+        flex-direction: column;
+        position: absolute;
+        top: 90px;
+        right: 0px;
+        width: 100%;
+        background-color: rgb(29, 34, 46);
+    }
+
+    .nav-menu.active {
+        display: flex; /* Mostra o menu quando ativo */
+    }
+
+    .nav-icon {
+        display: block;
+        padding-right: 10px;
+    }
+
+    .nav-item {
+        margin: 1.5rem 0;
+        text-align: center;
+    }
+
+    .highlight-section {
+        height: 300px; /* Ajuste a altura conforme necessário */
+    }
+
+    .highlight-text {
+        font-size: 18px; /* Reduz o tamanho da fonte para telas menores */
+    }
+
+    .highlight-image {
+        width: 80px; /* Ajusta o tamanho da imagem para telas menores */
+    }
+    
+    /* Botão Orçamento */
+    .add-orc {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+    }
+
+    .orcamento {
+        font-size: 18px; /* Reduz o tamanho da fonte */
+        padding: 15px; /* Ajusta o padding */
+    }
+
+    #btn-topo {
+        position: fixed;
+        align-items: center;
+        text-align: center;
+        font-size: 15px;
+        right: 12%;
+    }
+
+    .title-car {
+        text-align: center;
+        font-size: 0.85rem;
+    }
+
+    .carousel-section  {
+        padding: 10px;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+
+    .carousel-item{
+        margin: 0 auto;
+        /* border-radius: 30px; */
+    }
+
+    .overlay:hover {
+        border-radius: 5px;
+    }
+
+    .left-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .right-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .info-box {
+        padding: 2px 5px 5px 5px;
+    }
+
+    .info-content {
+        font-size: 0.7rem;
+    }
+
+    .info-content h2 {
+        font-size: 1rem;
+    }
+
+    .info-content p {
+        font-size: 0.8rem;
+    }
+
+    .close-info {
+        margin-top: 10px;
+        font-size: 1rem;
+    }
+
+     /* Seção Clientes */
+     .cliente-secao {
+        padding: 20px;
+    }
+
+    .titulo-secao, .titulo-carrossel {
+        font-size: 1.1em;
+    }
+
+    .card {
+        flex-direction: column;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    #separa-texto-cima, #separa-texto-baixo {
+        margin: 10px auto;
+    }
+
+    .texto-esquerda, .texto-direita {
+        width: 100%;
+        font-size: 0.8em;
+    }
+
+    .imagem-esquerda, .imagem-direita {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+    }
+
+    .imagem-esquerda img, .imagem-direita img {
+        width: 100px; /* Ajuste o tamanho da imagem */
+    }
+
+    .carousel-images {
+        padding: 50px;
+    }
+
+    .carousel-images-inner {
+        flex-direction: row; /* Direção horizontal para o carrossel */
+        width: 100%;
+        margin: 0;
+        padding: 0px;
+    }
+
+    img.img-client {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 300px;
+        object-fit: cover; /* Ajusta a imagem para cobrir o container */
+        margin: 0 0px 10px 0px;
+        padding-right: 150px;
+        padding-left: 100px;   
+    }
+
+    .nav-client {
+        position: absolute; /* Fixa a barra de navegação ao lado da tela */
+        bottom: 0px; /* Ajuste a posição conforme necessário */
+        left: 50%; /* Centraliza horizontalmente */
+        transform: translateX(-50%); /* Compensa a centralização */
+        display: flex; /* Flexbox para itens de navegação */
+        flex-direction: row; /* Alinha os itens horizontalmente */
+        align-items: center; /* Alinha os itens verticalmente */
+    }
+
+    .nav-itens {
+        width: 7px;
+        height: 7px;
+    }
+
+    /* Seção Planos */
+    .planos-secao {
+        padding: 20px;
+    }
+
+    .titulo-planos {
+        font-size: 1.8em;
+    }
+
+    .subtitulo-planos {
+        font-size: 1em;
+    }
+
+    .imagem-planos-container {
+        display: grid;
+        flex-direction: row;
+        margin: 0, auto;
+    }
+
+    .imagem-planos {
+        width: 100%;
+    }
+
+    #fundo-plano {
+        width: 100%;
+        height: auto;
+    }
+
+    .logo-container {
+        display: grid;
+        margin: 0;
+    }
+
+    .imagem-planos:hover #logo-plan {
+        display: none;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .imagem-planos:hover span {
+        display: grid;
+        overflow: hidden;
+        margin: 0;
+        justify-content: center;
+    }
+
+/* Seção Atendimento */
+.atendimento {
+    display: flex;
+    flex-direction: column;
+    padding: 20px ;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    overflow: hidden;
+    height: 800px;
+}
+
+.lado-esquerdo, .meio, .lado-direito {
+    display: grid;
+    width: 100px;
+    margin-bottom: 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.lado-esquerdo h2, .lado-direito h2 {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.formas-contato {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.contato-item {
+    width: 100%;
+}
+
+a {
+    width: 100%;
+}
+
+.lado-esquerdo h2, .lado-direito h2 {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    width: 200px;
+    text-align: center;
+}
+
+.formas-contato img, .redes-sociais img {
+    display: grid;
+    width: 20px;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 0px;
+}
+
+.redes-sociais img {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+}
+
+.redes-sociais {
+    margin-bottom: 40px;
+}
+
+#meio-responsive {
+    display: grid;
+    border: 3px rgb(50, 65, 102) solid;
+    border-radius: 10px;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.meio img { 
+    display: none;
+}
+
+.lado-direito {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; 
+}
+
+.info-horario, .info-localizacao {
+    display: grid;
+    margin: 10px auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.info-horario img, .info-localizacao img {
+    display: grid;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+    #footer-page {
+        width: 100%;
+        font-size: 8px;
+    }
+
+}
+
 @media screen and (min-width: 500px) {
 
     .title-car {
@@ -346,3 +713,104 @@
 
 }
 
+@media screen and (min-width: 809px) and (max-width: 1070px) {
+
+     /* Seção Clientes */
+    .cliente-secao {
+        padding: 20px;
+    }
+    
+    .titulo-secao, .titulo-carrossel {
+        font-size: 1.1em;
+    }
+    
+    .card {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    #separa-texto-cima, #separa-texto-baixo {
+        margin: 10px auto;
+    }
+    
+    .texto-esquerda, .texto-direita {
+        width: 100%;
+        font-size: 0.8em;
+    }
+    
+    .imagem-esquerda img, .imagem-direita img {
+        width: 100px; /* Ajuste o tamanho da imagem */    
+    }
+
+    /* Seção Planos */
+    .planos-secao {
+        padding: 20px;
+    }
+
+    .titulo-planos {
+        font-size: 1.8em;
+    }
+
+    .subtitulo-planos {
+        font-size: 1em;
+    }
+
+    .imagem-planos-container {
+        display: grid;
+        flex-direction: row;
+        margin: 0, auto;
+    }
+
+    .imagem-planos {
+        width: 100%;
+    }
+
+    #fundo-plano {
+        width: 100%;
+        height: auto;
+    }
+
+    .logo-container {
+        display: grid;
+        margin: 0;
+    }
+
+    .imagem-planos:hover #logo-plan {
+        display: none;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .imagem-planos:hover span {
+        display: grid;
+        overflow: hidden;
+        margin: 0;
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 1071px) {
+
+    /* Seção Clientes */
+   .cliente-secao {
+       padding: 20px;
+   }
+   
+   .titulo-secao, .titulo-carrossel {
+       font-size: 1.1em;
+   }
+   
+   .card {
+       padding: 20px;
+       margin-bottom: 20px;
+   }
+   
+   .texto-esquerda, .texto-direita {
+       width: 100%;
+       font-size: 0.8em;
+   }
+   
+   .imagem-esquerda img, .imagem-direita img {
+       width: 200px; /* Ajuste o tamanho da imagem */    
+   }
+}

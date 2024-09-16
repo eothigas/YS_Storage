@@ -1,3 +1,22 @@
+function smoothScrollTo(top, duration) {
+    const start = window.scrollY;
+    const startTime = performance.now();
+    
+    function scrollStep(timestamp) {
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        window.scrollTo(0, start + (top - start) * easeInOutQuad(progress));
+        if (progress < 1) {
+            requestAnimationFrame(scrollStep);
+        }
+    }
+    
+    function easeInOutQuad(t) {
+        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+    
+    requestAnimationFrame(scrollStep);
+}
+
 // Menu Responsivo
 const navIcon = document.querySelector('.nav-icon');
 const navMenu = document.querySelector('.nav-menu');
@@ -7,37 +26,39 @@ navIcon.addEventListener('click', () => {
     navIcon.classList.toggle('rotated'); // Adiciona/Remove a classe de rotação
 });
 
-// Vídeos em Destaque
-const highlightVideo = document.getElementById('highlight-video');
-const highlightOverlay = document.querySelector('.highlight-overlay');
+// Passar imagens destaque 
 
-// Função para mostrar o overlay ao passar o mouse sobre o vídeo
-function showOverlay() {
-    highlightOverlay.style.display = 'block';
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const highlightImgs = document.querySelectorAll('.highlight-img');
+    let currentIndex = 0;
 
-// Função para ocultar o overlay ao sair o mouse do vídeo
-function hideOverlay() {
-    highlightOverlay.style.display = 'none';
-}
+    function showImage(index) {
+        highlightImgs.forEach((img, i) => {
+            img.style.opacity = i === index ? '1' : '0';
+        });
+    }
 
-// Adiciona eventos de mouseover e mouseout ao vídeo
-highlightVideo.addEventListener('mouseover', showOverlay);
-highlightVideo.addEventListener('mouseout', hideOverlay);
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % highlightImgs.length;
+        showImage(currentIndex);
+    }
 
-// Adiciona eventos de mouseover e mouseout ao overlay para manter a visibilidade
-highlightOverlay.addEventListener('mouseover', showOverlay);
-highlightOverlay.addEventListener('mouseout', hideOverlay);
+    // Inicializa o carrossel mostrando a primeira imagem
+    showImage(currentIndex);
+
+    // Troca de imagem a cada 10 segundos
+    setInterval(nextImage, 10000); // 10000 ms = 10 segundos
+});
 
 // Botão voltar ao Topo
 
 const btnTopo = document.getElementById('btn-topo');
-const carousel = document.getElementById('carousel');
+const client = document.getElementById('client-section');
 
 window.addEventListener('scroll', () => {
-    const sectionBottom = carousel.getBoundingClientRect().bottom;
+    const sectionBottom = client.getBoundingClientRect().bottom;
     
-    // Verifica se o usuário passou do final do carousel
+    // Verifica se o usuário passou do final do client
     if (sectionBottom <= 0) {
         btnTopo.classList.add('show'); // Adiciona a classe para exibir o botão com animação
     } else {
@@ -46,14 +67,10 @@ window.addEventListener('scroll', () => {
 });
 
 btnTopo.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    smoothScrollTo(0, 1000); // Rolagem para o topo em 1 segundo
 });
 
 // Funções Carrossel
-
 const carouselImg = document.querySelectorAll('.carousel-item');
 const leftBtn = document.querySelector('.left-btn');
 const rightBtn = document.querySelector('.right-btn');
@@ -65,7 +82,6 @@ function updateCarousel() {
         item.style.transform = `translateX(${transformValue}%)`;
     });
 
-    // Controle da visibilidade dos botões
     leftBtn.style.display = currentIndex === 0 ? 'none' : 'block';
     rightBtn.style.display = currentIndex === carouselImg.length - 1 ? 'none' : 'block';
 }
@@ -90,23 +106,21 @@ updateCarousel();
 const overlays = document.querySelectorAll('.overlay');
 const infoBoxes = document.querySelectorAll('.info-box');
 
-// Adiciona um evento de clique a cada overlay
 overlays.forEach(overlay => {
     overlay.addEventListener('click', () => {
-        const infoId = overlay.parentElement.dataset.info; // Obtém o ID da info correspondente
+        const infoId = overlay.parentElement.dataset.info;
         const infoBox = document.getElementById(infoId);
-        infoBox.style.display = 'flex'; // Exibe a infobox
-        overlay.style.display = 'none'; // Oculta o overlay
-        document.querySelector('.left-btn').style.display = 'none'; // Oculta botões de navegação
-        document.querySelector('.right-btn').style.display = 'none'; // Oculta botões de navegação
+        infoBox.style.display = 'flex';
+        overlay.style.display = 'none';
+        document.querySelector('.left-btn').style.display = 'none';
+        document.querySelector('.right-btn').style.display = 'none';
     });
 });
 
-// Adiciona um evento de clique a cada botão de fechar na infobox
 document.querySelectorAll('.close-info').forEach(button => {
     button.addEventListener('click', () => {
-        button.parentElement.parentElement.style.display = 'none'; // Oculta a infobox
-        document.querySelector(`.carousel-item[data-info="${button.parentElement.parentElement.id}"] .overlay`).style.display = 'flex'; // Exibe o overlay correspondente
+        button.parentElement.parentElement.style.display = 'none';
+        document.querySelector(`.carousel-item[data-info="${button.parentElement.parentElement.id}"] .overlay`).style.display = 'flex';
         document.querySelector('.left-btn').style.display = currentIndex === 0 ? 'none' : 'block';
         document.querySelector('.right-btn').style.display = currentIndex === carouselImg.length - 1 ? 'none' : 'block';
     });
@@ -120,21 +134,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let index = 0;
     let autoSlideInterval = null;
 
-    // Função para atualizar a largura da imagem
     function updateImageWidth() {
         imageWidth = document.querySelector('.carousel-images-inner img').clientWidth;
     }
 
-    // Atualiza a visualização do carrossel com base no índice
     function updateCarousel(newIndex) {
         index = newIndex;
-        updateImageWidth(); // Recalcula a largura da imagem a cada atualização
+        updateImageWidth();
         carouselImages.style.transform = `translateX(${-index * imageWidth}px)`;
         navIt.forEach(item => item.classList.remove('active'));
         navIt[index].classList.add('active');
     }
 
-    // Adiciona eventos de clique para cada item da barra de navegação
     navIt.forEach(item => {
         item.addEventListener('click', () => {
             const newIndex = parseInt(item.getAttribute('data-index'));
@@ -142,43 +153,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Inicializa o carrossel com o primeiro item ativo
     updateCarousel(0);
 
-    // Função para iniciar o auto slide
     function startAutoSlide() {
-        if (autoSlideInterval === null) { // Verifica se já não existe um intervalo
+        if (autoSlideInterval === null) {
             autoSlideInterval = setInterval(() => {
-                index = (index + 1) % navIt.length; // Incrementa o índice ciclicamente
+                index = (index + 1) % navIt.length;
                 updateCarousel(index);
             }, 5000);
         }
     }
 
-    // Função para parar o auto slide
     function stopAutoSlide() {
-        if (autoSlideInterval !== null) { // Verifica se existe um intervalo ativo
+        if (autoSlideInterval !== null) {
             clearInterval(autoSlideInterval);
-            autoSlideInterval = null; // Limpa o intervalo
+            autoSlideInterval = null;
         }
     }
 
-    // Função para atualizar o comportamento com base na largura da tela
     function updateCarouselBehavior() {
-        if (window.innerWidth > 808) {
-            startAutoSlide(); // Inicia o auto slide para larguras maiores que 808px
+        if (window.innerWidth > 400) {
+            startAutoSlide();
         } else {
-            stopAutoSlide(); // Para o auto slide para larguras menores ou iguais a 808px
+            stopAutoSlide();
         }
     }
 
-    // Inicializa o comportamento do carrossel com base na tela
     updateCarouselBehavior();
 
-    // Atualiza o comportamento e o estado do carrossel ao redimensionar a janela
     window.addEventListener('resize', () => {
-        updateImageWidth(); // Atualiza a largura da imagem ao redimensionar
-        updateCarousel(index); // Reposiciona corretamente a imagem
-        updateCarouselBehavior(); // Verifica se o auto slide deve continuar ou parar
+        updateImageWidth();
+        updateCarousel(index);
+        updateCarouselBehavior();
     });
 });

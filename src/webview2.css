@@ -12,6 +12,10 @@ body {
     color: white
 }
 
+a {
+    text-decoration: none;
+}
+
 /* Seção Clientes */
 .cliente-secao {
     padding: 40px;
@@ -134,25 +138,24 @@ body {
     display: flex;
     transition: transform 0.5s ease;
     width: 100%;
-    background-color: rgba(251, 251, 251, 0.9);
+    background-color: rgba(255, 255, 255, 0.014);
 }
 
 .carousel-images-inner {
     display: flex;
     transition: transform 0.6s ease-in-out;
-    margin: 0;
+    margin: 0 auto;
 }
 
 img.img-client {
     /* border: 1px silver solid; */
-    margin: 0 auto;
-    width: 480px;
-    height: 480px;
+    width: 400px;
+    height: 300px;
     margin: 0 50px 0 80px;
 }
 
 .carousel-images-inner img {
-    width: 80%; /* Ajuste para mostrar 4 imagens por vez */
+    width: 100%; /* Ajuste para mostrar 4 imagens por vez */
     transition: transform 0.3s ease;
 }
 
@@ -277,29 +280,6 @@ img.img-client {
     overflow: hidden;
 }
 
-/* Estilos das setas */
-.seta {
-    font-size: 2em; /* Ajuste o tamanho das setas conforme necessário */
-    transition: color 0.3s ease; /* Transição suave para a cor das setas */
-}
-
-.seta-esquerda {
-    margin-right: 50px; /* Espaço entre a seta esquerda e a imagem */
-}
-
-.seta-direita {
-    margin-left: 50px; /* Espaço entre a seta direita e a imagem */
-}
-
-a {
-    text-decoration: none;
-    color: #fff;
-}
-
-a:hover {
-    color: #d6d6d6ca;
-}
-
 /* HR Separa Section */
 
 #separa-section {
@@ -315,7 +295,8 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px;
+    padding: 30px 50px 0 50px;
+    height: 500px;
 }
 
 .lado-esquerdo, .meio, .lado-direito {
@@ -362,7 +343,7 @@ a:hover {
 }
 
 .meio img {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .info-horario, .info-localizacao {
@@ -374,6 +355,14 @@ a:hover {
 .info-horario img, .info-localizacao img {
     width: 30px;
     margin-right: 10px;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: rgba(65, 87, 139);
 }
 
 /* Rodapé */
