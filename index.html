@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Empresa voltada a locação e gerenciamento de espaços de armazenamento fisíco e virtual.">
     <link rel="icon" href="./src/images/Logo_reduzido.svg" type="image/png">
     <title>Your Storage - Home</title>
     <link rel="stylesheet" href="./src/webview.css">
@@ -13,294 +14,303 @@
 </head>
 <body>
 
-    <!-- Botão de Voltar ao Topo -->
-    <button id="btn-topo"><i class="fas fa-arrow-up"></i></button>
-
-    <!-- Navegação -->
-    <nav class="navbar">
-        <div class="nav-container">
-                <img src="./src/images/Logo.svg" class="nav-logo" width="200">
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#sobre-nos" class="nav-links">Sobre Nós</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./planos.html" class="nav-links">Planos</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#fale-conosco" class="nav-links">Fale Conosco</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#login" class="nav-links btn-login">
-                        <img src="./src/images/Vector.svg" class="img-login"></i> Meu Storage
-                    </a>
-                </li>
-            </ul>
-            <div class="nav-icon">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Destaque com Carrossel de Imagens -->
-    <section class="highlight-section">
-        <div class="highlight-carousel">
-            <div class="highlight-container">
-                <img class="highlight-img" src="./src/images/st1.jpg" type="image/jpg" alt="Imagem 1">
-                <img class="highlight-img" src="./src/images/st2.jpg" type="image/jpg" alt="Imagem 2">
-                <img class="highlight-img" src="./src/images/st3.jpg" type="image/jpg" alt="Imagem 3">
-            </div>
-            <div class="highlight-over">
-                <img src="./src/images/Logo_reduzido.svg" class="highlight-image">
-                <div class="highlight-text">
-                    Your Storage<br>
-                    Seu storage está aqui!
+    <header>
+        <!-- Navegação -->
+        <nav class="navbar" aria-label="Links de Navegação do Site">
+            <div class="nav-container">
+                    <img src="./src/images/Logo.svg" class="nav-logo" width="200" alt="Your Storage - Logo">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#sobre-nos" class="nav-links">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./planos.html" class="nav-links">Planos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#fale-conosco" class="nav-links">Fale Conosco</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#login" class="nav-links btn-login">
+                            <img src="./src/images/Vector.svg" class="img-login" alt="Login"></i> Meu Storage
+                        </a>
+                    </li>
+                </ul>
+                <div class="nav-icon" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
                 </div>
             </div>
-        </div>
-    </section>
+        </nav>
+    </header>
 
-    <!--Botão Orçamento-->
-    <section class="add-orc">
-        <div class="add-orc">
-            <a href="./orcamento.html"><button class="orcamento" type="button">Adquira já seu orçamento!</button></a>
-        </div>
-    </section>
-
-    <!-- Carrossel de Imagens -->
-    <section class="carousel-section" id="carousel">
-        <div class="title-car">
-            Confira nossos principais storages!
-        </div>
-
-        <div class="carousel-container">
-            
-            <button class="left-btn"><i class="fas fa-chevron-left"></i></button>
-            <button class="right-btn"><i class="fas fa-chevron-right"></i></button>
-
-            <div class="carousel-item" data-info="info1">
-                <div class="info-box" id="info1">
-                    <div class="info-content">
-                        <h2>Informações do Storage 1</h2>
-                        <p>Altura: 8 metros</p>
-                        <p>Largura: 8 metros</p>
-                        <p>Comprimento: 16 metros</p>
-                        <button class="close-info">Voltar</button>
+    <main>    
+        <!-- Destaque com Carrossel de Imagens -->
+        <section class="highlight-section" aria-label="Seção de Destaque">
+            <div class="highlight-carousel">
+                <div class="highlight-container" aria-live="polite">
+                    <img class="highlight-img" src="./src/images/st1.jpg" type="image/jpg" alt="Imagem Destaque">
+                    <img class="highlight-img" src="./src/images/st2.jpg" type="image/jpg" alt="Imagem Destaque">
+                    <img class="highlight-img" src="./src/images/st3.jpg" type="image/jpg" alt="Imagem Destaque">
+                </div>
+                <div class="highlight-over">
+                    <img src="./src/images/Logo_reduzido.svg" class="highlight-image">
+                    <div class="highlight-text">
+                        Your Storage<br>
+                        Seu storage está aqui!
                     </div>
                 </div>
-                <img src="./src/images/Storage_1.png" width="1000" height="600">
-                <div class="overlay">
-                    <img src="./src/images/olho_aberto.png" class="view">
-                    <p>
+            </div>
+        </section>
+
+        <!--Botão Orçamento-->
+        <section class="add-orc">
+            <div class="add-orc">
+                <a href="./orcamento.html"><button class="orcamento" type="button" aria-label="Adquira já seu orçamento!">Adquira já seu orçamento!</button></a>
+            </div>
+        </section>
+
+        <!-- Carrossel de Imagens -->
+        <section class="carousel-section" id="carousel">
+            <div class="title-car">
+                Confira nossos principais storages!
+            </div>
+
+            <div class="carousel-container" arial-live="polite">
+                
+                <button class="left-btn" aria-label="Imagem anterior">
+                    <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                </button>
+                <button class="right-btn" aria-label="Próxima imagem">
+                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                </button>
+                
+
+                <div class="carousel-item" data-info="info1" alt="Exemplo Storage 1">
+                    <div class="info-box" id="info1">
+                        <div class="info-content">
+                            <h2>Informações do Storage 1</h2>
+                            <p>Altura: 8 metros</p>
+                            <p>Largura: 8 metros</p>
+                            <p>Comprimento: 16 metros</p>
+                            <button class="close-info">Voltar</button>
+                        </div>
+                    </div>
+                    <img src="./src/images/Storage_1.png" width="1000" height="600">
+                    <div class="overlay">
+                        <img src="./src/images/olho_aberto.png" class="view">
+                        <p>
+                            Visualizar
+                        </p>
+                    </div>
+                </div>
+
+                <div class="carousel-item" data-info="info2">
+                    <div class="info-box" id="info2">
+                        <div class="info-content">
+                            <h2>Informações do Storage 2</h2>
+                            <p>Altura: 5 metros</p>
+                            <p>Largura: 5 metros</p>
+                            <p>Comprimento: 10 metros</p>
+                            <button class="close-info">Voltar</button>
+                        </div>
+                    </div>
+                    <img src="./src/images/Storage_2.png" width="1000">
+                    <div class="overlay">
+                        <img src="./src/images/olho_aberto.png" class="view">
                         Visualizar
-                    </p>
-                </div>
-            </div>
-
-            <div class="carousel-item" data-info="info2">
-                <div class="info-box" id="info2">
-                    <div class="info-content">
-                        <h2>Informações do Storage 2</h2>
-                        <p>Altura: 5 metros</p>
-                        <p>Largura: 5 metros</p>
-                        <p>Comprimento: 10 metros</p>
-                        <button class="close-info">Voltar</button>
-                    </div>
-                </div>
-                <img src="./src/images/Storage_2.png" width="1000">
-                <div class="overlay">
-                    <img src="./src/images/olho_aberto.png" class="view">
-                    Visualizar
-                </div>
-            </div>
-
-            <div class="carousel-item" data-info="info3">
-                <div class="info-box" id="info3">
-                    <div class="info-content">
-                        <h2>Informações do Storage 3</h2>
-                        <p>Altura: 3 metros</p>
-                        <p>Largura: 3 metros</p>
-                        <p>Comprimento: 6 metros</p>
-                        <button class="close-info">Voltar</button>
-                    </div>
-                </div>
-                <img src="./src/images/Storage_3.png" width="1000">
-                <div class="overlay">
-                    <img src="./src/images/olho_aberto.png" class="view">
-                    Visualizar
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr id="separa-section">
-
-    <!-- Seção Clientes -->
-    <section class="cliente-secao" id="client-section">
-        <h2 class="titulo-secao">Satisfação de Clientes</h2>
-        
-        <div class="linha-superior card">
-            <div class="texto-esquerda">
-                <hr id="separa-texto-cima">
-                <p><em>O sistema da YourStorage superou todas as minhas expectativas!
-                Desde o momento em que comecei a utilizar, fiquei impressionada com a facilidade e eficiência da plataforma. O sistema é extremamente intuitivo, e o controle que ele oferece sobre os ativos da empresa é incomparável.</p><br>
-                <p>A agilidade no cadastro e na movimentação dos produtos é excelente, e a atualização em tempo real do estoque me dá total segurança. O suporte ao cliente também foi muito atencioso e eficiente, sempre pronto para ajudar.</p>
-                <p>Sem dúvida, a YourStorage é uma ferramenta essencial para quem busca organização, controle e otimização. Estou mais do que satisfeita!</em></p>
-                <hr id="separa-texto-baixo">
-                <p id="client">Maria Oliveira - Gerente de Vendas na TechFlux Eletronics</p>
-            </div>
-        
-            <div class="imagem-direita">
-                <img src="./src/images/maria.png" height="">
-            </div>
-        </div>
-        
-        <div class="linha-inferior card">
-            <div class="imagem-esquerda">
-                <img src="./src/images/joao.png" alt="João Oliveira">
-            </div>
-        
-            <div class="texto-direita">
-                <hr id="separa-texto-cima">
-                <p><em>Desde que comecei a usar o sistema da YourStorage, percebi uma melhora significativa no controle dos ativos da minha empresa. A plataforma é prática, fácil de usar e me dá muita segurança.</p><br> 
-                <p>O cadastro dos ativos é ágil e me permite organizar tudo de forma eficiente. Acredito que ainda sempre há espaço para melhorias em termos de automação e suporte, mas no geral, o sistema tem sido uma ferramenta essencial para manter tudo sob controle.</em></p>
-                <hr id="separa-texto-baixo">
-                <p id="client">João Oliveira - Diretor de Operações na PrimeAssets Solutions</p>
-            </div>
-        </div>
-
-        <h3 class="titulo-carrossel">+ Empresas Satisfeitas</h3>
-        
-        <div class="carrossel-container">
-            <div class="carrossel">
-                <div class="carrossel-images">
-                    <div class="carousel-images-inner">
-                        <img class='img-client' src="./src/images/client_1.png" alt="Cliente 1">
-                        <img class='img-client' src="./src/images/client_2.png" alt="Cliente 2">
-                        <img class='img-client' src="./src/images/client_3.png" alt="Cliente 3">
-                        <img class='img-client' src="./src/images/client_4.png" alt="Cliente 4">
-                        <img class='img-client' src="./src/images/client_5.png" alt="Cliente 5">
-                        <img class='img-client' src="./src/images/client_6.png" alt="Cliente 6">
-                        <img class='img-client' src="./src/images/client_7.png" alt="Cliente 7">
-                        <img class='img-client' src="./src/images/client_8.png" alt="Cliente 8">
-                        <img class='img-client' src="./src/images/client_9.png" alt="Cliente 9">
-                        <img class='img-client' src="./src/images/client_10.png" alt="Cliente 10">
-                        <img class='img-client' src="./src/images/client_11.png" alt="Cliente 11">
-                        <img class='img-client' src="./src/images/client_12.png" alt="Cliente 12">
                     </div>
                 </div>
 
-                <div class="nav-client">
-                    <div class="nav-itens" data-index="0"></div>
-                    <div class="nav-itens" data-index="1"></div>
-                    <div class="nav-itens" data-index="2"></div>
-                    <div class="nav-itens" data-index="3"></div>
-                    <div class="nav-itens" data-index="4"></div>
-                    <div class="nav-itens" data-index="5"></div>
-                    <div class="nav-itens" data-index="6"></div>
-                    <div class="nav-itens" data-index="7"></div>
-                    <div class="nav-itens" data-index="8"></div>
-                    <div class="nav-itens" data-index="9"></div>
-                    <div class="nav-itens" data-index="10"></div>
-                    <div class="nav-itens" data-index="11"></div>
-                    <div class="nav-itens" data-index="12"></div>
+                <div class="carousel-item" data-info="info3">
+                    <div class="info-box" id="info3">
+                        <div class="info-content">
+                            <h2>Informações do Storage 3</h2>
+                            <p>Altura: 3 metros</p>
+                            <p>Largura: 3 metros</p>
+                            <p>Comprimento: 6 metros</p>
+                            <button class="close-info">Voltar</button>
+                        </div>
+                    </div>
+                    <img src="./src/images/Storage_3.png" width="1000">
+                    <div class="overlay">
+                        <img src="./src/images/olho_aberto.png" class="view">
+                        Visualizar
+                    </div>
                 </div>
             </div>
-        </div>  
-    </section>
+        </section>
 
-    <hr id="separa-section">
+        <hr id="separa-section">
 
-    <!-- Link para Página de Planos -->
-    <section class="planos-secao">
-        <h2 class="titulo-planos">Explore Nossos Planos!</h2>
-        <p class="subtitulo-planos">Clique na imagem abaixo para descobrir o plano que melhor se adapta às suas necessidades.</p>
-        <div class="imagem-planos-container">
-            <div class="imagem-planos">
-                <a href="./planos.html"><img id='fundo-plano' src="./src/images/fundo_planos.png" width="900" height="750"></a>
-                    <div class="logo-container">
-                        <a href="./planos.html"><img id='logo-plan' src="./src/images/Logo_reduzido.svg"></a>
-                        <a href="./planos.html"><span>Conferir Planos</span></a>
-                    </div>
+        <!-- Seção Clientes -->
+        <section class="cliente-secao" id="client-section">
+            <h2 class="titulo-secao">Satisfação de Clientes</h2>
+            
+            <div class="linha-superior card" aria-label="Comentário de cliente">
+                <div class="texto-esquerda">
+                    <hr id="separa-texto-cima">
+                    <p><em>O sistema da YourStorage superou todas as minhas expectativas!
+                    Desde o momento em que comecei a utilizar, fiquei impressionada com a facilidade e eficiência da plataforma. O sistema é extremamente intuitivo, e o controle que ele oferece sobre os ativos da empresa é incomparável.</p><br>
+                    <p>A agilidade no cadastro e na movimentação dos produtos é excelente, e a atualização em tempo real do estoque me dá total segurança. O suporte ao cliente também foi muito atencioso e eficiente, sempre pronto para ajudar.</p>
+                    <p>Sem dúvida, a YourStorage é uma ferramenta essencial para quem busca organização, controle e otimização. Estou mais do que satisfeita!</em></p>
+                    <hr id="separa-texto-baixo">
+                    <p id="client">Maria Oliveira - Gerente de Vendas na TechFlux Eletronics</p>
+                </div>
+            
+                <div class="imagem-direita">
+                    <img src="./src/images/maria.png" alt="Foto da cliente Maria Oliveira">
+                </div>
             </div>
-        </div>
-    </section>
+            
+            <div class="linha-inferior card" aria-label="Comentário de cliente">
+                <div class="imagem-esquerda">
+                    <img src="./src/images/joao.png" alt="Foto do cliente João Oliveira">
+                </div>
+            
+                <div class="texto-direita">
+                    <hr id="separa-texto-cima">
+                    <p><em>Desde que comecei a usar o sistema da YourStorage, percebi uma melhora significativa no controle dos ativos da minha empresa. A plataforma é prática, fácil de usar e me dá muita segurança.</p><br> 
+                    <p>O cadastro dos ativos é ágil e me permite organizar tudo de forma eficiente. Acredito que ainda sempre há espaço para melhorias em termos de automação e suporte, mas no geral, o sistema tem sido uma ferramenta essencial para manter tudo sob controle.</em></p>
+                    <hr id="separa-texto-baixo">
+                    <p id="client">João Oliveira - Diretor de Operações na PrimeAssets Solutions</p>
+                </div>
+            </div>
 
-    <hr id="separa-section">
+            <h3 class="titulo-carrossel">+ Empresas Satisfeitas</h3>
+            
+            <div class="carrossel-container">
+                <div class="carrossel">
+                    <div class="carrossel-images">
+                        <div class="carousel-images-inner">
+                            <img class='img-client' src="./src/images/client_1.png" alt="Cliente 1">
+                            <img class='img-client' src="./src/images/client_2.png" alt="Cliente 2">
+                            <img class='img-client' src="./src/images/client_3.png" alt="Cliente 3">
+                            <img class='img-client' src="./src/images/client_4.png" alt="Cliente 4">
+                            <img class='img-client' src="./src/images/client_5.png" alt="Cliente 5">
+                            <img class='img-client' src="./src/images/client_6.png" alt="Cliente 6">
+                            <img class='img-client' src="./src/images/client_7.png" alt="Cliente 7">
+                            <img class='img-client' src="./src/images/client_8.png" alt="Cliente 8">
+                            <img class='img-client' src="./src/images/client_9.png" alt="Cliente 9">
+                            <img class='img-client' src="./src/images/client_10.png" alt="Cliente 10">
+                            <img class='img-client' src="./src/images/client_11.png" alt="Cliente 11">
+                            <img class='img-client' src="./src/images/client_12.png" alt="Cliente 12">
+                        </div>
+                    </div>
 
-    <!-- Seção Atendimento -->
-    <section class="atendimento" id="fale-conosco">
-        <div class="lado-esquerdo">
-            <h2>Canais de atendimento</h2>
-            <div class="formas-contato">
-                <div class="contato-item">
-                    <a href="tel:+5511999999999">
-                        <img src="./src/images/phone.png" alt="Telefone">
-                        <span>(11) 99999-9999</span>
+                    <div class="nav-client">
+                        <div class="nav-itens" data-index="0"></div>
+                        <div class="nav-itens" data-index="1"></div>
+                        <div class="nav-itens" data-index="2"></div>
+                        <div class="nav-itens" data-index="3"></div>
+                        <div class="nav-itens" data-index="4"></div>
+                        <div class="nav-itens" data-index="5"></div>
+                        <div class="nav-itens" data-index="6"></div>
+                        <div class="nav-itens" data-index="7"></div>
+                        <div class="nav-itens" data-index="8"></div>
+                        <div class="nav-itens" data-index="9"></div>
+                        <div class="nav-itens" data-index="10"></div>
+                        <div class="nav-itens" data-index="11"></div>
+                        <div class="nav-itens" data-index="12"></div>
+                    </div>
+                </div>
+            </div>  
+        </section>
+
+        <hr id="separa-section">
+
+        <!-- Link para Página de Planos -->
+        <section class="planos-secao">
+            <h2 class="titulo-planos">Explore Nossos Planos!</h2>
+            <p class="subtitulo-planos">Clique na imagem abaixo para descobrir o plano que melhor se adapta às suas necessidades.</p>
+            <div class="imagem-planos-container">
+                <div class="imagem-planos">
+                    <a href="./planos.html"><img id='fundo-plano' src="./src/images/fundo_planos.png" width="900" height="750"  alt="Clique aqui para conferir os planos"></a>
+                        <div class="logo-container">
+                            <a href="./planos.html"><img id='logo-plan' src="./src/images/Logo_reduzido.svg"></a>
+                            <a href="./planos.html"><span>Conferir Planos</span></a>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <hr id="separa-section">
+
+        <!-- Seção Atendimento -->
+        <section class="atendimento" id="fale-conosco">
+            <div class="lado-esquerdo">
+                <h2>Canais de atendimento</h2>
+                <div class="formas-contato">
+                    <div class="contato-item">
+                        <a href="tel:+5511999999999">
+                            <img src="./src/images/phone.png" alt="Telefone">
+                            <span>(11) 99999-9999</span>
+                        </a>
+                    </div>
+                    <div class="contato-item">
+                        <a href="mailto:yourstoragee@gmail.com">
+                            <img src="./src/images/email.png" alt="Email">
+                            <span>yourstoragee@gmail.com</span>
+                        </a>
+                    </div>
+                    <div class="contato-item">
+                        <a href="https://wa.me/551199998888">
+                            <img src="./src/images/whatsapp.png" alt="WhatsApp">
+                            <span>(11) 9999-8888</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="redes-sociais">
+                    <a href="https://instagram.com/yourprofile" target="_blank">
+                        <img src="./src/images/instagram.png" alt="Instagram">
                     </a>
-                </div>
-                <div class="contato-item">
-                    <a href="mailto:yourstoragee@gmail.com">
-                        <img src="./src/images/email.png" alt="Email">
-                        <span>yourstoragee@gmail.com</span>
+                    <a href="https://facebook.com/yourprofile" target="_blank">
+                        <img src="./src/images/facebook.png" alt="Facebook">
                     </a>
-                </div>
-                <div class="contato-item">
-                    <a href="https://wa.me/551199998888">
+                    <a href="https://youtube.com/yourprofile" target="_blank">
+                        <img src="./src/images/youtube.png" alt="YouTube">
+                    </a>
+                    <a href="https://wa.me/551199998888" target="_blank">
                         <img src="./src/images/whatsapp.png" alt="WhatsApp">
-                        <span>(11) 9999-8888</span>
                     </a>
                 </div>
             </div>
-            <div class="redes-sociais">
-                <a href="https://instagram.com/yourprofile" target="_blank">
-                    <img src="./src/images/instagram.png" alt="Instagram">
-                </a>
-                <a href="https://facebook.com/yourprofile" target="_blank">
-                    <img src="./src/images/facebook.png" alt="Facebook">
-                </a>
-                <a href="https://youtube.com/yourprofile" target="_blank">
-                    <img src="./src/images/youtube.png" alt="YouTube">
-                </a>
-                <a href="https://wa.me/551199998888" target="_blank">
-                    <img src="./src/images/whatsapp.png" alt="WhatsApp">
-                </a>
+        
+            <div class="meio">
+                <img src="./src/images/Icon1.png" width="45" height="45" alt="Icon 1">
+                <img src="./src/images/Icon2.png" width="45" height="45" alt="Icon 2">
+                <img src="./src/images/Icon1.png" width="45" height="45" alt="Icon 1">
+                <img src="./src/images/Icon2.png" width="45" height="45" alt="Icon 2">
+                <img src="./src/images/Icon1.png" width="45" height="45" alt="Icon 1">
             </div>
-        </div>
-    
-        <div class="meio">
-            <img src="./src/images/Icon1.png" width="45" height="45" alt="Icon 1">
-            <img src="./src/images/Icon2.png" width="45" height="45" alt="Icon 2">
-            <img src="./src/images/Icon1.png" width="45" height="45" alt="Icon 1">
-            <img src="./src/images/Icon2.png" width="45" height="45" alt="Icon 2">
-            <img src="./src/images/Icon1.png" width="45" height="45" alt="Icon 1">
-        </div>
 
-        <hr id="meio-responsive">
-    
-        <div class="lado-direito">
-            <h2>Horário de atendimento</h2>
-            <div class="info-horario">
-                <img src="./src/images/clock.png" alt="Horário">
-                <span>
-                    Aberto ao Público:<br>
-                    Seg. a Sex. 09h às 18h
-                </span>
+            <hr id="meio-responsive">
+        
+            <div class="lado-direito">
+                <h2>Horário de atendimento</h2>
+                <div class="info-horario">
+                    <img src="./src/images/clock.png" alt="Horário">
+                    <span>
+                        Aberto ao Público:<br>
+                        Segunda a Sexta 09h às 18h
+                    </span>
+                </div>
+                <div class="info-localizacao">
+                    <img src="./src/images/locate.png" alt="Localização">
+                    <span>
+                        Avenida 1, 123 - Cidade - Estado<br>
+                        Cep: 12345 - 678
+                    </span>
+                </div>
             </div>
-            <div class="info-localizacao">
-                <img src="./src/images/locate.png" alt="Localização">
-                <span>
-                    Av. 1, 123 - Cidade - Estado<br>
-                    Cep: 12345-678
-                </span>
-            </div>
-        </div>
-    </section>
-    
+        </section>
+    </main>
+
     <!-- Rodapé -->
-    <footer id="footer-page">
+    <footer id="footer-page" aria-label="Rodapé" role="contentinfo">
         <h2>Your Storage&copy; - Todos os direitos reservados | 2024</h2>
     </footer>
+
+    <!-- Botão de Voltar ao Topo -->
+    <button id="btn-topo" aria-label="Voltar ao topo"><i class="fas fa-arrow-up" aria-label="Voltar ao topo"></i></button>
 
     <script src="./src/script.js"></script>
 
