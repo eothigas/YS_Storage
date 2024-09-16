@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     } catch (PDOException $e) {
         // Mostra o erro para depuração
-        echo "Erro: " . $e->getMessage();
+        header("Location: orcamentoerro.html");
         exit();
     }
 }

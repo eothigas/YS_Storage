@@ -411,15 +411,16 @@ body {
 
      /* Ajuste do botão #back */
      #back {
-        width: 40px; height: 40px;
-        position: fixed; /* Fica fixo no topo da tela */
-        top: 43px;
-        right: 43px;
-        z-index: 1000; /* Certifique-se de que o botão esteja acima de outros elementos */
+        width: 30px; height: 30px;
+        font-size: 20px;
+        position: absolute;
+        top: -430px;
+        float: right;
+        right: 10px;
     }
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1950px) {
+@media screen and (min-width: 1025px) and (max-width: 1950px) {
     body {
         padding: 40px;
     }
