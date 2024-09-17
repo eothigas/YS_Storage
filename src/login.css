@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Stoke', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(./images/Fundo.png);
+}
+
+.login-box {
+    width: 1020px;
+    background-color: transparent;
+    border-radius: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.login-content {
+    display: grid;
+}
+
+.login-top {
+    background-color: rgb(54, 56, 66);
+}
+
+.logo {
+    width: 70px;
+    height: auto;
+    align-items: left;
+    margin: 10px;
+}
+
+h1 {
+    padding: 20px;
+    font-size: 35px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #fff;
+}
+
+p {
+    padding: 20px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-bottom {
+    display: grid;
+    padding: 20px;
+    position: relative;
+    background-color: rgb(104, 107, 115);
+}
+
+.user-icon {
+    width: 150px;
+    height: auto;
+    font-size: 50px;
+    color: white;
+    border-radius: 100%;
+    margin: 0 auto;
+}
+
+form {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 0 auto;
+}
+
+label {
+    font-size: 20px;
+    margin: 10px 3px 5px;
+}
+
+input {
+    display: grid;
+    color: black;
+    font-size: 15px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 3px;
+}
+
+.forgot-password {
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 20px;
+    float: right;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.login-btn {
+    font-size: 20px;
+    font-weight: bold;
+    width: 200px;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: 1px black solid;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+.return {
+    display: none;
+    color: white;
+    margin-right: 10px; 
+}
+
+.home-link {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.home-icon {
+    font-size: 30px;
+    color: #333;
+}
+
+.home-link:hover .home-icon {
+    color: rgb(7, 11, 22);
+    display: inline-flex;
+}
+
+.home-link:hover .return {
+    color: white;
+    display: inline-flex;
+}

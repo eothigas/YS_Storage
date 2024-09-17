@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./src/images/Logo_reduzido.svg" type="image/png">
+    <title>Your Storage - Recuperar Senha</title>
+    <link rel="stylesheet" href="./src/recuperarsenha.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="login-box">
+        <div class="login-content">
+            <div class="login-top">
+                <img src="./src/images/Logo_reduzido.svg" alt="Logo" class="logo">
+                <h1>Recuperar Senha</h1>
+                <p>Para recuperar sua senha, insira seu email abaixo. Enviaremos um código através do email digitado.</p>
+            </div>
+            <div class="login-bottom">
+                <img src="./src/images/user.svg" class="user-icon">
+                <form action="login.php" method="POST">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <button type="submit" class="reset-btn">Enviar</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
