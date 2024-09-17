@@ -2,17 +2,24 @@
 // Inicie a sessão
 session_start();
 
-// Conecte-se ao banco de dados (substitua os valores pelas suas credenciais)
+// Conecte-se ao banco de dados usando PDO
 $host = 'localhost';
 $dbname = 'pgudxdii_yourstorage';
 $user = 'pgudxdii_yourstorage';
-$password = 'EFMjb!8EN';
+$password = 'PK7hdr7c9&L8SK#J';
 
-$conn = new mysqli($host, $username, $password, $dbname);
+// Definir o DSN (Data Source Name)
+$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
 
-// Verifique se a conexão foi bem-sucedida
-if ($conn->connect_error) {
-    die("Erro na conexão: " . $conn->connect_error);
+try {
+    // Criar uma nova conexão PDO
+    $conn = new PDO($dsn, $user, $password);
+    
+    // Definir o modo de erro do PDO para exceções
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    // Mostrar mensagem de erro em caso de falha de conexão
+    die("Falha na conexão: " . $e->getMessage());
 }
 
 // Verifique se o formulário foi enviado
@@ -21,15 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Prepare uma consulta SQL para verificar o email e a senha
-    $sql = "SELECT email, senha, plano FROM usuarios WHERE email = ?";
+    $sql = "SELECT email, senha, plano FROM usuarios WHERE email = :email";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $email);
+    $stmt->bindParam(':email', $email);
     $stmt->execute();
-    $result = $stmt->get_result();
 
     // Verifique se o usuário foi encontrado
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
+    if ($stmt->rowCount() > 0) {
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // Verifique se a senha está correta (assumindo que a senha foi criptografada com password_hash)
         if (password_verify($password, $row['senha'])) {
@@ -62,5 +68,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-$conn->close();
+// Fechar a conexão (opcional, pois o PDO faz isso automaticamente no fim do script)
+$conn = null;
 ?>

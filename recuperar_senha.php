@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Configurações do banco de dados
 $host = 'localhost';
 $dbname = 'pgudxdii_yourstorage';
@@ -52,7 +54,7 @@ try {
         if ($stmt->rowCount() > 0) {
             // Gerar um código de recuperação
             $codigo = bin2hex(random_bytes(4)); // Gera um código hexadecimal de 8 caracteres
-            $validade = date('Y-m-d H:i:s', strtotime('+2 hours')); // Define a validade para 2 horas a partir de agora
+            $validade = date('Y-m-d H:i:s', strtotime('+3 hours')); // Define a validade para 3 horas a partir de agora
 
             // Preparar e executar a consulta para inserir o código e a validade
             $sql = "INSERT INTO recuperacao_senha (email, codigo, validade) VALUES (:email, :codigo, :validade)
@@ -63,10 +65,14 @@ try {
             $stmt->bindParam(':validade', $validade);
             $stmt->execute();
 
+            // Salvar o e-mail na sessão
+            $_SESSION['email'] = $email;
+
             // Enviar e-mail com o código de recuperação
             enviarEmail($email, $codigo);
 
-            echo "<p class='message'>Um e-mail com o código de recuperação foi enviado para $email.</p>";
+            header("Location: enviocodigo.html");
+            exit();
         } else {
             echo "<p class='message'>E-mail não encontrado.</p>";
         }

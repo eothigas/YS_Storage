@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $host = 'localhost';
     $dbname = 'pgudxdii_yourstorage';
     $user = 'pgudxdii_yourstorage';
-    $password = 'EFMjb!8EN';
+    $password = 'PK7hdr7c9&L8SK#J';
 
     $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
 

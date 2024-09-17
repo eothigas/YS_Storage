@@ -27,7 +27,13 @@ try {
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if (new DateTime() < new DateTime($row['validade'])) {
-                // Código válido
+                // Código válido - Deletar o código de recuperação após uso
+                $sqlDelete = "DELETE FROM recuperacao_senha WHERE codigo = :codigo";
+                $stmtDelete = $conn->prepare($sqlDelete);
+                $stmtDelete->bindParam(':codigo', $codigo);
+                $stmtDelete->execute();
+
+                // Redirecionar para a página de definição de senha
                 header("Location: senhanova.html");
                 exit();
             } else {
