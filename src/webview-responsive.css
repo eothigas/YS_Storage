@@ -1,5 +1,5 @@
 /* Responsividade */
-
+@import url('https://fonts.googleapis.com/css2?family=Stoke:wght@300;400&display=swap');
 /* Botão MENU-NAV deve aparecer com resoluções menores ou igual que 808px */
 
 @media screen and (min-width: 300px) and (max-width: 500px) {
