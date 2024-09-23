@@ -1,7 +1,7 @@
 @media screen and (max-width: 1366px) and (max-height: 768px) {
 
     ul li.item-menu {
-        margin: 10px 0;
+        margin: 10px 0; 
     }
 
     ul li.item-footer1,
@@ -39,6 +39,10 @@
 
     .welcome-message {
         margin-bottom: 10px;
+    }
+
+    .txt-link {
+        font-size: 16px;
     }
 
 }

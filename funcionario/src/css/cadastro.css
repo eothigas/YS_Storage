@@ -1,5 +1,3 @@
-/* Estilos Existentes */
-
 @import url('https://fonts.googleapis.com/css2?family=Stoke:wght@300;400&display=swap');
 
 * {
@@ -12,149 +10,358 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    height: 100vh;
 }
 
 a {
     text-decoration: none;
     color: white;
-}
-
-.container {
-    display: flex;
-    width: 100%;
-}
-
-.sidebar {
-    width: 200px;
-    height: 100vh;
-    background-color: rgb(20, 44, 104);
-    display: flex;
-    flex-direction: column;
-}
-
-.logo {
-    background-color: rgb(4, 10, 22);
-}
-
-.logo img {
-    width: 90%;
-    max-width: 240px;
-    padding: 5px 0 5px 10px;
-    margin: 2px auto;
-}
-
-.menu {
-    display: grid;
-    margin: auto 0;
-    height: 100%;
-}
-
-.menu button {
-    display: grid;
     align-items: center;
+}
+
+#out {
+    cursor: pointer;
+}
+
+.btn-expandir {
     width: 100%;
+    height: 5%;
     padding: 20px;
-    font-size: 15px;
-    margin: 20px 0;
-    border: none;
-    background-color: transparent;
-    color: #fff;
+    font-size: 40px;
+    color: white;
+    display: flex;
     cursor: pointer;
 }
 
-.menu button:hover {
-    background-color: rgb(4, 9, 21);
+nav.menu-lateral {
+    position: absolute;
+    width: 80px;
+    height: 100%;
+    background-color: rgb(39, 55, 77);
+    transition: .5s;
+    overflow: hidden;
+    z-index: 1;
 }
 
-#cadastro {
-    background-color: rgb(4, 10, 22);
+nav.menu-lateral.expandir {
+    width: 300px;
 }
 
-.fas.fa-user-plus, .fas.fa-search, .fas.fa-edit {
-    width: 15px;
+ul#cima {
+    height: 47.5%;
+    /* border: 1px gray solid; */
+}
+
+ul li.item-menu {
+    height: 70px;
+    transition: .2s;
+    margin: 40px 0;
+}
+
+ul li#register {
+    background-color: rgb(10, 20, 40);
+}
+
+ul li.item-menu:hover {
+    background-color: rgb(10, 20, 40);
+}
+
+ul li.item-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
     display: flex;
-    justify-content: center;
-    color: white; 
-    font-size: 15px; 
-    border: 4px white solid;
-    border-radius: 30px;
-    padding: 20px;
-    margin: 0 auto;
 }
 
-.footer {
-    margin-top: auto;
+hr {
+    border: 2px white solid;
+    margin: 10px 10px 10px 10px;
+}
+
+ul#baixo {
+    height: 42.5%;
+    /* border: 1px yellow solid; */
+}
+
+ul li.item-footer1 {
+    display: grid;
+    height: 70px;
+    transition: .2s;
+    margin: 40px 0 0 0;
+}
+
+#func_perfil {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 0px 0 0;
+}
+
+ul li.item-footer2 {
+    height: 70px;
+    transition: .2s;
+    margin: 40px 0 0 0;
+}
+
+ul li.item-footer1:hover,
+ul li.item-footer2:hover{
+    background-color: rgb(10, 20, 40);
+}
+
+ul li.item-footer1 a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 10px 10px 23px;
     display: flex;
-    justify-content: space-between;
-    background-color: rgb(4, 10, 22);
-    padding: 15px;
 }
 
-#btn-lat-c, #btn-lat-l {
-    width: 0px;
-    margin: 0px 20px;
+ul li.item-footer2 a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px ;
+    display: flex;
+} 
+
+.txt-link {
+    margin-left: 60px;
+    transition: 1s;
+    opacity: 0;
 }
 
-.btn-footer {
-    cursor: pointer;
+.txt-link-l {
+    margin-left: 50px;
+    transition: 1s;
+    opacity: 0;
 }
 
-.footer button {
-    flex: 1;
-    background-color: transparent;
-    color: #fff;
-    border: none;
+nav.menu-lateral.expandir .txt-link {
+    margin-left: 30px;
+    opacity: 1;
+}
+
+nav.menu-lateral.expandir .txt-link-l {
+    margin-left: 27px;
+    opacity: 1;
+}
+
+.icon {
+    font-size: 40px;
+    color: white;
+    margin-left: 10px;
+}
+
+.txt-link {
+    color: white;
+    text-wrap: nowrap;
 }
 
 /* Novos Estilos para Conteúdo à Direita */
 
 .main-content {
-    background-color: #fff;
-    width: calc(100% - 200px); /* Ajuste para ocupar o restante da tela */
+    background-color: rgb(157, 178, 191);
+    width: 100%;
     padding: 20px;
+    margin-left: 80px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     color: white; /* Mantém o padrão de cor branco */
+    transition: margin-left 0.5s;
 }
 
-.welcome-message {
-    background-color: rgb(4, 10, 22);
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.welcome-message h1 {
-    font-size: 24px;
+.menu-lateral.expandir ~ .main-content {
+    margin-left: 300px; /* Alterar a margem quando .expandir estiver ativa */
 }
 
 .client-registration {
-    background-color: rgb(4, 10, 22);
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(39, 55, 77);
     padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    margin: 0 auto;
+    gap: 30px;
 }
 
 .client-registration h2 {
-    border: 3px white solid;
-    padding: 10px;
+    margin-bottom: 0px;
 }
 
-#registration-form {
-    border: 3px white solid;
+.client-registration hr {
+    margin: 0;
 }
 
-.form-group{
-    width: 300px;
-    padding: 10px;
+p.title {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.title::before {
+    width: 10px;
+    height: 10px;
+  }
+  
+.title::after {
+    width: 25px;
+    height: 25px;
+    animation: pulse 1.5s linear infinite;
+}
+  
+.title::before,
+.title::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 0px;
+    background-color: rgb(157, 178, 191);
+}
+
+form#registration-form {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    gap: 10px;
+}
+
+span {
+    font-size: 20px;
 }
 
 input {
-    width: 100%;
+    width: 390px;
+    background-color: rgba(221, 230, 237, 0.352);
+    color: white;
+    border: 1px rgb(157, 178, 191) solid;
     padding: 5px;
+    outline: 0;
+    border-radius: 5px;
 }
 
-#toggle-password {
-    display: flex;
+.input-container {
     position: relative;
-    z-index: 1;
+    background-color: transparent;
+}
+
+.bi.bi-eye-fill, .bi-eye-slash-fill {
+    position: absolute;
+    right: 5px;
+    top: 14px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.724);
+    font-size: 20px;
+    position: absolute;
+}
+
+#toggle-password i {
+    font-size: 1.2rem;
+}
+
+fontsize {
+    font-size: 10px;
+    float: right;
+    right: 0px;
+}
+
+#plan {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+#basico, #logistico, #premium {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgb(157, 178, 191);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#basico:checked, 
+#logistico:checked, 
+#premium:checked {
+    background-color: rgb(157, 178, 191);
+}
+
+button#cadastro {
+    width: 150px;
+    padding: 10px 10px;
+    background-color: rgb(82, 109, 130);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 30px auto 0;
+}
+
+button#cadastro:hover {
+    background-color: rgb(10, 20, 40);
+    color: white;
+    transition: .5s ease-in-out;
+}
+
+.logo-r {
+    display: grid;
+    position: absolute;
+    z-index: 0;
+    opacity: 1;
+    bottom: 3px;
+    right: 3px;
+    height: auto;
+}
+
+
+#registration-message {
+    display: none; /* Ocultar por padrão */
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    font-size: 15px;
+}
+
+#registration-message.success {
+    display: block; /* Mostrar se for sucesso */
+    background-color: green;
+    color: white;
+}
+
+#registration-message.error {
+    display: block; /* Mostrar se for erro */
+    background-color: red;
+    color: white;
+}
+
+@keyframes pulse {
+    from {
+      transform: scale(0.9);
+      opacity: 1;
+    }
+  
+    to {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+
+@media screen and (max-width: 1024px) {
+    .txt-link {
+        text-wrap: wrap;
+    }
 }

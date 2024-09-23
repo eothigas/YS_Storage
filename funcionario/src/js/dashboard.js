@@ -1,106 +1,90 @@
-// Verificação de sessão
+document.addEventListener('DOMContentLoaded', () => {
+    // Verificação de sessão
+    checkSession();
+    loadDashboardData();
+    fetchClientes();
 
-    document.addEventListener('DOMContentLoaded', () => {
-        fetch('check_session.php')
-            .then(response => response.json())
-            .then(data => {
-                if (!data.loggedIn) {
-                    window.location.href = 'index.html'; // Redireciona se não estiver logado
-                }
-            });
-    });
+    // Configura o cronômetro de inatividade
+    resetInactivityTimer();
+});
 
+// Função para verificar a sessão
+async function checkSession() {
+    try {
+        const response = await fetch('check_session.php');
+        const data = await response.json();
+        if (!data.loggedIn) {
+            window.location.href = 'index.html'; // Redireciona se não estiver logado
+        }
+    } catch (error) {
+        console.error('Erro ao verificar a sessão:', error);
+    }
+}
 
 // Função expandir menu
-
-var btnExp = document.querySelector('#btn-exp')
-var menuSide = document.querySelector('.menu-lateral')
-
-btnExp.addEventListener('click', function() {
-    menuSide.classList.toggle('expandir')
-})
+document.getElementById('btn-exp').addEventListener('click', () => {
+    document.querySelector('.menu-lateral').classList.toggle('expandir');
+});
 
 // Função para carregar os dados do dashboard
 async function loadDashboardData() {
     try {
-        // Checa se o funcionário está logado
-        const sessionResponse = await fetch('check_session.php');
-        const sessionData = await sessionResponse.json();
-
-        // Verifica se o funcionário está logado
-        if (sessionData.loggedIn) {
-            // Faz uma requisição para buscar o nome e a imagem baseado no email da sessão
-            const profileResponse = await fetch('get_profile.php');
-            const profileData = await profileResponse.json();
-
-            // Verifica se há algum erro na resposta
-            if (profileData.error) {
-                console.error(profileData.error);
-                return;
-            }
-
-            // Atualiza a mensagem de boas-vindas
-            document.getElementById('welcome-message').innerText = `Olá ${profileData.nome_funcionario}!`;
-
-            // Atualiza a imagem do funcionário
-            const imgElement = document.getElementById('perfil-imagens');
-            imgElement.src = profileData.imagem; // Define o caminho da imagem no src
-            imgElement.alt = `Imagem de ${profileData.nome_funcionario}`; // Define o texto alternativo
-            imgElement.title = `src="${profileData.imagem}"`; // Adiciona um título com o link da imagem
-
-            // Atualiza o nome do funcionário no <h2>
-            const nomeElement = document.getElementById('perfil-nome').querySelector('h2');
-            nomeElement.innerText = profileData.nome_funcionario;
-
-        } else {
-            console.error('Usuário não está autenticado.');
+        const response = await fetch('get_profile.php');
+        const profileData = await response.json();
+        
+        if (profileData.error) {
+            console.error(profileData.error);
+            return;
         }
 
+        document.getElementById('welcome-message').innerText = `Olá ${profileData.nome_funcionario}!`;
+        const imgElement = document.getElementById('perfil-imagens');
+        imgElement.src = profileData.imagem; 
+        imgElement.alt = `Imagem de ${profileData.nome_funcionario}`; 
+        imgElement.title = `src="${profileData.imagem}"`; 
+        document.getElementById('perfil-nome').querySelector('h2').innerText = profileData.nome_funcionario;
+
+        // Preenche o segundo elemento de imagem
+        const imgElement2 = document.getElementById('func_perfil');
+        imgElement2.src = profileData.imagem; // Aqui você pode usar a mesma imagem ou uma diferente
+        imgElement2.alt = `Imagem de ${profileData.nome_funcionario} - Func Perfil`; 
+        imgElement2.title = `src="${profileData.imagem}"`; // Caso deseje manter a mesma informação, ou pode ser diferente
+        
     } catch (error) {
         console.error('Erro ao carregar os dados do funcionário:', error);
     }
 }
 
-// Chama a função ao carregar o conteúdo da página
-document.addEventListener('DOMContentLoaded', loadDashboardData);
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Função para buscar dados dos clientes
-    function fetchClientes() {
-        fetch('get_clients.php') // Substitua 'get_clients.php' pelo nome do seu script PHP
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'success' && Array.isArray(data.data)) {
-                    displayClientes(data.data);
-                } else {
-                    console.log(data.message || 'Nenhum dado retornado.');
-                }
-            })
-            .catch(error => console.error('Erro:', error));
+// Função para buscar dados dos clientes
+async function fetchClientes() {
+    try {
+        const response = await fetch('get_clients.php');
+        const data = await response.json();
+        if (data.status === 'success' && Array.isArray(data.data)) {
+            displayClientes(data.data);
+        } else {
+            console.log(data.message || 'Nenhum dado retornado.');
+        }
+    } catch (error) {
+        console.error('Erro:', error);
     }
+}
 
-    // Função para exibir clientes na tabela
-    function displayClientes(clientes) {
-        const tbody = document.querySelector('#total-usuarios tbody');
-        tbody.innerHTML = ''; // Limpa o tbody antes de adicionar novos dados
+// Função para exibir clientes na tabela
+function displayClientes(clientes) {
+    const tbody = document.querySelector('#total-usuarios tbody');
+    tbody.innerHTML = ''; // Limpa o tbody antes de adicionar novos dados
 
-        // Adiciona cada cliente à tabela
-        clientes.forEach(cliente => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${cliente.nome}</td>
-                <td>${cliente.email}</td>
-                <td>${cliente.plano}</td>
-            `;
-            tbody.appendChild(row);
-        });
-    }
-
-    // Carrega os dados dos clientes ao carregar a página
-    fetchClientes();
-});
+    clientes.forEach(cliente => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${cliente.nome}</td>
+            <td>${cliente.email}</td>
+            <td>${cliente.plano}</td>
+        `;
+        tbody.appendChild(row);
+    });
+}
 
 // Função para lidar com o logout
 async function handleLogout() {
@@ -109,21 +93,10 @@ async function handleLogout() {
 }
 
 //Função logout
-
-    const logoutButton = document.getElementById('logout');
-
-    if (logoutButton) {
-        logoutButton.addEventListener('click', () => {
-            fetch('logout.php', {
-                method: 'POST'
-            }).then(response => {
-                if (response.ok) {
-                    window.location.href = 'index.html'; // Redireciona após o logout
-                }
-            });
-        });
-    };
-
+document.getElementById('logout').addEventListener('click', async () => {
+    await fetch('logout.php', { method: 'POST' });
+    window.location.href = 'index.html'; // Redireciona após o logout
+});
 
 // Configura o cronômetro de inatividade
 let inactivityTimer;
@@ -137,10 +110,5 @@ function resetInactivityTimer() {
     }, inactivityTime);
 }
 
-window.onload = function() {
-    loadDashboardData();
-    resetInactivityTimer();
-};
-
 document.onmousemove = resetInactivityTimer;
-document.onkeypress = resetInactivityTimer;
+document.onkeypress = resetInactivityTimer; // Reseta o temporizador ao pressionar teclas
