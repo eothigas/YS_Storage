@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./src/images/Logo_reduzido.svg" type="image/png">
+    <title>Your Storage - Funcionário</title>
+    <link rel="stylesheet" href="./src/css/log_funcionario.css">
+    <link rel="stylesheet" href="./src/css/log_responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="highlight-carousel">
+        <div class="highlight-container" aria-live="polite">
+            <!-- Imagens do carrossel -->
+            <img class="highlight-img" src="./src/images/fundo1.jpg" type="image/jpg" alt="Imagem Destaque">
+            <img class="highlight-img" src="./src/images/fundo2.jpg" type="image/jpg" alt="Imagem Destaque">
+            <img class="highlight-img" src="./src/images/fundo3.jpg" type="image/jpg" alt="Imagem Destaque">
+            <img class="highlight-img" src="./src/images/fundo4.jpg" type="image/jpg" alt="Imagem Destaque">
+            <img class="highlight-img" src="./src/images/fundo5.jpg" type="image/jpg" alt="Imagem Destaque">
+            <img class="highlight-img" src="./src/images/fundo6.jpg" type="image/jpg" alt="Imagem Destaque">
+        </div>
+    </div>
+
+    <!-- Mensagem de Erro -->
+    <p class="error-message" id="error-message"></p>
+
+    <div class="login-box">
+        <div class="login-content">
+            <div class="login-bottom">
+                <img class="logo" src="./src/images/Logo_reduzido.svg">
+                <i class="fas fa-user-tie"></i>
+                <h2>Login Funcionário</h2>   
+                <form action="log_funcionario.php" method="POST">
+                    
+                    <div class="user-box">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email</label>
+                    </div> 
+                    
+                    <div class="user-box">
+                        <input type="password" id="password" name="password" required>
+                        <label for="password">Senha</label>
+                        <i class="fas fa-eye toggle-password" id="toggle-password"></i>
+                    </div>
+                    <button type="submit" class="login-btn">Entrar</button>
+                </form>
+                <br><br><br>
+            </div>
+        </div>
+    </div>
+
+    <script src="./src/js/index.js"></script>
+
+</body>
+</html>
