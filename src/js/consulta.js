@@ -1,32 +1,18 @@
-// Verificação de sessão
-
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('check_session.php')
-        .then(response => response.json())
-        .then(data => {
-            if (!data.loggedIn) {
-                window.location.href = 'index.html'; // Redireciona se não estiver logado
-            }
-        });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Verificação de sessão
-    checkSession();
-    loadDashboardData();
-
-    // Configura o cronômetro de inatividade
-    resetInactivityTimer();
-});
-
 // Função expandir menu
-
-var btnExp = document.querySelector('#btn-exp')
-var menuSide = document.querySelector('.menu-lateral')
+var btnExp = document.querySelector('#btn-exp');
+var menuSide = document.querySelector('.menu-lateral');
+var logoR = document.querySelector('.logo-r'); // Seleciona o logo
 
 btnExp.addEventListener('click', function() {
-menuSide.classList.toggle('expandir')
-})
+    menuSide.classList.toggle('expandir'); // Alterna a classe expandir
+
+    // Verifica se a classe expandir está presente e oculta ou mostra o logo
+    if (menuSide.classList.contains('expandir')) {
+        logoR.style.display = 'none'; // Oculta o logo quando expandido
+    } else {
+        logoR.style.display = 'grid'; // Mostra o logo quando contraído
+    }
+});
 
 // Função para carregar os dados do dashboard
 async function loadDashboardData() {

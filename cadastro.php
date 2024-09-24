@@ -21,11 +21,31 @@ unset($_SESSION['message'], $_SESSION['messageType']); // Limpa a mensagem após
             if (messageDiv.textContent.trim() !== '') {
                 messageDiv.style.display = 'block'; // Mostra a mensagem
                 setTimeout(() => {
-                    messageDiv.style.display = 'none'; // Oculta após 5 segundos
+                    messageDiv.style.display = 'none'; // Oculta após 10 segundos
                 }, 10000);
+            }
+
+            // Recuperar os valores do session storage
+            const name = sessionStorage.getItem('name');
+            const email = sessionStorage.getItem('email');
+            const plan = sessionStorage.getItem('plan');
+
+            // Preencher os inputs, se os valores existirem
+            if (name) {
+                document.getElementById('name').value = name; // Altere 'name-input' para o ID correto do campo de nome
+                sessionStorage.removeItem('name'); // Limpar o item do session storage
+            }
+            if (email) {
+                document.getElementById('email').value = email; // Altere 'email-input' para o ID correto do campo de email
+                sessionStorage.removeItem('email'); // Limpar o item do session storage
+            }
+            if (plan) {
+                document.querySelector(`input[name="plan"][value="${plan}"]`).checked = true; // Marcar o plano correto
+                sessionStorage.removeItem('plan'); // Limpar o item do session storage
             }
         });
     </script>
+    <script src="./src/js/verify_session.js" type="text/javascript" defer></script>
 </head>
 <body>
 
@@ -49,19 +69,19 @@ unset($_SESSION['message'], $_SESSION['messageType']); // Limpa a mensagem após
             <li class="item-menu" id="register">
                 <a href="">
                     <span class="icon"><i class="bi bi-person-add"></i></span>
-                    <span class="txt-link">Cadastrar Cliente</span>
+                    <span class="txt-link">Cadastrar Usuário</span>
                 </a>
             </li>
             <li class="item-menu">
                 <a href="./consulta.html">
                     <span class="icon"><i class="bi bi-person"></i></span>
-                    <span class="txt-link">Consultar Cliente</span>
+                    <span class="txt-link">Consultar Usuário</span>
                 </a>
             </li>
             <li class="item-menu">
                 <a href="./alterar.html">
                     <span class="icon"><i class="bi bi-person-gear"></i></span>
-                    <span class="txt-link">Alterar Cliente</span>
+                    <span class="txt-link">Alterar Usuário</span>
                 </a>
             </li>
         </ul>
@@ -70,7 +90,7 @@ unset($_SESSION['message'], $_SESSION['messageType']); // Limpa a mensagem após
             <hr>
             <li class="item-footer1">
                 <a href="">
-                    <img id="func_perfil" src="" alt="">
+                    <img id="func_perfil" src="./profile.html" alt="">
                     <span class="txt-link">Perfil</span>
                 </a>
             </li>

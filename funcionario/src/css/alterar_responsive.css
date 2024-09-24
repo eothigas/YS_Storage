@@ -1,0 +1,48 @@
+@media screen and (max-width: 1366px) and (max-height: 768px) {
+
+    ul li.item-menu {
+        margin: 10px 0; 
+    }
+
+    ul li.item-footer1,
+    ul li.item-footer2 {
+        margin: 10px 0;
+    }
+
+    .logo-r img {
+        width: 55px;
+    }
+
+    .profile {
+        grid-template-columns: 60px 200px;
+        width: 250px;
+        height: 50px;
+        margin: 5px 8px;
+    }
+
+    .profile img {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .profile-text {
+        display: grid;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-text h2 {
+        margin: 0;
+        font-size: 20px
+    }
+
+    .welcome-message {
+        margin-bottom: 10px;
+    }
+
+    .txt-link {
+        font-size: 16px;
+    }
+
+}

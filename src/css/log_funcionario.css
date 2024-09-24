@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Stoke:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Stoke', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    background-color: black;
+}
+
+.highlight-carousel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Evita que qualquer parte da imagem exceda os limites */
+    z-index: -1; /* Fica atrás da div de login */
+}
+
+.highlight-img {
+    width: 100vw; /* Garante que a largura cubra toda a tela */
+    height: 100vh; /* Garante que a altura cubra toda a tela */
+    object-fit: cover; /* Cobre o container sem deformar a proporção da imagem */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; /* Inicialmente invisível */
+    filter: brightness(80%) blur(3px); /* Reduz brilho e aplica desfoque */
+    transition: opacity 1s ease-in-out; /* Transição suave de opacidade */
+}
+
+.highlight-img.active {
+    opacity: 1; /* A imagem ativa será visível */
+}
+
+.login-box {
+    position: relative;
+    width: 650px;
+    background-color: transparent; /* Fundo semitransparente */
+    border-radius: 20px;
+    padding: 0px;
+    box-shadow: 0px 0px 22px 13px rgba(0,0,0,0.75);
+    z-index: 10; /* Fica acima do carrossel de imagens */
+    color: white;
+    margin: 40px 0;
+}
+
+.logo {
+    position: relative;
+    display: flex;
+    width: 70px;
+    height: auto;
+    align-items: left;
+    margin: 0;
+    z-index: 1;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+h2 {
+    text-align: center;
+    margin: 0 0 100px;
+}
+
+p {
+    text-align: center;
+    text-wrap: wrap;
+    width: 500px;
+    color: #fff;
+    margin: 0px auto 30px;
+}
+
+.login-bottom {
+    border: none;
+    padding: 20px;
+    background-color: rgba(74, 72, 72, 0.557);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    height: 80dvh;
+}
+
+
+.fas.fa-user-tie {
+    width: 150px;
+    padding: 20px;
+    color: rgb(10, 20, 40);
+    border: 3px solid rgb(10, 20, 40);
+    border-radius: 100px;
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+form {
+    display: grid;
+    align-items: center;
+    margin: auto 0;
+}
+
+.user-box {
+    position: relative;
+    width: 80%;
+    align-items: center;
+    margin: 50px auto 0;
+}
+
+.user-box #password {
+    margin: 0 0 50px;
+}
+
+.user-box input {
+    width: 100%;
+    padding: 30px 0px 5px;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 0px;
+    border: none;
+    border-bottom: 3px solid rgb(10, 20, 40);
+    outline: none;
+    background: transparent;
+}
+
+.user-box i {
+    position: absolute;
+    right: 10px; /* Espaço do lado direito */
+    top: 24px; /* Alinhamento vertical */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    color: #aaa;
+}
+
+.user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0px 0;
+    font-size: 20px;
+    color: #fff;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.login-btn {
+    display: grid;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px 20px;
+    font-size: 22px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(10, 20, 40);
+    color: white;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: rgb(39, 55, 77);
+}
+
+.error-message {
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0.1); /* Fundo semi-transparente */
+    border: 2px solid red;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    margin: 0;
+    display: none; /* Inicialmente escondido */
+    z-index: 20;
+    bottom: 110px;
+}
