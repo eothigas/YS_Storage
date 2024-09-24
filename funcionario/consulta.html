@@ -31,19 +31,19 @@
             <li class="item-menu">
                 <a href="./cadastro.php">
                     <span class="icon"><i class="bi bi-person-add"></i></span>
-                    <span class="txt-link">Cadastrar Cliente</span>
+                    <span class="txt-link">Cadastrar Usuário</span>
                 </a>
             </li>
             <li class="item-menu" id="consult">
                 <a href="">
                     <span class="icon"><i class="bi bi-person"></i></span>
-                    <span class="txt-link">Consultar Cliente</span>
+                    <span class="txt-link">Consultar Usuário</span>
                 </a>
             </li>
             <li class="item-menu">
-                <a href="#">
+                <a href="./altera.html">
                     <span class="icon"><i class="bi bi-person-gear"></i></span>
-                    <span class="txt-link">Alterar Cliente</span>
+                    <span class="txt-link">Alterar Usuário</span>
                 </a>
             </li>
         </ul>
@@ -59,7 +59,7 @@
             <li class="item-footer2">
                 <a id='out'>
                     <span class="icon"><i class="bi bi-box-arrow-right" id="logout"></i></span>
-                    <span class="txt-link-l">Sair</span>
+                    <span class="txt-link-l" id="logout">Sair</span>
                 </a>
             </li>
         </ul>
@@ -74,7 +74,13 @@
         </div>
     
         <div class="user-info">
-            <h2>Clientes Cadastrados</h2>
+            <div class="user-info-header">
+                <h2>Usuários Cadastrados</h2>
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Pesquisar usuário...">
+                </div>
+            </div>
+            
             <table id="total-usuarios">
                 <thead>
                     <tr>

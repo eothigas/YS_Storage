@@ -195,9 +195,27 @@ nav.menu-lateral.expandir .txt-link-l {
     overflow: hidden;
 }
 
-.user-info h2 {
-    margin-bottom: 10px;
+.user-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.user-info-header h2 {
     font-size: 20px;
+    color: white;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+}
+
+#search-input {
+    padding: 5px;
+    font-size: 16px;
 }
 
 fontsize {
