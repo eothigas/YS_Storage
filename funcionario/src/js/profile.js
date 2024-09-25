@@ -14,6 +14,19 @@ btnExp.addEventListener('click', function() {
     }
 });
 
+// Função para mostrar mensagens
+function showMessage(message, type) {
+    const messageContainer = document.getElementById('message-container');
+    messageContainer.innerText = message; // Define o texto da mensagem
+    messageContainer.className = type; // Adiciona a classe de sucesso ou erro
+    messageContainer.style.display = 'block'; // Mostra a mensagem
+
+    // Oculta a mensagem após 3 segundos
+    setTimeout(() => {
+        messageContainer.style.display = 'none';
+    }, 3000);
+}
+
 // Função para carregar os dados do dashboard
 async function loadDashboardData() {
     try {
@@ -23,33 +36,38 @@ async function loadDashboardData() {
 
         if (profileData.error) {
             console.error(profileData.error);
+            showMessage(profileData.error, 'error'); // Mostra mensagem de erro
             return;
         }
 
+        // Preenche a imagem do perfil
+        const imgElement = document.getElementById('perfil-imagem');
+        imgElement.src = profileData.imagem; 
+        imgElement.alt = `Imagem de ${profileData.nome_funcionario}`; 
+        imgElement.title = profileData.imagem; 
+
         // Preenche o segundo elemento de imagem
         const imgElement2 = document.getElementById('func_perfil');
-        imgElement2.src = profileData.imagem; 
-        imgElement2.alt = `Imagem de ${profileData.nome_funcionario}`; 
-        imgElement2.title = profileData.imagem; 
-        
-        // Preenche os dados do perfil
-        const imgElement3 = document.getElementById('perfil-imagem');
-        imgElement3.src = profileData.imagem; 
-        imgElement3.alt = `Imagem de ${profileData.nome_funcionario}`; 
-        imgElement3.title = profileData.imagem; 
+        imgElement2.src = profileData.imagem; // Aqui você pode usar a mesma imagem ou uma diferente
+        imgElement2.alt = `Imagem de ${profileData.nome_funcionario} - Funcionário Perfil`; 
+        imgElement2.title = `src="${profileData.imagem}"`; // Caso deseje manter a mesma informação, ou pode ser diferente
 
-        // Atualiza nome e email
-        document.getElementById('nome').innerText = profileData.nome_funcionario; // Atualiza o nome
-        document.getElementById('email').innerText = profileData.email; // Atualiza o email
+        // Atualiza nome e email nos elementos do perfil
+        document.getElementById('nam').innerText = profileData.nome_funcionario; // Atualiza o nome
+        document.getElementById('eml').innerText = profileData.email; // Atualiza o email
+
+        // Atualiza nome e email nos inputs do formulário
+        document.getElementById('name').value = profileData.nome_funcionario; // Atualiza o nome no input
+        document.getElementById('e-mail').value = profileData.email; // Atualiza o email no input
 
     } catch (error) {
         console.error('Erro ao carregar os dados do funcionário:', error);
+        showMessage('Erro ao carregar os dados do funcionário: ' + error.message, 'error'); // Mostra mensagem de erro
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    loadDashboardData();
-});
+// Chama a função para carregar os dados ao carregar a página
+document.addEventListener('DOMContentLoaded', loadDashboardData);
 
 // Função para abrir o modal
 document.getElementById('open-modal-btn').addEventListener('click', function() {
@@ -62,7 +80,7 @@ document.querySelector('.close-modal').addEventListener('click', function() {
 });
 
 // Exibe a pré-visualização da imagem escolhida
-document.getElementById('imagem').addEventListener('change', function(event) {
+document.getElementById('imagemp').addEventListener('change', function(event) {
     const file = event.target.files[0]; // Obtém o arquivo de imagem selecionado
     const imgPreview = document.getElementById('imagem-preview'); // Obtém o elemento img para pré-visualização
 
@@ -80,98 +98,103 @@ document.getElementById('imagem').addEventListener('change', function(event) {
     }
 });
 
-// Adiciona o evento ao botão de abrir o modal (pode ser um botão de "Editar Perfil" por exemplo)
-document.getElementById('open-modal-btn').addEventListener('click', openModal);
-
-
 document.getElementById('edit-profile-form').addEventListener('submit', async function (e) {
     e.preventDefault(); // Evita o comportamento padrão do formulário
 
     const fileInput = document.getElementById('imagemp'); // Input da imagem
     const file = fileInput.files[0]; // Obtém o arquivo da imagem selecionada
-    const nome = document.getElementById('nome').value; // Captura o nome
-    const email = document.getElementById('email').value; // Captura o email
-    const novaSenha = document.getElementById('nova-senha').value; // Captura a nova senha
-    const confirmarSenha = document.getElementById('confirmar-senha').value; // Captura a confirmação da senha
+    const nome = document.getElementById('name').value; // Captura o nome
+    const email = document.getElementById('e-mail').value; // Captura o email
+    const novaSenha = document.getElementById('password').value; // Captura a nova senha, se fornecida
 
-    // Verifica se as senhas coincidem (se novas senhas forem inseridas)
-    if (novaSenha && novaSenha !== confirmarSenha) {
-        alert('As senhas não coincidem.');
-        return;
+    // Adiciona log para depuração
+    console.log('Nome:', nome);
+    console.log('Email:', email);
+
+    // Verifica se o nome e email não estão vazios
+    if (!nome || !email) {
+        showMessage('Por favor, preencha o nome e o email.', 'error');
+        return; // Não prossegue se os campos obrigatórios não forem preenchidos
     }
 
-    // Se não houver arquivo de imagem, apenas envia os dados sem o upload da imagem
-    if (!file) {
+    const apiKey = '7072f24e239a795'; // Sua chave de API do Imgur
+    let imageUrl = null;
+
+    // Se um arquivo de imagem foi selecionado, faz o upload
+    if (file) {
+        const formData = new FormData();
+        formData.append('image', file); // Adiciona o arquivo de imagem
+
         try {
-            const response = await fetch('atualizar_imagem.php', {
+            const response = await fetch(`https://api.imgur.com/3/image`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    Authorization: `Client-ID ${apiKey}`
                 },
-                body: JSON.stringify({
-                    nome: nome,
-                    email: email,
-                    nova_senha: novaSenha
-                })
+                body: formData
             });
 
             const data = await response.json();
+
             if (data.success) {
-                alert('Dados atualizados com sucesso!');
+                imageUrl = data.data.link; // URL da imagem enviada
             } else {
-                alert('Erro ao atualizar os dados: ' + data.message);
+                showMessage('Erro ao enviar a imagem: ' + data.error.message, 'error');
+                return;
             }
-
         } catch (error) {
-            console.error('Erro ao atualizar os dados:', error);
+            console.error('Erro ao fazer o upload:', error);
+            showMessage('Erro ao fazer o upload: ' + error.message, 'error');
+            return;
         }
-
-        return; // Retorna sem fazer o upload da imagem
     }
 
-    // Caso uma imagem tenha sido selecionada, faz o upload e depois atualiza no banco
-    const apiKey = '8f24881f0b24b8e3cfc841f961542d38'; // Substitua por sua chave de API do Postimages/ImgBB
-    const formData = new FormData();
-    formData.append('image', file); // Adiciona o arquivo de imagem
-    formData.append('key', apiKey); // Chave de API
-
+    // Faz uma requisição para o PHP para atualizar os dados
     try {
-        const response = await fetch('https://api.imgbb.com/1/upload', {
+        const updateResponse = await fetch('atualizar_imagem.php', {
             method: 'POST',
-            body: formData
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                nome: nome,
+                email: email,
+                nova_senha: novaSenha,
+                imagem: imageUrl // Envia a URL da imagem para o PHP
+            })
         });
 
-        const data = await response.json();
+        const updateData = await updateResponse.json();
+        console.log('Resposta do servidor:', updateData); // Para verificar a resposta do PHP
 
-        if (data.success) {
-            const imageUrl = data.data.url; // URL da imagem enviada
-            console.log('Imagem enviada com sucesso: ', imageUrl);
+        if (updateData.success) {
+            showMessage('Dados atualizados com sucesso!', 'success');
 
-            // Agora faz uma requisição para o PHP para atualizar os dados e a imagem
-            const updateResponse = await fetch('atualizar_imagem.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    nome: nome,
-                    email: email,
-                    nova_senha: novaSenha,
-                    imagem: imageUrl // Envia a URL da imagem para o PHP
-                })
-            });
-
-            const updateData = await updateResponse.json();
-            if (updateData.success) {
-                alert('Dados e imagem atualizados com sucesso!');
-            } else {
-                alert('Erro ao atualizar os dados: ' + updateData.message);
-            }
-
+            // Reinicia a página após 3 segundos (3000 milissegundos)
+            setTimeout(function() {
+                location.reload(); // Recarrega a página
+            }, 3000);
         } else {
-            alert('Erro ao enviar a imagem: ' + data.error.message);
+            showMessage('Erro ao atualizar os dados: ' + updateData.message, 'error');
         }
     } catch (error) {
-        console.error('Erro ao fazer o upload:', error);
+        console.error('Erro ao enviar os dados:', error);
+        showMessage('Erro ao enviar os dados: ' + error.message, 'error');
     }
 });
+
+// Função ver senha
+function togglePasswordVisibility(toggleId, inputId) {
+    const passwordInput = document.getElementById(inputId);
+    const toggleIcon = document.getElementById(toggleId);
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text"; // Muda para texto
+        toggleIcon.classList.remove('bi-eye-fill');
+        toggleIcon.classList.add('bi-eye-slash-fill'); // Troca o ícone para "ocultar"
+    } else {
+        passwordInput.type = "password"; // Muda para senha
+        toggleIcon.classList.remove('bi-eye-slash-fill');
+        toggleIcon.classList.add('bi-eye-fill'); // Troca o ícone para "mostrar"
+    }
+}

@@ -31,6 +31,14 @@ a {
     color: white;
     display: flex;
     cursor: pointer;
+    transition: transform 0.3s ease, padding 0.3s ease;
+    transform-origin: center;
+}
+
+.rotacionado {
+    transform: rotate(90deg);
+    transform-origin: center;
+    padding: 20px 20px 20px 15px;
 }
 
 nav.menu-lateral {
@@ -76,7 +84,6 @@ hr {
 
 ul#baixo {
     height: 42.5%;
-    /* border: 1px yellow solid; */
 }
 
 ul li.item-footer1 {

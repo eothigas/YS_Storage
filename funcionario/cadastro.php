@@ -13,7 +13,7 @@ unset($_SESSION['message'], $_SESSION['messageType']); // Limpa a mensagem após
     <link rel="icon" href="./src/images/Logo_reduzido.svg" type="image/png">
     <title>Your Storage - Novo Cadastro</title>
     <link rel="stylesheet" href="./src/css/cadastro.css">
-    <link rel="stylesheet" href="./src/css/cadastro responsive.css">
+    <link rel="stylesheet" href="./src/css/cadastroresponsive.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script>
         document.addEventListener('DOMContentLoaded', () => {

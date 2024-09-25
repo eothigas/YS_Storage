@@ -5,9 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// Função expandir menu
-document.getElementById('btn-exp').addEventListener('click', () => {
-    document.querySelector('.menu-lateral').classList.toggle('expandir');
+// Função expandir menu e rotacionar botão
+document.getElementById('btn-exp').addEventListener('click', function() {
+    document.querySelector('.menu-lateral').classList.toggle('expandir'); // Alterna a expansão do menu
+    this.classList.toggle('rotacionado'); // Alterna a rotação do botão
 });
 
 // Função para carregar os dados do dashboard
