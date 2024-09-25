@@ -89,8 +89,8 @@ unset($_SESSION['message'], $_SESSION['messageType']); // Limpa a mensagem após
         <ul id="baixo">
             <hr>
             <li class="item-footer1">
-                <a href="">
-                    <img id="func_perfil" src="./profile.html" alt="">
+                <a href="./profile.html">
+                    <img id="func_perfil" src="" alt="">
                     <span class="txt-link">Perfil</span>
                 </a>
             </li>

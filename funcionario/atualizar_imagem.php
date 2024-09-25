@@ -1,6 +1,6 @@
 <?php
 // Conexão com o banco de dados
-$dsn = 'mysql:host=localhost;dbname=pgudxdii_yourstorage'; // Substitua pelos seus detalhes
+$dsn = 'mysql:host=localhost;dbname=pgudxdii_yourstorage';
 $username = 'pgudxdii_yourstorage';
 $password = 'PK7hdr7c9&L8SK#J';
 
@@ -8,12 +8,16 @@ try {
     $pdo = new PDO($dsn, $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Recebe os dados enviados via POST
+    // Recebe os dados enviados via JSON
     $data = json_decode(file_get_contents('php://input'), true);
-    $nome = $data['nome'];
-    $email = $data['email'];
-    $nova_senha = isset($data['nova_senha']) ? $data['nova_senha'] : null;
-    $imagem = isset($data['imagem']) ? $data['imagem'] : null;
+    
+    // Adicione esta linha para ver todos os dados recebidos
+    file_put_contents('log.txt', print_r($data, true), FILE_APPEND);
+
+    $nome = $data['nome'] ?? null;
+    $email = $data['email'] ?? null;
+    $novaSenha = $data['nova_senha'] ?? null;
+    $imagem = $data['imagem'] ?? null;
 
     // ID do funcionário que será atualizado (pego da sessão)
     session_start();
@@ -27,8 +31,8 @@ try {
     // Monta o SQL dinamicamente para atualizar apenas os campos que foram alterados
     $sql = "UPDATE funcionarios SET nome = :nome";
     
-    if ($nova_senha) {
-        $hashedSenha = password_hash($nova_senha, PASSWORD_DEFAULT); // Faz o hash da nova senha
+    if ($novaSenha) {
+        $hashedSenha = password_hash($novaSenha, PASSWORD_DEFAULT); // Faz o hash da nova senha
         $sql .= ", senha = :senha";
     }
     
@@ -43,7 +47,7 @@ try {
     $stmt->bindParam(':nome', $nome);
     $stmt->bindParam(':email', $sessionEmail);
     
-    if ($nova_senha) {
+    if ($novaSenha) {
         $stmt->bindParam(':senha', $hashedSenha);
     }
 
