@@ -1,24 +1,3 @@
-// Verificação de sessão
-
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('check_session.php')
-        .then(response => response.json())
-        .then(data => {
-            if (!data.loggedIn) {
-                window.location.href = 'index.html'; // Redireciona se não estiver logado
-            }
-        });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Verificação de sessão
-    checkSession();
-    loadDashboardData();
-
-    // Configura o cronômetro de inatividade
-    resetInactivityTimer();
-});
-
 // Função expandir menu
 
 var btnExp = document.querySelector('#btn-exp')
@@ -71,45 +50,3 @@ function togglePasswordVisibility(toggleId, inputId) {
         toggleIcon.classList.add('bi-eye-fill'); // Troca o ícone para "mostrar"
     }
 }
-
-// Função para lidar com o logout
-async function handleLogout() {
-    await invalidateSession(); // Invalida a sessão no servidor
-    window.location.href = 'index.html'; // Redireciona para a página de login
-}
-
-//Função logout
-
-    const logoutButton = document.getElementById('logout');
-
-    if (logoutButton) {
-        logoutButton.addEventListener('click', () => {
-            fetch('logout.php', {
-                method: 'POST'
-            }).then(response => {
-                if (response.ok) {
-                    window.location.href = 'index.html'; // Redireciona após o logout
-                }
-            });
-        });
-    };
-
-
-// Configura o cronômetro de inatividade
-let inactivityTimer;
-const inactivityTime = 40 * 60 * 1000; // 40 minutos em milissegundos
-
-function resetInactivityTimer() {
-    clearTimeout(inactivityTimer);
-    inactivityTimer = setTimeout(() => {
-        alert('Você foi desconectado por inatividade.');
-        handleLogout(); // Desconecta o usuário e redireciona
-    }, inactivityTime);
-}
-
-window.onload = function() {
-    resetInactivityTimer();
-};
-
-document.onmousemove = resetInactivityTimer;
-document.onkeypress = resetInactivityTimer;

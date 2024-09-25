@@ -1,4 +1,5 @@
 <?php
+session_start(); // Correção aqui
 // Conectar ao banco de dados (assumindo que você já tem a configuração PDO)
 try {
     $pdo = new PDO("mysql:host=localhost;dbname=pgudxdii_yourstorage", "pgudxdii_yourstorage", "PK7hdr7c9&L8SK#J");
@@ -45,8 +46,8 @@ if (!empty($query)) {
     $stmt = $pdo->prepare($user_query);
 }
 
-$stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
-$stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+$stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+$stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
 $stmt->execute();
 $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

@@ -69,26 +69,56 @@
         <h2>Editar Perfil</h2>
         <div class="profile-data">
             <div class="form-group">
-                <label for="imagem"></label>
                 <div id="imagem" class="profile-image">
                     <img src="" alt="Imagem do Perfil" id="perfil-imagem">
                 </div>
             </div>
-            <div class="form-group">
-                <label for="nome">Nome:</label>
-                <p id="nome" class="txt"></p>
+            <div class="form-group" id='nm'>
+                <label class='form' for="nome">Nome</label>
+                <p id="nome" class="txt">nome_funcionario</p>
             </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <p id="email" class="txt"></p>
+            <div class="form-group" id='em'>
+                <label class='form' for="email">Email</label>
+                <p id="email" class="txt">email_funcionario</p>
+            </div>
+            <button class='change-profile' id='open-modal-btn'>Alterar dados</button>
+        </div>
+
+    
+        <!-- Modal -->
+        <div id="alterar-dados-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h1>Alterar Dados</h1>
+                <div class="alterar-dados">
+                    <form id="edit-profile-form">
+                        <div class="form-gp">
+                            <label class='edit' for="imagem">Imagem:</label>
+                            <input type="file" id="imagemp" name="imagem" accept="image/*">
+                            <img id="imagem-preview" style="display:none; max-width: 100%; margin-top: 10px;" alt="Pré-visualização da imagem">
+                        </div>
+                        <div class="form-gp">
+                            <label class='edit' for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+                        <div class="form-gp">
+                            <label class='edit' for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-gp">
+                            <label class='edit' for="nova-senha">Nova Senha:</label>
+                            <input type="password" id="nova-senha" name="nova-senha">
+                        </div>
+                        <div class="form-gp">
+                            <label class='edit' for="confirmar-senha">Confirmar Nova Senha:</label>
+                            <input type="password" id="confirmar-senha" name="confirmar-senha">
+                        </div>
+                        <button type="submit">Salvar Alterações</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="alterar-dados">
-        
-    </div>
-    
     <script src="./src/js/profile.js"></script>
     
 </body>

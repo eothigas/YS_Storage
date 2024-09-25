@@ -19,7 +19,7 @@ a {
     align-items: center;
 }
 
-#out {
+#logout {
     cursor: pointer;
 }
 
@@ -125,18 +125,19 @@ ul li.item-footer2 a {
 }
 
 .txt-link-l {
-    margin-left: 50px;
+    font-size: 16px;
+    margin-left: 60px;
     transition: 1s;
     opacity: 0;
 }
 
 nav.menu-lateral.expandir .txt-link {
-    margin-left: 30px;
+    margin-left: 25px;
     opacity: 1;
 }
 
 nav.menu-lateral.expandir .txt-link-l {
-    margin-left: 30px;
+    margin-left: 23.2px;
     opacity: 1;
 }
 

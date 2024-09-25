@@ -15,7 +15,7 @@ body {
 
 a {
     text-decoration: none;
-    color: white;
+    color: black;
     align-items: center;
 }
 
@@ -188,7 +188,7 @@ nav.menu-lateral.expandir .txt-link-l {
 
 .user-info {
     background-color: rgb(39, 55, 77);
-    padding: 20px;
+    padding: 10px 20px 50px;
     border-radius: 8px;
     width: 950px;
     height: 480px;
@@ -305,41 +305,202 @@ button#prev-btn, button#next-btn {
     height: auto;
 }
 
-.modal {
+.edit-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.bi.bi-pencil-fill {
+    font-size: 16px;
+}
+
+
+#edit-modal {
     display: none; /* Oculto por padrão */
-    position: fixed; /* Fica fixo na tela */
-    z-index: 1; /* Fica em cima de outros conteúdos */
+    position: fixed; /* Fica em cima da tela */
+    z-index: 1; /* Fica na frente */
     left: 0;
     top: 0;
     width: 100%; /* Largura total */
     height: 100%; /* Altura total */
-    overflow: auto; /* Ativa o rolo se necessário */
-    background-color: rgb(0,0,0); /* Fundo preto */
+    overflow: auto; /* Habilita rolagem se necessário */
     background-color: rgba(0,0,0,0.4); /* Fundo preto com opacidade */
+    backdrop-filter: blur(10px);
+    transition: all 0.5s ease-in-out;
 }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% do topo e centralizado */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Largura do modal */
+#first.modal-content {
+    display: grid;
+    position: relative;
+    background-color: rgb(39, 55, 77);
+    color: white;
+    margin: auto auto; /* Margem no topo e centralizado */
+    border-radius: 10px;
+    width: 450px; /* Largura do modal */
+    max-width: 450px;
+    height: 55%;
+    overflow: hidden;
+    padding: 15px;
+    transition: all 0.5s ease-in-out;
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+p.title {
+    margin: 20px 0 0 0;
+    padding: 0;
+    font-size: 25px;
+    height: 30px;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
+
+.bi.bi-x-circle {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    font-size: 25px;
+}
+
+.bi.bi-x-circle:hover {
+    color: rgb(157, 178, 191);
     cursor: pointer;
 }
 
+
+#edit-form {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    gap: 10px;
+}
+
+input#edit-name, input#edit-email {
+    width: 438px;
+    max-width: 438px;
+    background-color: rgba(221, 230, 237, 0.352);
+    color: white;
+    border: 1px rgb(157, 178, 191) solid;
+    padding: 5px;
+    outline: 0;
+    border-radius: 5px;
+}
+
+#edit-basico.select, #edit-logistico.select, #edit-premium.select {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgb(157, 178, 191);
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#edit-basico.select:checked, 
+#edit-logistico.select:checked, 
+#edit-premium.select:checked {
+    background-color: rgb(157, 178, 191);
+}
+
+#delete-user, #save-changes {
+    width: 150px;
+    margin: 0 auto;
+    background-color: rgba(221, 230, 237, 0.352);
+    color: white;
+    border: 1px rgb(157, 178, 191) solid;
+    padding: 5px;
+    outline: 0;
+    border-radius: 5px;
+}
+
+button {
+    cursor: pointer;
+}
+
+#btn {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+#delete-user:hover {
+    background-color: red;
+    border: 1px red solid;
+}
+
+#save-changes:hover {
+    background-color: green;
+    border: 1px green solid;
+}
+
+#message-container {
+    display: none; /* Ocultar por padrão */
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    font-size: 15px;
+}
+
+#message-container.success {
+    display: block; /* Mostrar se for sucesso */
+    background-color: green;
+    color: white;
+}
+
+#message-container.error {
+    display: block; /* Mostrar se for erro */
+    background-color: red;
+    color: white;
+}
+
+#message-container.warning {
+    display: block; /* Mostrar se for erro */
+    background-color: rgb(245, 166, 32);
+    color: white;
+}
+
+#confirmation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
+    backdrop-filter: blur(50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.modal-contents {
+    background: rgb(39, 55, 77);
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#confirm-delete, #cancel-delete {
+    width: 150px;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 3px rgb(82, 109, 130) solid;
+    color: white;
+    background: rgb(82, 109, 130);
+}
+
+#confirm-delete:hover {
+    background-color: green;
+    border: 3px green solid;
+}
+
+#cancel-delete:hover {
+    background-color: red;
+    border: 3px red solid;
+}
 
 @media screen and (max-width: 1024px) {
     .txt-link {

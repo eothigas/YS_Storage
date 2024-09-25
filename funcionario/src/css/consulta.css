@@ -129,18 +129,19 @@ ul li.item-footer2 a {
 }
 
 .txt-link-l {
-    margin-left: 50px;
+    font-size: 16px;
+    margin-left: 60px;
     transition: 1s;
     opacity: 0;
 }
 
 nav.menu-lateral.expandir .txt-link {
-    margin-left: 30px;
+    margin-left: 25px;
     opacity: 1;
 }
 
 nav.menu-lateral.expandir .txt-link-l {
-    margin-left: 27px;
+    margin-left: 23.2px;
     opacity: 1;
 }
 
@@ -200,7 +201,7 @@ nav.menu-lateral.expandir .txt-link-l {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .user-info-header h2 {
@@ -211,11 +212,25 @@ nav.menu-lateral.expandir .txt-link-l {
 .search-bar {
     display: flex;
     gap: 10px;
+    color: white;
 }
 
 #search-input {
+    width: 206px;
     padding: 5px;
-    font-size: 16px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 2px rgb(157, 178, 191) solid;
+    background-color: rgb(82, 109, 130);
+    color: white;
+}
+
+#search-input::placeholder {
+    color: white;
+}
+
+#search-input:focus {
+    outline: none;
 }
 
 fontsize {

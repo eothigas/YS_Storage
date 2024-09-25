@@ -52,7 +52,7 @@
         <ul id="baixo">
             <hr>
             <li class="item-footer1">
-                <a href="">
+                <a href="./profile.html">
                     <img id="func_perfil" src="" alt="">
                     <span class="txt-link">Perfil</span>
                 </a>
@@ -85,6 +85,7 @@
             <table id="total-usuarios">
                 <thead>
                     <tr>
+                        <th>Editar</th>
                         <th>Nome</th>
                         <th>Email</th>
                         <th>Plano</th>
@@ -103,29 +104,60 @@
         </div>
     </div>
 
-    <!-- Modal para Alteração de Dados do Usuário -->
+    <!-- Mensagem erro ou sucesso -->
+    <div id="message-container">
+        <p id="message"></p>
+    </div>
+
+    <!-- Modal para Edição de Usuário -->
     <div id="edit-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="close-modal">&times;</span>
-            <p class="title">Alterar Dados do Usuário</p>
+        <div class="modal-content" id="first">
+            <i class="bi bi-x-circle" id='close-modal' onclick="closeModal()"></i>
+            <p class="title">Editar Usuário</p>
             <form id="edit-form" method="post" action="alterar_usuario.php">
                 <label>
                     <span>Nome</span><br>
-                    <input type="text" id="edit-name" name="edit-name" required>
+                    <input type="text" id="edit-name" name="name" required>
                 </label>
+                
                 <label>
                     <span>Email</span><br>
-                    <input type="email" id="edit-email" name="edit-email" required>
+                    <input type="email" id="edit-email" name="email" required>
                 </label>
+                
                 <label>
                     <span>Plano</span><br>
-                    <input type="text" id="edit-plan" name="edit-plan" required>
+                    <div class='ref'>
+                        <input class='select' type="radio" id="edit-basico" name="plan" value="basico" required>
+                        <label for="edit-basico">Básico</label>
+                    </div>
+                    <div class='ref'>
+                        <input class='select' type="radio" id="edit-logistico" name="plan" value="logistico" required>
+                        <label for="edit-logistico">Logístico</label>
+                    </div>
+                    <div class='ref'>
+                        <input class='select' type="radio" id="edit-premium" name="plan" value="premium" required>
+                        <label for="edit-premium">Premium</label>
+                    </div>
                 </label>
-                <button type="submit">Salvar Alterações</button>
+                <div id="btn">
+                    <button type="submit" id='delete-user' type="submit">Excluir Usuário</button>
+                    <button type="submit" id='save-changes' type="submit">Salvar Alterações</button>
+                </div>
             </form>
         </div>
     </div>
 
-    <script src="./src/js/altera.js"></script>
+    <div id="confirmation-modal" style="display:none;">
+        <div class="modal-contents">
+            <p>Você tem certeza que deseja deletar este usuário?</p>
+            <div>
+                <button id="confirm-delete">Sim, prosseguir.</button><br>
+                <button id="cancel-delete">Não, retornar.</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./src/js/alterar.js"></script>
 </body>
 </html>

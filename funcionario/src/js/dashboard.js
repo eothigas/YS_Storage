@@ -1,25 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Verificação de sessão
-    checkSession();
+
     loadDashboardData();
     fetchClientes();
 
-    // Configura o cronômetro de inatividade
-    resetInactivityTimer();
 });
-
-// Função para verificar a sessão
-async function checkSession() {
-    try {
-        const response = await fetch('check_session.php');
-        const data = await response.json();
-        if (!data.loggedIn) {
-            window.location.href = 'index.html'; // Redireciona se não estiver logado
-        }
-    } catch (error) {
-        console.error('Erro ao verificar a sessão:', error);
-    }
-}
 
 // Função expandir menu
 document.getElementById('btn-exp').addEventListener('click', () => {
@@ -85,30 +69,3 @@ function displayClientes(clientes) {
         tbody.appendChild(row);
     });
 }
-
-// Função para lidar com o logout
-async function handleLogout() {
-    await invalidateSession(); // Invalida a sessão no servidor
-    window.location.href = 'index.html'; // Redireciona para a página de login
-}
-
-//Função logout
-document.getElementById('logout').addEventListener('click', async () => {
-    await fetch('logout.php', { method: 'POST' });
-    window.location.href = 'index.html'; // Redireciona após o logout
-});
-
-// Configura o cronômetro de inatividade
-let inactivityTimer;
-const inactivityTime = 40 * 60 * 1000; // 40 minutos em milissegundos
-
-function resetInactivityTimer() {
-    clearTimeout(inactivityTimer);
-    inactivityTimer = setTimeout(() => {
-        alert('Você foi desconectado por inatividade.');
-        handleLogout(); // Desconecta o usuário e redireciona
-    }, inactivityTime);
-}
-
-document.onmousemove = resetInactivityTimer;
-document.onkeypress = resetInactivityTimer; // Reseta o temporizador ao pressionar teclas
