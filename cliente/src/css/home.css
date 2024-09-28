@@ -108,13 +108,23 @@ svg {
     cursor: pointer;
 }
 
-.bi.bi-plus-square, .bi.bi-search, .bi.bi-arrow-left-right, .bi.bi-house {
+.bi.bi-plus-square, .bi.bi-search, .bi.bi-arrow-left-right, .bi.bi-house, .bi.bi-gear, .bi.bi-box-arrow-right {
     display: grid;
     gap: 10px;
     color: rgb(226, 226, 182);
     font-size: 30px;
     padding: 10px;
 }
+
+#baixo a {
+    padding-bottom: 0px;
+    padding-top: 0;
+}
+
+#settings {
+    border-top: 2px rgb(226, 226, 182) solid;
+}
+
 
 .menu-lateral {
     width: 260px;

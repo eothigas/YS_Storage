@@ -3,7 +3,7 @@ session_start();
 
 // Conectar ao banco de dados
 try {
-    $pdo = new PDO("mysql:host=t;dbname=", "", "");
+    $pdo = new PDO("mysql:host=localhost;dbname=pgudxdii_yourstorage", "pgudxdii_yourstorage", "PK7hdr7c9&L8SK#J");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     echo json_encode(['error' => 'Erro ao conectar ao banco de dados.']);

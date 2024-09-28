@@ -1,0 +1,203 @@
+@media screen and (max-width: 1366px) and (max-height: 768px) {
+
+    ul li.item-menu {
+        margin: 10px 0;
+    }
+
+    ul li.item-footer1,
+    ul li.item-footer2 {
+        margin: 10px 0;
+    }
+
+    .logo-r img {
+        width: 55px;
+    }
+
+    .profile {
+        grid-template-columns: 60px 200px;
+        width: 250px;
+        height: 50px;
+        margin: 5px 8px;
+    }
+
+    .profile img {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .profile-text {
+        display: grid;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-text h2 {
+        margin: 0;
+        font-size: 20px
+    }
+
+    .welcome-message {
+        margin-bottom: 10px;
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1365px) and (max-height: 767px) {
+
+    .btn-expandir {
+        font-size: 35px;
+        padding: 10px 0 25px 15px;
+        transition: transform 0.3s ease, padding 0.3s ease;
+        transform-origin: center;
+    }
+
+    .rotacionado {
+        transform: rotate(90deg);
+        padding: 10px 0 25px 28px; 
+    }
+
+    nav.menu-lateral {
+        width: 70px;
+        height: 100dvh;
+        position: relative;
+    }
+    
+    nav.menu-lateral.expandir {
+        position: absolute;
+        width: 220px;
+        text-wrap: nowrap;
+    }
+
+    ul li.item-menu a  {
+        padding-left: 10px;
+        line-height: 45px;
+    }
+
+    ul li.item-menu {
+        margin: 0;
+        height: 65px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    ul#baixo {
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+
+    hr {
+        display: none;
+    }
+
+    .logo-r img {
+        display: none;
+    }
+
+    .profile {
+        display: none;
+    }
+
+    a#logout {
+        padding: 10px;
+    }
+
+    ul li.item-footer1 a {
+        border-top: 2px solid white;
+        padding: 20px;
+    }
+
+    ul li.item-footer1, ul li.item-footer2  {
+        display: grid;
+        height: 70px;
+        transition: .2s;
+        margin: 0px 0 0 0;
+    }
+
+    #func_perfil {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        margin: 0;
+    }
+
+    .icon {
+        font-size: 25px;
+        color: white;
+        margin-left: 10px;
+    }
+
+    .txt-link {
+        margin-left: 60px;
+        transition: 1s;
+        opacity: 0;
+        text-wrap: nowrap;
+    }
+    
+    .txt-link-l {
+        font-size: 16px;
+        margin-left: 60px;
+        padding: 0;
+        transition: 1s;
+        opacity: 0;
+        text-wrap: nowrap;
+    }
+
+    nav.menu-lateral.expandir .txt-link {
+        margin-left: 15px;
+        opacity: 1;
+        font-size: 14px;
+        text-wrap: nowrap;
+    }
+    
+    nav.menu-lateral.expandir .txt-link-l {
+        margin-left: 10px;
+        opacity: 1;
+        text-wrap: nowrap;
+    }
+
+    .main-content{
+        margin-left: 0;
+    }
+
+    .menu-lateral.expandir ~ .main-content {
+        margin-left: 0px;
+    }
+
+    .welcome-message {
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+
+    .welcome-message h1 {
+        font-size: 18px;
+    }
+
+    .user-info {
+        background-color: rgb(39, 55, 77);
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .user-info h2 {
+        margin-bottom: px;
+        font-size: 18px;
+    }
+
+    fontsize {
+        font-size: 11px;
+    }
+
+    #total-usuarios {
+        font-size: 12px;
+    }
+
+    table, th, td {
+        font-size: 12px;
+    }
+
+    .user-info button {
+        font-size: 12px;
+    }
+
+}

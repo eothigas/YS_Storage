@@ -1,19 +1,11 @@
 <?php
 header('Content-Type: application/json');
 
-// Carregar configurações do php.ini da raiz
-$config = parse_ini_file('../../PHP/php.ini', true);
-
-// Verificar se o arquivo foi carregado corretamente
-if (!$config) {
-    die("Erro ao carregar o arquivo php.ini.");
-}
-
-// Acessar credenciais do banco de dados e o Client ID do Imgur
-$host = $config['database']['host'];
-$dbname = $config['database']['db_name'];
-$username = $config['database']['user'];
-$password = $config['database']['password'];
+// Configurações do banco de dados
+$host = 'localhost';
+$dbname = 'pgudxdii_yourstorage';
+$username = 'pgudxdii_yourstorage';
+$password = 'PK7hdr7c9&L8SK#J';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
