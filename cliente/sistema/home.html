@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../src/css/home.css"> <!-- Seu CSS -->
+    <title>Your Storage - Home</title>
+</head>
+<body>
+    <div id="menuLateral" class="menu-lateral fechado">
+        <i class="bi bi-list" id="btn-menu" onclick="toggleMenu()"></i>
+        <i class="bi bi-list-nested" id="btn-close" style="display: none;" onclick="toggleMenu()"></i>
+        <ul>
+            <li>
+                <a href="">
+                    <span class="menu-icon"><i class="bi bi-house"></i></span>
+                    <span class="menu-text">Home</span>
+                </a>
+            </li> 
+            <li>
+                <a href="./cadastroprod.html">
+                    <span class="menu-icon"><i class="bi bi-plus-square"></i></span>
+                    <span class="menu-text">Cadastrar Produto</span>
+                </a>
+            </li>
+            <li>
+                <a href="./consultaprod.html">
+                    <span class="menu-icon"><i class="bi bi-search"></i></span>
+                    <span class="menu-text">Consultar Produto</span>
+                </a>
+            </li>
+            <li>
+                <a href="./movimentaprod.html">
+                    <span class="menu-icon"><i class="bi bi-arrow-left-right"></i></span>
+                    <span class="menu-text">Movimentar Estoque</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        
+        <div class="section-top">
+
+            <div class="image-slider">
+                <!-- Imagens em looping (use as suas imagens aqui) -->
+                <img src="" alt="Imagem do Storage" class="slider-image">
+            </div>
+            <div class="text-block">
+                <h2 id="title"></h2>
+                <p id="p1"><i class="bi bi-map"></i>   Endereço: <span class="text-content"></span></p>
+                <p id="p2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="rgb(226, 226, 182)" class="bi bi-arrows-expand-vertical" viewBox="0 0 16 16">
+                    <path d="M8 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8"/>
+                </svg>   Lagura: <span class="text-content"></span> metros</p>
+                <p id="p3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="rgb(226, 226, 182)" class="bi bi-arrows-expand" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8M7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10"/>
+                </svg>   Altura: <span class="text-content"></span> metros</p>
+                <p id="p4"><i class="bi bi-bounding-box"></i>   Comprimento: <span class="text-content"></span> metros</p>
+            </div>
+        </div>
+
+        <div class="section-bottom">
+            <h2 class="text-center">Produtos em Estoque</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Quantidade</th>
+                        <th>Imagem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Produto A</td>
+                        <td>Descrição do Produto A</td>
+                        <td>10</td>
+                        <td><img src="product-a.jpg" alt="Produto A" class="product-image"></td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Produto B</td>
+                        <td>Descrição do Produto B</td>
+                        <td>5</td>
+                        <td><img src="product-b.jpg" alt="Produto B" class="product-image"></td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Produto C</td>
+                        <td>Descrição do Produto C</td>
+                        <td>8</td>
+                        <td><img src="product-c.jpg" alt="Produto C" class="product-image"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-primary">Consultar produtos</button>
+        </div>
+    </div>
+
+    <script src="../src/js/home.js"></script> <!-- Seu JS -->
+</body>
+</html>
