@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./src/images/Logo_reduzido.svg" type="image/svg">
+    <title>Your Storage - Orçamento</title>
+    <link rel='stylesheet' href="./src/orcamento.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    
+    <div id="container">
+        <div id="caixa-esquerda">
+            <h2>Orçamento</h2>
+            <p>
+                Chegou a hora de visualizar sua nova área de estoque!
+                Preencha os campos com suas informações, e assim,
+                um de nossos agentes comerciais entrarão em contato com você!
+            </p>
+            <img src="./src/images/caixa.png" width="200" id="imagem" alt="Imagem ilustrativa caixa">
+        </div>
+
+        <div id="caixa-direita">
+
+            <div id="back">
+                <a id='link' href="index.html" aria-hidden="true"><i class="fas fa-times circular-icon" aria-label="Voltar a página principal"></i></a>
+            </div>
+
+            <form action="process_form.php" method="POST">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" required maxlength="50" 
+                autocomplete="name">
+                <fontsize class="size">*Obrigatório</fontsize>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required 
+                autocomplete="email">
+                <fontsize class="size">*Obrigatório</fontsize>
+
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" required
+                autocomplete="tel" inputmode='tel' required minlength="11" 
+                maxlength="15">
+                <fontsize class="size">*Obrigatório</fontsize>
+
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" rows="10" 
+                maxlength="450"></textarea>
+
+                <button type="submit" id="enviar">Enviar</button>
+            </form>
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>
