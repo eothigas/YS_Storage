@@ -15,10 +15,9 @@ body {
 }
 
 div.container {
-    margin-left: 200px;
     transition: margin-left 0.3s ease;
-    width: 700px;
-    margin: auto;
+    width: 100%;
+    margin: auto 150px auto 200px;
     background-color: rgb(3, 52, 110);
     padding: 20px;
     border-radius: 8px;
@@ -76,7 +75,7 @@ input:focus, textarea:focus {
 }
 
 #imagem {
-    width: 48%;
+    margin-top: 2px;
 }
 
 button {
@@ -99,26 +98,26 @@ button:hover {
     display: none;
     position: absolute;
     z-index: 2;
-    top: 50px;
+    top: 56px;
+    right: 10px;
     background-color: green;
     color: white;
     font-weight: bold;
     padding: 10px;
     border-radius: 10px;
-    right: 20px;
 }
 
 #mensagem-error {
     display: none;
     position: absolute;
     z-index: 2;
-    top: 50px;
+    top: 56px;
+    right: 10px;
     background-color: red;
     color: white;
     font-weight: bold;
     padding: 10px;
     border-radius: 10px;
-    right: 20px;
 }
 
 #btn-menu {
@@ -137,7 +136,7 @@ button:hover {
     cursor: pointer;
 }
 
-.bi.bi-plus-square, .bi.bi-search, .bi.bi-arrow-left-right, .bi.bi-house {
+.bi.bi-plus-square, .bi.bi-search, .bi.bi-arrow-left-right, .bi.bi-house, .bi.bi-gear, .bi.bi-box-arrow-right {
     display: grid;
     gap: 10px;
     color: rgb(226, 226, 182);
@@ -145,8 +144,18 @@ button:hover {
     padding: 10px;
 }
 
+#baixo a {
+    padding-bottom: 0px;
+    padding-top: 0;
+}
+
+#settings {
+    border-top: 2px rgb(226, 226, 182) solid;
+}
+
 .menu-lateral {
     width: 260px;
+    z-index: 1;
     background-color: rgb(3, 52, 110);
     color: white;
     position: fixed;
@@ -156,16 +165,18 @@ button:hover {
     overflow: hidden;
 }
 
+.menu-lateral ~ .container {
+    filter: blur(5px);
+}
+
+.menu-lateral.fechado ~ .container {
+    filter: blur(0);
+}
+
 /* Estilo para ocultar o menu lateral */
 .menu-lateral.fechado {
     width: 50px;
     overflow: hidden;
-}
-
-/* Quando o menu está oculto, ajuste o layout principal */
-.container.expanded {
-    margin-left: auto;
-    transition: margin-left 0.3s ease;
 }
 
 .menu-lateral ul {
@@ -188,6 +199,12 @@ button:hover {
     color: rgb(226, 226, 182); /* Mude para a cor desejada */
     padding: 10px 0;
 }
+
+#page {
+    background-color: rgb(226, 226, 182);
+    color: rgb(3, 52, 110);
+}
+
 
 .menu-lateral a:hover {
     background-color: rgb(226, 226, 182);

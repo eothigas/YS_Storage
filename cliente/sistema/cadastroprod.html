@@ -18,10 +18,10 @@
                     <span class="menu-text">Home</span>
                 </a>
             </li> 
-            <li>
+            <li id="page">
                 <a href="">
-                    <span class="menu-icon"><i class="bi bi-plus-square"></i></span>
-                    <span class="menu-text">Cadastrar Produto</span>
+                    <span class="menu-icon"><i class="bi bi-plus-square" id="page"></i></span>
+                    <span class="menu-text" id="page">Cadastrar Produto</span>
                 </a>
             </li>
             <li>
@@ -36,12 +36,25 @@
                     <span class="menu-text">Movimentar Estoque</span>
                 </a>
             </li>
-            <!-- Adicione mais itens do menu conforme necessário -->
+        </ul>
+        <ul id="baixo">
+            <li>
+                <a id="settings" href="./settings">
+                    <span class="menu-icon"><i class="bi bi-gear"></i></span>
+                    <span class="menu-text">Configurações</span>
+                </a>
+            </li> 
+            <li>
+                <a id="logout" href="./php/logout.php"> <!-- Link para o script de logout -->
+                    <span class="menu-icon"><i class="bi bi-box-arrow-right"></i></span>
+                    <span class="menu-text">Sair</span>
+                </a>
+            </li>
         </ul>
     </div>
     <div class="container">
         <h1>Cadastro de Produtos</h1>
-        <form id="form-cadastro-produto" action="../php/cadastro_produto.php" method="post" enctype="multipart/form-data">
+        <form id="form-cadastro-produto" action="./php/cadastro_produto.php" method="post" enctype="multipart/form-data">
             <label for="codigo">Código do Produto:</label>
             <input type="text" id="codigo" name="codigo" minlength='1' required>
             
@@ -71,15 +84,15 @@
             </div>
             
             <label for="imagem">Imagem do Produto:</label>
+            <img id="imagem-preview" style="display:none; max-width:100px; margin:10px 0 5px 0; border: 1px rgb(226, 226, 182) solid; border-radius: 5px; padding: 5px;"/>
             <input type="file" id="imagem" name="imagem" accept="image/*">
             
             <!-- Imagem de pré-visualização -->
-            <img id="imagem-preview" style="display:none; max-width:100px; margin-top:10px; border: 1px rgb(226, 226, 182) solid; border-radius: 5px; padding: 5px;"/>
             
             <button type="submit">Cadastrar Produto</button>
         </form>        
-        <p id="mensagem-sucess"></p>
-        <p id="mensagem-error"></p>
+        <p id="mensagem-sucess">Produto cadastrado!</p>
+        <p id="mensagem-error">Ocorreu um erro. Tente novamente.</p>
     </div>
     <script src="../src/js/cadastroprod.js"></script>
 </body>
