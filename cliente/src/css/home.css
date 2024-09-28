@@ -16,13 +16,17 @@ body {
 
 .container {
     flex-grow: 1;
-    padding: 20px;
+    /* padding: 20px; */
+    width: 100dvh;
+    height: auto;
+    justify-content: space-between;
+    overflow: hidden;
 }
 
 .section-top {
     display: flex;
     position: relative;
-    margin: 0 45px 20px 90px;
+    margin: 20px 45px 20px 85px;
     z-index: 0;
     background-color: rgb(3, 52, 110);
     padding: 10px;
@@ -30,8 +34,13 @@ body {
     border-radius: 10px;
 }
 
+#info {
+    text-align: center;
+    color: rgb(226, 226, 182);
+}
+
 .image-slider {
-    /* display: none; */
+    display: none;
     width: 550px; /* Ajuste conforme necessário */
     border-radius: 0;
 }
@@ -43,7 +52,7 @@ img.slider-image {
 }
 
 .text-block {
-    display: grid;
+    display: none;
     gap: 5px;
     width: 50%; /* Ajuste conforme necessário */
     height: 200px;
@@ -77,19 +86,69 @@ svg {
 }
 
 .section-bottom {
-    position: absolute;
-    text-align: center;
+    position: fixed;
     bottom: 0px;
+    margin-left: 50px;
+    width: calc(100% - 70px);
+    overflow: hidden;
+    background-color: rgb(3, 52, 110);
+    padding: 10px 10px;
 }
 
-.table {
-    width: 100%;
-    margin-bottom: 20px;
+.text-center {
+    color: rgb(226, 226, 182);
+    text-align: center;
+    padding-bottom: 5px;
+    font-size: 20px;
+}
+
+table {
+    width: 95%;
+    padding: 2px;
+    border: 4px rgb(226, 226, 182) solid;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+th, td {
+    width: 100px;
+    padding: 3px;            /* Espaçamento interno para melhorar a legibilidade */
+    text-align: center;        /* Alinha o texto à esquerda */
+    align-items: center;
+    justify-content: center;
+}
+
+th {
+    background-color: rgb(2, 21, 38); /* Cor de fundo para o cabeçalho */
+    color: rgb(226, 226, 182);
+}
+
+tr {
+    background-color: rgb(110, 172, 218);
+    color: rgb(2, 21, 38);
 }
 
 .product-image {
-    width: 50px; /* Ajuste conforme necessário */
-    height: auto;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.consult-prod {
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
+    margin: 10px 0 0 30px;
+    background-color: rgb(2, 21, 38);
+    color: rgb(226, 226, 182);
+    cursor: pointer;
+}
+
+.consult-prod:hover {
+    background-color: rgb(2, 21, 38, 0.7);
 }
 
 #btn-menu {
@@ -125,7 +184,6 @@ svg {
     border-top: 2px rgb(226, 226, 182) solid;
 }
 
-
 .menu-lateral {
     width: 260px;
     background-color: rgb(3, 52, 110);
@@ -142,12 +200,6 @@ svg {
 .menu-lateral.fechado {
     width: 50px;
     overflow: hidden;
-}
-
-/* Quando o menu está oculto, ajuste o layout principal */
-.section-top.expanded {
-    margin-left: 300px;
-    transition: margin-left 0.3s ease;
 }
 
 .menu-lateral ul {
