@@ -1,0 +1,16 @@
+<----------------------------------------------------------------------------------------------------------------->
+
+Olá!
+
+Texto informativo para explicar que na pasta raiz do projeto, há o arquivo de configuração PHP.INI.
+
+Claramente, este arquivo não pode ficar público e, sendo assim, na hospedagem decidi restringir o acesso.
+
+Como não consigo proteger a pasta aqui (e também não seria tão legal fazer isso, já que o projeto é público),
+decidi não subir no repositório. Contudo, estou informando que sim, há este arquivo de configuração.
+
+É só isso! Valeu por ler isso aqui!
+
+Ass: Thiago Freitas 
+
+<----------------------------------------------------------------------------------------------------------------->
