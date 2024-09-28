@@ -9,9 +9,9 @@ if (!$config) {
     die("Erro ao carregar o arquivo php.ini.");
 }
 
-// Acessar credenciais do banco de dados e o Client ID do Imgur
+// Acessar credenciais do banco de dados
 $host = $config['database']['host'];
-$dbname = $config['database']['db_name'];
+$dbname = $config['database']['dbname'];
 $username = $config['database']['user'];
 $password = $config['database']['password'];
 
