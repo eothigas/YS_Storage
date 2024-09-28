@@ -1,15 +1,16 @@
-// Expandir Menu
 function toggleMenu() {
     var menu = document.getElementById("menuLateral");
     var content = document.querySelector(".container");
+    var menuIcon = document.querySelector("#btn-menu");
+    var closeIcon = document.querySelector("#btn-close");
 
-    if (menu.classList.contains("fechado")) {
-        menu.classList.remove("fechado");
-        content.classList.remove("expanded");
-    } else {
-        menu.classList.add("fechado");
-        content.classList.add("expanded");
-    }
+    // Alterna a classe 'fechado' no menu lateral
+    menu.classList.toggle("fechado");
+    content.classList.toggle("expanded");
+
+    // Alterna a exibição dos ícones
+    menuIcon.style.display = menu.classList.contains("fechado") ? "inline" : "none";
+    closeIcon.style.display = menu.classList.contains("fechado") ? "none" : "inline";
 }
 
 document.addEventListener("DOMContentLoaded", () => {

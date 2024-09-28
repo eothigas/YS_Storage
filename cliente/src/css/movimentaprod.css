@@ -7,9 +7,11 @@
 }
 
 body {
-    background-color: #f4f4f4;
+    background-color: rgb(2, 21, 38);
     margin: 0;
     padding: 0;
+    height: 100dvh;
+    display: flex;
 }
 
 div.container {
@@ -17,7 +19,8 @@ div.container {
     transition: margin-left 0.3s ease;
     width: 900px;
     margin: auto;
-    background-color: #fff;
+    background-color: rgb(3, 52, 110);
+    color: rgb(226, 226, 182);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -25,7 +28,6 @@ div.container {
 
 h1 {
     text-align: center;
-    color: #333;
     margin-bottom: 20px;
 }
 
@@ -35,37 +37,59 @@ form {
 }
 
 label {
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: #333;
+    color: rgb(226, 226, 182);
+    display: block;
+    margin: 10px 0 0 0;
 }
 
-input, select, button {
+input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgb(2, 21, 38, 0.5);
+    color: rgb(226, 226, 182);
+    resize: none;
+}
+
+input:focus {
+    outline: none;
+} 
+
+
+select, button {
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 4px;
     border: 1px solid #ccc;
+    background-color: rgb(2, 21, 38, 0.5);
+    color: rgb(226, 226, 182);
 }
 
-input[type="text"], input[type="number"] {
+#tipo {
     width: 100%;
-}
-
-select {
-    width: 100%;
-    background-color: #fff;
+    height: 38px;
+    border-radius: 5px;
+    background-color: rgb(2, 36, 74);
+    border: 1px rgb(204, 204, 204) solid;
+    color: rgb(226, 226, 182);
+    padding: 10px;
 }
 
 button {
-    background-color: #007bff;
-    color: white;
+    background-color: rgb(2, 21, 38);
+    color: rgb(226, 226, 182);
+    font-size: 16px;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s;
+    padding: 10px;
+    margin: 10px auto 0;
+    width: 270px;
+    border-radius: 10px ;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: rgb(2, 21, 38, 0.5);
 }
 
 .message {
@@ -85,42 +109,63 @@ button:hover {
     color: white;
 }
 
-.bi.bi-list {
+#btn-menu {
     font-size: 40px;
     font-weight: bold;
-    color: white;
+    color: rgb(226, 226, 182);
     margin-left: 5px;
     cursor: pointer;
 }
 
-.bi.bi-plus-square, .bi.bi-search, .bi.bi-arrow-left-right {
+#btn-close {
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(226, 226, 182);
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.bi.bi-plus-square, .bi.bi-search, .bi.bi-arrow-left-right, .bi.bi-house, .bi.bi-gear, .bi.bi-box-arrow-right {
     display: grid;
     gap: 10px;
-    color: white;
+    color: rgb(226, 226, 182);
     font-size: 30px;
     padding: 10px;
 }
 
+#baixo a {
+    padding-bottom: 0px;
+    padding-top: 0;
+}
+
+#settings {
+    border-top: 2px rgb(226, 226, 182) solid;
+}
+
 .menu-lateral {
-    width: 220px;
-    background-color: #007bff;
+    width: 260px;
+    z-index: 1;
+    background-color: rgb(3, 52, 110);
     color: white;
     position: fixed;
     height: 100%;
     padding: 20px 0;
     transition: width 0.5s ease;
+    overflow: hidden;
+}
+
+.menu-lateral ~ .container {
+    filter: blur(5px);
+}
+
+.menu-lateral.fechado ~ .container {
+    filter: blur(0);
 }
 
 /* Estilo para ocultar o menu lateral */
 .menu-lateral.fechado {
     width: 50px;
     overflow: hidden;
-}
-
-/* Quando o menu está oculto, ajuste o layout principal */
-.container.expanded {
-    margin-left: auto;
-    transition: margin-left 0.3s ease;
 }
 
 .menu-lateral ul {
@@ -133,19 +178,30 @@ button:hover {
     display: grid;
     align-items: center;
     padding: 0px 0 0px 0;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .menu-lateral a {
     text-decoration: none;
     display: flex;
     align-items: center;
-    color: white; /* Mude para a cor desejada */
+    color: rgb(226, 226, 182); /* Mude para a cor desejada */
     padding: 10px 0;
 }
 
+#page {
+    background-color: rgb(226, 226, 182);
+    color: rgb(3, 52, 110);
+}
+
+
 .menu-lateral a:hover {
-    background-color: #28a745;
+    background-color: rgb(226, 226, 182);
+    color: rgb(3, 52, 110);
+}
+
+.menu-lateral a:hover .bi {
+    color: rgb(3, 52, 110);
 }
 
 .menu-icon {
@@ -160,9 +216,13 @@ button:hover {
     font-size: 16px;
     font-weight: normal;
     text-decoration: none;
-    transition: 1s ease-in-out;
+    transition: .2s ease;
     text-wrap: nowrap;
     opacity: 1;
+}
+
+.menu-lateral a:hover .menu-text {
+    transition: none;
 }
 
 .menu-lateral.fechado .menu-text {
