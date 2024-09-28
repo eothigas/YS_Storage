@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Stoke:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Stoke', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+div.container {
+    margin-left: 200px;
+    transition: margin-left 0.3s ease;
+    width: 900px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+input, select, button {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+}
+
+select {
+    width: 100%;
+    background-color: #fff;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    display: none; /* Inicialmente oculto */
+}
+
+.message.success {
+    background-color: #28a745;
+    color: white;
+}
+
+.message.error {
+    background-color: #dc3545;
+    color: white;
+}
+
+.bi.bi-list {
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.bi.bi-plus-square, .bi.bi-search, .bi.bi-arrow-left-right {
+    display: grid;
+    gap: 10px;
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.menu-lateral {
+    width: 220px;
+    background-color: #007bff;
+    color: white;
+    position: fixed;
+    height: 100%;
+    padding: 20px 0;
+    transition: width 0.5s ease;
+}
+
+/* Estilo para ocultar o menu lateral */
+.menu-lateral.fechado {
+    width: 50px;
+    overflow: hidden;
+}
+
+/* Quando o menu está oculto, ajuste o layout principal */
+.container.expanded {
+    margin-left: auto;
+    transition: margin-left 0.3s ease;
+}
+
+.menu-lateral ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-lateral li {
+    display: grid;
+    align-items: center;
+    padding: 0px 0 0px 0;
+    margin-top: 30px;
+}
+
+.menu-lateral a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white; /* Mude para a cor desejada */
+    padding: 10px 0;
+}
+
+.menu-lateral a:hover {
+    background-color: #28a745;
+}
+
+.menu-icon {
+    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-text {
+    /* Estilos para o texto do link */
+    font-size: 16px;
+    font-weight: normal;
+    text-decoration: none;
+    transition: 1s ease-in-out;
+    text-wrap: nowrap;
+    opacity: 1;
+}
+
+.menu-lateral.fechado .menu-text {
+    opacity: 0;
+    padding-left: 20px;
+}
