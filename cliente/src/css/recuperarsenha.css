@@ -138,4 +138,29 @@ p {
     border-radius: 20px;
 }
   
-  
+#message-container {
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: 5px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    font-size: 15px;
+}
+
+.success {
+    display: flex; /* Mostrar se for sucesso */
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.error {
+    display: flex; /* Mostrar se for erro */
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+} 

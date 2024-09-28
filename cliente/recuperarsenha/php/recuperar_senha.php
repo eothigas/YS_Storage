@@ -1,12 +1,14 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 
 // Carrega as configurações do php.ini
 $config = parse_ini_file('../../../PHP/php.ini', true);
 
-// Verifica se as configurações foram carregadas corretamente
 if (!$config) {
-    echo json_encode(["error" => "Erro ao carregar as configurações do php.ini"]);
+    echo "<p>Erro ao carregar as configurações do php.ini</p>";
     exit();
 }
 
@@ -16,16 +18,11 @@ $dbname = $config['database']['dbname'] ?? null;
 $user = $config['database']['user'] ?? null;
 $password = $config['database']['password'] ?? null;
 
-if (!$host || !$dbname || !$user || !$password) {
-    echo json_encode(["error" => "Configurações do banco de dados inválidas"]);
-    exit();
-}
-
 // Definir o DSN (Data Source Name)
 $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
 
 // Função para enviar e-mail
-function enviarEmail($para, $codigo) {
+function enviarEmail($mail, $codigo) {
     $de = 'no-reply@yourstorage.x10.mx';
     $assunto = 'Recuperação de Senha - Your Storage';
     $mensagem = "
@@ -47,17 +44,32 @@ function enviarEmail($para, $codigo) {
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
     $headers .= 'From: ' . $de . "\r\n";
 
-    mail($para, $assunto, $mensagem, $headers);
+    mail($mail, $assunto, $mensagem, $headers);
 }
 
-try {
-    // Criar uma nova conexão PDO
-    $conn = new PDO($dsn, $user, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// Verificar se o formulário foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Coleta o e-mail do formulário
+    $email = $_POST['email'] ?? null;
 
-    // Verificar se o formulário foi enviado
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST['email'];
+    // Verifica se o campo de e-mail está vazio
+    if (empty($email)) {
+        $_SESSION['error'] = "O campo de e-mail é obrigatório.";
+        header("Location: ../recuperarsenha.html"); // Redireciona para a página de recuperação
+        exit();
+    }
+
+    // Valida o formato do e-mail
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['error'] = "Por favor, insira um e-mail válido.";
+        header("Location: ../recuperarsenha.html"); // Redireciona para a página de recuperação
+        exit();
+    }
+
+    try {
+        // Criar uma nova conexão PDO
+        $conn = new PDO($dsn, $user, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Preparar e executar a consulta para verificar o e-mail
         $sql = "SELECT email FROM usuarios WHERE email = :email";
@@ -65,10 +77,11 @@ try {
         $stmt->bindParam(':email', $email);
         $stmt->execute();
 
-        if ($stmt->rowCount() > 0) {
+        // Verifica se o e-mail existe
+        if ($stmt->fetch(PDO::FETCH_ASSOC)) { // Fetch retorna um array se o e-mail for encontrado
             // Gerar um código de recuperação
             $codigo = bin2hex(random_bytes(4)); // Gera um código hexadecimal de 8 caracteres
-            $validade = date('Y-m-d H:i:s', strtotime('+3 hours')); // Define a validade para 3 horas a partir de agora
+            $validade = date('Y-m-d H:i:s', strtotime('+4 hours')); // Define a validade para 4 horas a partir de agora
 
             // Preparar e executar a consulta para inserir o código e a validade
             $sql = "INSERT INTO recuperacao_senha (email, codigo, validade) VALUES (:email, :codigo, :validade)
@@ -83,18 +96,25 @@ try {
             $_SESSION['email'] = $email;
 
             // Enviar e-mail com o código de recuperação
-            enviarEmail($email, $codigo);
+            enviarEmail($email, $codigo); // Corrigido para usar a variável correta $email
 
-            header("Location: ./enviocodigo.html");
+            // Redirecionar após enviar o e-mail
+            header("Location: ../enviocodigo.html");
             exit();
         } else {
-            echo "<p class='message'>E-mail não encontrado.</p>";
+            // Definir uma mensagem de erro na sessão se o e-mail não for encontrado
+            $_SESSION['error'] = "Usuário não encontrado.";
+            header("Location: ../recuperarsenha.html"); // Redireciona para a página de recuperação
+            exit();
         }
+    } catch (PDOException $e) {
+        // Em caso de erro na conexão ou consulta ao banco de dados
+        $_SESSION['error'] = "Erro: " . $e->getMessage();
+        header("Location: ../recuperarsenha.html"); // Redireciona para a página de recuperação
+        exit();
+    } finally {
+        // Fechar a conexão
+        $conn = null;
     }
-} catch (PDOException $e) {
-    echo "<p class='message'>Erro: " . $e->getMessage() . "</p>";
 }
-
-// Fechar a conexão
-$conn = null;
 ?>

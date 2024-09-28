@@ -7,25 +7,62 @@
     <link rel="stylesheet" href="../src/css/codigo.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Your Storage - Recuperação de Senha</title>
+    <script>
+        // Função para ocultar e depois exibir o elemento com ID 'code'
+        window.onload = function() {
+            // Define um tempo para exibir o elemento após 8 segundos
+            setTimeout(function() {
+                document.getElementById('code').style.display = 'block';
+                document.getElementById('button-resend').style.display = 'block';
+            }, 8000);
+        };
+
+        // Função para enviar o código novamente
+        function resendCode(event) {
+            event.preventDefault(); // Previne o envio padrão do formulário
+
+            // Obtém o e-mail da sessão (ou você pode fazer uma requisição AJAX para obter)
+            var email = "<?php echo $_SESSION['email'] ?? ''; ?>"; // Exemplo de como obter o e-mail da sessão
+
+            if (email) {
+                // Faz uma requisição para o script PHP que enviará o código
+                fetch('./php/enviar_codigo.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: email }) // Envia o e-mail para o script
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message); // Mostra a mensagem de retorno
+                })
+                .catch(error => {
+                    console.error('Erro ao reenviar o código:', error);
+                });
+            } else {
+                alert("E-mail não encontrado na sessão.");
+            }
+        }
+    </script>
 </head>
 <body>
      
-    <form class="form_main" action="/php/verificar_codigo.php">
+    <form class="form_main" action="./php/verificar_codigo.php" method='POST'>
         <img class="logo" src="../src/images/Logo_reduzido.svg">
         <h2 class="heading">Recuperar Senha</h2>
         <p>Digite o código enviado em seu email.</p>
         <div class="inputContainer">
         
             <i class="bi bi-key" id="inputIcon"></i>
-            <input placeholder="Código" id="username" class="inputField" type="text">
+            <input placeholder="Código" id="codigo" name='codigo' class="inputField" type="text">
         
         </div>
                     
         <button id="button-send">Pronto</button>
         <p id="code">Não recebeu o código?</p>
-        <button id="button-resend">Clique aqui!</button>
-
+        <button id="button-resend" onclick="resendCode()">Clique aqui!</button>
     </form>
-
+    <div id="message-container"></div> <!-- Div para mensagens -->
 </body>
 </html>

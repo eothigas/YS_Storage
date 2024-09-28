@@ -112,13 +112,13 @@ p {
 }
 
 #code {
-    /* display: none; */
+    display: none;
     position: absolute;
     bottom: 20px;
 }
 
 #button-resend {
-    /* display: none; */
+    display: none;
     position: absolute;
     width: 30%;
     border: none;
@@ -143,4 +143,29 @@ p {
     background-color: rgb(2, 21, 38);
 }
   
-  
+#message-container {
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: 5px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    font-size: 15px;
+}
+
+.success {
+    display: flex; /* Mostrar se for sucesso */
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.error {
+    display: flex; /* Mostrar se for erro */
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
