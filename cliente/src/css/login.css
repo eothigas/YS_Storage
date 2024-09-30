@@ -94,7 +94,7 @@ body {
     font-size: .8em;
     font-weight: 500;
     letter-spacing: 1px;
-    border-radius: 30px;
+    border-radius: 5px;
     margin: 10px;
     cursor: pointer;
     overflow: hidden;
@@ -119,7 +119,7 @@ body {
     color: rgb(3, 6, 0);
     text-decoration: none;
     padding: 8px 15px;
-    border-radius: 20px;
+    border-radius: 5px;
 }
 
 #forgot-password a:hover {

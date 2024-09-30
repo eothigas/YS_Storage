@@ -6,6 +6,22 @@
     <link rel="icon" href="../src/images/Logo_reduzido.svg" type="image/png">
     <link rel="stylesheet" href="../src/css/senhanova.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script>
+        function togglePasswordVisibility(toggleId, inputId) {
+            const passwordInput = document.getElementById(inputId);
+            const toggleIcon = document.getElementById(toggleId);
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text"; // Exibir senha
+                toggleIcon.classList.remove('bi-eye-fill');
+                toggleIcon.classList.add('bi-eye-slash-fill'); // Troca para ícone de "ocultar"
+            } else {
+                passwordInput.type = "password"; // Ocultar senha
+                toggleIcon.classList.remove('bi-eye-slash-fill');
+                toggleIcon.classList.add('bi-eye-fill'); // Troca para ícone de "mostrar"
+    }
+}
+    </script>
     <title>Your Storage - Recuperação de Senha</title>
 </head>
 <body>
@@ -19,6 +35,7 @@
             <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
             </svg>
             <input placeholder="Senha" id="password" class="inputField" type="password">
+            <i class="bi bi-eye-fill" id="toggle-password-1" onclick="togglePasswordVisibility('toggle-password-1', 'password')"></i>
             <div class="icon-container">
                 <i class="bi bi-info-circle"></i>
                 <span class="tooltip">Máximo 8 caracteres</span>
@@ -30,6 +47,7 @@
             <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
             </svg>
             <input placeholder="Confirme sua Senha" id="confirm-password" class="inputField" type="password">
+            <i class="bi bi-eye-fill" id="toggle-password-2" style="cursor: pointer;" onclick="togglePasswordVisibility('toggle-password-2', 'confirm-password')"></i>
         </div>
                     
         <button id="button">Redefinir</button>
