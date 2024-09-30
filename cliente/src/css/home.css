@@ -102,6 +102,10 @@ svg {
     font-size: 20px;
 }
 
+td.text-center {
+    color: rgb(2, 21, 38);
+}
+
 table {
     width: 95%;
     padding: 2px;
