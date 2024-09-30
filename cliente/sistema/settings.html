@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações</title>
+    <link rel="stylesheet" href="../src/css/settings.css">
+    <link rel="stylesheet" href="../src/css/modal-settings.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div id="menuLateral" class="menu-lateral fechado">
+        <i class="bi bi-list" id="btn-menu" onclick="toggleMenu()"></i>
+        <i class="bi bi-list-nested" id="btn-close" style="display: none;" onclick="toggleMenu()"></i>
+        <ul>
+            <li>
+                <a href="./home.html">
+                    <span class="menu-icon"><i class="bi bi-house"></i></span>
+                    <span class="menu-text">Home</span>
+                </a>
+            </li> 
+            <li>
+                <a href="./cadastroprod.html">
+                    <span class="menu-icon"><i class="bi bi-plus-square"></i></span>
+                    <span class="menu-text">Cadastrar Produto</span>
+                </a>
+            </li>
+            <li>
+                <a href="./consultaprod.html">
+                    <span class="menu-icon"><i class="bi bi-search" ></i></span>
+                    <span class="menu-text">Consultar Produto</span>
+                </a>
+            </li>
+            <li>
+                <a href="./movimentaprod.html">
+                    <span class="menu-icon"><i class="bi bi-arrow-left-right"></i></span>
+                    <span class="menu-text">Movimentar Estoque</span>
+                </a>
+            </li>
+        </ul>
+        <ul id="baixo">
+            <li id="page">
+                <a id="settings" href="./settings.html">
+                    <span class="menu-icon"><i class="bi bi-gear" id="page"></i></span>
+                    <span class="menu-text" id="page">Configurações</span>
+                </a>
+            </li> 
+            <li>
+                <a id="logout" href="./php/logout.php"> <!-- Link para o script de logout -->
+                    <span class="menu-icon"><i class="bi bi-box-arrow-right"></i></span>
+                    <span class="menu-text">Sair</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="config-container">
+        <h1>Configurações</h1>
+        <div class="form-group">
+            <label class='form' for="nome">Nome</label>
+            <p id="name" class="txt">nome_cliente</p>
+
+            <label class='form' for="email">Email</label>
+            <p id="email" class="txt">email_cliente</p>
+        </div>
+        <button id='open-modal' onclick="openModal()">Ações</button>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'dados')" id="dados-inicio">Meus dados</button>
+                <button class="tablinks" onclick="openTab(event, 'usuarios')" style="border-radius: 0; padding: 10px 15px;">Usuários cadastrados</button>
+                <button class="tablinks" onclick="openTab(event, 'cadastro-usuarios')" style="border-radius: 0; padding: 10px 15px;">Cadastrar Usuário</button>
+                <button class="tablinks" onclick="openTab(event, 'planos')" style="border-radius: 0; padding: 5px 25x;">Alterar Plano</button>
+                <button class="tablinks" onclick="openTab(event, 'storages')" id="dados-fim">Consultar Storages</button>
+            </div>
+
+            <div id="dados" class="tabcontent">
+                <div class="form-group">
+                    <label class='form' for="nome">Nome</label>
+                    <p id="name" class="txt">nome_cliente</p>
+                    
+                    <label class='form' for="usuario">Usuário</label>
+                    <p id="user" class="txt">usuário_cliente</p>
+
+                    <label class='form' for="email">Email</label>
+                    <p id="email" class="txt">email_cliente</p>
+
+                    <label class='form' for="plano">Plano</label>
+                    <p id="plano" class="txt">plano_cliente</p>
+                    
+                    <label class='form' for="empresa">Empresa</label>
+                    <p id="empresa" class="txt">empresa_cliente</p>
+                </div>
+            </div>
+
+            <div id="usuarios" class="tabcontent">
+                <h3>Usuários cadastrados</h3>
+                <p>Seção para visualizar usuários cadastrados.</p>
+            </div>
+
+            <div id="cadastro-usuarios" class="tabcontent">
+                <h3>Cadastrar Usuário</h3>
+                <p>Seção para cadastro de usuários.</p>
+            </div>
+
+            <div id="planos" class="tabcontent">
+                <h3>Alterar Plano</h3>
+                <p>Seção para alteração de plano.</p>
+            </div>
+
+            <div id="storages" class="tabcontent">
+                <h3>Consultar Storages</h3>
+                <p>Seção para consulta de storages.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../src/js/settings.js"></script>
+</body>
+</html>

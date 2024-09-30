@@ -1,0 +1,32 @@
+.form-group {
+    display: grid;
+    /* width: 600px; */
+    margin: 0;
+    /* gap: 15px; */
+}
+
+.form, p {
+    border-radius: 0 0 8px 8px;
+    padding: 8px;
+    margin-bottom: 15px;
+    background-color: rgb(2, 21, 38, 0.3);
+}
+
+p {
+    border-left: 1px rgb(226, 226, 182) solid;
+    border-right: 1px rgb(226, 226, 182) solid;
+    border-bottom: 1px rgb(226, 226, 182) solid;
+}
+
+.form {
+    gap: 0;
+    margin: 0;
+    border-radius: 8px 8px 0 0;
+    background-color: rgb(2, 21, 38);
+    justify-content: left;
+    align-items: left;
+    border-left: 1px rgb(226, 226, 182) solid;
+    border-right: 1px rgb(226, 226, 182) solid;
+    border-top: 1px rgb(226, 226, 182) solid;
+}
+

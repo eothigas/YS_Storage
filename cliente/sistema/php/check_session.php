@@ -10,6 +10,8 @@ header('Content-Type: application/json'); // Retorno JSON
 if (isset($_SESSION['email'])) {  
     echo json_encode([
         'loggedIn' => true,
+        'nome' => $_SESSION['nome'],
+        'tipo' => $_SESSION['tipo'],
         'email' => $_SESSION['email'],  // Aqui está o email do cliente
         'plano' => $_SESSION['plano'],  // Inclui o plano do cliente
         'empresa' => $_SESSION['empresa']  // Inclui a empresa do cliente
