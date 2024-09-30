@@ -19,9 +19,17 @@ function openModal() {
     openTab({ currentTarget: document.getElementById('dados-inicio') }, 'dados');
 }
 
+function openModalUser() {
+    document.getElementById('modal-usuarios').style.display = 'flex';
+}
+
 // Fechar modal
 function closeModal() {
     document.getElementById('modal').style.display = 'none';
+}
+
+function closeModalUser() {
+    document.getElementById('modal-usuarios').style.display = 'none';
 }
 
 // Sistema de abas
@@ -41,4 +49,37 @@ function openTab(evt, tabName) {
     // Mostra a aba clicada e adiciona a classe 'active' no botão correspondente
     document.getElementById(tabName).style.display = 'grid';
     evt.currentTarget.className += ' active';
+}
+
+// Requisitos senha
+function showFontsizeText() {
+    document.querySelector('.fontsize-text').style.display = 'inline-block';
+}
+
+function showFontsizeTextConfirm() {
+    document.querySelector('.fontsize-text-confirm').style.display = 'inline-block';
+}
+
+function hideFontsizeText() {
+    document.querySelector('.fontsize-text').style.display = 'none';
+}
+
+function hideFontsizeTextConfirm() {
+    document.querySelector('.fontsize-text-confirm').style.display = 'none';
+}
+
+function togglePasswordVisibility(toggleId, inputId) {
+    console.log(`Toggling visibility for: ${inputId}`); // Para verificar se a função está sendo chamada
+    const passwordInput = document.getElementById(inputId);
+    const toggleIcon = document.getElementById(toggleId);
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text"; // Muda para texto
+        toggleIcon.classList.remove('bi-eye-fill');
+        toggleIcon.classList.add('bi-eye-slash-fill'); // Troca o ícone para "ocultar"
+    } else {
+        passwordInput.type = "password"; // Muda para senha
+        toggleIcon.classList.remove('bi-eye-slash-fill');
+        toggleIcon.classList.add('bi-eye-fill'); // Troca o ícone para "mostrar"
+    }
 }

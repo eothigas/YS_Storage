@@ -71,13 +71,14 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <div class="tab">
-                <button class="tablinks" onclick="openTab(event, 'dados')" id="dados-inicio">Meus dados</button>
-                <button class="tablinks" onclick="openTab(event, 'usuarios')" style="border-radius: 0; padding: 10px 15px;">Usuários cadastrados</button>
+                <button class="tablinks" onclick="openTab(event, 'dados')" id="dados-inicio">Meus Dados</button>
+                <button class="tablinks" onclick="openTab(event, 'usuarios')" style="border-radius: 0; padding: 10px 15px;">Usuários Cadastrados</button>
                 <button class="tablinks" onclick="openTab(event, 'cadastro-usuarios')" style="border-radius: 0; padding: 10px 15px;">Cadastrar Usuário</button>
-                <button class="tablinks" onclick="openTab(event, 'planos')" style="border-radius: 0; padding: 5px 25x;">Alterar Plano</button>
+                <button class="tablinks" onclick="openTab(event, 'planos')" style="border-radius: 0; padding: 5px 25x;">Plano Atual</button>
                 <button class="tablinks" onclick="openTab(event, 'storages')" id="dados-fim">Consultar Storages</button>
             </div>
 
+            <!-- Modal Meus Dados -->
             <div id="dados" class="tabcontent">
                 <div class="form-group">
                     <label class='form' for="nome">Nome</label>
@@ -97,24 +98,172 @@
                 </div>
             </div>
 
+            <!-- Modal Usuarios Cdastrados -->
             <div id="usuarios" class="tabcontent">
-                <h3>Usuários cadastrados</h3>
-                <p>Seção para visualizar usuários cadastrados.</p>
-            </div>
+                <table class="table-user">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Usuário</th>
+                            <th>Email</th>
+                            <th>Editar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td>Teste</td>
+                          <td>Estoquista</td>
+                          <td>teste@teste.com</td>
+                          <td><button id='edit' onclick="openModalUser()">Editar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!-- Modal editar Usuário -->
+                <div id="modal-usuarios" class="modal-usuarios" style="display:none;">
+                    <div class="modal-content-user">
+                        <span class="close-user" onclick="closeModalUser()">&times;</span>
+                        <div class="tab-user">
+                            <p class="title">Editar Usuário</p>
+                                <form id="edit-users" method="post" action="">
+                                    <label>
+                                        <span>Nome</span><br>
+                                        <input type="text" id="edit-name" name="name" required>
+                                    </label>
+                                    
+                                    <label>
+                                        <span>Usuário</span><br>
+                                        <select  id='tipo' name="tipo" required>
+                                            <option value="administrador">Administrador</option>
+                                            <option value="estoquista">Estoquista</option>
+                                        </select>
+                                    </label>
 
+                                    <label>
+                                        <span>Email</span><br>
+                                        <input type="email" id="edit-email" name="email" required>
+                                    </label>
+
+                                    <label>
+                                        <span>Senha</span><br>
+                                        <input type="password" id="edit-password" name="password">
+                                    </label>
+
+                                    <label>
+                                        <span>Confirme a Senha</span><br>
+                                        <input type="password" id="confirm-password" name="confirm-password">
+                                    </label>
+                                    
+                                    <div id="btn">
+                                        <button type="submit" id='delete-user' type="submit">Excluir Usuário</button>
+                                        <button type="submit" id='save-changes' type="submit">Salvar Alterações</button>
+                                    </div>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pagination">
+                    <button id="prev-btn" disabled>Anterior</button>
+                    <span id="page-info">Página 1 de 1</span>
+                    <button id="next-btn">Próxima</button>
+                </div>
+            </div>                                   
+
+            <!-- Modal Cadastrar Usuário -->
             <div id="cadastro-usuarios" class="tabcontent">
-                <h3>Cadastrar Usuário</h3>
-                <p>Seção para cadastro de usuários.</p>
+                <div class="client-registration">
+                    <p class="register">Cadastrar Novo Usuário</p>
+                    <form id="edit-users" method="post" action="">
+                         
+                        <label>
+                            <span>Nome</span><br>
+                            <input type="text" id="name" name="name" required>
+                        </label>
+                            
+                        <label>
+                            <span>Email</span><br>
+                            <input type="email" id="email" name="email" required>
+                        </label>
+
+                        <label>
+                            <span>Senha</span><br>
+                            <div class="input-container">
+                                <input type="password" id="password" name="password" autocomplete="new-password" required
+                                    onfocus="showFontsizeText()" onblur="hideFontsizeText()" onmouseover="showFontsizeText()" onmouseout="hideFontsizeText()">
+                                <i class="bi bi-eye-fill" id="toggle-password-1" style="cursor: pointer;" onclick="togglePasswordVisibility('toggle-password-1', 'password')"></i>
+                                <span class="fontsize-text">*8 caracteres</span>
+                            </div>
+                        </label>
+
+                        <label>
+                            <span>Confirme a Senha</span><br>
+                            <div class="confirm-container">
+                                <input type="password" id="password-confirm" name="confirm-password" autocomplete="new-password" required
+                                onfocus="showFontsizeTextConfirm()" onblur="hideFontsizeTextConfirm()" onmouseover="showFontsizeTextConfirm()" onmouseout="hideFontsizeTextConfirm()">
+                                <i class="bi bi-eye-fill" id="toggle-password-2" style="cursor: pointer;" onclick="togglePasswordVisibility('toggle-password-2', 'password-confirm')"></i>
+                                <span class="fontsize-text-confirm">*8 caracteres</span>
+                            </div>
+                        </label> 
+
+                        <div id="btn">
+                            <button type="submit" id='delete-user' type="submit">Excluir Usuário</button>
+                            <button type="submit" id='save-changes' type="submit">Salvar Alterações</button>
+                        </div>
+
+                    </form>
+
+                    <div id="registration-message" class="<?php echo $messageType; ?>">
+                        <?php echo $message; ?>
+                    </div>  
+        
+                </div>
             </div>
 
+            <!-- Modal Planos -->
             <div id="planos" class="tabcontent">
-                <h3>Alterar Plano</h3>
-                <p>Seção para alteração de plano.</p>
+                    <label class='plano' for="plan">Plano Atual</label>
+                    <p class="plan">restrição1</p>
+                    <p class="plan">restrição2</p>
+                    <p class="plan" id="ult">restrição3</p>
+                
+                <button id="alt-plan">Alterar Plano</button>    
             </div>
 
+            <!-- Modal Storages Consulta -->
             <div id="storages" class="tabcontent">
-                <h3>Consultar Storages</h3>
-                <p>Seção para consulta de storages.</p>
+                <table class="table-storage">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Endereço</th>
+                            <th>Altura</th>
+                            <th>Largura</th>
+                            <th>Comprimento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td>Teste</td>
+                          <td>teste, 123, guarulhos sp</td>
+                          <td>10 metros</td>
+                          <td>10 metros</td>
+                          <td>10 metros</td>
+                        </tr>
+                        <tr>
+                            <td>Teste</td>
+                            <td>teste, 123, guarulhos sp</td>
+                            <td>10 metros</td>
+                            <td>10 metros</td>
+                            <td>10 metros</td>
+                          </tr>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <button id="prev-btn" disabled>Anterior</button>
+                    <span id="page-info">Página 1 de 1</span>
+                    <button id="next-btn">Próxima</button>
+                </div>
             </div>
         </div>
     </div>
