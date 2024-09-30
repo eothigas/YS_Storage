@@ -32,10 +32,11 @@ document.getElementById('imagem').addEventListener('change', function(event) {
     }
 });
 
-// Envio do formulário via fetch API
+// Função para enviar o formulário via fetch API
 document.getElementById('form-cadastro-produto').addEventListener('submit', function(e) {
-    e.preventDefault();
+    e.preventDefault(); // Impede o envio padrão do formulário
 
+    // Obtém os valores dos campos do formulário
     const codigo = document.getElementById('codigo').value;
     const nome = document.getElementById('nome').value;
     const descricao = document.getElementById('descricao').value;
@@ -51,44 +52,54 @@ document.getElementById('form-cadastro-produto').addEventListener('submit', func
     formData.append('quantidade', quantidade);
     formData.append('tipo', tipo);
     formData.append('imagem', imagem);
+    if (document.querySelector('input[name="destaque"]').checked) {
+    formData.append('destaque', '1');}
 
     // Envia os dados via AJAX usando fetch
-    fetch('../php/cadastro_produto.php', {
+    fetch('https://www.yourstorage.x10.mx/cliente/sistema/php/cadastro_produto.php', {
         method: 'POST',
-        body: formData
+        body: formData,
     })
-    .then(response => response.json())
+    .then(response => {
+        // Verifica se a resposta foi bem-sucedida
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json(); // Retorna a resposta como JSON
+    })
     .then(data => {
-        if (data.success) {
-            const successElement = document.getElementById('mensagem-sucess');
-            successElement.innerText = data.success;
-            successElement.style.display = 'flex'; // Exibe a mensagem de sucesso
+        const successElement = document.getElementById('mensagem-sucess');
+        const errorElement = document.getElementById('mensagem-error');
 
-            // Após 5 segundos, recarrega a página
+        if (data.success) {
+            // Exibe a mensagem de sucesso
+            successElement.innerText = data.success;
+            successElement.style.display = 'flex';
+
+            // Após 3 segundos, recarrega a página
             setTimeout(() => {
                 location.reload();
             }, 3000);
         } else {
             // Exibe a mensagem de erro
-            const errorElement = document.getElementById('mensagem-error');
             errorElement.innerText = data.error;
-            errorElement.style.display = 'flex'; // Exibe a mensagem de erro
+            errorElement.style.display = 'flex';
 
             // Esconde a mensagem após 3 segundos
             setTimeout(() => {
-                errorElement.style.display = 'none'; // Esconde a mensagem de erro
+                errorElement.style.display = 'none';
             }, 3000);
         }
     })
     .catch(error => {
-            // Exibe a mensagem de erro caso ocorra algum erro inesperado
-            const errorElement = document.getElementById('mensagem-error');
-            errorElement.style.display = 'flex'; // Exibe a mensagem de erro
-            errorElement.innerText = 'Ocorreu um erro ao cadastrar o produto.';
+        // Exibe mensagem de erro em caso de falha na requisição
+        const errorElement = document.getElementById('mensagem-error');
+        errorElement.style.display = 'flex';
+        errorElement.innerText = 'Ocorreu um erro ao cadastrar o produto.';
 
-            // Esconde a mensagem após 3 segundos
-            setTimeout(() => {
-                errorElement.style.display = 'none'; // Esconde a mensagem de erro
-            }, 3000);
+        // Esconde a mensagem após 3 segundos
+        setTimeout(() => {
+            errorElement.style.display = 'none';
+        }, 3000);
     });
 });

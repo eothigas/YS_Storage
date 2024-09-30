@@ -60,7 +60,7 @@
     nav.menu-lateral {
         width: 70px;
         height: 100dvh;
-        position: relative;
+        position: absolute;
     }
     
     nav.menu-lateral.expandir {
@@ -157,32 +157,34 @@
     }
 
     .main-content{
-        margin-left: 0;
+        margin-left: 50px;
+
     }
 
     .menu-lateral.expandir ~ .main-content {
-        margin-left: 0px;
+        margin-left: 50px;
     }
 
-    .welcome-message {
+    .welcome-msg {
         margin-bottom: 10px;
-        font-size: 12px;
-    }
-
-    .welcome-message h1 {
         font-size: 18px;
+        max-width: 600px;
     }
 
     .user-info {
         background-color: rgb(39, 55, 77);
         padding: 10px;
+        max-width: 620px;
         border-radius: 8px;
+        overflow: auto;
     }
 
     .user-info h2 {
+        max-width: 620px;
         margin-bottom: px;
         font-size: 18px;
     }
+
 
     fontsize {
         font-size: 11px;

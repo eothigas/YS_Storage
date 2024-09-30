@@ -11,6 +11,7 @@ body {
     padding: 0;
     display: flex;
     height: 100vh;
+    background-color: rgb(157, 178, 191); 
 }
 
 a {
@@ -166,29 +167,34 @@ nav.menu-lateral.expandir .txt-link-l {
 
 .main-content {
     background-color: rgb(157, 178, 191);
+    position: absolute;
     width: 100%;
-    padding: 20px;
-    margin-left: 80px;
+    /* padding: 20px; */
+    margin: auto 0 80px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     color: white; /* Mantém o padrão de cor branco */
     transition: margin-left 0.5s;
+    overflow: hidden;
 }
+
 
 .menu-lateral.expandir ~ .main-content {
     margin-left: 300px; /* Alterar a margem quando .expandir estiver ativa */
+    filter: blur(10px);
 }
 
 .client-registration {
     display: flex;
     flex-direction: column;
     background-color: rgb(39, 55, 77);
-    padding: 20px;
+    padding: 20px 20px 0 20px;
     border-radius: 8px;
     width: 400px;
-    margin: 0 auto;
+    margin: auto auto;
     gap: 30px;
+    overflow: hidden;
 }
 
 .client-registration h2 {
@@ -235,7 +241,7 @@ form#registration-form {
     display: flex;
     flex-direction: column;
     width: auto;
-    gap: 10px;
+    gap: 2px;
 }
 
 span {

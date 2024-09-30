@@ -1,34 +1,56 @@
 <?php
 session_start();
 
-// Carregar configurações do php.ini da raiz
-$config = parse_ini_file('../../PHP/php.ini', true);
+header('Content-Type: application/json');
 
-// Verificar se o arquivo foi carregado corretamente
+// Carrega as configurações do php.ini
+$config = parse_ini_file('../../../PHP/php.ini', true);
+
 if (!$config) {
-    die("Erro ao carregar o arquivo php.ini.");
-}
-
-// Acessar credenciais do banco de dados
-$host = $config['database']['host'];
-$dbname = $config['database']['dbname'];
-$username = $config['database']['user'];
-$password = $config['database']['password'];
-
-// Conectar ao banco de dados
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password)
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo json_encode(['error' => 'Erro ao conectar ao banco de dados.']);
+    echo json_encode(['error' => 'Erro ao carregar as configurações do php.ini']);
     exit();
 }
 
-// Consultar os dados dos storages
-$query = "SELECT imagem, nome, endereco, altura, largura, comprimento FROM storage";
-$stmt = $pdo->prepare($query);
-$stmt->execute();
-$storages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// Obtém as configurações do banco de dados a partir do php.ini
+$host = $config['database']['host'] ?? null;
+$dbname = $config['database']['dbname'] ?? null;
+$user = $config['database']['user'] ?? null;
+$password = $config['database']['password'] ?? null;
 
-echo json_encode($storages);
+// Verifica se as credenciais estão configuradas corretamente
+if (!$host || !$dbname || !$user || !$password) {
+    echo json_encode(['error' => 'Configurações de banco de dados incompletas']);
+    exit();
+}
+
+try {
+    // Definir o DSN (Data Source Name)
+    $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
+
+    // Cria uma nova conexão PDO
+    $pdo = new PDO($dsn, $user, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Verifica a empresa passada na seção 
+    if (isset($_SESSION['empresa'])) {
+        $empresa = $_SESSION['empresa'];
+
+        // Consulta os storages da empresa no banco de dados
+        $stmt = $pdo->prepare("SELECT imagem, nome, endereco, altura, largura, comprimento FROM storage WHERE empresa = :empresa");
+        $stmt->bindParam(':empresa', $empresa);
+        $stmt->execute();
+        $storages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Retorna os storages ou uma lista vazia
+        if ($storages) {
+            echo json_encode($storages);
+        } else {
+            echo json_encode([]); // Nenhum storage encontrado
+        }
+    } else {
+        echo json_encode(['error' => 'Empresa não fornecida']);
+    }
+} catch (PDOException $e) {
+    echo json_encode(['error' => 'Erro na conexão com o banco de dados: ' . $e->getMessage()]);
+}
 ?>

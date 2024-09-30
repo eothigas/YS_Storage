@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../src/images/Logo_reduzido.svg" type="image/png">
     <title>Cadastro de Produtos</title>
     <link rel="stylesheet" href="../src/css/cadastroprod.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -54,7 +55,7 @@
     </div>
     <div class="container">
         <h1>Cadastro de Produtos</h1>
-        <form id="form-cadastro-produto" action="./php/cadastro_produto.php" method="post" enctype="multipart/form-data">
+        <form id="form-cadastro-produto" action="./php/cadastro_produto.php" method="POST" enctype="multipart/form-data">
             <label for="codigo">Código do Produto:</label>
             <input type="text" id="codigo" name="codigo" minlength='1' required>
             
@@ -82,6 +83,9 @@
                     <option value="RL">Rolo</option>
                 </select>
             </div>
+
+            <label for="destaque">Destaque? :</label>
+            <input type="checkbox" name="destaque" value="1">
             
             <label for="imagem">Imagem do Produto:</label>
             <img id="imagem-preview" style="display:none; max-width:100px; margin:10px 0 5px 0; border: 1px rgb(226, 226, 182) solid; border-radius: 5px; padding: 5px;"/>
@@ -91,8 +95,8 @@
             
             <button type="submit">Cadastrar Produto</button>
         </form>        
-        <p id="mensagem-sucess">Produto cadastrado!</p>
-        <p id="mensagem-error">Ocorreu um erro. Tente novamente.</p>
+        <p id="mensagem-sucess"></p>
+        <p id="mensagem-error"></p>
     </div>
     <script src="../src/js/cadastroprod.js"></script>
 </body>

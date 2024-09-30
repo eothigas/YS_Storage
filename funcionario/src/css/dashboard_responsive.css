@@ -67,6 +67,7 @@
         position: absolute;
         width: 220px;
         text-wrap: nowrap;
+        z-index: 2;
     }
 
     ul li.item-menu a  {
@@ -161,7 +162,7 @@
     }
 
     .menu-lateral.expandir ~ .main-content {
-        margin-left: 0px;
+        margin: 0px;
     }
 
     .welcome-message {

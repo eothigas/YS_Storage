@@ -1,6 +1,6 @@
 <?php
 // Carregar configurações do php.ini da raiz
-$config = parse_ini_file('../../PHP/php.ini', true);
+$config = parse_ini_file('../../../PHP/php.ini', true);
 
 // Verificar se o arquivo foi carregado corretamente
 if (!$config) {
@@ -9,7 +9,7 @@ if (!$config) {
 
 // Acessar credenciais do banco de dados e o Client ID do Imgur
 $host = $config['database']['host'];
-$dbname = $config['database']['db_name'];
+$dbname = $config['database']['dbname'];
 $username = $config['database']['user'];
 $password = $config['database']['password'];
 $imgurClientID = $config['imgur']['client_id']; // Pega o Client ID do Imgur
@@ -30,11 +30,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['codigo'], $_POST['nome'], $_POST['descricao'], $_POST['quantidade'], $_POST['tipo'])) {
 
         // Sanitiza os dados recebidos
-        $codigo = filter_var($_POST['codigo'], FILTER_SANITIZE_STRING);
-        $nome = filter_var($_POST['nome'], FILTER_SANITIZE_STRING);
-        $descricao = filter_var($_POST['descricao'], FILTER_SANITIZE_STRING);
+        $codigo = filter_var($_POST['codigo'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $nome = filter_var($_POST['nome'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $descricao = filter_var($_POST['descricao'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $quantidade = filter_var($_POST['quantidade'], FILTER_VALIDATE_INT);
-        $tipo = filter_var($_POST['tipo'], FILTER_SANITIZE_STRING);
+        $tipo = filter_var($_POST['tipo'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $destaque = isset($_POST['destaque']) ? 1 : 0;
+
+        // Obtém o nome da empresa da sessão
+        session_start(); // Inicia a sessão se ainda não estiver iniciada
+        $empresa = isset($_SESSION['empresa']) ? $_SESSION['empresa'] : null;
+
+        // Verifica se a empresa está definida
+        if (!$empresa) {
+            echo json_encode(["error" => "A empresa do usuário não foi encontrada."]);
+            exit();
+        }
 
         // Verifica se o código do produto já existe no banco de dados
         $stmt = $pdo->prepare("SELECT COUNT(*) FROM produtos WHERE codigo = :codigo");
@@ -58,12 +69,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 exit();
             }
         } else {
-            // Se não houver imagem, pode armazenar um link padrão ou deixar vazio
             $imgurUrl = '';
         }
 
         // Insere os dados no banco de dados
-        $sql = "INSERT INTO produtos (codigo, nome, descricao, quantidade, tipo, imagem) VALUES (:codigo, :nome, :descricao, :quantidade, :tipo, :imagem)";
+        $sql = "INSERT INTO produtos (codigo, nome, descricao, quantidade, tipo, imagem, destaque, empresa) VALUES (:codigo, :nome, :descricao, :quantidade, :tipo, :imagem, :destaque, :empresa)";
         $stmt = $pdo->prepare($sql);
         
         $stmt->bindParam(':codigo', $codigo);
@@ -71,7 +81,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bindParam(':descricao', $descricao);
         $stmt->bindParam(':quantidade', $quantidade);
         $stmt->bindParam(':tipo', $tipo);
-        $stmt->bindParam(':imagem', $imgurUrl); // Armazena a URL da imagem do Imgur
+        $stmt->bindParam(':destaque', $destaque);
+        $stmt->bindParam(':imagem', $imgurUrl);
+        $stmt->bindParam(':empresa', $empresa); // Adiciona o nome da empresa
 
         // Executa a inserção no banco de dados
         if ($stmt->execute()) {
@@ -120,4 +132,5 @@ function uploadToImgur($imagePath, $clientID) {
         return false; // Em caso de erro
     }
 }
+
 ?>

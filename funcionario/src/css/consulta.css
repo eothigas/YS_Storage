@@ -11,6 +11,7 @@ body {
     padding: 0;
     display: flex;
     height: 100vh;
+    background-color: rgb(157, 178, 191);
 }
 
 a {
@@ -178,6 +179,8 @@ nav.menu-lateral.expandir .txt-link-l {
 
 .menu-lateral.expandir ~ .main-content {
     margin-left: 300px; /* Alterar a margem quando .expandir estiver ativa */
+    filter: blur(10px);
+
 }
 
 .welcome-msg {

@@ -176,6 +176,7 @@ nav.menu-lateral.expandir .txt-link-l {
 
 .menu-lateral.expandir ~ .main-content {
     margin-left: 300px; /* Alterar a margem quando .expandir estiver ativa */
+    filter: blur(10px);
 }
 
 .welcome-message {

@@ -11,6 +11,7 @@ body {
     padding: 0;
     display: flex;
     height: 100vh;
+    background-color: rgb(157, 178, 191);
 }
 
 a {
@@ -170,12 +171,13 @@ nav.menu-lateral.expandir .txt-link-l {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    color: white;
+    color: white; /* Mantém o padrão de cor branco */
     transition: margin-left 0.5s;
 }
 
 .menu-lateral.expandir ~ .main-content {
     margin-left: 300px; /* Altera a margem do conteúdo da direita, quando .expandir estiver ativa */
+    filter: blur(10px);
 }
 
 .welcome-msg {

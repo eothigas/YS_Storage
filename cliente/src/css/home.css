@@ -111,6 +111,19 @@ table {
     margin: 0 auto;
 }
 
+#produtos-destaque {
+    transition: opacity 0.5s ease-in-out; /* Transição de opacidade */
+    opacity: 1; /* Opacidade inicial */
+}
+
+.fade-out {
+    opacity: 0; /* Opacidade 0 para a saída */
+}
+
+.fade-in {
+    opacity: 1; /* Opacidade 1 para a entrada */
+}
+
 th, td {
     width: 100px;
     padding: 3px;            /* Espaçamento interno para melhorar a legibilidade */
@@ -132,8 +145,6 @@ tr {
 .product-image {
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
     border-radius: 100%;
 }
 
@@ -189,7 +200,7 @@ tr {
     background-color: rgb(3, 52, 110);
     color: white;
     position: fixed;
-    height: 100%;
+    height: 100dvh;
     padding: 20px 0;
     transition: width 0.5s ease;
     overflow: hidden;
