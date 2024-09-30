@@ -66,10 +66,10 @@
             <textarea id="descricao" name="descricao" minlength='1' maxlength="150" required></textarea>
             
             <div style="display: flex; gap: 10px; margin-top: 10px;">
-                <label for="quantidade">Quantidade</label>
+                <label for="quantidade">Quantidade:</label>
                 <input type="number" id="quantidade" name="quantidade" min="1" required><br>
                 
-                <label for="tipo" id='prod'>Tipo</label>
+                <label for="tipo" id='prod'>Tipo:</label>
                 <select id="tipo" name="tipo" required>
                     <option value="UN">Unidade</option>
                     <option value="CT">Cartela</option>
@@ -84,9 +84,11 @@
                 </select>
             </div>
 
-            <label for="destaque">Destaque? :</label>
-            <input type="checkbox" name="destaque" value="1">
-            
+            <div id="destaque">
+                <label for="destaque" id="none">Destaque:</label>
+                <input type="checkbox" name="destaque" value="1" id="none">
+            </div>
+
             <label for="imagem">Imagem do Produto:</label>
             <img id="imagem-preview" style="display:none; max-width:100px; margin:10px 0 5px 0; border: 1px rgb(226, 226, 182) solid; border-radius: 5px; padding: 5px;"/>
             <input type="file" id="imagem" name="imagem" accept="image/*">
