@@ -116,7 +116,7 @@ li.desconto2 {
     height: 50px;
     display: flex;
     align-items: center;
-    background-color: rgb(255, 69, 100);
+    background-color: rgb(106, 154, 176);
     color: white;
     border-radius: 0px 10px 0px 10px;
 }
@@ -130,7 +130,7 @@ li.desconto2 {
     height: 50px;
     display: flex;
     align-items: center;
-    background-color: rgb(152, 255, 152);
+    background-color: rgb(200, 171, 10);
     color: rgb(19, 23, 32);
     border-radius: 0px 10px 0px 10px;
 } 
@@ -144,7 +144,7 @@ li.desconto2 {
     height: 50px;
     display: flex;
     align-items: center;
-    background-color: rgb(200, 171, 10);
+    background-color: rgb(152, 255, 152);
     color: rgb(19, 23, 32);
     border-radius: 0px 10px 0px 10px;
 }
@@ -157,7 +157,7 @@ li.desconto2 {
     padding: 10px 0px 10px 20px;
     align-items: center;
     text-align: center;
-    color: rgb(255, 69, 100)
+    color: rgb(106, 154, 176);
 }
 
 .logo2 {
@@ -167,41 +167,40 @@ li.desconto2 {
     padding: 10px 0px 10px 20px;
     align-items: center;
     text-align: center;
-    color: rgb(152, 255, 152);
+    color: rgb(200, 171, 10);
 }
 
 .logo3 {
-        font-size: 25px;
-        display: grid;
-        grid-template-columns: 120px 260px;
-        padding: 10px 0px 10px 20px;
-        align-items: center;
-        text-align: center;
-        color: rgb(200, 171, 10);
+    font-size: 25px;
+    display: grid;
+    grid-template-columns: 120px 260px;
+    padding: 10px 0px 10px 20px;
+    align-items: center;
+    text-align: center;
+    color: rgb(152, 255, 152);
 }
 
 /* Separa Título */
 hr#item1 {
-    border: 2px rgb(255, 69, 100) solid;
+    border: 2px rgb(106, 154, 176) solid;
     border-radius: 3px;
     margin: 0 20px 0 20px;
 }
 
 hr#item2 {
-    border: 2px rgb(152, 255, 152) solid;
+    border: 2px rgb(200, 171, 10) solid;
     border-radius: 3px;
     margin: 0 20px 0 20px;
 }
 
 hr#item3 {
-    border: 2px rgb(200, 171, 10) solid;
+    border: 2px rgb(152, 255, 152) solid;
     border-radius: 3px;
     margin: 0 20px 0 20px;
 }
 
 /* Descrição do Plano */
 .text1 {
-    border: 0px red solid;
     display: grid;
     align-items: center;
     background-color: transparent;
@@ -240,7 +239,7 @@ hr#item3 {
 .info, .info2, .info3 {
     width: 220px;
     padding: 30px 0 0px 0;
-    color: rgb(255, 69, 100);
+    color: rgb(106, 154, 176);
     cursor: pointer;
     position: relative;
 }
@@ -250,7 +249,7 @@ hr#item3 {
 .info4, .info5, .info6 {
     width: 220px;
     padding: 30px 0 0px 0;
-    color: rgb(152, 255, 152);
+    color: rgb(200, 171, 10);
     cursor: pointer;
     position: relative;
 }
@@ -260,7 +259,7 @@ hr#item3 {
 .info7, .info8, .info9 {
     width: 220px;
     padding: 30px 0 0px 0;
-    color: rgb(200, 171, 10);
+    color: rgb(152, 255, 152);
     cursor: pointer;
     position: relative;
 }
@@ -484,7 +483,7 @@ li.info9:hover p.desc9 {
 /* Botão Orcamento */
 .btn-orc1 {
     padding: 20px 50px 20px 50px;
-    background-color: rgb(255, 69, 100);
+    background-color: rgb(106, 154, 176);
     color: white;
     border-radius: 40px;
     font-weight: bold;
@@ -495,8 +494,8 @@ li.info9:hover p.desc9 {
 
 .btn-orc2 {
     padding: 20px 50px 20px 50px;
-    background-color: rgb(152, 255, 152);
-    color: rgb(19, 23, 32);
+    background-color: rgb(200, 171, 10);
+    color: rgb(15, 16, 53);
     border-radius: 40px;
     font-weight: bold;
     border: none;
@@ -506,7 +505,7 @@ li.info9:hover p.desc9 {
 
 .btn-orc3 {
     padding: 20px 50px 20px 50px;
-    background-color: rgb(200, 171, 10);
+    background-color: rgb(152, 255, 152);
     color: rgb(19, 23, 32);
     border-radius: 40px;
     font-weight: bold;
@@ -535,27 +534,25 @@ li.info9:hover p.desc9 {
 #rest1 {
     position: static;
     height: 73px;
-    background-color: rgb(255, 69, 100);
+    background-color: rgb(106, 154, 176);
     border-radius: 0 0 13px 13px;
 }
 
 #rest2 {
     position: static;
     height: 73px;
-    background-color: rgb(152, 255, 152);
+    background-color: rgb(200, 171, 10);
     border-radius: 0 0 13px 13px;
 }
 
 #rest3 {
     position: static;
     height: 73px;
-    background-color: rgb(200, 171, 10);
+    background-color: rgb(152, 255, 152);
     border-radius: 0 0 13px 13px;
 }
 
 /* Responsividade */
-
-/* Estilos para dispositivos móveis */
 
 /* Estilos para telas entre 400px e 529px */
 @media screen and (min-width: 300px) and (max-width: 529px) {
@@ -630,8 +627,8 @@ a {
 @media screen and (min-width: 530px) and (max-width: 768px) {
     /* Div Principal */
     #principal {
-        display: grid;
-        width: 10%;
+        display: flex;
+        width: 100%;
         height: auto;
         justify-content: center;
         margin: 0 auto;
@@ -735,15 +732,22 @@ a {
 @media screen and (min-width: 1025px) and (max-width: 1366px) {
     /* Ajuste geral */
     #principal {
-        width: 100%;
+        width: 80%;
         height: auto;
-        display: grid;
+        display: flex;
+        margin-left: 10px;
+    }
+
+    #item1, #item2, #item3 {
+        margin-left: 18px;
     }
 
     /* Box de Conteúdos dos Planos */
     #box1, #box2, #box3 {
+        display: grid;
         width: 100%;
-        margin: 20px auto;
+        max-height: 600px;
+        margin: 20px 20px;
     }
 
     #back {
@@ -751,7 +755,7 @@ a {
         width: 40px;
         height: 40px;
         font-size: 25px;
-        right: 35px;
+        right: 10px;
     }
     
     /* Botão de Orçamento */
@@ -762,11 +766,8 @@ a {
     /* Descanso da Div */
 
     #rest1, #rest2, #rest3 {
-        height: 77px;
+        display: none;
     }
-
-
-
 
 }
 
