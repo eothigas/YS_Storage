@@ -227,6 +227,7 @@ img.img-client {
     display: inline-block; /* Faz com que o contêiner ajuste seu tamanho à imagem */
     overflow: hidden; /* Garante que o logo não saia do contêiner */
     cursor: pointer;
+    min-width: 500px;
 }
 
 #fundo-plano {

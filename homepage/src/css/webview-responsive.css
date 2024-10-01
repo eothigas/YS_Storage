@@ -215,10 +215,6 @@
         height: auto;
     }
 
-    .seta {
-        display: none;
-    }
-
     .logo-container {
         display: grid;
         margin: 0;
@@ -280,7 +276,6 @@
 
     .lado-esquerdo h2, .lado-direito h2 {
         font-size: 1.4em;
-        margin-bottom: 20px;
         text-decoration: underline;
         width: 200px;
         text-align: center;
@@ -577,107 +572,74 @@
         justify-content: center;
     }
 
-/* Seção Atendimento */
-.atendimento {
-    display: flex;
-    flex-direction: column;
-    padding: 20px ;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0px;
-    overflow: hidden;
-    height: 800px;
-}
+    /* Seção Atendimento */
+    .atendimento {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start; /* Alinhar ao topo, se desejado */
+        padding: 30px 50px 0 50px;
+        height: 350px; /* Ajuste a altura para permitir que o conteúdo se ajuste */
+        flex-wrap: wrap; /* Para permitir que os itens quebrem em telas menores */
+    }
+    
+    .lado-esquerdo, .meio, .lado-direito {
+        width: 30%;
+        min-width: 250px; /* Defina um tamanho mínimo para cada coluna, se necessário */
+    }
+    
+    .lado-esquerdo h2, .lado-direito h2 {
+        font-size: 1.8em;
+        margin: 20px auto;
+        text-decoration: underline;
+    }
 
-.lado-esquerdo, .meio, .lado-direito {
-    display: grid;
-    width: 100px;
-    margin-bottom: 0px;
-    align-items: center;
-    justify-content: center;
-}
-
-.lado-esquerdo h2, .lado-direito h2 {
-    font-size: 1.5em;
-    text-align: center;
-}
-
-.formas-contato {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-.contato-item {
-    width: 100%;
-}
-
-a {
-    width: 100%;
-}
-
-.lado-esquerdo h2, .lado-direito h2 {
-    font-size: 1.4em;
-    margin-bottom: 20px;
-    text-decoration: underline;
-    width: 200px;
-    text-align: center;
-}
-
-.formas-contato img, .redes-sociais img {
-    display: grid;
-    width: 20px;
-    align-items: center;
-    margin: 0 auto;
-    margin-bottom: 0px;
-}
-
-.redes-sociais img {
-    width: 20px;
-    height: 20px;
-    margin: 0 auto;
-}
-
-.redes-sociais {
-    margin-bottom: 40px;
-}
-
-#meio-responsive {
-    display: grid;
-    border: 3px rgb(50, 65, 102) solid;
-    border-radius: 10px;
-    width: 90%;
-    margin-bottom: 20px;
-}
-
-.meio img { 
-    display: none;
-}
-
-.lado-direito {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto; 
-}
-
-.info-horario, .info-localizacao {
-    display: grid;
-    margin: 10px auto;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.info-horario img, .info-localizacao img {
-    display: grid;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    align-items: center;
-    justify-content: center;
-}
+    .formas-contato .contato-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    .formas-contato img {
+        width: 40px;
+        margin-right: 0px;
+    }
+    
+    .redes-sociais {
+        display: flex;
+        margin-top: 20px;
+    }
+    
+    .redes-sociais img {
+        width: 100px;
+        margin-right: 10px;
+    }
+    
+    #meio-responsive {
+        display: none;
+    }
+    
+    .meio {
+        display: none;
+    }
+    
+    .info-horario, .info-localizacao {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+    
+    .info-horario img, .info-localizacao img {
+        width: 30px;
+        margin-right: 10px;
+    }
+    
+    a {
+        color: white;
+    }
+    
+    a:hover {
+        color: rgba(65, 87, 139);
+    }
 
     #footer-page {
         width: 100%;
@@ -775,12 +737,6 @@ a {
         margin: 0;
     }
 
-    .imagem-planos:hover #logo-plan {
-        display: none;
-        align-items: center;
-        margin: 0 auto;
-    }
-
     .imagem-planos:hover span {
         display: grid;
         overflow: hidden;
@@ -813,4 +769,283 @@ a {
    .imagem-esquerda img, .imagem-direita img {
        width: 200px; /* Ajuste o tamanho da imagem */    
    }
+
+    .imagem-planos:hover #logo-plan {
+        display: none;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .imagem-planos:hover span {
+        display: grid;
+        overflow: hidden;
+        margin: 0;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-height: 600px) {
+
+    #btn-topo {
+        position: fixed;
+        align-items: center;
+        text-align: center;
+        font-size: 15px;
+        right: 10px;
+    }
+
+    .highlight-section {
+        height: 300px; /* Ajuste a altura conforme necessário */
+    }
+
+    .highlight-image {
+        width: 80px; /* Ajusta o tamanho da imagem para telas menores */
+    }
+
+    .carousel-item{
+        margin: 0 auto;
+        height: 300px;
+        border-radius: 10px;
+    }
+
+    .overlay:hover {
+        border-radius: 10px;
+    }
+
+    .imagem-planos {
+        height: 300px;
+    }
+
+    #fundo-plano {
+        height: 300px;
+        width: 500px;
+    }
+
+    /* Seção Atendimento */
+
+    .lado-esquerdo h2, .lado-direito h2 {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    .formas-contato {
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .contato-item {
+        width: 100%;
+    }
+
+    a {
+        width: 100%;
+    }
+
+    .lado-esquerdo h2, .lado-direito h2 {
+        font-size: 1.4em;
+        margin-bottom: 20px;
+        text-decoration: underline;
+        width: 200px;
+        text-align: center;
+    }
+
+    .formas-contato img, .redes-sociais img {
+        display: grid;
+        width: 20px;
+        align-items: center;
+        margin: 0 auto;
+        margin-bottom: 0px;
+    }
+
+    .redes-sociais {
+        align-items: center;
+        justify-content: center;
+        margin: 20px auto 0;
+    }
+
+    .redes-sociais img {
+        height: 25px;
+        width: 25px;
+        margin: 0;
+    }
+    
+    .redes-sociais a {
+        height: 25px;
+        width: 25px;
+        margin: 0 5px;
+    }
+
+
+}
+
+@media screen and (min-height: 601px) and (max-height: 768px) {
+
+    #btn-topo {
+        position: fixed;
+        align-items: center;
+        text-align: center;
+        font-size: 15px;
+        right: 10px;
+    }
+
+    .highlight-section {
+        height: 450px; /* Ajuste a altura conforme necessário */
+    }
+
+    .highlight-carousel {
+        height: 450px;
+    }
+
+    .highlight-image {
+        width: 80px; /* Ajusta o tamanho da imagem para telas menores */
+    }
+
+    .add-orc {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+    }
+
+    .orcamento {
+        font-size: 20px; /* Reduz o tamanho da fonte */
+        padding: 15px; /* Ajusta o padding */
+    }
+
+    .carousel-item{
+        margin: 0 auto;
+        height: 450px;
+        border-radius: 10px;
+    }
+
+    .overlay:hover {
+        border-radius: 10px;
+    }
+
+    .logo-container {
+        width: 500px;
+        height: 500px;
+        margin: 0 auto;
+    }
+
+    #linkplan {
+        display: none;
+        width: 100%;
+        height: 300px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        text-decoration: none;
+        color: transparent;
+    }
+
+    .imagem-planos:hover #linkplan {
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        font-size: 20px;
+        color: white;
+    }
+    
+    #fundo-plano {
+        height: 300px;
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    /* Seção Atendimento */
+
+    .atendimento {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start; /* Alinhar ao topo, se desejado */
+        padding: 30px 50px 0 50px;
+        height: 350px; /* Ajuste a altura para permitir que o conteúdo se ajuste */
+        flex-wrap: wrap; /* Para permitir que os itens quebrem em telas menores */
+    }
+    
+    .lado-esquerdo, .meio, .lado-direito {
+        width: 30%;
+        min-width: 250px; /* Defina um tamanho mínimo para cada coluna, se necessário */
+    }
+    
+    .lado-esquerdo h2, .lado-direito h2 {
+        font-size: 1.8em;
+        margin: 20px auto;
+        text-decoration: underline;
+    }
+
+    .formas-contato .contato-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    .formas-contato img {
+        width: 40px;
+        margin-right: 0px;
+    }
+    
+    .redes-sociais {
+        display: flex;
+        margin-top: 20px;
+    }
+    
+    .redes-sociais img {
+        width: 100px;
+        margin-right: 10px;
+    }
+    
+    .meio {
+        margin-top: 40px;
+        height: 225px;
+        overflow: hidden;
+    }
+
+    .info-horario, .info-localizacao {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+    
+    .info-horario img, .info-localizacao img {
+        width: 30px;
+        margin-right: 10px;
+    }
+    
+    a {
+        color: white;
+    }
+    
+    a:hover {
+        color: rgba(65, 87, 139);
+    }
+
+    .redes-sociais {
+        align-items: center;
+        justify-content: center;
+        margin: 20px auto 0;
+    }
+
+    .redes-sociais img {
+        height: 40px;
+        width: 40px;
+        margin: 0;
+    }
+    
+    .redes-sociais a {
+        height: 25px;
+        width: 25px;
+        margin: 0 20px;
+    }
+
+
+
 }
