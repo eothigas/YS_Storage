@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Stoke:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Stoke', sans-serif;
+}
+
+body {
+    background-color: rgb(2, 21, 38);
+    margin: 0;
+    padding: 0;
+    height: 100dvh;
+    display: flex;
+}
+
+@media screen and (max-width: 800px) {
+
+    #btn-menu {
+        font-size: 40px;
+        font-weight: bold;
+        color: rgb(226, 226, 182);
+        margin-left: 5px;
+        cursor: pointer;
+    }
+    
+    #btn-close {
+        font-size: 40px;
+        font-weight: bold;
+        color: rgb(226, 226, 182);
+        margin-left: 5px;
+        cursor: pointer;
+    }
+    
+    .bi.bi-plus-square, .bi.bi-search, .bi.bi-arrow-left-right, .bi.bi-house, .bi.bi-gear, .bi.bi-box-arrow-right {
+        display: grid;
+        gap: 10px;
+        color: rgb(226, 226, 182);
+        font-size: 30px;
+        padding: 10px;
+    }
+    
+    #baixo a {
+        margin: 0;
+        padding-bottom: 0px;
+        padding-top: 0;
+    }
+    
+    #settings {
+        border-top: 2px rgb(226, 226, 182) solid;
+    }
+    
+    .menu-lateral {
+        width: 260px;
+        background-color: rgb(3, 52, 110);
+        color: white;
+        position: fixed;
+        height: 100%;
+        padding: 0px 0;
+        transition: width 0.5s ease;
+        overflow: hidden;
+        z-index: 1;
+    }
+    
+    .menu-lateral ~ .container {
+        filter: blur(5px);
+    }
+    
+    .menu-lateral.fechado ~ .container {
+        filter: blur(0);
+    }
+    
+    /* Estilo para ocultar o menu lateral */
+    .menu-lateral.fechado {
+        width: 50px;
+        max-height: 600px;
+        overflow: hidden;
+    }
+    
+    .menu-lateral ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .menu-lateral li {
+        display: grid;
+        align-items: center;
+        padding: 0px 0 0px 0;
+        /* margin-top: 20px; */
+    }
+    
+    .menu-lateral a {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: rgb(226, 226, 182); /* Mude para a cor desejada */
+        padding: 0px 0;
+    }
+    
+    .menu-lateral a:hover {
+        background-color: rgb(226, 226, 182);
+        color: rgb(3, 52, 110);
+    }
+    
+    .menu-lateral a:hover .bi {
+        color: rgb(3, 52, 110);
+    }
+    
+    
+    .menu-icon {
+        margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .menu-text {
+        /* Estilos para o texto do link */
+        font-size: 16px;
+        font-weight: normal;
+        text-decoration: none;
+        transition: .2s ease;
+        text-wrap: nowrap;
+        opacity: 1;
+    }
+    
+    .menu-lateral a:hover .menu-text {
+        transition: none;
+    }
+    
+    .menu-lateral.fechado .menu-text {
+        opacity: 0;
+        padding-left: 20px;
+    }
+
+}
