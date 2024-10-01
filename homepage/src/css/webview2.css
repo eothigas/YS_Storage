@@ -257,9 +257,26 @@ img.img-client {
     overflow: hidden;
 }
 
-.logo-container span {
+#linkplan {
     display: none;
+    width: 100%;
+    height: 300px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+    color: transparent;
+}
+
+.imagem-planos:hover #linkplan {
+    display: flex;
     overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 20px;
+    color: white;
 }
 
 #logo-plan {
