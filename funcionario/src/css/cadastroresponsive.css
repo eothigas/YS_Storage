@@ -160,6 +160,12 @@
         margin-left: 0;
     }
 
+    .client-registration {
+        overflow: auto;
+        padding-left: 20px;
+        width: 500px;
+    }
+
     .menu-lateral.expandir ~ .main-content {
         margin-left: 0px;
     }
@@ -198,6 +204,14 @@
 
     .user-info button {
         font-size: 12px;
+    }
+
+    input {
+    width: 470px;
+}
+
+    button#cadastro {
+        margin-bottom: 20px
     }
 
 }
