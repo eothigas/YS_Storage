@@ -154,7 +154,7 @@ button#prev-btn, button#next-btn {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     justify-content: center;
     align-items: center;
 }
@@ -231,15 +231,15 @@ input:focus, textarea:focus {
 }
 
 .modal-content button {
-    background-color: #28a745;
+    background-color: rgb(2, 21, 38);
     color: white;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.modal-content button:hover {
-    background-color: #218838;
+.change .btn :hover {
+    background-color: red;
 }
 
 /* Close button */
@@ -418,6 +418,14 @@ input:focus, textarea:focus {
     margin-top: 10px;
 }
 
+#excluir-produto:hover {
+    background-color: #ff1a1a; /* Cor de fundo ao passar o mouse (vermelho mais escuro) */
+}
+
+button[type="button"]:hover {
+    background-color: #45a049; /* Cor de fundo ao passar o mouse (verde mais escuro) */
+}
+
 .close-btn {
     cursor: pointer;
     font-size: 35px;
@@ -455,4 +463,39 @@ input:focus, textarea:focus {
 #cancelar-exclusao:hover {
     color: white;
     background-color: red;
+}
+
+#destaque {
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+    margin: 10px 0;
+}
+
+#destaque-editar {
+    margin: 0;
+    margin-top: 3px;
+    margin-left: 5px; /* Adiciona um espaço entre a checkbox e o texto */
+}
+
+label#destaque-editar {
+    margin: 0;
+}
+
+#mensagem {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: none; /* Inicialmente oculta */
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }

@@ -279,3 +279,103 @@ button.tablinks {
     opacity: 0;
     padding-left: 20px;
 }
+
+#edt {
+    border: none;
+    background-color: rgb(2, 21, 38);
+    color: rgb(226, 226, 182);
+}
+
+#edt:hover {
+    outline: none;
+    border: none;
+    background-color: rgb(2, 21, 38, 0.7);
+    color: rgb(226, 226, 182);
+}
+
+.pagination {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.pagination button {
+    padding: 0px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+#page-info {
+    margin-left: 5px;
+    font-size:  12px;
+    color: rgb(226, 226, 182);
+}
+
+button#prev-btn, button#next-btn {
+    width: 70px;
+    height: 20px;
+    font-size: 12px;
+    background-color: rgb(226, 226, 182);
+    border: none;
+    border-radius: 5px;
+}
+
+/* Estilos da mensagem */
+#message-container {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.error {
+    background-color: #f8d7da; /* Cor de fundo para erro */
+    color: #721c24; /* Cor do texto para erro */
+}
+
+.success {
+    background-color: #d4edda; /* Cor de fundo para sucesso */
+    color: #155724; /* Cor do texto para sucesso */
+}
+
+.modal-plan {
+    display: none; /* Esconde o modal por padrão */
+    position: fixed; /* Fica na posição fixa na tela */
+    z-index: 1000; /* Fica acima de outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: hidden; /* Adiciona rolagem se necessário */
+    background-color: rgba(0,0,0,0.4); /* Fundo escuro com transparência */
+    backdrop-filter: blur(5px);
+}
+
+.modal-content-plan {
+    margin: auto; /* Centraliza o modal */
+    padding: 20px 20px 20px 0;
+    width: 100%; /* Largura do modal */
+    height: 100%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#back {
+    display: none;
+}

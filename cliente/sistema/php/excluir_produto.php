@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 
 // Carregar configurações do php.ini da raiz
-$config = parse_ini_file('../../PHP/php.ini', true);
+$config = parse_ini_file('../../../PHP/php.ini', true);
 
 // Verificar se o arquivo foi carregado corretamente
 if (!$config) {

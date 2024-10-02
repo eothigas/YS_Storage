@@ -45,7 +45,7 @@ try {
         if ($storages) {
             echo json_encode($storages);
         } else {
-            echo json_encode([]); // Nenhum storage encontrado
+            echo json_encode(['error' => 'Nenhum storage encontrado para essa empresa']); // Nenhum storage encontrado
         }
     } else {
         echo json_encode(['error' => 'Empresa não fornecida']);

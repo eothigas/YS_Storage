@@ -8,6 +8,51 @@
     <link rel="stylesheet" href="../src/css/settings.css">
     <link rel="stylesheet" href="../src/css/modal-settings.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script>
+        async function registerUser(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            const form = document.getElementById('edit-users');
+            const formData = new FormData(form); // Coleta todos os dados do formulário
+
+            try {
+                const response = await fetch('./php/user-register.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                // Aguarda a resposta do PHP
+                const data = await response.json();
+
+                // Verifica se a resposta contém mensagem e tipo
+                if (data.message && data.type) {
+                    showMessage(data.message, data.type); // Exibe a mensagem
+                } else {
+                    console.error('Resposta inesperada do servidor:', data);
+                }
+            } catch (error) {
+                console.error('Erro ao registrar o usuário:', error);
+        }
+        }
+
+        // Função para exibir a mensagem
+        function showMessage(message, type) {
+            const messageBox = document.createElement('div');
+            messageBox.className = type === 'success' ? 'success' : 'error';
+            messageBox.textContent = message;
+
+            // Adiciona a mensagem ao DOM (por exemplo, em um elemento com id 'message-container')
+            const messageContainer = document.getElementById('message-container');
+            messageContainer.innerHTML = ''; // Limpa mensagens anteriores
+            messageContainer.appendChild(messageBox);
+
+            // Opcional: Remover a mensagem após alguns segundos
+            setTimeout(() => {
+                messageContainer.removeChild(messageBox);
+            }, 5000); // Remove a mensagem após 5 segundos
+        }
+    </script>
+    <script src="../src/js/verify_session.js" type="text/javascript" defer></script>
 </head>
 <body>
     <div id="menuLateral" class="menu-lateral fechado">
@@ -111,12 +156,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                          <td>Teste</td>
-                          <td>Estoquista</td>
-                          <td>teste@teste.com</td>
-                          <td><button id='edit' onclick="openModalUser()">Editar</button></td>
-                        </tr>
+                        <!-- JS -->
                     </tbody>
                 </table>
                 
@@ -175,16 +215,24 @@
             <div id="cadastro-usuarios" class="tabcontent">
                 <div class="client-registration">
                     <p class="register">Cadastrar Novo Usuário</p>
-                    <form id="edit-users" method="post" action="">
+                    <form id="edit-users" method="post" action="./php/user-register.php" onsubmit="registerUser(event)">
                          
                         <label>
                             <span>Nome</span><br>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name-user" name="name" required>
                         </label>
-                            
+
+                        <label>
+                            <span>Usuário</span><br>
+                            <select  id='tipo-user' name="tipo-user" required>
+                                <option value="administrador">Administrador</option>
+                                <option value="estoquista">Estoquista</option>
+                            </select>
+                        </label>
+
                         <label>
                             <span>Email</span><br>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email-user" name="email-user" required>
                         </label>
 
                         <label>
@@ -208,15 +256,12 @@
                         </label> 
 
                         <div id="btn">
-                            <button type="submit" id='delete-user' type="submit">Excluir Usuário</button>
-                            <button type="submit" id='save-changes' type="submit">Salvar Alterações</button>
+                            <button type="submit" id='save-changes' type="submit">Cadastrar Novo Usuário</button>
                         </div>
 
                     </form>
 
-                    <div id="registration-message" class="<?php echo $messageType; ?>">
-                        <?php echo $message; ?>
-                    </div>  
+                    <div id="message-container"></div>
         
                 </div>
             </div>
@@ -224,8 +269,8 @@
             <!-- Modal Planos -->
             <div id="planos" class="tabcontent">
                     <label class='plano' for="plan">Plano Atual</label>
-                    <p class="plan">restrição1</p>
-                    <p class="plan">restrição2</p>
+                    <p class="plan" id="strt">restrição1</p>
+                    <p class="plan" id="mid">restrição2</p>
                     <p class="plan" id="ult">restrição3</p>
                 
                 <button id="alt-plan">Alterar Plano</button>    
@@ -244,20 +289,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                          <td>Teste</td>
-                          <td>teste, 123, guarulhos sp</td>
-                          <td>10 metros</td>
-                          <td>10 metros</td>
-                          <td>10 metros</td>
-                        </tr>
-                        <tr>
-                            <td>Teste</td>
-                            <td>teste, 123, guarulhos sp</td>
-                            <td>10 metros</td>
-                            <td>10 metros</td>
-                            <td>10 metros</td>
-                          </tr>
+                        <!-- JS -->
                     </tbody>
                 </table>
                 <div class="pagination">
@@ -270,5 +302,6 @@
     </div>
 
     <script src="../src/js/settings.js"></script>
+    <script src="../src/js/actions_modal.js"></script>
 </body>
 </html>

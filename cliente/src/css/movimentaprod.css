@@ -92,19 +92,20 @@ button:hover {
     background-color: rgb(2, 21, 38, 0.5);
 }
 
-.message {
+#mensagem {
     margin-top: 20px;
     padding: 10px;
     border-radius: 4px;
     display: none; /* Inicialmente oculto */
+    text-align: center;
 }
 
-.message.success {
+.success {
     background-color: #28a745;
     color: white;
 }
 
-.message.error {
+.error {
     background-color: #dc3545;
     color: white;
 }

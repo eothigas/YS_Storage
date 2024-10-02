@@ -4,7 +4,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
-header('Content-Type: application/json'); // Retorno JSON
 
 // Verifica se o cliente está logado e se o email está na sessão
 if (isset($_SESSION['email'])) {  

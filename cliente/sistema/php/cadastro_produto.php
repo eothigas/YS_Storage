@@ -1,4 +1,7 @@
 <?php
+// Incluir o arquivo de verificação de sessão
+include '../../../PHP/check_session.php'; // Ajuste o caminho conforme necessário
+
 // Carregar configurações do php.ini da raiz
 $config = parse_ini_file('../../../PHP/php.ini', true);
 
@@ -132,5 +135,4 @@ function uploadToImgur($imagePath, $clientID) {
         return false; // Em caso de erro
     }
 }
-
 ?>
