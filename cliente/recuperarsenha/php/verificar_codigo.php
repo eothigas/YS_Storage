@@ -63,12 +63,11 @@ try {
 
     // Verificar se o formulário foi enviado
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Lidar com o reenvio do código
-        $email = $_SESSION['email'] ?? null;
-        $codigo = $_POST['codigo'] ?? null; // O código pode ser nulo se for um novo pedido
+        // Lidar com o envio do código para verificação
+        if (isset($_POST['codigo'])) {
+            $codigo = $_POST['codigo'];
+            $email = $_SESSION['email'] ?? null;
 
-        // Se o código foi enviado
-        if ($codigo) {
             // Verificar se o código é válido e não expirou
             $sql = "SELECT email, codigo, validade FROM recuperacao_senha WHERE codigo = :codigo";
             $stmt = $conn->prepare($sql);
@@ -90,75 +89,95 @@ try {
                     exit();
                 } else {
                     // Código expirado
-                    echo "<p class='message'>Código incorreto. Tente novamente.</p>";
+                    echo json_encode([ 'status' => 'error', 'message' => 'Código expirado. Solicite um novo código.']);
+                    exit(); // Encerra o script após enviar a resposta
                 }
             } else {
                 // Código não encontrado
-                echo "<p class='message'>Código expirado. Solicite um novo código.</p>";
+                    echo json_encode([ 'status' => 'error', 'message' => 'Código não encontrado. Solicite um novo código.']);
+                exit(); // Encerra o script após enviar a resposta
             }
-        } else {
-            // Lidar com o pedido de reenvio do código
-            $sql = "SELECT tentativas, ultimo_pedido FROM recuperacao_senha WHERE email = :email";
-            $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':email', $email);
-            $stmt->execute();
-
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            $tentativas = $row['tentativas'] ?? 0;
-            $ultimoPedido = $row['ultimo_pedido'] ?? null;
-
-            // Verifica se o cooldown de 1 minuto deve ser aplicado
-            if ($tentativas >= 3) {
-                $now = new DateTime();
-                $lastRequestTime = new DateTime($ultimoPedido);
-                $interval = $now->diff($lastRequestTime);
-
-                // Se menos de 1 minuto passou desde o último pedido
-                if ($interval->i < 1) {
-                    echo json_encode(['message' => 'Você atingiu o limite de reenvios. Tente novamente em um minuto.']);
-                    exit();
-                } else {
-                    // Reseta tentativas se passou mais de um minuto
-                    $tentativas = 0; // Reseta a variável em memória
-                    // Atualiza o banco de dados para resetar tentativas
-                    $sqlReset = "UPDATE recuperacao_senha SET tentativas = :tentativas WHERE email = :email";
-                    $stmtReset = $conn->prepare($sqlReset);
-                    $stmtReset->bindParam(':tentativas', $tentativas);
-                    $stmtReset->bindParam(':email', $email);
-                    $stmtReset->execute();
-                }
-            }
-
-            // Gerar um novo código de recuperação
-            $codigo = bin2hex(random_bytes(4)); // Gera um novo código
-            $validade = date('Y-m-d H:i:s', strtotime('+4 hours')); // Define a validade
-
-            // Insere ou atualiza o código na tabela
-            $sql = "INSERT INTO recuperacao_senha (email, codigo, validade, tentativas, ultimo_pedido) 
-                    VALUES (:email, :codigo, :validade, :tentativas, NOW())
-                    ON DUPLICATE KEY UPDATE codigo = :codigo, validade = :validade, 
-                    tentativas = tentativas + 1, ultimo_pedido = NOW()";
-            $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':codigo', $codigo);
-            $stmt->bindParam(':validade', $validade);
-            $tentativas++; // Incrementa tentativas
-            $stmt->bindParam(':tentativas', $tentativas);
-            $stmt->execute();
-
-            // Enviar o novo código por e-mail
-            enviarEmail($email, $codigo);
-
-            // Retornar uma resposta de sucesso
-            echo json_encode(['message' => 'O código foi reenviado com sucesso.']);
         }
+        
+        // Lidar com o reenvio do código
+        $email = $_SESSION['email'] ?? null;
+        $sql = "SELECT tentativas, ultimo_pedido FROM recuperacao_senha WHERE email = :email";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $tentativas = $row['tentativas'] ?? 0;
+        $ultimoPedido = $row['ultimo_pedido'] ?? null;
+
+        // Verifica se o cooldown de 1 minuto deve ser aplicado
+        if ($tentativas >= 3) {
+            $now = new DateTime();
+            $lastRequestTime = new DateTime($ultimoPedido);
+            $interval = $now->diff($lastRequestTime);
+
+            // Se menos de 1 minuto passou desde o último pedido
+            if ($interval->i > 1) {
+                // Reseta tentativas se passou mais de um minuto
+                $tentativas = 0; // Reseta a variável em memória
+                // Atualiza o banco de dados para resetar tentativas
+                $sqlReset = "UPDATE recuperacao_senha SET tentativas = :tentativas WHERE email = :email";
+                $stmtReset = $conn->prepare($sqlReset);
+                $stmtReset->bindParam(':tentativas', $tentativas);
+                $stmtReset->bindParam(':email', $email);
+                $stmtReset->execute();
+            } else {
+                echo json_encode(['status' => 'error', 'message' => 'Você atingiu o limite de reenvios!<br>Tente novamente em um minuto.']);
+                exit();
+            }
+        }
+
+        // Verificar se já existe um registro para o email
+        $sqlCheck = "SELECT * FROM recuperacao_senha WHERE email = :email";
+        $stmtCheck = $conn->prepare($sqlCheck);
+        $stmtCheck->bindParam(':email', $email);
+        $stmtCheck->execute();
+
+        if ($stmtCheck->rowCount() > 0) {
+            // Atualiza o código e validade
+            $codigo = bin2hex(random_bytes(4)); // Gera um novo código
+            $validade = date('Y-m-d H:i:s', strtotime('+15 minutes')); // Define a validade
+
+            // Incrementa tentativas
+            $tentativas++;
+
+            $sqlUpdate = "UPDATE recuperacao_senha SET codigo = :codigo, validade = :validade, tentativas = :tentativas, ultimo_pedido = NOW() WHERE email = :email";
+            $stmtUpdate = $conn->prepare($sqlUpdate);
+            $stmtUpdate->bindParam(':codigo', $codigo);
+            $stmtUpdate->bindParam(':validade', $validade);
+            $stmtUpdate->bindParam(':tentativas', $tentativas);
+            $stmtUpdate->bindParam(':email', $email);
+            $stmtUpdate->execute();
+        } else {
+            // Insere um novo registro se o email não estiver na tabela
+            $codigo = bin2hex(random_bytes(4)); // Gera um novo código
+            $validade = date('Y-m-d H:i:s', strtotime('+15 minutes')); // Define a validade
+
+            // Inicializa tentativas como 1
+            $tentativas = 1;
+
+            $sqlInsert = "INSERT INTO recuperacao_senha (email, codigo, validade, tentativas, ultimo_pedido) VALUES (:email, :codigo, :validade, :tentativas, NOW())";
+            $stmtInsert = $conn->prepare($sqlInsert);
+            $stmtInsert->bindParam(':email', $email);
+            $stmtInsert->bindParam(':codigo', $codigo);
+            $stmtInsert->bindParam(':validade', $validade);
+            $stmtInsert->bindParam(':tentativas', $tentativas);
+            $stmtInsert->execute();
+        }
+
+        // Enviar o e-mail com o código
+        enviarEmail($email, $codigo);
+
+        echo json_encode(["message" => "Código Reenviado!"]);
+        exit();
     }
-
 } catch (PDOException $e) {
-    echo "<p class='message'>Erro: " . $e->getMessage() . "</p>";
+    echo json_encode(["status" => "error", "message" => "Erro: " . $e->getMessage()]);
+    exit();
 }
-
-// Fechar a conexão
-$conn = null;
 ?>
-

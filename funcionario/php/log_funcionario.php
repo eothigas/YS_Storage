@@ -2,11 +2,12 @@
 session_start();
 
 // Carregar configurações do php.ini
-$config = parse_ini_file('../../PHP/php.ini', true); // Ajuste o caminho conforme necessário
+$config = parse_ini_file('../../PHP/php.ini', true);
 
 // Verificar se as configurações foram carregadas corretamente
 if (!$config) {
-    die(json_encode(["error" => "Erro ao carregar as configurações do php.ini"]));
+    echo json_encode(["status" => "error", "message" => "Erro ao carregar as configurações do php.ini"]);
+    exit();
 }
 
 // Configurações do banco de dados a partir do php.ini
@@ -22,19 +23,19 @@ try {
     $pdo = new PDO($dsn, $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die("Falha na conexão: " . $e->getMessage());
+    echo json_encode(["status" => "error", "message" => "Falha na conexão: " . $e->getMessage()]);
+    exit();
 }
 
 // Verificação de Login
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email']; // Coleta email
-    $password = $_POST['password']; // Coleta senha
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
     // Preparação de seleção para verificação dos dados (conforme o email)
     $stmt = $pdo->prepare('SELECT id, nome, senha FROM funcionarios WHERE email = ?');
     $stmt->execute([$email]);
 
-    // Se email existir
     if ($stmt->rowCount() > 0) {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         $id = $user['id'];
@@ -43,24 +44,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Verifica a senha
         if (password_verify($password, $hashed_password)) {
-            // Armazena o ID, nome e email na sessão
             $_SESSION['id_funcionario'] = $id;
             $_SESSION['nome_funcionario'] = $nome;
-            $_SESSION['email_funcionario'] = $email; // Armazena o email na sessão
+            $_SESSION['email_funcionario'] = $email;
 
-            // Executa o script check_session
-            include 'php/check_session.php'; // Ajuste o caminho se necessário
-
-            // Redireciona para a dashboard
-            header('Location: ../dashboard.html'); // Redireciona para a raiz
-            exit();  
+            // Retorna um JSON de sucesso com a URL de redirecionamento
+            echo json_encode(["status" => "success", "redirect_url" => "dashboard.html"]);
         } else {
-            header('Location: index.html?error=Senha incorreta'); // Se senha incorreta
-            exit();
+            // Retorna um JSON com a mensagem de erro de senha incorreta
+            echo json_encode(["status" => "error", "message" => "Senha incorreta. Por favor, tente novamente."]);
         }
     } else {
-        header('Location: index.html?error=Email não encontrado'); // Se não existir o email cadastrado
-        exit();
+        // Retorna um JSON com a mensagem de erro de email não encontrado
+        echo json_encode(["status" => "error", "message" => "Email não encontrado. Tente novamente."]);
     }
 }
 ?>

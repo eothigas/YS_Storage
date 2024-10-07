@@ -43,6 +43,8 @@ function enviarEmail($mail, $codigo) {
     $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
     $headers .= 'From: ' . $de . "\r\n";
+    $headers .= 'Reply-To: ' . $de . "\r\n"; // Adicione isso para garantir que o e-mail seja respondido para o mesmo domínio
+    $headers .= 'X-Mailer: PHP/' . phpversion();
 
     mail($mail, $assunto, $mensagem, $headers);
 }
@@ -52,17 +54,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Coleta o e-mail do formulário
     $email = $_POST['email'] ?? null;
 
-    // Verifica se o campo de e-mail está vazio
-    if (empty($email)) {
-        $_SESSION['error'] = "O campo de e-mail é obrigatório.";
-        header("Location: ../recuperarsenha.html"); // Redireciona para a página de recuperação
-        exit();
-    }
-
     // Valida o formato do e-mail
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $_SESSION['error'] = "Por favor, insira um e-mail válido.";
-        header("Location: ../recuperarsenha.html"); // Redireciona para a página de recuperação
+        header("Location: ../recuperarsenha.html?error=dadosinvalidos"); // Adiciona o parâmetro
         exit();
     }
 
@@ -84,13 +79,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $validade = date('Y-m-d H:i:s', strtotime('+4 hours')); // Define a validade para 4 horas a partir de agora
 
             // Preparar e executar a consulta para inserir o código e a validade
-            $sql = "INSERT INTO recuperacao_senha (email, codigo, validade) VALUES (:email, :codigo, :validade)
-                    ON DUPLICATE KEY UPDATE codigo = :codigo, validade = :validade";
-            $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':codigo', $codigo);
-            $stmt->bindParam(':validade', $validade);
-            $stmt->execute();
+            try {
+                $sql = "INSERT INTO recuperacao_senha (email, codigo, validade) VALUES (:email, :codigo, :validade)
+                        ON DUPLICATE KEY UPDATE codigo = :codigo, validade = :validade";
+                $stmt = $conn->prepare($sql);
+                $stmt->bindParam(':email', $email);
+                $stmt->bindParam(':codigo', $codigo);
+                $stmt->bindParam(':validade', $validade);
+                $stmt->execute();
+            } catch (PDOException $e) {
+                // Log do erro
+                file_put_contents('../../../logs/erro.log', $e->getMessage(), FILE_APPEND);
+                $_SESSION['error'] = "Erro ao armazenar no banco de dados: " . $e->getMessage();
+                header("Location: ../recuperarsenha.html?error=");
+                exit();
+            }
 
             // Salvar o e-mail na sessão
             $_SESSION['email'] = $email;
@@ -103,8 +106,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             // Definir uma mensagem de erro na sessão se o e-mail não for encontrado
-            $_SESSION['error'] = "Usuário não encontrado.";
-            header("Location: ../recuperarsenha.html"); // Redireciona para a página de recuperação
+            $_SESSION['error'] = "Usuário não existe.";
+            header("Location: ../recuperarsenha.html?error=usuario_nao_encontrado");
             exit();
         }
     } catch (PDOException $e) {

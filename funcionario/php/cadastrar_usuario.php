@@ -24,7 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = trim($_POST['email']);
     $senha = $_POST['password'];
     $confirmSenha = $_POST['confirm-password'];
-    $plano = $_POST['plan'];
+    $plano = $_POST['plano'];
+    $tipo = $_POST['tipo']; // Novo campo para o tipo de usuário
+    $empresa = trim($_POST['empresa']); // Novo campo para a empresa
 
     // Validações
     if (strlen($senha) < 8) {
@@ -49,8 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             } else {
                 // Cadastra o novo usuário
                 $hashedPassword = password_hash($senha, PASSWORD_DEFAULT);
-                $stmt = $pdo->prepare("INSERT INTO usuarios (nome, email, senha, plano) VALUES (:name, :email, :password, :plan)");
-                $stmt->execute([':name' => $name, ':email' => $email, ':password' => $hashedPassword, ':plan' => $plano]);
+                $stmt = $pdo->prepare("INSERT INTO usuarios (nome, email, senha, plano, tipo, empresa) VALUES (:name, :email, :password, :plan, :tipo, :empresa)");
+                $stmt->execute([':name' => $name, ':email' => $email, ':password' => $hashedPassword, ':plan' => $plano, ':tipo' => $tipo, ':empresa' => $empresa]);
 
                 // Mensagem de sucesso
                 $_SESSION['message'] = "Pronto! Usuário cadastrado.";

@@ -147,17 +147,31 @@ unset($_SESSION['message'], $_SESSION['messageType']); // Limpa a mensagem após
                     
                 <span>Plano</span>
                 <div id="plan">
-                    <input class='select' type="radio" id="basico" name="plan" value="basico" required>
+                    <input class='select' type="radio" id="basico" name="plano" value="basico" required>
                     <label for="basico">Básico</label>
                 </div>
                 <div id="plan">
-                    <input class='select' type="radio" id="logistico" name="plan" value="logistico" required>
+                    <input class='select' type="radio" id="logistico" name="plano" value="logistico" required>
                     <label for="logistico">Logístico</label>
                 </div>
                 <div id="plan">
-                    <input class='select' type="radio" id="premium" name="plan" value="premium" required>
+                    <input class='select' type="radio" id="premium" name="plano" value="premium" required>
                     <label for="premium">Premium</label>
                 </div>
+
+                <label>
+                    <span>Tipo de Usuário</span><br>
+                    <select id="tipo" name="tipo" required>
+                        <option value="administrador">Administrador</option>
+                        <option value="estoquista">Estoquista</option>
+                    </select>
+                </label>
+
+                <label>
+                    <span>Empresa</span><br>
+                    <input type="text" id="empresa" name="empresa" required>
+                </label>
+
                 <button id='cadastro' type="submit">Cadastrar</button>
             </form>
 

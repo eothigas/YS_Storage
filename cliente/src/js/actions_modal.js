@@ -142,14 +142,6 @@ function closeModalUser() {
     document.getElementById('modal-usuarios').style.display = 'none';
 }
 
-// Adiciona um event listener para fechar o modal quando clicar fora dele
-window.onclick = function(event) {
-    const modal = document.getElementById('modal-usuarios');
-    if (event.target === modal) {
-        closeModalUser();
-    }
-};
-
 // Função para salvar alterações do usuário
 function salvarAlteracoesUsuario(event) {
     // Previne o comportamento padrão do botão

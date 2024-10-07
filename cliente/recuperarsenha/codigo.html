@@ -8,42 +8,75 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Your Storage - Recuperação de Senha</title>
     <script>
-        // Função para ocultar e depois exibir o elemento com ID 'code'
-        window.onload = function() {
-            // Define um tempo para exibir o elemento após 8 segundos
-            setTimeout(function() {
-                document.getElementById('code').style.display = 'block';
-                document.getElementById('button-resend').style.display = 'block';
-            }, 8000);
-        };
+    // Função para ocultar e depois exibir o elemento com ID 'code'
+    window.onload = function() {
+        // Define um tempo para exibir o elemento após 8 segundos
+        setTimeout(function() {
+            document.getElementById('code').style.display = 'block';
+            document.getElementById('button-resend').style.display = 'block';
+        }, 8000);
+    };
 
-        // Função para enviar o código novamente
-        function resendCode(event) {
-            event.preventDefault(); // Previne o envio padrão do formulário
+    // Função para enviar o código novamente
+    function resendCode(event) {
+        event.preventDefault(); // Previne o envio padrão do formulário
 
-            // Obtém o e-mail da sessão (ou você pode fazer uma requisição AJAX para obter)
-            var email = "<?php echo $_SESSION['email'] ?? ''; ?>"; // Exemplo de como obter o e-mail da sessão
+        // Obtém o e-mail da sessão
+        var email = "<?php echo $_SESSION['email'] ?? ''; ?>"; // Exemplo de como obter o e-mail da sessão
 
-            if (email) {
-                // Faz uma requisição para o script PHP que enviará o código
-                fetch('./php/enviar_codigo.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ email: email }) // Envia o e-mail para o script
-                })
-                .then(response => response.json())
-                .then(data => {
-                    alert(data.message); // Mostra a mensagem de retorno
-                })
-                .catch(error => {
-                    console.error('Erro ao reenviar o código:', error);
-                });
-            } else {
-                alert("E-mail não encontrado na sessão.");
-            }
+        // Seleciona o contêiner onde a mensagem será exibida
+        var messageContainer = document.getElementById('message-container');
+
+        if (email) {
+            // Faz uma requisição para o script PHP que enviará o código
+            fetch('./php/verificar_codigo.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email }) // Envia o e-mail para o script
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Define o conteúdo do contêiner de mensagens com a resposta
+                messageContainer.innerHTML = data.message; // Mostra a mensagem de retorno
+                messageContainer.style.display = 'block'; // Exibe o contêiner (se estiver escondido)
+
+                // Verifica o status da resposta para aplicar a classe correta
+                if (data.status === 'error') {
+                    
+                    // Adiciona a classe .error se a operação falhar
+                    messageContainer.classList.add('error');
+                    messageContainer.classList.remove('success'); // Remove a classe de sucesso, se presente
+                } else {
+                    // Adiciona a classe .success se a operação for bem-sucedida
+                    messageContainer.classList.add('success');
+                    messageContainer.classList.remove('error'); // Remove a classe de erro, se presente
+                }
+
+                // Define um timeout para ocultar a mensagem após 5 segundos
+                setTimeout(() => {
+                    messageContainer.style.display = 'none'; // Oculta o contêiner
+                }, 5000); // 5000 milissegundos = 5 segundos
+            })
+            .catch(error => {
+                console.error('Erro ao reenviar o código:', error);
+                messageContainer.innerHTML = 'Erro ao reenviar o código. Tente novamente mais tarde.';
+                messageContainer.style.display = 'block'; // Exibe o contêiner
+
+                // Adiciona a classe .error se houver um erro
+                messageContainer.classList.add('error');
+                messageContainer.classList.remove('success'); // Remove a classe de sucesso, se presente
+
+                // Define um timeout para ocultar a mensagem após 5 segundos
+                setTimeout(() => {
+                    messageContainer.style.display = 'none'; // Oculta o contêiner
+                }, 5000); // 5000 milissegundos = 5 segundos
+            });
+        } else {
+            alert("E-mail não encontrado na sessão.");
         }
+    }
     </script>
 </head>
 <body>
@@ -61,7 +94,7 @@
                     
         <button id="button-send">Pronto</button>
         <p id="code">Não recebeu o código?</p>
-        <button id="button-resend" onclick="resendCode()">Clique aqui!</button>
+        <button id="button-resend" onclick="resendCode(event)">Clique aqui!</button>
     </form>
     <div id="message-container"></div> <!-- Div para mensagens -->
 </body>

@@ -140,7 +140,7 @@ function exibirProduto(produto) {
             <td>${produto.nome}</td>
             <td>${produto.descricao}</td>
             <td>${produto.quantidade}</td>
-            <td><img src="${produto.imagem || 'default-product-image.jpg'}" alt="${produto.nome}" width="50"></td>
+            <td><img src="${produto.imagem || 'default-product-image.jpg'}" alt="${produto.nome}" width="35" height="35"></td>
         </tr>
     `;
     // Adiciona a classe fade-in após a nova exibição

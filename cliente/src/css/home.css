@@ -65,6 +65,7 @@ img.slider-image {
 
 #title {
     margin: 0 auto 20px auto;
+    color: rgb(226, 226, 182);
 }
 
 p {
@@ -73,6 +74,7 @@ p {
     gap: 5px;
     padding-bottom: 15px;
     font-size: 18px;
+    color: rgb(226, 226, 182);
 }
 
 .bi.bi-map, .bi.bi-bounding-box {

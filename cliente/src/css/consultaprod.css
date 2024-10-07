@@ -407,6 +407,7 @@ input:focus, textarea:focus {
     width: 50%; /* Largura */
     height: 200px;
     font-size: 20px;
+    text-align: center;
     align-items: center;
     justify-content: center;
 }
@@ -432,7 +433,7 @@ button[type="button"]:hover {
 }
 
 #real {
-    margin: 20px auto;
+    margin: 40px auto 20px;
     text-align: center;
 }
 

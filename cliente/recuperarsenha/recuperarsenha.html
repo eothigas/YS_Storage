@@ -22,7 +22,45 @@
         </div>
                     
         <button id="button">Enviar</button>
+        <div id="message-container"></div> <!-- Div para mensagens -->
     </form>
-    <div id="message-container"></div> <!-- Div para mensagens -->
+
+    <script>
+        // Verifica se a URL contém o parâmetro de erro
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('error')) {
+            // Pega o valor do parâmetro 'error' na URL
+            const errorType = urlParams.get('error');
+            
+            // Define a mensagem de erro com base no parâmetro
+            let errorMessage = '';
+            if (errorType === 'dadosinvalidos') {
+                errorMessage = 'Por favor, insira um e-mail válido.';
+            } else if (errorType === 'usuario_nao_encontrado') {
+                errorMessage = 'Usuário não encontrado.';
+            } else {
+                errorMessage = 'Erro desconhecido.';
+            }
+
+            const messageContainer = document.getElementById('message-container');
+            
+            // Define a mensagem de erro
+            messageContainer.innerText = errorMessage;
+            
+            // Exibe a div com display flex
+            messageContainer.style.display = 'flex';
+            
+            // Define um timeout de 8 segundos para ocultar a mensagem
+            setTimeout(() => {
+                messageContainer.style.display = 'none';
+
+                // Limpa o parâmetro 'error' da URL sem recarregar a página
+                const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                window.history.replaceState({}, document.title, newUrl);
+
+            }, 3000);
+        }
+    </script>
+
 </body>
 </html>

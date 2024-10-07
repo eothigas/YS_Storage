@@ -47,7 +47,7 @@ h1 {
     border-radius: 10px ;
 }
 
-button:hover {
+#open-modal:hover {
     background-color: rgb(2, 21, 38, 0.5);
 }
 

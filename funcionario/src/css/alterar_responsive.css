@@ -202,4 +202,9 @@
         font-size: 12px;
     }
 
+    #first.modal-content {
+        height: 75%;
+        overflow: hidden;
+    }
+
 }

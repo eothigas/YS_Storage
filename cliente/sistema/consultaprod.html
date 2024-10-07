@@ -6,6 +6,7 @@
     <link rel="icon" href="../src/images/Logo_reduzido.svg" type="image/png">
     <title>Your Storage - Consultar Produtos</title>
     <link rel="stylesheet" href="../src/css/consultaprod.css">
+    <link rel="stylesheet" href="../src/css/consultaprodresponsive.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="../src/js/verify_session.js" type="text/javascript" defer></script>
 </head>
@@ -78,7 +79,7 @@
         <div class="pagination" id="pagination">
             <button id="prev-btn" disabled>Anterior</button>
             <span id="page-info">Página 1 de 1</span>
-            <button id="next-btn">Próxima</button>
+            <button id="next-btn" disabled>Próxima</button>
         </div>
     </div>
 
@@ -137,7 +138,6 @@
                 <!-- Modal de confirmação -->
         <div id="modal-confirmacao" class="modal";>
             <div class="modal-content-exclusion">
-                <span class="close-btn">&times;</span>
                 <p id='real'>Você realmente deseja excluir este produto?</p>
                 <div id="btn-confirm">
                     <button id="confirmar-exclusao" class="btn" type="button">Sim, prosseguir.</button>

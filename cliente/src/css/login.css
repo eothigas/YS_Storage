@@ -142,4 +142,16 @@ body {
     color: white;
 }
   
-  
+#error-message {
+    margin: 0;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: red;
+    color: white;
+    bottom: 10px;
+}
