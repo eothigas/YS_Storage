@@ -98,7 +98,7 @@
         display: none;
     }
 
-    a#logout {
+    a#out {
         padding: 10px;
     }
 
@@ -167,8 +167,11 @@
 
     .welcome-msg {
         margin-bottom: 10px;
-        font-size: 18px;
         max-width: 600px;
+    }
+
+    h1#welcome-msg {
+        font-size: 18px;
     }
 
     .user-info {

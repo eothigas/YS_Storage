@@ -75,10 +75,14 @@ unset($_SESSION['message'], $_SESSION['messageType']); // Limpa a mensagem após
                 </a>    
             </li>
             <li class="item-menu" id="register">
-                <a href="">
+                <a href="#">
                     <span class="icon"><i class="bi bi-person-add"></i></span>
-                    <span class="txt-link">Cadastrar Usuário</span>
+                    <span class="txt-link">Cadastrar</span>
                 </a>
+                <ul class="submenu">
+                    <li><a href="./cadastro.php">Usuário</a></li><br>
+                    <li><a href="./cadastro_storage.php">Storage</a></li>
+                </ul>
             </li>
             <li class="item-menu">
                 <a href="./consulta.html">

@@ -4,20 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./src/images/Logo_reduzido.svg" type="image/png">
-    <title>Your Storage - Home</title>
-    <link rel="stylesheet" href="./src/css/dashboard.css">
-    <link rel="stylesheet" href="./src/css/dashboard_responsive.css">
+    <title>Your Storage - Novo Cadastro Storage</title>
+    <link rel="stylesheet" href="./src/css/cadastro.css">
+    <link rel="stylesheet" href="./src/css/cadastroresponsive.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="./src/js/verify_session.js" type="text/javascript" defer></script>
 </head>
 <body>
- 
-    <div class="profile">
-        <img id="perfil-imagens" src="" alt="">
-        <div id="perfil-nome" class="profile-text">
-            <h2></h2>
-        </div>
-    </div>
 
     <div class="logo-r">
         <img src="./src/images/Logo_reduzido.svg" alt="Logo Reduzido">
@@ -31,13 +24,13 @@
 
         <ul id="cima">
             <li class="item-menu">
-                <a href="">
+                <a href="./dashboard.html">
                     <span class="icon"><i class="bi bi-house-door"></i></span>
                     <span class="txt-link">Home</span>
                 </a>    
             </li>
             <li class="item-menu" id="register">
-                <a>
+                <a href="#">
                     <span class="icon"><i class="bi bi-person-add"></i></span>
                     <span class="txt-link">Cadastrar</span>
                 </a>
@@ -46,7 +39,7 @@
                     <li><a href="./cadastro_storage.php">Storage</a></li>
                 </ul>
             </li>
-            <li class="item-menu" id='li-consulta'>
+            <li class="item-menu">
                 <a href="./consulta.html">
                     <span class="icon"><i class="bi bi-person"></i></span>
                     <span class="txt-link">Consultar Usuário</span>
@@ -78,33 +71,59 @@
 
     </nav>
 
-        <!-- Conteúdo Principal à Direita -->
-        <div class="main-content">
-            <!-- Cumprimento do Funcionário -->
-            <div class="welcome-message">
-                <h1 id="welcome-message">Olá!</h1>
-                <p>Bem-vindo à seção de funcionários - Your Storage!</p>
+    <!-- Cadastro de Novo Storage -->
+    <div class="modal-content" id="first">
+        <p class="register">Cadastrar Novo Storage</p>
+        <form id="edit-form" method="post" action="/funcionario/php/cadastrar_storage.php" enctype="multipart/form-data">
+            <label>
+                <span>Imagem</span><br>
+                <img id="imagem-preview" style="max-width: 100%; margin-top: 0px; border-radius: 0; border: none; padding: 5px;" alt="Sua imagem aparecerá aqui!">
+                <input type="file" id="imagemp" name="imagem" accept="image/*" required>
+            </label>
+            
+            <label>
+                <span>Nome</span><br>
+                <input type="text" id="edit-name" name="name" required>
+            </label>
+
+            <label>
+                <span>Endereço</span><br>
+                <input type="text" id="edit-adress" name="adress" required>
+            </label>
+            
+            <div id='tamanho'>
+                <label>
+                    <span>Altura</span><br>
+                    <input type="number" id="edit-alt" name="altura" required>
+                </label>
+
+                <label>
+                    <span>Largura</span><br>
+                    <input type="number" id="edit-lar" name="largura" required>
+                </label>
+                
+                <label>
+                    <span>Comprimento</span><br>
+                    <input type="number" id="edit-comp" name="comprimento" required>
+                </label>
+
+                <fontsize>Medidas em Metros*</fontsize>
             </div>
-    
-            <div class="user-info">
-                <h2>Usuários Cadastrados</h2>
-                <table id="total-usuarios">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Email</th>
-                            <th>Plano</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Linhas da tabela serão preenchidas pelo JavaScript -->
-                    </tbody>
-                </table>
-                <fontsize><em>*Mostrando Máximo 5 Usuários</em></fontsize>
-                <a href='./consulta.html'><button id="consultar-usuarios">Consultar Usuários</button></a>
+
+            <label>
+                <span>Empresa</span><br>
+                <input type="text" id="edit-work" name="work" required>
+            </label>
+
+            <div id="btn">
+                <button type="submit" id='save-changes'>Cadastrar</button>
             </div>
-        </div>
+        </form>
     </div>
-    <script src="./src/js/dashboard.js" defer></script>
+
+    <div id="message-container"></div>
+
+    <script src="./src/js/cadastro_storage.js"></script>
+
 </body>
 </html>

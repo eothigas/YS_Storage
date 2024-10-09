@@ -34,6 +34,12 @@ a {
     cursor: pointer;
 }
 
+.rotacionado {
+    transform: rotate(90deg);
+    transform-origin: center;
+    padding: 20px 20px 20px 15px;
+}
+
 nav.menu-lateral {
     position: absolute;
     width: 80px;
@@ -152,6 +158,55 @@ nav.menu-lateral.expandir .txt-link-l {
     color: white;
     text-wrap: nowrap;
 }
+
+/* Oculta o submenu por padrão */
+.item-menu .submenu {
+    display: none;
+    position: relative;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    left: 0%;
+    top: 20;
+    background-color: rgb(10, 20, 40);
+    padding: 10px;
+    list-style-type: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    height: 70px;
+    z-index: 5;
+    cursor: pointer;
+}
+
+#register {
+    cursor: pointer;
+}
+
+.submenu li {
+    width: 120px;
+    justify-content: center;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.submenu li a {
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    transition: 1s;
+    cursor: pointer;
+}
+
+nav.menu-lateral.expandir .submenu li a {
+    transition: .1s;
+    opacity:1;
+}
+
+.submenu li a:hover {
+    color: white;
+    background: rgb(39, 55, 77);
+}
+
 
 /* Direita */
 

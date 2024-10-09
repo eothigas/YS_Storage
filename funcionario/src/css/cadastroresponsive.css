@@ -98,7 +98,7 @@
         display: none;
     }
 
-    a#logout {
+    a#out {
         padding: 10px;
     }
 
@@ -163,8 +163,15 @@
     .client-registration {
         overflow: auto;
         padding-left: 20px;
+        padding-right: 10px;
         width: 500px;
+        scrollbar-width: thin;
     }
+
+    .client-registration::-webkit-scrollbar {
+        background: #888;
+        border-radius: 5px;
+    }   
 
     .menu-lateral.expandir ~ .main-content {
         margin-left: 0px;
@@ -207,11 +214,22 @@
     }
 
     input {
-    width: 470px;
-}
+    width: 480px;
+    }
 
     button#cadastro {
         margin-bottom: 20px
+    }
+
+    #first.modal-content {
+        overflow-y: auto;
+        width: 500px;
+        height: 420px;
+        scrollbar-width: thin;
+    }
+
+    p.register {
+        margin-bottom: 10px;
     }
 
 }
