@@ -29,13 +29,17 @@
                     <span class="txt-link">Home</span>
                 </a>    
             </li>
-            <li class="item-menu">
-                <a href="./cadastro.php">
+            <li class="item-menu" id="register">
+                <a>
                     <span class="icon"><i class="bi bi-person-add"></i></span>
-                    <span class="txt-link">Cadastrar Usuário</span>
+                    <span class="txt-link">Cadastrar</span>
                 </a>
+                <ul class="submenu">
+                    <li><a href="./cadastro.php">Usuário</a></li><br>
+                    <li><a href="./cadastro_storage.php">Storage</a></li>
+                </ul>
             </li>
-            <li class="item-menu" id="consult">
+            <li class="item-menu" id='li-consulta'>
                 <a href="">
                     <span class="icon"><i class="bi bi-person"></i></span>
                     <span class="txt-link">Consultar Usuário</span>
@@ -60,7 +64,7 @@
             <li class="item-footer2">
                 <a id='out'>
                     <span class="icon"><i class="bi bi-box-arrow-right" id="logout"></i></span>
-                    <span class="txt-link-l" id="logout">Sair</span>
+                    <span class="txt-link-l">Sair</span>
                 </a>
             </li>
         </ul>

@@ -24,9 +24,6 @@
         </div>
     </div>
 
-    <!-- Mensagem de Erro -->
-    <p class="error-message" id="error-message">A senha está incorreta. Tente novamente</p>
-
         <div class="login-bottom">
             <img class="logo" src="./src/images/Logo_reduzido.svg">
             <i class="bi bi-person-badge"></i>
@@ -44,8 +41,9 @@
                     <i class="fas fa-eye toggle-password" id="toggle-password"></i>
                 </div>
                 <button type="submit" class="login-btn">Entrar</button>
+            
+                <div id="message" style="display:none;"></div> <!-- Div para exibir as mensagens -->
             </form>
-            <div id="message" style="display:none;"></div> <!-- Div para exibir as mensagens -->
         </div>
 
     <script src="./src/js/index.js"></script>

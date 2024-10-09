@@ -46,6 +46,27 @@ function togglePasswordVisibility(toggleId, inputId) {
     }
 }
 
+// Atualiza o preview da imagem quando um arquivo é selecionado
+document.getElementById('imagemp').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    const preview = document.getElementById('imagem-preview');
+
+    if (file) {
+        const reader = new FileReader();
+        
+        // Quando a leitura do arquivo for concluída, atualiza o src da imagem
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+        }
+
+        // Lê o arquivo como uma URL de dados
+        reader.readAsDataURL(file);
+    } else {
+        // Se nenhum arquivo for selecionado, define a imagem de preview como vazia
+        preview.src = '';
+    }
+});
+
 // Nomenclatura dos ID's
 const navMenu = document.querySelector('nav.menu-lateral');
 const register = document.getElementById('register');
@@ -93,4 +114,54 @@ document.addEventListener('click', function(event) {
             modify.style.backgroundColor = ''; // Restaura a cor de fundo padrão de modify
         }
     }
+});
+
+// Mostrar mensagem
+document.getElementById('edit-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    const formData = new FormData(this);
+
+    fetch('/funcionario/php/cadastrar_storage.php', {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+        const messageContainer = document.getElementById('message-container');
+        messageContainer.innerHTML = data.message; // Atualiza a div com a mensagem recebida
+        messageContainer.style.display = 'block'; // Mostra a div se estiver oculta
+
+        // Remove classes anteriores
+        messageContainer.classList.remove('success', 'error');
+
+        // Adiciona a classe correspondente ao status
+        if (data.status === 'success') {
+            messageContainer.classList.add('success');
+        } else {
+            messageContainer.classList.add('error');
+        }
+
+        // Limpa o formulário após o sucesso
+        if (data.status === 'success') {
+            document.getElementById('edit-form').reset(); // Limpa o formulário
+            document.getElementById('imagem-preview').src = ''; // Limpa a imagem de pré-visualização
+        }
+
+        // Timeout para esconder a mensagem após 5 segundos
+        setTimeout(() => {
+            messageContainer.style.display = 'none'; // Esconde a mensagem
+        }, 5000); // 5000 milissegundos = 5 segundos
+    })
+    .catch(error => {
+        const messageContainer = document.getElementById('message-container');
+        messageContainer.innerHTML = 'Erro ao processar a solicitação.';
+        messageContainer.style.display = 'block';
+        messageContainer.classList.add('error'); // Adiciona a classe de erro
+
+        // Timeout para esconder a mensagem após 5 segundos
+        setTimeout(() => {
+            messageContainer.style.display = 'none'; // Esconde a mensagem
+        }, 5000); // 5000 milissegundos = 5 segundos
+    });
 });
