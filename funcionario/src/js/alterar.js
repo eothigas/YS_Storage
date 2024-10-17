@@ -54,7 +54,7 @@ function carregarUsuarios(page, query = '') {
             if (query === '') {
                 // Se a pesquisa estiver vazia, exibe a mensagem inicial
                 const tr = document.createElement('tr');
-                tr.innerHTML = '<td colspan="4">Clique em pesquisar usuário, para alterar o cadastro.</td>';
+                tr.innerHTML = '<td colspan="6">Clique em pesquisar usuário, para alterar o cadastro.</td>';
                 tbody.appendChild(tr);
 
                 // Exibir 1 de 1 na paginação
@@ -64,15 +64,18 @@ function carregarUsuarios(page, query = '') {
                 document.getElementById('prev-btn').disabled = true;
                 document.getElementById('next-btn').disabled = true;
 
-              // Se a pesquisa for preenchida, traz os dados relacionado ao que for digitado (automaticamente)  (máximo de 10 usuários por página) 
+            // Se a pesquisa for preenchida, traz os dados relacionado ao que for digitado (automaticamente)  (máximo de 10 usuários por página) 
             } else if (data.usuarios && data.usuarios.length > 0) {
                 data.usuarios.forEach(usuario => {
                     const tr = document.createElement('tr');
+                    tr.setAttribute('data-id', usuario.id); // Armazenando o ID no atributo data-id
                     tr.innerHTML = `
-                        <td><button class='edit-btn' onclick="editarUsuario('${usuario.nome}', '${usuario.email}', '${usuario.plano}')"><i class="bi bi-pencil-fill"></i></button></td>
+                        <td><button class='edit-btn' onclick="editarUsuario('${usuario.id}', '${usuario.nome}', '${usuario.tipo}', '${usuario.email}', '${usuario.plano}', '${usuario.empresa}')"><i class="bi bi-pencil-fill"></i></button></td>
                         <td>${usuario.nome}</td>
+                        <td>${usuario.tipo}</td>
                         <td>${usuario.email}</td>
                         <td>${usuario.plano}</td>
+                        <td>${usuario.empresa}</td>
                     `;
                     tbody.appendChild(tr);
                 });
@@ -86,7 +89,7 @@ function carregarUsuarios(page, query = '') {
             } else {
                 // Mostra a mensagem de "Nenhum usuário encontrado"
                 const tr = document.createElement('tr');
-                tr.innerHTML = '<td colspan="4">Nenhum usuário encontrado.</td>'; // Atualiza a linha 
+                tr.innerHTML = '<td colspan="6">Nenhum usuário encontrado.</td>'; // Atualiza a linha 
                 tbody.appendChild(tr);
 
                 // Exibir 1 de 1 na paginação
@@ -127,15 +130,22 @@ document.getElementById('next-btn').addEventListener('click', function () {
 });
 
 // Função para editar usuário
-window.editarUsuario = function(nome, email, plano) {
-    // Preencher os campos do modal com os dados do usuário
-    document.getElementById('edit-name').value = nome;
-    document.getElementById('edit-email').value = email;
-    document.querySelector(`input[name="plan"][value="${plano}"]`).checked = true; // Marcar o plano correto
-    
+window.editarUsuario = function(id, nome, tipo, email, plano, empresa) {
+
     // Mostrar o modal
     document.getElementById('edit-modal').style.display = 'grid'; // Exibir o modal
     document.getElementById('first').classList.add('open');
+    
+    // Armazenar o ID do usuário atual
+    window.currentUserId = id;
+    
+    // Preencher os campos do modal com os dados do usuário
+    document.getElementById('edit-name').value = nome;
+    document.getElementById('tipo').value = tipo;
+    document.getElementById('edit-email').value = email;
+    document.querySelector(`input[name="plan"][value="${plano}"]`).checked = true; // Marcar o plano correto
+    document.getElementById('empresa').value = empresa;
+
 };
 
 // Função para fechar o modal
@@ -156,8 +166,13 @@ document.getElementById('edit-form').addEventListener('submit', function(event) 
     if (clickedButton === 'save-changes') {
         // Coletar os dados do formulário
         const nome = document.getElementById('edit-name').value;
+        const tipo = document.getElementById('tipo').value;
         const email = document.getElementById('edit-email').value;
         const plano = document.querySelector('input[name="plan"]:checked').value;
+        const empresa = document.getElementById('empresa').value;
+
+        // Armazenar o ID do usuário atual
+        const userId = window.currentUserId; // ID do usuário armazenado
 
         // Enviar os dados para o servidor
         fetch('/funcionario/php/alterar_usuario.php', {
@@ -167,8 +182,11 @@ document.getElementById('edit-form').addEventListener('submit', function(event) 
             },
             body: new URLSearchParams({
                 name: nome,
-                email: email,
-                plan: plano
+                tipo: tipo,
+                email: email, // Certifique-se de que o email seja necessário para atualização
+                plan: plano,
+                empresa: empresa,
+                id: userId // Adicione o ID aqui
             })
         })
         .then(response => response.json())
@@ -185,8 +203,10 @@ document.getElementById('edit-form').addEventListener('submit', function(event) 
 
                 // Armazena os valores no session storage
                 sessionStorage.setItem('name', data.name);
+                sessionStorage.setItem('tipo', data.tipo);
                 sessionStorage.setItem('email', data.email);
                 sessionStorage.setItem('plan', data.plan);
+                sessionStorage.setItem('empresa', data.empresa);
 
                 // Redirecionar após 5 segundos
                 setTimeout(() => {
@@ -226,54 +246,58 @@ document.getElementById('edit-form').addEventListener('submit', function(event) 
 
         // Configura os eventos para os botões de confirmação
         document.getElementById('confirm-delete').onclick = function() {
+            // Aqui você pode passar o ID junto com o email, se necessário
+            const userId = window.currentUserId; // ID do usuário armazenado
             const email = document.getElementById('edit-email').value;
 
-        // Envia os dados para deletar o usuário
-        fetch('/funcionario/php/deletar_usuario.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-                email: email
+            // Envia os dados para deletar o usuário
+            fetch('/funcionario/php/deletar_usuario.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    id: userId, // Adiciona o ID aqui
+                    email: email // Se necessário, ainda passa o email
+                })
             })
-        })
-        .then(response => response.json())
-        .then(data => {
-            const messageContainer = document.getElementById('message-container');
-            const messageElement = document.getElementById('message');
+            .then(response => response.json())
+            .then(data => {
+                const messageContainer = document.getElementById('message-container');
+                const messageElement = document.getElementById('message');
 
-            // Mostrar mensagem de sucesso ou erro ao deletar
-            if (data.success) {
-                messageElement.textContent = data.success;
-                messageContainer.classList.add('success');
-                messageContainer.classList.remove('error');
-            } else {
-                messageElement.textContent = data.error;
-                messageContainer.classList.add('error');
-                messageContainer.classList.remove('success');
-            }
-            // Tempo de exibição da mensagem de sucesso ou erro
-            messageContainer.style.display = 'block';
-            setTimeout(() => {
-                messageContainer.style.display = 'none';
-            }, 5000);    
+                // Mostrar mensagem de sucesso ou erro ao deletar
+                if (data.success) {
+                    messageElement.textContent = data.success;
+                    messageContainer.classList.add('success');
+                    messageContainer.classList.remove('error');
+                } else {
+                    messageElement.textContent = data.error;
+                    messageContainer.classList.add('error');
+                    messageContainer.classList.remove('success');
+                }
+                // Tempo de exibição da mensagem de sucesso ou erro
+                messageContainer.style.display = 'block';
+                setTimeout(() => {
+                    messageContainer.style.display = 'none';
+                }, 5000);    
 
-            // Tempo para fechar o modal automaticamente
-            document.getElementById('confirmation-modal').style.display = 'none';
+                // Tempo para fechar o modal automaticamente
+                document.getElementById('confirmation-modal').style.display = 'none';
 
-            setTimeout(() => {
+                setTimeout(() => {
                     location.reload();
-                }, 5100)
-        })
-        .catch(error => {
-            console.error('Erro ao deletar o usuário:', error);
-        });
-    };
+                }, 5100);
+            })
+            .catch(error => {
+                console.error('Erro ao deletar o usuário:', error);
+            });
+        };
+
         // Caso clique em "Não, retornar."
         document.getElementById('cancel-delete').onclick = function() {
-                document.getElementById('confirmation-modal').style.display = 'none'; // Fechar o modal
-                console.log('Ação de deletar cancelada pelo usuário.');
+            document.getElementById('confirmation-modal').style.display = 'none'; // Fechar o modal
+            console.log('Ação de deletar cancelada pelo usuário.');
         };
     }
 });

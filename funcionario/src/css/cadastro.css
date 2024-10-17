@@ -219,14 +219,18 @@ nav.menu-lateral.expandir .submenu li a {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    color: white; /* Mantém o padrão de cor branco */
+    color: white; 
     transition: margin-left 0.5s;
     overflow: hidden;
 }
 
-
 .menu-lateral.expandir ~ .main-content {
     margin-left: 300px; /* Alterar a margem quando .expandir estiver ativa */
+    filter: blur(10px);
+}
+
+.menu-lateral.expandir ~ #first {
+    margin-left: 500px; /* Alterar a margem quando .expandir estiver ativa */
     filter: blur(10px);
 }
 
@@ -355,6 +359,16 @@ fontsize {
     background-color: rgb(157, 178, 191);
 }
 
+#tipo {
+    background-color: rgb(103, 117, 134);
+    color: white;
+    border-radius: 5px;
+}
+
+#tipo:focus {
+    outline: none;
+}
+
 button#cadastro {
     width: 150px;
     padding: 10px 10px;
@@ -452,7 +466,11 @@ button#cadastro:hover {
     overflow: auto; 
     background-color: rgba(0,0,0,0.4); 
     backdrop-filter: blur(5px);
-    transition: all 0.5s ease-in-out;
+    transition: margin-left 0.5s;
+}
+
+#first {
+    transition: margin-left 0.5s;
 }
 
 #first.modal-content {
@@ -467,7 +485,7 @@ button#cadastro:hover {
     height: 80%;
     overflow: hidden;
     padding: 15px 15px 5px;
-    transition: all 0.5s ease-in-out;
+    transition: margin-left 0.5s;
 }
 
 .bi.bi-x-circle {
@@ -608,7 +626,7 @@ button#save-changes {
 }
 
 button#save-changes:hover {
-    background-color: rgb(39, 55, 77);
+    background-color: rgb(10, 20, 40);
     color: white;
     transition: .5s ease-in-out;
 }

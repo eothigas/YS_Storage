@@ -68,8 +68,8 @@ try {
         $mail->isSMTP();
         $mail->SMTPAuth = true;
         $mail->Host       = 'mail.yourstorage.x10.mx'; // Servidor SMTP
-        $mail->Username   = 'no-reply@yourstorage.x10.mx'; // Seu e-mail
-        $mail->Password   = 'yourstorage'; // Senha do e-mail
+        $mail->Username   = 'noreply@yourstorage.x10.mx'; // Seu e-mail
+        $mail->Password   = 'Thiago@07'; // Senha do e-mail
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Usar TLS
         $mail->Port       = 587; // Porta do SMTP
 
@@ -77,7 +77,7 @@ try {
         $mail->CharSet = 'UTF-8';
 
         // Remetente
-        $mail->setFrom('no-reply@yourstorage.x10.mx', 'Your Storage');
+        $mail->setFrom('noreply@yourstorage.x10.mx', 'Your Storage');
 
         // Destinatário
         $mail->addAddress($email);  // Adiciona o e-mail do destinatário

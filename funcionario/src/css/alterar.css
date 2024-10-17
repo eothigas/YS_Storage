@@ -392,7 +392,7 @@ button#prev-btn, button#next-btn {
     border-radius: 10px;
     width: 450px;
     max-width: 450px;
-    height: 55%;
+    height: 65%;
     overflow: hidden;
     padding: 15px;
     transition: all 0.5s ease-in-out;
@@ -426,7 +426,7 @@ p.title {
     gap: 10px;
 }
 
-input#edit-name, input#edit-email {
+input#edit-name, input#edit-email, input#empresa {
     width: 438px;
     max-width: 438px;
     background-color: rgba(221, 230, 237, 0.352);
@@ -435,6 +435,16 @@ input#edit-name, input#edit-email {
     padding: 5px;
     outline: 0;
     border-radius: 5px;
+}
+
+#tipo {
+    background-color: rgb(103, 117, 134);
+    color: white;
+    border-radius: 5px;
+}
+
+#tipo:focus {
+    outline: none;
 }
 
 #edit-basico.select, #edit-logistico.select, #edit-premium.select {

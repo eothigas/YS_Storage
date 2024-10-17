@@ -91,8 +91,10 @@
                     <tr>
                         <th>Editar</th>
                         <th>Nome</th>
+                        <th>Tipo</th>
                         <th>Email</th>
                         <th>Plano</th>
+                        <th>Empresa</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -125,6 +127,14 @@
                 </label>
                 
                 <label>
+                    <span>Tipo de Usuário</span><br>
+                    <select id="tipo" name="tipo" required>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Estoquista">Estoquista</option>
+                    </select>
+                </label>
+
+                <label>
                     <span>Email</span><br>
                     <input type="email" id="edit-email" name="email" required>
                 </label>
@@ -132,18 +142,24 @@
                 <label>
                     <span>Plano</span><br>
                     <div class='ref'>
-                        <input class='select' type="radio" id="edit-basico" name="plan" value="basico" required>
+                        <input class='select' type="radio" id="edit-basico" name="plan" value="Básico" required>
                         <label for="edit-basico">Básico</label>
                     </div>
                     <div class='ref'>
-                        <input class='select' type="radio" id="edit-logistico" name="plan" value="logistico" required>
+                        <input class='select' type="radio" id="edit-logistico" name="plan" value="Logístico" required>
                         <label for="edit-logistico">Logístico</label>
                     </div>
                     <div class='ref'>
-                        <input class='select' type="radio" id="edit-premium" name="plan" value="premium" required>
+                        <input class='select' type="radio" id="edit-premium" name="plan" value="Premium" required>
                         <label for="edit-premium">Premium</label>
                     </div>
                 </label>
+
+                <label>
+                    <span>Empresa</span><br>
+                    <input type="text" id="empresa" name="empresa" required>
+                </label>
+
                 <div id="btn">
                     <button type="submit" id='delete-user' type="submit">Excluir Usuário</button>
                     <button type="submit" id='save-changes' type="submit">Salvar Alterações</button>

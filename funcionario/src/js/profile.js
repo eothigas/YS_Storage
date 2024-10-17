@@ -152,7 +152,7 @@ document.getElementById('edit-profile-form').addEventListener('submit', async fu
             body: JSON.stringify({
                 nome: nome,
                 email: email, 
-                nova_senha: novaSenha, // Envia nova senha (se for definida) ao PHP
+                senha: novaSenha, // Envia nova senha (se for definida) ao PHP
                 imagem: imageUrl // Envia a URL da imagem para o PHP
             })
         });
@@ -166,7 +166,7 @@ document.getElementById('edit-profile-form').addEventListener('submit', async fu
             // Reinicia a página após 3 segundos
             setTimeout(function() {
                 location.reload(); // Recarrega a página
-            }, 3000); // 3000 = 3s
+            }, 5000); // 5000 = 5s
 
           // Se falha  
         } else {

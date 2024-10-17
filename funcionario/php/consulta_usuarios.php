@@ -59,12 +59,12 @@ $total_pages = ceil($total_users / $limit);
 // Consulta os dados dos usuários baseados nos caracteres escritos (atualiza conforme vai escrevendo)
 if (!empty($query)) {
     // Pesquisa com filtro
-    $user_query = "SELECT nome, email, plano FROM usuarios WHERE nome LIKE :query OR email LIKE :query OR plano LIKE :query LIMIT :limit OFFSET :offset";
+    $user_query = "SELECT id, nome, tipo, email, plano, empresa FROM usuarios WHERE nome LIKE :query OR tipo LIKE :query OR email LIKE :query OR plano LIKE :query OR empresa LIKE :query LIMIT :limit OFFSET :offset";
     $stmt = $pdo->prepare($user_query);
     $stmt->bindValue(':query', '%' . $query . '%', PDO::PARAM_STR);
 } else {
     // Consulta sem filtro
-    $user_query = "SELECT nome, email, plano FROM usuarios LIMIT :limit OFFSET :offset";
+    $user_query = "SELECT id, nome, tipo, email, plano, empresa FROM usuarios LIMIT :limit OFFSET :offset";
     $stmt = $pdo->prepare($user_query);
 }
 

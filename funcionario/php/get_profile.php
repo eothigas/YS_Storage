@@ -27,7 +27,7 @@ if (isset($_SESSION['email_funcionario'])) {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Busca o nome e imagem no banco de dados baseado no email da sessão
-        $stmt = $pdo->prepare('SELECT nome, email, imagem FROM funcionarios WHERE email = :email');
+        $stmt = $pdo->prepare('SELECT id, nome, email, imagem FROM funcionarios WHERE email = :email');
         $stmt->bindParam(':email', $email);
         $stmt->execute();
         $funcionario = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -35,6 +35,7 @@ if (isset($_SESSION['email_funcionario'])) {
         if ($funcionario) {
             // Retorna os dados do funcionário em JSON
             echo json_encode([
+                'id_funcionario' => $funcionario['id'],
                 'nome_funcionario' => $funcionario['nome'],
                 'email' => $funcionario['email'],
                 'imagem' => $funcionario['imagem'] // O caminho da imagem está sendo retornado

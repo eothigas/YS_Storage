@@ -20,13 +20,13 @@ $password = $config['database']['password'];
 $error = '';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $name = trim($_POST['name']);
+    $name = ucwords(trim($_POST['name']));
     $email = trim($_POST['email']);
     $senha = $_POST['password'];
     $confirmSenha = $_POST['confirm-password'];
-    $plano = $_POST['plano'];
-    $tipo = $_POST['tipo']; // Novo campo para o tipo de usuário
-    $empresa = trim($_POST['empresa']); // Novo campo para a empresa
+    $plano = ucfirst($_POST['plano']);
+    $tipo = ucfirst($_POST['tipo']); 
+    $empresa = ucfirst($_POST['empresa']);
 
     // Validações
     if (strlen($senha) < 8) {

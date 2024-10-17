@@ -302,6 +302,10 @@ p {
     border-radius: 5px;
 }
 
+.change-profile:hover {
+    background-color: rgb(70, 85, 105);
+}
+
 /* Estilos gerais para o modal */
 .modal {
     display: none; 

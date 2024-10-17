@@ -23,7 +23,7 @@ $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
 
 // Função para enviar e-mail
 function enviarEmail($mail, $codigo) {
-    $de = 'no-reply@yourstorage.x10.mx';
+    $de = 'noreply@yourstorage.x10.mx';
     $assunto = 'Recuperação de Senha - Your Storage';
     $mensagem = "
     <html>

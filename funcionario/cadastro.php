@@ -35,13 +35,19 @@ unset($_SESSION['message'], $_SESSION['messageType']); // Limpa a mensagem após
 
             // Recuperar os valores do session storage
             const name = sessionStorage.getItem('name');
+            const tipo = sessionStorage.getItem('tipo');
             const email = sessionStorage.getItem('email');
             const plan = sessionStorage.getItem('plan');
+            const empresa = sessionStorage.getItem('empresa');
 
             // Preencher os inputs, se os valores existirem
             if (name) {
                 document.getElementById('name').value = name; 
                 sessionStorage.removeItem('name'); // Limpar o item do session storage
+            }
+            if (tipo) {
+                document.getElementById('tipo').value = tipo; 
+                sessionStorage.removeItem('tipo'); // Limpar o item do session storage
             }
             if (email) {
                 document.getElementById('email').value = email; 
@@ -50,6 +56,10 @@ unset($_SESSION['message'], $_SESSION['messageType']); // Limpa a mensagem após
             if (plan) {
                 document.querySelector(`input[name="plan"][value="${plan}"]`).checked = true;
                 sessionStorage.removeItem('plan'); // Limpar o item do session storage
+            }
+            if (empresa) {
+                document.getElementById('empresa').value = empresa; 
+                sessionStorage.removeItem('empresa'); // Limpar o item do session storage
             }
         });
     </script>
