@@ -110,6 +110,15 @@ button:hover {
     background-color: rgb(2, 21, 38, 0.5);
 }
 
+button:disabled {
+    color: rgba(226, 226, 182, 0.2);
+}
+
+button:disabled:hover {
+    color: rgba(226, 226, 182, 0.2);
+    background-color: rgb(2, 21, 38);
+}
+
 #mensagem-sucess {
     display: none;
     position: absolute;
@@ -131,6 +140,19 @@ button:hover {
     right: 10px;
     background-color: red;
     color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#mensagem-aviso {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    top: 56px;
+    right: 20px;
+    background-color: yellow;
+    color: black;
     font-weight: bold;
     padding: 10px;
     border-radius: 10px;

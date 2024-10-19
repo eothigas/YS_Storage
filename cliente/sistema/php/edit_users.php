@@ -29,7 +29,7 @@ try {
     $email = $_GET['email'];
 
     // Prepara a consulta para buscar o usuário pelo email
-    $stmt = $pdo->prepare("SELECT nome, tipo, email FROM usuarios WHERE email = :email");
+    $stmt = $pdo->prepare("SELECT id, nome, tipo, email FROM usuarios WHERE email = :email");
     $stmt->bindParam(':email', $email);
     $stmt->execute();
 

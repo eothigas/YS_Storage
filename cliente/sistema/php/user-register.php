@@ -18,17 +18,17 @@ $message = '';
 // Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Obtém os dados do formulário
-    $nome = $_POST['name'] ?? null;
+    $nome = ucwords($_POST['name'] ?? '');
     $email = $_POST['email-user'] ?? null;
-    $senha = $_POST['password'] ?? null;
-    $confirmarSenha = $_POST['confirm-password'] ?? null;
-    $tipoUser = $_POST['tipo-user'] ?? null;
+    $senha = trim($_POST['password'] ?? '');
+    $confirmarSenha = trim($_POST['confirm-password']) ?? null;
+    $tipoUser = trim($_POST['tipo-user']) ?? null;
 
-    // Verifica se algum dos campos essenciais está vazio
-    if (is_null($nome) || is_null($email) || is_null($senha) || is_null($confirmarSenha)) {
-        echo json_encode(['message' => 'Todos os campos são obrigatórios.', 'type' => 'error']);
-        exit;
-    }
+    // // Verifica se algum dos campos essenciais está vazio
+    // if (empty($nome) || empty($email) || empty($senha) || empty($confirmarSenha)) {
+    //     echo json_encode(['message' => 'Todos os campos são obrigatórios.', 'type' => 'error']);
+    //     exit;
+    // }
 
     try {
         $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);

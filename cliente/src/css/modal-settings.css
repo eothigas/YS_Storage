@@ -79,6 +79,34 @@ tr:nth-child(odd) {
     font-size:  12px;
 }
 
+.pagination-storage {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.pagination-storage button {
+    background-color: rgb(226, 226, 182);
+    width: 70px;
+    height: 20px;
+    font-size: 12px;
+    padding: 0px;
+    margin-left: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.pagination-storage button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+#page-inform {
+    color: rgb(226, 226, 182);
+    margin-left: 5px;
+    font-size:  12px;
+}
+
 /* Modal editar Usuarios*/
 
 .modal-usuarios {
@@ -130,6 +158,15 @@ tr:nth-child(odd) {
     margin: 10px 10px;
 }
 
+
+#register-users {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    gap: 10px;
+    margin: 10px 10px;
+}
+
 input {
     width: 438px;
     max-width: 438px;
@@ -158,8 +195,8 @@ label {
     color: rgb(226, 226, 182);
 }
 
-#delete-user, #save-changes {
-    width: 150px;
+#delete-user, #save-changes, #save-user {
+    width: 200px;
     margin: 0 auto;
     background-color: rgb(2, 21, 38, 0.4);
     color: rgb(226, 226, 182);
@@ -169,8 +206,100 @@ label {
     border-radius: 5px;
 }
 
+#save-changes:disabled {
+    background-color: rgba(2, 21, 38, 0.2);
+    color: rgba(226, 226, 182, 0.2);
+}
+
+#save-user:disabled {
+    background-color: rgba(2, 21, 38, 0.2);
+    color: rgba(226, 226, 182, 0.2);
+}
+
+#save-changes:disabled:hover {
+    background-color: rgb(2, 21, 38, 0.2);
+    color: rgb(226, 226, 182, 0.2);
+    border: 1px rgb(226, 226, 182) solid;
+}
+
+#save-user:disabled:hover {
+    background-color: rgb(2, 21, 38, 0.2);
+    color: rgb(226, 226, 182, 0.2);
+    border: 1px rgb(226, 226, 182) solid;
+}
+
 button {
     cursor: pointer;
+}
+
+#confirmation-modal, #confirmation-user {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.modal-contents, .modal-contents-user {
+    position: absolute; /* Alterado para absolute */
+    top: 50%; /* Move para 50% da altura do pai */
+    left: 50%; /* Move para 50% da largura do pai */
+    transform: translate(-50%, -50%); /* Centraliza o modal */
+    background: rgb(3, 52, 110);
+    color: rgb(226, 226, 182);
+    border-radius: 8px; 
+    padding: 20px; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); 
+    max-width: 500px; 
+    width: 90%; 
+    text-align: center; 
+    align-items: center;
+    justify-content: center;
+}
+
+#c-delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    margin-top: 30px;
+}
+
+#confirm-delete, #cancel-delete, #confirm-user, #cancel-user {
+    width: 200px;
+    margin: 0 auto;
+    background-color: rgb(2, 21, 38, 0.4);
+    color: rgb(226, 226, 182);
+    border: 1px rgb(226, 226, 182) solid;
+    padding: 5px;
+    outline: 0;
+    border-radius: 5px;
+}
+
+#confirm-delete:hover {
+    background-color: green;
+    border: 1px green solid;
+}
+
+#confirm-user:hover {
+    background-color: green;
+    border: 1px green solid;
+}
+
+#cancel-delete:hover {
+    background-color: red;
+    border: 1px red solid;
+}
+
+#cancel-user:hover {
+    background-color: red;
+    border: 1px red solid;
 }
 
 #delete-user:hover {
@@ -183,24 +312,35 @@ button {
     border: 1px green solid;
 }
 
-#message-container {
+#save-user:hover {
+    background-color: green;
+    border: 1px green solid;
+}
+
+#message, #mensagem-aviso {
     display: none; /* Ocultar por padrão */
     position: absolute;
-    top: 30px;
-    right: 20px;
+    top: 80px;
+    right: 30px;
     padding: 10px 20px;
     border-radius: 5px;
     z-index: 1000;
     font-size: 15px;
 }
 
-#message-container.success {
+#mensagem-aviso {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+}
+
+.sucess {
     display: block; /* Mostrar se for sucesso */
     background-color: green;
     color: white;
 }
 
-#message-container.error {
+.error {
     display: block; /* Mostrar se for erro */
     background-color: red;
     color: white;
@@ -285,10 +425,14 @@ button {
 #alt-plan{
     width: 150px;
     margin: 10px auto 0;
-    background-color: rgb(2, 21, 38, 0.4);
+    background-color: rgb(10, 20, 40);
     color: rgb(226, 226, 182);
     border: 1px rgb(226, 226, 182) solid;
     padding: 5px;
     outline: 0;
     border-radius: 5px;
+}
+
+#alt-plan:hover{
+    background-color: rgb(2, 36, 74);
 }

@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Preparar a consulta para verificar o usuário
-    $stmt = $conn->prepare("SELECT nome, tipo, email, plano, empresa, senha FROM usuarios WHERE email = ? LIMIT 1");
+    $stmt = $conn->prepare("SELECT id, nome, tipo, email, plano, empresa, senha FROM usuarios WHERE email = ? LIMIT 1");
     $stmt->execute([$email]);
     $user = $stmt->fetch();
 
@@ -48,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Verificar a senha
         if (password_verify($senha, $user['senha'])) {
             // Se a senha estiver correta, iniciar a sessão e redirecionar
+            $_SESSION['id'] = $user['id'];
             $_SESSION['nome'] = $user['nome'];
             $_SESSION['tipo'] = $user['tipo'];
             $_SESSION['email'] = $user['email'];

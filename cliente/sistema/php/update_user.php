@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json');
 session_start();
 $ini_array = parse_ini_file('../../../PHP/php.ini', true);
 
@@ -22,32 +23,36 @@ try {
 
     // Verifica se os dados foram enviados via POST
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Obtém o ID do usuário da sessão
+        $id = $_POST['edit-id']; 
+
         // Obtém os dados do formulário
-        $nome = $_POST['edit-name'];
+        $nome = ucwords($_POST['edit-name']);
         $tipo = $_POST['tipo'];
         $email = $_POST['edit-email'];
         $password = $_POST['edit-password'];
 
-        // Verifica se as senhas são iguais e têm até 8 caracteres
-        if (strlen($password) > 8) {
+        // Verifica se a senha não tem mais de 8 caracteres
+        if (!empty($password) && strlen($password) > 8) {
             echo json_encode(['error' => 'A senha deve ter até 8 caracteres.']);
             exit;
         }
 
         // Prepara a consulta para atualizar os dados do usuário
-        $stmt = $pdo->prepare("UPDATE usuarios SET nome = :nome, tipo = :tipo, senha = :senha WHERE email = :email");
-        
-        // Se a senha estiver vazia, não atualiza a senha
         if (empty($password)) {
-            $stmt = $pdo->prepare("UPDATE usuarios SET nome = :nome, tipo = :tipo WHERE email = :email");
+            // Se a senha estiver vazia, não atualiza a senha
+            $stmt = $pdo->prepare("UPDATE usuarios SET nome = :nome, tipo = :tipo, email = :email WHERE id = :id");
         } else {
-            $stmt->bindParam(':senha', password_hash($password, PASSWORD_DEFAULT));
+            // Atualiza a senha
+            $stmt = $pdo->prepare("UPDATE usuarios SET nome = :nome, tipo = :tipo, senha = :senha, email = :email WHERE id = :id");
+            $stmt->bindParam(':senha', password_hash($password, PASSWORD_DEFAULT)); // Atualiza a senha com hash
         }
 
         // Atribui os parâmetros
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':tipo', $tipo);
         $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':id', $id);
 
         // Executa a consulta
         $stmt->execute();

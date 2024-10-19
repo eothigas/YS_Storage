@@ -46,7 +46,7 @@ try {
         'storages' => $storages,
         'totalCount' => $totalCount,
         'totalPages' => ceil($totalCount / $limit),
-        'currentPage' => $page
+        'cPage' => $page
     ]);
 
 } catch (PDOException $e) {

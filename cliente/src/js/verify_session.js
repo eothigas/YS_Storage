@@ -15,7 +15,14 @@ async function checkSession() {
         if (!data.loggedIn) { 
             window.location.href = 'https://www.yourstorage.x10.mx/cliente/login/'; // Redireciona se não estiver logado
         } else {
-            resetInactivityTimer(); // Reseta o temporizador de inatividade se estiver logado
+            window.currentUserEmail = data.email;
+
+            // Verifica se o email da sessão é igual ao email do usuário
+            if (window.currentUserEmail !== data.email) {
+                handleLogout(); // Matar a sessão se os emails não coincidirem
+            } else {
+                resetInactivityTimer(); // Reseta o temporizador de inatividade se estiver logado
+            }
         }
     } catch (error) {
         console.error('Erro na verificação da sessão:', error);

@@ -41,20 +41,25 @@ body {
 
 .image-slider {
     display: none;
-    width: 550px; /* Ajuste conforme necessário */
+    max-width: 550px;
+    max-height: 340px;
+    width: 550px;
+    height: 340px;
     border-radius: 0;
 }
 
 img.slider-image {
-    width: 100%;
-    height: 100%; /* Ajuste conforme necessário */
+    max-width: 550px; 
+    max-height: 340px;
+    width: 550px;
+    height: 340px;
     border-radius: 10px;
 }
 
 .text-block {
     display: none;
     gap: 5px;
-    width: 50%; /* Ajuste conforme necessário */
+    width: 50%; 
     height: 200px;
     margin: auto 0;
     padding: 0 20px;

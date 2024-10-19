@@ -19,8 +19,15 @@ function openModal() {
     openTab({ currentTarget: document.getElementById('dados-inicio') }, 'dados');
 }
 
+// Abrir modal (após cadastro)
+function openModalreg() {
+    document.getElementById('modal').style.display = 'flex';
+    openTab({ currentTarget: document.getElementById('register-users') }, 'cadastro-usuarios');
+}
+
 function openModalUser() {
     document.getElementById('modal-usuarios').style.display = 'flex';
+
 }
 
 // Fechar modal
@@ -31,6 +38,7 @@ function closeModal() {
 function closeModalUser() {
     document.getElementById('modal-usuarios').style.display = 'none';
 }
+
 
 // Sistema de abas
 function openTab(evt, tabName) {
@@ -81,5 +89,44 @@ function togglePasswordVisibility(toggleId, inputId) {
         passwordInput.type = "password"; // Muda para senha
         toggleIcon.classList.remove('bi-eye-slash-fill');
         toggleIcon.classList.add('bi-eye-fill'); // Troca o ícone para "mostrar"
+    }
+}
+
+// Função de alternância de visibilidade da senha
+function togglePasswordVisibility1(toggleId, inputId) {
+    const passwordInput = document.getElementById(inputId);
+    const toggleIcon = document.getElementById(toggleId);
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text"; // Muda para texto
+        toggleIcon.classList.remove('bi-eye-fill');
+        toggleIcon.classList.add('bi-eye-slash-fill'); // Troca o ícone para "ocultar"
+    } else {
+        passwordInput.type = "password"; // Muda para senha
+        toggleIcon.classList.remove('bi-eye-slash-fill');
+        toggleIcon.classList.add('bi-eye-fill'); // Troca o ícone para "mostrar"
+    }
+}
+
+function passwordReset() {
+// Definindo os tipos dos campos de senha como "password"
+    const passwordField = document.getElementById('edit-password');
+    const passwordConfirmField = document.getElementById('confirm-password');
+    
+    passwordField.type = 'password';
+    passwordConfirmField.type = 'password';
+
+    // Atualiza o ícone para indicar que a senha está oculta
+    const passwordIcon = document.getElementById('toggle-password-3');
+    const confirmIcon = document.getElementById('toggle-password-4');
+
+    if (passwordIcon) {
+        passwordIcon.classList.remove('bi-eye-slash-fill'); // Remove o ícone de olho cortado
+        passwordIcon.classList.add('bi-eye-fill'); // Adiciona o ícone de olho preenchido
+    }
+
+    if (confirmIcon) {
+        confirmIcon.classList.remove('bi-eye-slash-fill'); // Remove o ícone de olho cortado
+        confirmIcon.classList.add('bi-eye-fill'); // Adiciona o ícone de olho preenchido
     }
 }

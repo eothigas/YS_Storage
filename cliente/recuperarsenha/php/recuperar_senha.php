@@ -23,11 +23,14 @@ $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
 
 // Função para enviar e-mail
 function enviarEmail($mail, $codigo) {
+    $mail->CharSet = 'UTF-8';
     $de = 'noreply@yourstorage.x10.mx';
     $assunto = 'Recuperação de Senha - Your Storage';
+    $assunto = mb_encode_mimeheader($assunto, 'UTF-8');
     $mensagem = "
     <html>
     <head>
+        <meta charset='UTF-8'>
         <title>Recuperação de Senha</title>
     </head>
     <body>
@@ -43,7 +46,7 @@ function enviarEmail($mail, $codigo) {
     $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
     $headers .= 'From: ' . $de . "\r\n";
-    $headers .= 'Reply-To: ' . $de . "\r\n"; // Adicione isso para garantir que o e-mail seja respondido para o mesmo domínio
+    $headers .= 'Reply-To: ' . $de . "\r\n";
     $headers .= 'X-Mailer: PHP/' . phpversion();
 
     mail($mail, $assunto, $mensagem, $headers);

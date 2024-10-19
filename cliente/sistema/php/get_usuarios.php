@@ -25,32 +25,14 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Parâmetros de paginação
-    $limit = 5; // Número de usuários por página
-    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-    $offset = ($page - 1) * $limit;
-
     // Total de usuários filtrados pela empresa
     $totalStmt = $pdo->prepare("SELECT COUNT(*) FROM usuarios WHERE empresa = :empresa");
     $totalStmt->bindParam(':empresa', $empresa);
     $totalStmt->execute();
     $totalUsers = $totalStmt->fetchColumn();
-    $totalPages = ceil($totalUsers / $limit);
 
-    // Busca os usuários para a página atual filtrados pela empresa
-    $stmt = $pdo->prepare("SELECT id, nome, tipo, email FROM usuarios WHERE empresa = :empresa LIMIT :limit OFFSET :offset");
-    $stmt->bindParam(':empresa', $empresa);
-    $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
-    $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
-    $stmt->execute();
+    echo json_encode(['totalUsers' => $totalUsers]); // Retorna apenas a contagem total
 
-    $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    echo json_encode([
-        'usuarios' => $usuarios,
-        'totalPages' => $totalPages,
-        'currentPage' => $page
-    ]);
 } catch (PDOException $e) {
     echo json_encode(['error' => $e->getMessage()]);
 }
