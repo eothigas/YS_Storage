@@ -29,7 +29,7 @@
 
         if (email) {
             // Faz uma requisição para o script PHP que enviará o código
-            fetch('./php/verificar_codigo.php', {
+            fetch('./php/reenviar_codigo.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -77,25 +77,70 @@
             alert("E-mail não encontrado na sessão.");
         }
     }
+
     </script>
 </head>
 <body>
      
-    <form class="form_main" action="./php/verificar_codigo.php" method='POST'>
+    <form class="form_main" action="./php/validar_codigo.php" method="POST" id="form-recuperar-senha">
         <img class="logo" src="../src/images/Logo_reduzido.svg">
         <h2 class="heading">Recuperar Senha</h2>
         <p>Digite o código enviado em seu email.</p>
         <div class="inputContainer">
         
             <i class="bi bi-key" id="inputIcon"></i>
-            <input placeholder="Código" id="codigo" name='codigo' class="inputField" type="text">
+            <input placeholder="Código" id="codigo" name='codigo' class="inputField" type="text" maxLength='6' required>
         
         </div>
                     
         <button id="button-send">Pronto</button>
-        <p id="code">Não recebeu o código?</p>
-        <button id="button-resend" onclick="resendCode(event)">Clique aqui!</button>
     </form>
+    
+    <p id="code">Não recebeu o código?</p>
+    <button id="button-resend" onclick="resendCode(event)">Clique aqui!</button>
+    
     <div id="message-container"></div> <!-- Div para mensagens -->
+
+    
+    <script>
+
+        document.querySelector('.form_main').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o envio padrão do formulário
+
+            const codigo = document.getElementById('codigo').value;
+
+            fetch('./php/validar_codigo.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    codigo: codigo
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    window.location.href = data.redirect;
+                } else {
+                    // Exibe a mensagem de erro na div desejada
+                    const messageContainer = document.getElementById('message-container');
+                    messageContainer.textContent = data.message;
+                    messageContainer.style.display = 'block'; // Exibe a div
+                    messageContainer.classList.add('error');
+
+                    // Oculta a div após 4 segundos
+                    setTimeout(() => {
+                        messageContainer.style.display = 'none'; // Oculta a div
+                    }, 4000); // 4000 milissegundos = 4 segundos
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+        });
+
+    </script>
+
 </body>
 </html>

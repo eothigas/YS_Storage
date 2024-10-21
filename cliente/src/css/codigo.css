@@ -95,6 +95,16 @@ p {
     font-weight: 500;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 #button-send {
     position: relative;
     width: 60%;
@@ -114,7 +124,7 @@ p {
 #code {
     display: none;
     position: absolute;
-    bottom: 20px;
+    bottom: 115px;
 }
 
 #button-resend {
@@ -132,7 +142,7 @@ p {
     margin-top: 2px;
     cursor: pointer;
     overflow: hidden;
-    bottom: 10px;
+    bottom: 100px;
 }
 
 #button-resend:hover {
@@ -168,4 +178,32 @@ p {
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
+}
+
+@media screen and (max-width: 1365px) {
+
+    #code {
+        display: none;
+        position: absolute;
+        bottom: 20px;
+    }
+
+    #button-resend {
+        display: none;
+        position: absolute;
+        width: 30%;
+        border: none;
+        background-color: rgb(73, 120, 156);
+        height: 40px;
+        color: white;
+        font-size: .8em;
+        font-weight: 500;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        margin-top: 2px;
+        cursor: pointer;
+        overflow: hidden;
+        bottom: 10px;
+    }
+
 }

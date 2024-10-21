@@ -23,7 +23,6 @@ $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
 
 // Função para enviar e-mail
 function enviarEmail($mail, $codigo) {
-    $mail->CharSet = 'UTF-8';
     $de = 'noreply@yourstorage.x10.mx';
     $assunto = 'Recuperação de Senha - Your Storage';
     $assunto = mb_encode_mimeheader($assunto, 'UTF-8');
@@ -78,8 +77,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verifica se o e-mail existe
         if ($stmt->fetch(PDO::FETCH_ASSOC)) { // Fetch retorna um array se o e-mail for encontrado
             // Gerar um código de recuperação
-            $codigo = bin2hex(random_bytes(4)); // Gera um código hexadecimal de 8 caracteres
-            $validade = date('Y-m-d H:i:s', strtotime('+4 hours')); // Define a validade para 4 horas a partir de agora
+            $codigo = bin2hex(random_bytes(3)); // Gera um código hexadecimal de 8 caracteres
+            date_default_timezone_set('America/Sao_Paulo'); //Datetime Correto
+            $validade = date('Y-m-d H:i:s', strtotime('+5 minutes')); // Validade de 5 minutos
 
             // Preparar e executar a consulta para inserir o código e a validade
             try {
