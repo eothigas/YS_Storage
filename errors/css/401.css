@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Stoke:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Stoke', sans-serif;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgba(4, 9, 21, 0.9);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.container {
+    max-width: 510px;
+    text-align: left;
+    margin: 200px 0px 0 100px;
+}
+
+h1 {
+    font-size: 30px;
+    color: white;
+    font-weight: 800;
+}
+
+p {
+    font-size: 15px;
+    color: white;
+    margin-top: 30px;
+}
+
+.image {
+    margin-top: 100px;
+    margin-right: 100px;
+}
+
+ul {
+    display: flex;
+    margin-top: 20px;
+    gap: 10px;
+    align-items: center;
+}
+
+li {
+    display: flex;
+}
+
+button {
+    padding: 10px;
+    width: 245px;
+    text-align: center;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(56, 90, 100);
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(56, 90, 100, 0.7);
+}
+
+@media screen and (min-width: 100px) and (max-width: 800px) {
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        margin: auto auto;
+    }
+
+    button {
+        width: 245px;
+    }
+
+    .image {
+        display:    none; 
+    }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1365px) {
+
+    img {
+        width: 400px;
+        max-width: 600px;
+    }
+
+    .image {
+        max-width: 600px;
+        margin-right: 10px
+    }
+
+    button {
+        width: 245px;
+    }
+
+}
