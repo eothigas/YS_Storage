@@ -134,6 +134,35 @@ body {
         padding-left: 20px;
     }
 
+    .section-top {
+        height: 240px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-slider {
+        display: none;
+        max-width: 550px;
+        max-height: 240px;
+        width: 550px;
+        height: 240px;
+        border-radius: 0;
+    }
+
+    img.slider-image {
+        max-width: 550px; 
+        max-height: 340px;
+        width: 300px;
+        height: 240px;
+        border-radius: 10px;
+    }
+
+    .text-block {
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
     h2, .text-center {
         font-size: 16px;
     }

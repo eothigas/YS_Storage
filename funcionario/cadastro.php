@@ -145,7 +145,7 @@ unset($_SESSION['message'], $_SESSION['messageType']); // Limpa a mensagem após
                 <label>
                     <span>Senha</span><br>
                     <div class="input-container">
-                        <input type="password" id="password" name="password" autocomplete="new-password" required>
+                        <input type="password" id="password" name="password" autocomplete="new-password" maxLength='8' required>
                         <i class="bi bi-eye-fill" id="toggle-password-1" style="cursor: pointer;" onclick="togglePasswordVisibility('toggle-password-1', 'password')"></i>
                         <fontsize>*Obrigatório 8 caracteres</fontsize>
                     </div>
@@ -153,7 +153,7 @@ unset($_SESSION['message'], $_SESSION['messageType']); // Limpa a mensagem após
                 <label>
                     <span>Confirme a Senha</span><br>
                     <div class="input-container">
-                        <input type="password" id="confirm-password" name="confirm-password" autocomplete="new-password" required>
+                        <input type="password" id="confirm-password" name="confirm-password" autocomplete="new-password" maxLength='8' required>
                         <i class="bi bi-eye-fill" id="toggle-password-2" style="cursor: pointer;" onclick="togglePasswordVisibility('toggle-password-2', 'confirm-password')"></i>
                         <fontsize>*Obrigatório 8 caracteres</fontsize>
                     </div>
