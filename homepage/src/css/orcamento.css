@@ -191,7 +191,40 @@ button:hover {
 
 }
 
-@media screen and (max-width: 940px) {
+@media screen and (min-width: 601px) and (max-width: 1080px) {
+
+    #container {
+        width: 75%;
+        height: 95%;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    form {
+        /* display: none; */
+        width: 100%;
+    }
+
+    #form-header {
+        text-align: center;
+    }
+
+    .input-group {
+        flex-direction: column;
+        overflow-y: scroll;
+        /* flex-wrap: nowrap; */
+        max-height: auto;
+        padding-right: 0rem;
+        margin: 0 auto;
+    }
+
+    .input-box input, select, option, textarea {
+        width: 490px !important;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
 
     #container {
         width: 90%;
@@ -214,7 +247,11 @@ button:hover {
     }
 
     .input-box input, select, option, textarea {
-        width: 350px !important;
+        width: 385px !important;
+    }
+
+    #link {
+        right: 3rem;
     }
 
 }
