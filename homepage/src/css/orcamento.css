@@ -1,474 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Verdana, sans-serif;
+    font-family: 'Inter';
+    color: white;
 }
 
 body {
     background-image: linear-gradient(to right, rgba(4, 9, 21, 1), rgba(23, 53, 123, 1), rgba(4, 9, 21, 1));
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-}
-
-#container {
-    display: flex;
     width: 100%;
-    max-width: 1200px;
-    border-radius: 30px;
+    height: 100dvh;
     overflow: hidden;
 }
 
-#caixa-esquerda, #caixa-direita {
-    flex: 1;
-    padding: 40px;
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#container{
+    width: 80%;
+    height: 78vh;
+    display: flex;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
+    background-color: rgb(28, 33, 43);
 }
 
 #caixa-esquerda {
-    background-color: rgb(68, 68, 75);
-    color: white;
-    text-align: center;
-}
-
-#caixa-esquerda h2 {
-    font-size: 40px;
-    margin-bottom: 90px;
-}
-
-#caixa-esquerda p {
-    font-size: 30px;
-    margin-bottom: 70px;
-}
-
-#caixa-esquerda img {
-    max-width: 100%;
-}
-
-#back {
-    position: absolute; /* Garante que o ícone se sobreponha à div */
-    top: 10px; /* Distância do topo da div */
-    right: 10px; /* Distância da borda direita da div */
-    display: inline-flex;
+    background-color: rgb(19, 24, 35);
+    width: 50%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%; /* Faz o ícone ficar circular */
-    color: white; /* Cor do ícone */
-    font-size: 30px; /* Tamanho do ícone */
-    cursor: pointer; /* Muda o cursor para indicar que é clicável */
-    z-index: 1; /* Certifica-se de que o ícone está acima de outros elementos */
-}
-
-#back i {
-    color: rgb(255, 255, 255);
-}
-
-#back:hover {
-    background-color: red;
-    color: black;
 }
 
 #caixa-direita {
-    position: relative;
-    background-color: rgb(20, 22, 27);
-    color: white;
-    justify-content: center;
-    align-items: center;
+    background-color: rgb(28, 33, 43);
+    width: 100%;
+    padding-top: 5px;
 }
 
-#caixa-direita form {
+#form-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#form-header h1, p {
+    padding: 10px 0;
+    margin: 0 0 5px 0px;
+}
+
+h1 {
+    font-size: 1.8rem;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 1rem 3rem;
+    position: relative;
+}
+
+#link {
+    display: flex;
+    position: absolute;
+    right: 1rem;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    /* margin: 5px 5px 0 0; */
+    width: 40px;
+    height: 40px;
+}
+
+#link:hover {
+    background-color: red;
+    border-radius: 10%;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-right: 2rem;
+}
+
+.input-box {
     display: flex;
     flex-direction: column;
-    margin: 10% auto;
+    /* margin-bottom: 1.1rem ; */
 }
 
-#caixa-direita label {
-    margin: 8px 0;
-    font-size: 20px;
+label {
+    margin-top: 5px;
 }
 
-#caixa-direita input {
-    margin-bottom: 0px;
-    padding: 10px;
+.input-box input, textarea {
     background-color: transparent;
-    border: 2px rgba(255, 255, 255, 0.504) solid;
-    color: white;
-    border-radius: 10px;
+    font-size: 14px;
+    margin: 0.6rem 0;
+    padding: 0.8rem;
+    border: 2px solid white;
+    border-radius: 5px;
+    resize: none;
+    width: 320px;
 }
 
-input:focus,
-textarea:focus {
+.input-box select, option {
+    background-color: rgb(28, 33, 43);
+    font-size: 14px;
+    margin: 0.6rem 0;
+    padding: 0.738rem;
+    border: 2px solid white;
+    border-radius: 5px;
+    resize: none;
+    width: 320px;
+}
+
+#input-message {
+    position: relative;
+}
+
+#charCount {
+    position: absolute;
+    right: 5px;
+    bottom: -8px;   
+    color: rgba(255, 255, 255, 0.497);   
+    font-size: 12px; 
+    pointer-events: none; 
+    z-index: 1;
+}
+
+textarea {
+    /* width: 1000px; */
+    padding-bottom: 20px;
+    min-height: 40px;
+}
+
+.input-box input, select, textarea:focus {
     outline: none;
 }
 
-.size {
-    font-style: italic;
-    display: flex;
-    align-items: right;
-    justify-content: right;
-    font-size: 10px;
-    padding-right: 5px;
-    color: rgba(255, 255, 255, 0.748);
+#input-send {
+    width: 200px;
+    margin: 20px auto 0;
 }
 
-#caixa-direita textarea {
-    margin-bottom: 70px;
-    resize: none;
-    background-color: transparent;
-    border: 2px rgba(255, 255, 255, 0.504) solid;
-    border-radius: 10px;
+button {
     padding: 10px;
-    color: white;
-    height: 200px;
-}
-
-#enviar {
-    font-size: 15px;
-    padding: 10px;
-    background-color: transparent;
-    border: 2px rgba(255, 255, 255, 0.504) solid;
-    color: white;
-    border-radius: 10px;
+    background-color: rgb(19, 24, 35);
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    max-width: 250px;
-    margin: 0 auto;
-    align-items: center;
-    justify-content: center;
 }
 
-#enviar:hover {
-    background-color: rgb(67, 68, 75);
+button:hover {
+    background-color:rgb(10, 14, 25, 1);
 }
 
+/* WebKit Scrollbar */
+#container::-webkit-scrollbar {
+    width: 0; /* Oculta a scrollbar */
+    height: 0; /* Oculta scrollbar horizontal */
+}
 
+#container, .input-group {
+    scrollbar-width: thin; /* Define a espessura da barra */
+    scrollbar-color: rgb(5, 10, 23) rgba(255, 255, 255, 0.378); /* Cor da barra e do track */
+}
 
-/* Responsividade */
+@media screen and (max-width: 1340px) {
 
-@media screen and (max-width: 100px) {
-    body {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
+    #caixa-esquerda {
+        display: none;
     }
+
+    form {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 940px) {
 
     #container {
+        width: 90%;
+        height: 75%;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    form {
+        /* display: none; */
+        width: 100%;
+    }
+
+    .input-group {
         flex-direction: column;
-        width: 100%;
-        padding: 10px;
+        overflow-y: scroll;
+        /* flex-wrap: nowrap; */
+        max-height: auto;
+        padding-right: 2rem;
     }
 
-    #caixa-esquerda, #caixa-direita {
-        width: 100%;
-        padding: 10px;
-    }
-
-    #caixa-esquerda h2 {
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
-
-    #caixa-esquerda p {
-        font-size: 15px;
-        margin-bottom: 20px;
-    }
-
-    #caixa-direita input, #caixa-direita textarea {
-        width: 100%;
-        font-size: 12px;
-    }
-
-    #enviar {
-        width: 100%;
-    }
-}
-
-@media screen and (min-width: 300px) and (max-width: 449px) {
-    body {
-        flex-direction: column;
-        height: auto;
-        padding: 20px;
-        position: relative; /* Para permitir o overlay do botão */
-    }
-
-    #container {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    #caixa-esquerda, #caixa-direita {
-        width: 100%;
-        padding: 20px;
-    }
-
-    #caixa-esquerda h2 {
-        font-size: 24px;
-        margin-bottom: 30px;
-    }
-
-    #caixa-esquerda p {
-        font-size: 18px;
-        margin-bottom: 30px;
-    }
-
-    #caixa-direita input, #caixa-direita textarea {
-        width: 100%;
-        font-size: 14px;
-    }
-
-    #enviar {
-        width: 100%;
-    }
-
-    /* Ajuste do botão #back */
-    #back {
-        width: 30px; height: 30px;
-        font-size: 20px;
-        position: relative;
-        top: -445px;
-        z-index: 10000000000000000000000000;
-    }
-}
-
-@media screen and (min-width: 450px) and (max-width: 519px) {
-
-    body {
-        flex-direction: column;
-        height: auto;
-        padding: 20px;
-        position: relative; /* Para permitir o overlay do botão */
-    }
-
-    #container {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    #caixa-esquerda, #caixa-direita {
-        width: 100%;
-        padding: 20px;
-    }
-
-    #caixa-esquerda h2 {
-        font-size: 24px;
-        margin-bottom: 30px;
-    }
-
-    #caixa-esquerda p {
-        font-size: 18px;
-        margin-bottom: 30px;
-    }
-
-    #caixa-direita input, #caixa-direita textarea {
-        width: 100%;
-        font-size: 14px;
-    }
-
-    #enviar {
-        width: 100%;
-    }
-
-    /* Ajuste do botão #back */
-    #back {
-        width: 30px; height: 30px;
-        font-size: 20px;
-        position: relative;
-        top: -410px;
+    .input-box input, select, option, textarea {
+        width: 350px !important;
     }
 
 }
-
-@media screen and (min-width: 520px) and (max-width: 675px) {
-
-    body {
-        flex-direction: column;
-        height: auto;
-        padding: 20px;
-        position: relative; /* Para permitir o overlay do botão */
-    }
-
-    #container {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    #caixa-esquerda, #caixa-direita {
-        width: 100%;
-        padding: 20px;
-    }
-
-    #caixa-esquerda h2 {
-        font-size: 24px;
-        margin-bottom: 30px;
-    }
-
-    #caixa-esquerda p {
-        font-size: 18px;
-        margin-bottom: 30px;
-    }
-
-    #caixa-direita input, #caixa-direita textarea {
-        width: 100%;
-        font-size: 14px;
-    }
-
-    #enviar {
-        width: 100%;
-    }
-
-    /* Ajuste do botão #back */
-    #back {
-        width: 30px; height: 30px;
-        font-size: 20px;
-        position: relative;
-        top: -396px;
-    }
-
-}
-
-@media screen and (min-width: 676px) and (max-width: 767px) {
-
-    body {
-        flex-direction: column;
-        height: auto;
-        padding: 20px;
-        position: relative; /* Para permitir o overlay do botão */
-    }
-
-    #container {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    #caixa-esquerda, #caixa-direita {
-        width: 100%;
-        padding: 20px;
-    }
-
-    #caixa-esquerda h2 {
-        font-size: 24px;
-        margin-bottom: 30px;
-    }
-
-    #caixa-esquerda p {
-        font-size: 18px;
-        margin-bottom: 30px;
-    }
-
-    #caixa-direita input, #caixa-direita textarea {
-        width: 100%;
-        font-size: 14px;
-    }
-
-    #enviar {
-        width: 100%;
-    }
-
-    /* Ajuste do botão #back */
-    #back {
-        width: 30px; height: 30px;
-        font-size: 20px;
-        position: relative;
-        top: -376px;
-    }
-
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    body {
-        flex-direction: column;
-        height: auto;
-        padding: 30px;
-        position: relative;
-    }
-
-    #container {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    #caixa-esquerda, #caixa-direita {
-        width: 100%;
-        padding: 30px;
-    }
-
-    #caixa-esquerda h2 {
-        font-size: 28px;
-        margin-bottom: 50px;
-    }
-
-    #caixa-esquerda p {
-        font-size: 20px;
-        margin-bottom: 50px;
-    }
-
-    #caixa-direita input, #caixa-direita textarea {
-        width: 100%;
-        font-size: 16px;
-    }
-
-    #enviar {
-        width: 100%;
-    }
-
-     /* Ajuste do botão #back */
-     #back {
-        width: 30px; height: 30px;
-        font-size: 20px;
-        position: absolute;
-        top: -430px;
-        float: right;
-        right: 10px;
-    }
-}
-
-@media screen and (min-width: 1025px) and (max-width: 1950px) {
-    body {
-        height: 100dvh;
-        padding: 40px;
-    }
-
-    #container {
-        
-        flex-direction: row;
-        width: 100%;
-        max-width: 1200px; /* Ajuste se necessário */
-        max-height: 600px
-    }
-
-    #caixa-direita form {
-        margin: 0;
-    }
-
-    #caixa-esquerda, #caixa-direita {
-        width: 50%;
-        padding: 40px;
-    }
-
-    #caixa-esquerda h2 {
-        font-size: 32px;
-        margin-bottom: 40px;
-    }
-
-    #caixa-esquerda p {
-        font-size: 28px;
-        margin-bottom: 30px;
-    }
-
-    #caixa-direita input, #caixa-direita textarea {
-        width: 100%;
-        font-size: 18px;
-        margin: 0;
-    }
-
-    #enviar {
-        margin-top: 10px;
-        width: 100%;
-    }
-    
-}
-
-

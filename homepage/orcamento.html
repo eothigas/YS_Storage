@@ -7,49 +7,97 @@
     <title>Your Storage - Orçamento</title>
     <link rel='stylesheet' href="./src/css/orcamento.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
 </head>
 <body>
     
     <div id="container">
         <div id="caixa-esquerda">
-            <h2>Orçamento</h2>
-            <p>
-                Chegou a hora de visualizar sua nova área de estoque!
-                Preencha os campos com suas informações, e assim,
-                um de nossos agentes comerciais entrarão em contato com você!
-            </p>
-            <img src="./src/images/caixa.png" width="200" id="imagem" alt="Imagem ilustrativa caixa">
+            <img src="./src/images/Logo_reduzido.svg">
         </div>
 
-        <div id="caixa-direita">
+        <div class="form">
+            <form id='form-orc' action="./php/process_form.php" method="POST">
+            
+                <div id="close">
+                    <a id='link' href="./index.html" aria-hidden="true">
+                        <i class="fas fa-times circular-icon" aria-label="Voltar a página principal"></i>
+                    </a>
+                </div>
 
-            <div id="back">
-                <a id='link' href="./index.html" aria-hidden="true"><i class="fas fa-times circular-icon" aria-label="Voltar a página principal"></i></a>
-            </div>
+                <div id="form-header">
+                    <div id="header">
+                        <h1>Preencha os campos</h1>
+                        <p>Ficamos felizes em seu interesse por nosso sistema! Complete o formulário abaixo
+                            para que um de nossos agentes comerciais entre em contato com você.
+                        </p>
+                    </div>               
+                </div>
 
-            <form action="./php/process_form.php" method="POST">
-                <label for="nome">Nome*</label>
-                <input type="text" id="nome" name="nome" required maxlength="50" 
-                autocomplete="name">
+                <div class="input-group">
+                    <div class='input-box' id="input-name">
+                        <label for="nome">Nome*</label>
+                        <input type="text" id="nome" name="nome" required maxlength="35" 
+                        autocomplete="name" placeholder="Seu nome">
+                    </div>
 
-                <label for="email">Email*</label>
-                <input type="email" id="email" name="email" required 
-                autocomplete="email">
+                    <div class='input-box' id="input-email">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" name="email" maxlength="35" required 
+                        autocomplete="email" placeholder="Seu email">
+                    </div>
 
-                <label for="telefone">Telefone*</label>
-                <input type="tel" id="telefone" name="telefone" required
-                autocomplete="tel" inputmode='tel' required minlength="11" 
-                maxlength="15">
+                    <div class='input-box' id="input-contact">
+                        <label for="telefone">Telefone*</label>
+                        <input type="tel" id="telefone" name="telefone" required
+                        autocomplete="tel" inputmode='tel' 
+                        minlength="11" maxlength="15" 
+                        placeholder="(00) 00000-0000"
+                        oninput="formatPhone(this)">
+                    </div>
 
-                <label for="mensagem">Mensagem</label>
-                <textarea id="mensagem" name="mensagem" rows="10" 
-                maxlength="450"></textarea>
+                    <div class='input-box' id="input-enterprise">
+                        <label for="nome">Empresa*</label>
+                        <input type="text" id="enterprise" name="enterprise" required maxlength="35" 
+                        autocomplete="enterprise" placeholder="Seu empresa">
+                    </div>
 
-                <button type="submit" id="enviar">Enviar</button>
+                    <div class='input-box' id="input-cnpj">
+                        <label for="nome">CNPJ ou CPF*</label>
+                        <input type="text" id="cnpj" name="cnpj" required 
+                        autocomplete="off" placeholder="Seu CNPJ ou CPF"
+                        oninput="formatCNPJCPF(this)">
+                    </div>
+
+                    <div class='input-box' id="input-select">
+                        <label for="question">Motivo do envio*</label>
+                        <select id="question" required>
+                            <option value="">— Escolha uma opção —</option>
+                            <option value="duvidas_planos">Dúvidas sobre os planos</option>
+                            <option value="plano_basico">Interesse no plano Básico</option>
+                            <option value="plano_logistico">Interesse no plano Logístico</option>
+                            <option value="plano_premium">Interesse no plano Premium</option>
+                            <option value="duvidas_sistemas">Dúvidas sobre o sistema</option>
+                            <option value="outros_assuntos">Outros Assuntos</option>
+                        </select>
+                    </div>
+
+                    <div class='input-box' id="input-message" style="display: none;">
+                        <label for="mensagem">Digite aqui</label>
+                        <textarea id="mensagem" name="mensagem" rows="1" 
+                            maxlength="150" placeholder="Descreva brevemente..." required></textarea>
+                            <span id="charCount">150 caracteres restantes</span>
+                    </div>
+                </div>
+
+                <div class='input-box' id="input-send"> 
+                    <button type="submit" id="enviar">Enviar</button>
+                </div>
             </form>
-
         </div>
     </div>
+
+    <script src="./src/js/orcamento.js"></script>
 
 </body>
 </html>
