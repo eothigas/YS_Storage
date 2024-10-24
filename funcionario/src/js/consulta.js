@@ -67,8 +67,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         const tr = document.createElement('tr');
                         tr.innerHTML = `
                             <td>${usuario.nome}</td>
+                            <td>${usuario.tipo}</td>
                             <td>${usuario.email}</td>
                             <td>${usuario.plano}</td>
+                            <td>${usuario.empresa}</td>
                         `;
                         tbody.appendChild(tr);
                     });
@@ -82,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     // Mostrar mensagem de "Nenhum usuário encontrado"
                     const tr = document.createElement('tr');
-                    tr.innerHTML = '<td colspan="3">Nenhum usuário encontrado.</td>';
+                    tr.innerHTML = '<td colspan="6">Nenhum usuário encontrado.</td>';
                     tbody.appendChild(tr);
 
                     // Exibir 0 de 0 na paginação

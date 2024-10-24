@@ -62,7 +62,7 @@
                 </a>
             </li>
             <li class="item-footer2">
-                <a id='out'>
+                <a id='logout'>
                     <span class="icon"><i class="bi bi-box-arrow-right" id="logout"></i></span>
                     <span class="txt-link-l">Sair</span>
                 </a>

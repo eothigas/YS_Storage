@@ -124,17 +124,17 @@ document.getElementById('next-btn').addEventListener('click', paginaProxima);
 function abrirModalUsuario(email) {
     fetch(`./php/edit_users.php?email=${encodeURIComponent(email)}`)
         .then(response => response.json())
-        .then(user => { // Aqui você usa 'user'
+        .then(user => {
             if (user.error) {
                 console.error('Erro:', user.error);
                 return;
             }
 
             // Preenche os campos do modal com os dados do usuário
-            document.getElementById('edit-id').value = user.id; // Alterado para 'user'
-            document.getElementById('edit-name').value = user.nome; // Alterado para 'user'
-            document.getElementById('tipo').value = user.tipo; // Alterado para 'user'
-            document.getElementById('edit-email').value = user.email; // Alterado para 'user'
+            document.getElementById('edit-id').value = user.id; 
+            document.getElementById('edit-name').value = user.nome; 
+            document.getElementById('tipo').value = user.tipo; 
+            document.getElementById('edit-email').value = user.email;
             document.getElementById('edit-password').value = ''; // Limpa o campo de senha
             document.getElementById('confirm-password').value = ''; // Limpa o campo de confirmação de senha
 
@@ -160,13 +160,13 @@ function abrirModalUsuario(email) {
 
             // Atualiza os ícones para indicar que as senhas estão ocultas
             if (passwordIcon) {
-                passwordIcon.classList.remove('bi-eye-fill'); // Remove o ícone de olho preenchido
-                passwordIcon.classList.add('bi-eye-slash-fill'); // Adiciona o ícone de olho cortado
+                passwordIcon.classList.remove('bi-eye-slash-fill'); // Remove o ícone de olho preenchido
+                passwordIcon.classList.add('bi-eye-fill'); // Adiciona o ícone de olho cortado
             }
 
             if (confirmIcon) {
-                confirmIcon.classList.remove('bi-eye-fill'); // Remove o ícone de olho preenchido
-                confirmIcon.classList.add('bi-eye-slash-fill'); // Adiciona o ícone de olho cortado
+                confirmIcon.classList.remove('bi-eye-slash-fill'); // Remove o ícone de olho preenchido
+                confirmIcon.classList.add('bi-eye-fill'); // Adiciona o ícone de olho cortado
             }
 
         })
@@ -205,50 +205,32 @@ document.getElementById('edit-users').addEventListener('submit', function(event)
         const nome = document.getElementById('edit-name').value; // Novo nome
         const tipo = document.getElementById('tipo').value; // Novo tipo
         const email = document.getElementById('edit-email').value; // Novo email
-        const password = document.getElementById('edit-password').value;
+        const password = document.getElementById('edit-password').value; // Nova senha
+        const confirmPassword = document.getElementById('confirm-password').value; // Confirmação de senha
 
         // Faz uma requisição para obter o ID do usuário na sessão
         fetch('./php/check_session.php')
             .then(response => response.json())
             .then(sessionData => {
-                const sessionUserId = sessionData.id; // Supondo que o ID do usuário está na chave 'id'
+                const sessionUserId = sessionData.id; // ID do usuário na sessão
 
                 // Monta o corpo da requisição
                 const bodyData = {
-                    'edit-id': id, // ID do usuário que está sendo editado
+                    'edit-id': id,
                     'edit-name': nome,
                     'tipo': tipo,
-                    'edit-email': email
+                    'edit-email': email,
+                    'edit-password': password || '',
+                    'confirm-password': confirmPassword || ''
                 };
-
-                // Se a senha não estiver vazia, adiciona ao corpo da requisição
-                if (password) {
-                    bodyData['edit-password'] = password;
-                }
-
-                // Verifica se não houve alterações
-                if (
-                    id === sessionUserId && // Comparar se o ID é o mesmo
-                    nome === sessionData.nome && // Comparar se o nome é o mesmo
-                    tipo === sessionData.tipo && // Comparar se o tipo é o mesmo
-                    email === sessionData.email // Comparar se o email é o mesmo
-                ) {
-                    // Fechar os modais e não fazer nada
-                    document.getElementById('confirmation-user').style.display = 'none';
-                    document.getElementById('modal-usuarios').style.display = 'none';
-                    return; // Sai da função
-                }
 
                 // Mostra o modal de confirmação
                 const confirmationMessage = document.getElementById('confirmation-message-user');
-
-                // Verifica se o ID do usuário a ser editado é igual ao ID da sessão
                 if (id === sessionUserId) {
-                    confirmationMessage.innerHTML = "Você está prestes a atualizar o usuário logado. A sessão será encerrada após a atualização. Deseja continuar?";
+                    confirmationMessage.innerHTML = "Você está prestes a atualizar seu perfil. A sessão será encerrada após a atualização. Deseja continuar?";
                 } else {
                     confirmationMessage.innerHTML = "Você tem certeza que deseja atualizar este usuário?";
                 }
-
                 document.getElementById('confirmation-user').style.display = 'block';
 
                 // Configura os eventos para os botões de confirmação
@@ -263,10 +245,9 @@ document.getElementById('edit-users').addEventListener('submit', function(event)
                     })
                     .then(response => response.json())
                     .then(data => {
-                        // Fechar o modal de confirmação
-                        document.getElementById('confirmation-user').style.display = 'none';
-                        // Fechar o modal de usuários
-                        document.getElementById('modal-usuarios').style.display = 'none';
+                        console.log(data); // Verifique a resposta do servidor
+                        document.getElementById('confirmation-user').style.display = 'none'; // Fechar o modal de confirmação
+                        document.getElementById('modal-usuarios').style.display = 'none'; // Fechar o modal de usuários
 
                         // Se o usuário editado for o logado, execute o logout
                         if (id === sessionUserId) {
@@ -482,7 +463,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.getElementById('alt-plan').addEventListener('click', function() {
     // Define a URL que você deseja abrir
-    const url = 'https://www.yourstorage.x10.mx/homepage/planos.html';
+    const url = 'https://www.yourstorage.x10.mx/homepage/planos.html?hideBack=true';
 
     // Abre a URL em uma nova guia
     window.open(url, '_blank');
@@ -491,6 +472,9 @@ document.getElementById('alt-plan').addEventListener('click', function() {
 document.addEventListener('DOMContentLoaded', function() {
     let cPage = 1; // Página atual
     const limitStorage = 5; // Limite de storages por página
+
+    // Atualiza a informação da página para mostrar "Página 1 de 1" inicialmente
+    document.getElementById('page-inform').innerText = `Página ${cPage} de 1`;
 
     // Função para buscar os dados de storages
     function fetchStorages(pages) {
@@ -525,14 +509,16 @@ document.addEventListener('DOMContentLoaded', function() {
                         <td colspan="5" style="text-align: center;">Nenhum Storage Contratado.</td>
                     `;
                     tbody.appendChild(row);
+
+                    data.totalPages = 1;
                 }
 
                 // Atualiza a informação da página
-                document.getElementById('page-inform').innerText = `Página ${data.cPage} de ${data.totalPages}`;
+                document.getElementById('page-inform').innerText = `Página ${cPage} de ${data.totalPages}`;
 
                 // Atualiza os botões de paginação
-                document.getElementById('previous-btn').disabled = data.cPage === 1;
-                document.getElementById('nextpage-btn').disabled = data.storages.length < limitStorage || data.cPage === data.totalPages;
+                document.getElementById('previous-btn').disabled = cPage === 1;
+                document.getElementById('nextpage-btn').disabled = cPage === data.totalPages;
             })
             .catch(error => {
                 console.error('Erro ao buscar os dados:', error);

@@ -10,7 +10,8 @@ $config = parse_ini_file('../../../PHP/php.ini', true);
 
 // Verificar se o arquivo foi carregado corretamente
 if (!$config) {
-    die("Erro ao carregar o arquivo php.ini.");
+    echo json_encode(['error' => 'Erro ao carregar o arquivo php.ini.']);
+    exit();
 }
 
 // Acessar credenciais do banco de dados
@@ -21,12 +22,9 @@ $password = $config['database']['password'];
 
 // Verificar se o e-mail está na sessão
 if (!isset($_SESSION['email'])) {
-    echo "<p class='message'>Sessão expirada ou e-mail não encontrado.</p>";
+    echo json_encode(['error' => 'Sessão expirada ou e-mail não encontrado.']);
     exit();
 }
-
-// Depuração: Exibir e-mail da sessão
-echo "E-mail na sessão: " . $_SESSION['email'] . "<br>";
 
 // Verificar se os dados foram enviados via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -35,13 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $confirmacaoSenha = $_POST['confirm'];
     $email = $_SESSION['email'];
 
-    // Depuração: Exibir as senhas recebidas
-    echo "Nova senha: " . $novaSenha . "<br>";
-    echo "Confirmação de senha: " . $confirmacaoSenha . "<br>";
-
     // Verificar se as senhas correspondem
     if ($novaSenha !== $confirmacaoSenha) {
-        echo "<p class='message'>As senhas não correspondem.</p>";
+        echo json_encode(['error' => 'As senhas não correspondem.']);
         exit();
     }
 
@@ -65,27 +59,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Executar a consulta e verificar o resultado
         if ($stmt->execute()) {
             if ($stmt->rowCount() > 0) {
-                echo "Senha atualizada com sucesso.";
+                echo json_encode(['success' => 'Senha atualizada com sucesso.']);
                 // Limpar a sessão após a atualização
-                session_unset();  // Remove todas as variáveis de sessão
-                session_destroy(); // Destrói a sessão
-
-                // Redirecionar para a página de senha redefinida
-                header('Location: ../senharedefinida.html');
+                session_unset();
+                session_destroy();
                 exit();
             } else {
-                echo "<p class='message'>Nenhuma linha foi afetada. Verifique se o e-mail está correto.</p>";
+                echo json_encode(['error' => 'Nenhuma linha foi afetada. Verifique se o e-mail está correto.']);
             }
         } else {
-            echo "<p class='message'>Erro ao atualizar a senha.</p>";
+            echo json_encode(['error' => 'Erro ao atualizar a senha.']);
         }
     } catch (PDOException $e) {
-        echo "<p class='message'>Erro: " . $e->getMessage() . "</p>";
+        echo json_encode(['error' => 'Erro: ' . $e->getMessage()]);
     }
 
     // Fechar a conexão
     $conn = null;
 } else {
-    echo "<p class='message'>Dados não enviados corretamente pelo formulário.</p>";
+    echo json_encode(['error' => 'Dados não enviados corretamente pelo formulário.']);
 }
 ?>

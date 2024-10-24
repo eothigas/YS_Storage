@@ -190,6 +190,11 @@ select:focus {
     outline: none;
 }
 
+#tipo, #tipo-user{
+    background-color: rgb(2, 36, 74);
+    color: rgb(226, 226, 182);
+}
+
 label {
     text-align: left;
     color: rgb(226, 226, 182);

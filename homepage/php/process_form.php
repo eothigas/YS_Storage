@@ -1,12 +1,5 @@
 <?php
 
-// Adicionando o uso do namespace PHPMailer
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-// Incluir o autoload do Composer para carregar o PHPMailer
-require '../vendor/autoload.php'; // Corrigido o caminho do autoload do Composer
-
 // Carrega as configurações do php.ini
 $config = parse_ini_file('../../PHP/php.ini', true);
 
@@ -43,7 +36,7 @@ try {
 
     // Verifica se o e-mail é válido
     if (!$email) {
-        echo json_encode(["error" => "E-mail invalido."]);
+        echo json_encode(["error" => "E-mail inválido."]);
         exit();
     }
 
@@ -60,63 +53,46 @@ try {
     // Executa a consulta
     $stmt->execute();
 
-    // Configurações do PHPMailer
-    $mail = new PHPMailer(true);
+    // Configurações do e-mail
+    $to = $email;
+    $headers .= "Subject: =?UTF-8?B?" . base64_encode($subject) . "?=" . "\r\n";
+    $subject = 'Recebimento de Formulário - Your Storage';
+    $body = "
+    <html>
+    <head>
+        <meta charset='UTF-8'>
+    </head>
+    <body>
+        <p>Olá $nome,</p>
+        <p>Agradecemos pelo envio das suas informações! Gostaríamos de informar que recebemos e salvamos os dados em nosso banco de dados com sucesso.</p>
+        <p>Um de nossos agentes comerciais entrará em contato com você dentro de <b>1 a 2 dias úteis</b> para discutir mais detalhes e esclarecer quaisquer dúvidas que você possa ter. O contato poderá ser realizado através do <b>e-mail</b> ou <b>telefone</b> fornecidos no formulário.</p>
+        <p>Agradecemos por escolher nossa empresa e pelo tempo dedicado para preencher o formulário. Valorizamos cada dado recebido e faremos uma análise cuidadosa para garantir que possamos oferecer o melhor atendimento possível.</p>
+        <p>Se precisar de mais informações ou tiver alguma dúvida imediata, não hesite em nos contatar.</p>
+        <hr>
+        <p>Atenciosamente,<br>Thiago Freitas / Your Storage</p>
+    </body>
+    </html>";
 
-    try {
-        // Configurações do servidor SMTP
-        $mail->isSMTP();
-        $mail->SMTPAuth = true;
-        $mail->Host       = 'mail.yourstorage.x10.mx'; // Servidor SMTP
-        $mail->Username   = 'noreply@yourstorage.x10.mx'; // Seu e-mail
-        $mail->Password   = 'Thiago@07'; // Senha do e-mail
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Usar TLS
-        $mail->Port       = 587; // Porta do SMTP
+    // Cabeçalhos do e-mail
+    $headers  = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From: form-noreply@yourstorage.x10.mx" . "\r\n";
+    $headers .= "Bcc: yourstoragee@gmail.com" . "\r\n";
 
-        // Define o charset como UTF-8
-        $mail->CharSet = 'UTF-8';
-
-        // Remetente
-        $mail->setFrom('noreply@yourstorage.x10.mx', 'Your Storage');
-
-        // Destinatário
-        $mail->addAddress($email);  // Adiciona o e-mail do destinatário
-
-        // Adiciona o e-mail em cópia oculta
-        $mail->addBCC('yourstoragee@gmail.com');
-
-        // Conteúdo do e-mail
-        $mail->isHTML(true);
-        $mail->Subject = 'Recebimento de Formulário - Your Storage';
-        $mail->Body    = "
-        <html>
-        <head>
-            <meta charset='UTF-8'>
-        </head>
-        <body>
-            <p>Olá $nome,</p>
-            <p>Agradecemos pelo envio das suas informações! Gostaríamos de informar que recebemos e salvamos os dados em nosso banco de dados com sucesso.</p>
-            <p>Um de nossos agentes comerciais entrará em contato com você dentro de <b>1 a 2 dias úteis</b> para discutir mais detalhes e esclarecer quaisquer dúvidas que você possa ter. O contato poderá ser realizado através do <b>e-mail</b> ou <b>telefone</b> fornecidos no formulário.</p>
-            <p>Agradecemos por escolher nossa empresa e pelo tempo dedicado para preencher o formulário. Valorizamos cada dado recebido e faremos uma análise cuidadosa para garantir que possamos oferecer o melhor atendimento possível.</p>
-            <p>Se precisar de mais informações ou tiver alguma dúvida imediata, não hesite em nos contatar.</p>
-            <hr>
-            <p>Atenciosamente,<br>Thiago Freitas / Your Storage</p>
-        </body>
-        </html>";
-
-        // Enviar o e-mail
-        $mail->send();
-
+    // Envia o e-mail
+    if (mail($to, $subject, $body, $headers)) {
         // Redireciona para a página de confirmação após o e-mail ser enviado com sucesso
         header("Location: /homepage/orcamentopendente.html");
         exit();
-    } catch (Exception $e) {
-        echo header("Location: /homepage/orcamentoerro.html");
-        exit();
+    } else {
+        echo "Erro ao enviar o e-mail.";
+        // Redireciona para a página de erro, se necessário
+        // header("Location: /homepage/orcamentoerro.html");
+        // exit();
     }
 } catch (PDOException $e) {
     // Mostra o erro para depuração
-    echo header("Location: /homepage/orcamentoerro.html");
+    echo header("Location: /homepage");
     exit();
 }
 ?>

@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Stoke:wght@300;400&display=swap');
 
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Stoke', sans-serif;
+    font-family: Verdana, sans-serif;
 }
 
 body {
@@ -88,7 +87,7 @@ p {
 }
 
 .inputField::placeholder {
-    color: white;
+    color: rgba(255, 255, 255, 0.6);
     font-size: 1em;
     font-weight: 500;
 }
@@ -100,7 +99,7 @@ p {
     background-color: rgb(3, 52, 110);
     height: 40px;
     color: white;
-    font-size: .8em;
+    font-size: 1em;
     font-weight: 500;
     letter-spacing: 1px;
     border-radius: 5px;
@@ -151,4 +150,12 @@ p {
     z-index: 1000;
     font-size: 15px;
 }
- 
+
+@media screen and (max-width: 900px) {
+
+    .form_main {
+        width: 400px;
+        height: 360px;
+    }
+
+}

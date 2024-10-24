@@ -42,7 +42,7 @@ $query = isset($_GET['query']) ? $_GET['query'] : '';
 // Consulta do número total de usuários
 if (!empty($query)) {
     // Pesquisa com filtro (search)
-    $total_query = "SELECT COUNT(*) as total FROM usuarios WHERE nome LIKE :query OR email LIKE :query OR plano LIKE :query";
+    $total_query = "SELECT COUNT(*) as total FROM usuarios WHERE nome LIKE :query OR tipo LIKE :query OR email LIKE :query OR plano LIKE :query OR empresa LIKE :query";
     $stmt = $pdo->prepare($total_query);
     $stmt->bindValue(':query', '%' . $query . '%', PDO::PARAM_STR);
 } else {

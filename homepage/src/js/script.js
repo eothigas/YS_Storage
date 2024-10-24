@@ -53,13 +53,15 @@ document.addEventListener('DOMContentLoaded', () => {
 // Botão voltar ao Topo
 
 const btnTopo = document.getElementById('btn-topo');
-const client = document.getElementById('client-section');
+const btnShow = document.getElementById('btnShow');
+const footer = document.getElementById('footer-page');
 
 window.addEventListener('scroll', () => {
-    const sectionBottom = client.getBoundingClientRect().bottom;
+    const sectionBottom = btnShow.getBoundingClientRect().bottom;
+    const footerTop = footer.getBoundingClientRect().top;
     
     // Verifica se o usuário passou do final do client
-    if (sectionBottom <= 0) {
+    if (sectionBottom <= 0 && footerTop > window.innerHeight) {
         btnTopo.classList.add('show'); // Adiciona a classe para exibir o botão com animação
     } else {
         btnTopo.classList.remove('show'); // Remove a classe para ocultar o botão com animação

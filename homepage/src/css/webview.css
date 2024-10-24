@@ -1,12 +1,10 @@
 /* Reset básico */
 
-@import url('https://fonts.googleapis.com/css2?family=Stoke:wght@300;400&display=swap');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Stoke', sans-serif;
+    font-family: Verdana, sans-serif;
 }
 
 body {
@@ -219,7 +217,7 @@ body {
 /* Estilos Carrossel */
 
 .title-car {
-    font-size: 35px;
+    font-size: 25px;
     font-weight: bold;
     text-wrap: nowrap;
     text-align: center;
@@ -259,7 +257,7 @@ body {
 .carousel-item img {
     display: block;
     width: 100%; /* Garante que a imagem ocupe 100% da largura disponível */
-    height: auto;
+    max-height: 744px;
     margin: 0;
     padding: 0;
     align-items: center;

@@ -53,7 +53,7 @@ async function loadDashboardData() {
 // Função para buscar dados dos clientes
 async function fetchClientes() {
     try {
-        const response = await fetch('/funcionario/php//get_clients.php');
+        const response = await fetch('/funcionario/php/get_clients.php');
         const data = await response.json();
         if (data.status === 'success' && Array.isArray(data.data)) {
             displayClientes(data.data);
@@ -74,8 +74,10 @@ function displayClientes(clientes) {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${cliente.nome}</td>
+            <td>${cliente.tipo}</td>
             <td>${cliente.email}</td>
             <td>${cliente.plano}</td>
+            <td>${cliente.empresa}</td>
         `;
         tbody.appendChild(row);
     });

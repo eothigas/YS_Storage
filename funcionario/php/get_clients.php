@@ -26,7 +26,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Consulta o nome, email e plano dos 5 primeiros clientes cadastrados
-    $sql = "SELECT nome, email, plano FROM usuarios ORDER BY RAND() LIMIT 5";
+    $sql = "SELECT nome, tipo, email, plano, empresa FROM usuarios ORDER BY RAND() LIMIT 5";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
 

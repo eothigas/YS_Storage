@@ -28,21 +28,18 @@
             </div>
 
             <form action="./php/process_form.php" method="POST">
-                <label for="nome">Nome</label>
+                <label for="nome">Nome*</label>
                 <input type="text" id="nome" name="nome" required maxlength="50" 
                 autocomplete="name">
-                <fontsize class="size">*Obrigatório</fontsize>
 
-                <label for="email">Email</label>
+                <label for="email">Email*</label>
                 <input type="email" id="email" name="email" required 
                 autocomplete="email">
-                <fontsize class="size">*Obrigatório</fontsize>
 
-                <label for="telefone">Telefone</label>
+                <label for="telefone">Telefone*</label>
                 <input type="tel" id="telefone" name="telefone" required
                 autocomplete="tel" inputmode='tel' required minlength="11" 
                 maxlength="15">
-                <fontsize class="size">*Obrigatório</fontsize>
 
                 <label for="mensagem">Mensagem</label>
                 <textarea id="mensagem" name="mensagem" rows="10" 

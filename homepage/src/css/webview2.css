@@ -1,12 +1,10 @@
 /* Reset básico */
 
-@import url('https://fonts.googleapis.com/css2?family=Stoke:wght@300;400&display=swap');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Stoke', sans-serif;
+    font-family: Verdana, sans-serif;
 }
 
 body {

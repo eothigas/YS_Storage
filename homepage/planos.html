@@ -8,6 +8,16 @@
     <link rel="stylesheet" href="./src/css/planos.css">
     <!-- Importação de ícones (por exemplo, Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const linkElement = document.getElementById('back');
+            
+            if (params.get('hideBack') === 'true' && linkElement) {
+                linkElement.style.display = 'none';
+            }
+        };
+    </script>
 </head>
 <body>
     
@@ -15,7 +25,7 @@
     <div id="principal">
 
         <div id="back">
-            <a id='link' href="./index.html" aria-hidden="true"><i class="fas fa-times circular-icon" aria-label="Voltar a página principal"></i></a>
+            <a id='link' href="javascript:void(0);" onclick="history.back();" aria-hidden="true"><i class="fas fa-times circular-icon" aria-label="Voltar a página principal"></i></a>
         </div>
 
         <div id="item1">
@@ -37,19 +47,19 @@
                     <p class="plan-cont">Plano contém: </p>
                     <ul class="point">
                         <li class="info">Espaço Virtual
-                        <p class="desc1">Contratando este plano, você terá acesso
-                            somente ao ambiente Virtual.
+                        <p class="desc1">No espaço virtual, você poderá organizar seus produtos
+                            ou ativos de maneira clara e organizada.
                         </p>
 
                         </li>
                         <li class="info2">Máximo 5 Usuários
-                        <p class="desc2"> Contratando este plano, você poderá
+                        <p class="desc2">Neste plano, você poderá
                             cadastrar o máximo de cinco (5) usuários.
                         </p>
                         </li>
 
                         <li class="info3">Máximo 250 produtos
-                        <p class='desc3' class="desc3">Contratando este plano, 
+                        <p class='desc3' class="desc3">Neste plano, 
                             você poderá cadastrar o máximo de duzentos e cinquenta (250)
                             produtos. 
                         </p>
@@ -89,19 +99,20 @@
                     <p class="plan-cont">Plano contém: </p>
                     <ul class="point">
                         <li class="info4">Espaço Virtual e Físico
-                        <p class="desc4">Contratando este plano, você terá acesso
-                            ao ambiente Virtual e Físico.
+                        <p class="desc4">No espaço fisico e virtual, você poderá organizar
+                            seus produtos ou ativos de maneira clara e organizada. Terá acesso a 
+                            visualização de storages contratados.
                         </p>
 
                         </li>
                         <li class="info5">Máximo 10 Usuários
-                        <p class="desc5"> Contratando este plano, você poderá
-                            cadastrar o máximo de cinco (10) usuários.
+                        <p class="desc5">Neste plano, você poderá
+                            cadastrar o máximo de dez (10) usuários.
                         </p>
                         </li>
 
                         <li class="info6">Máximo 700 produtos
-                        <p class='desc6'>Contratando este plano, 
+                        <p class='desc6'>Neste plano, 
                             você poderá cadastrar o máximo de seiscentos (700)
                             produtos. 
                         </p>
@@ -140,20 +151,21 @@
                     <p class="plan-cont">Plano contém: </p>
                     <ul class="point">
                         <li class="info7">Espaço Virtual e Físico
-                        <p class="desc7">Contratando este plano, você terá acesso
-                            aos ambientes Virtual e Físico.
+                        <p class="desc7">No espaço fisico e virtual, você poderá organizar
+                            seus produtos ou ativos de maneira clara e organizada. Terá acesso a 
+                            visualização de storages contratados.
                         </p>
 
                         </li>
                         <li class="info8">Usuários Ilimitados
-                        <p class="desc8"> Contratando este plano, você terá 
+                        <p class="desc8"> Neste plano, você terá 
                             cadastro de usuários ilimitado.
                             
                         </p>
                         </li>
 
                         <li class="info9">Produtos Ilimitados
-                        <p class='desc9'>Contratando este plano, 
+                        <p class='desc9'>Neste plano, 
                             você terá cadastro de produtos ilimitado.
                         </p>
                         </li>

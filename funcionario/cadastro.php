@@ -90,8 +90,8 @@ unset($_SESSION['message'], $_SESSION['messageType']); // Limpa a mensagem após
                     <span class="txt-link">Cadastrar</span>
                 </a>
                 <ul class="submenu">
-                    <li><a href="./cadastro.php">Usuário</a></li><br>
-                    <li><a href="./cadastro_storage.php">Storage</a></li>
+                    <li id='submenu-item'><a href="./cadastro.php">Usuário</a></li><br>
+                    <li id='submenu-item'><a href="./cadastro_storage.php">Storage</a></li>
                 </ul>
             </li>
             <li class="item-menu">
@@ -117,7 +117,7 @@ unset($_SESSION['message'], $_SESSION['messageType']); // Limpa a mensagem após
                 </a>
             </li>
             <li class="item-footer2">
-                <a id='out'>
+                <a id='logout'>
                     <span class="icon"><i class="bi bi-box-arrow-right" id="logout"></i></span>
                     <span class="txt-link-l">Sair</span>
                 </a>
@@ -168,7 +168,7 @@ unset($_SESSION['message'], $_SESSION['messageType']); // Limpa a mensagem após
                     <input class='select' type="radio" id="logistico" name="plano" value="logistico" required>
                     <label for="logistico">Logístico</label>
                 </div>
-                <div id="plan">
+                <div id="plan" style="margin-bottom: 12px;">
                     <input class='select' type="radio" id="premium" name="plano" value="premium" required>
                     <label for="premium">Premium</label>
                 </div>

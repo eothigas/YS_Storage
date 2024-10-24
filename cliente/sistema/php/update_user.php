@@ -3,66 +3,86 @@ header('Content-Type: application/json');
 session_start();
 $ini_array = parse_ini_file('../../../PHP/php.ini', true);
 
-// Verifica se as configurações de banco de dados foram carregadas corretamente
 if (!isset($ini_array['database'])) {
     echo json_encode(['error' => 'Configurações do banco de dados não encontradas.']);
     exit;
 }
 
-// Carrega as configurações do banco de dados
 $host = $ini_array['database']['host'];
 $dbname = $ini_array['database']['dbname'];
 $user = $ini_array['database']['user'];
 $password = $ini_array['database']['password'];
 
 try {
-    // Configurações de conexão com o banco de dados
-    $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
-    $pdo = new PDO($dsn, $user, $password);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Verifica se os dados foram enviados via POST
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Obtém o ID do usuário da sessão
-        $id = $_POST['edit-id']; 
-
         // Obtém os dados do formulário
-        $nome = ucwords($_POST['edit-name']);
-        $tipo = $_POST['tipo'];
-        $email = $_POST['edit-email'];
-        $password = $_POST['edit-password'];
+        $id = $_POST['edit-id']; 
+        $nome = ucwords($_POST['edit-name'] ?? '');
+        $email = $_POST['edit-email'] ?? null;
+        $senha = trim($_POST['edit-password'] ?? '');
+        $confirmarSenha = trim($_POST['confirm-password'] ?? null);
+        $tipoUser = $_POST['tipo'] ?? null;
 
-        // Verifica se a senha não tem mais de 8 caracteres
-        if (!empty($password) && strlen($password) > 8) {
-            echo json_encode(['error' => 'A senha deve ter até 8 caracteres.']);
+        // Valida os campos
+        if (empty($nome) || empty($email)) {
+            echo json_encode(['message' => 'Nome e email são obrigatórios.', 'type' => 'error']);
+            exit;
+        }
+
+        // Verifica se o email já está cadastrado (exceto o usuário atual)
+        $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email AND id != :id");
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            echo json_encode(['message' => 'Usuário já existe com esse email.', 'type' => 'error']);
+            exit;
+        }
+
+        // Valida a senha
+        if (!empty($senha) && $senha !== $confirmarSenha) {
+            echo json_encode(['message' => 'As senhas não coincidem.', 'type' => 'error']);
+            exit;
+        }
+
+        if (!empty($senha) && strlen($senha) < 8) {
+            echo json_encode(['message' => 'A senha deve ter pelo menos 8 caracteres.', 'type' => 'error']);
             exit;
         }
 
         // Prepara a consulta para atualizar os dados do usuário
-        if (empty($password)) {
-            // Se a senha estiver vazia, não atualiza a senha
-            $stmt = $pdo->prepare("UPDATE usuarios SET nome = :nome, tipo = :tipo, email = :email WHERE id = :id");
-        } else {
-            // Atualiza a senha
-            $stmt = $pdo->prepare("UPDATE usuarios SET nome = :nome, tipo = :tipo, senha = :senha, email = :email WHERE id = :id");
-            $stmt->bindParam(':senha', password_hash($password, PASSWORD_DEFAULT)); // Atualiza a senha com hash
+        $updateQuery = "UPDATE usuarios SET nome = :nome, email = :email, tipo = :tipo";
+        if (!empty($senha)) {
+            $updateQuery .= ", senha = :senha"; // Adiciona a senha se fornecida
         }
+        $updateQuery .= " WHERE id = :id";
 
-        // Atribui os parâmetros
+        $stmt = $pdo->prepare($updateQuery);
         $stmt->bindParam(':nome', $nome);
-        $stmt->bindParam(':tipo', $tipo);
         $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':tipo', $tipoUser);
         $stmt->bindParam(':id', $id);
 
-        // Executa a consulta
-        $stmt->execute();
+        // Vincula a senha, se fornecida
+        if (!empty($senha)) {
+            $stmt->bindParam(':senha', password_hash($senha, PASSWORD_DEFAULT)); // Cria o hash da senha
+        }
 
-        echo json_encode(['success' => 'Usuário atualizado com sucesso.']);
+        // Executa a consulta
+        if ($stmt->execute()) {
+            echo json_encode(['message' => 'Usuário atualizado com sucesso.', 'type' => 'success']);
+        } else {
+            echo json_encode(['message' => 'Falha ao atualizar o usuário.', 'type' => 'error']);
+        }
     } else {
         echo json_encode(['error' => 'Método de requisição inválido.']);
     }
 } catch (PDOException $e) {
-    // Retorna erro em formato JSON
-    echo json_encode(['error' => $e->getMessage()]);
+    echo json_encode(['message' => 'Erro: ' . $e->getMessage(), 'type' => 'error']);
 }
 ?>

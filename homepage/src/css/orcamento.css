@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Stoke:wght@300;400&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Stoke', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: Verdana, sans-serif;
 }
 
 body {
@@ -88,7 +87,7 @@ body {
 }
 
 #caixa-direita label {
-    margin-bottom: 5px;
+    margin: 8px 0;
     font-size: 20px;
 }
 
@@ -99,6 +98,11 @@ body {
     border: 2px rgba(255, 255, 255, 0.504) solid;
     color: white;
     border-radius: 10px;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
 }
 
 .size {
@@ -225,7 +229,7 @@ body {
         font-size: 20px;
         position: relative;
         top: -445px;
-        z-index: 10000000000000000000000000;/* Certifique-se de que o botão esteja acima de outros elementos */
+        z-index: 10000000000000000000000000;
     }
 }
 
@@ -445,13 +449,13 @@ body {
     }
 
     #caixa-esquerda h2 {
-        font-size: 36px;
+        font-size: 32px;
         margin-bottom: 40px;
     }
 
     #caixa-esquerda p {
-        font-size: 24px;
-        margin-bottom: 0px;
+        font-size: 28px;
+        margin-bottom: 30px;
     }
 
     #caixa-direita input, #caixa-direita textarea {
@@ -464,13 +468,7 @@ body {
         margin-top: 10px;
         width: 100%;
     }
-
-    #caixa-esquerda p {
-        font-size: 28px;
-        margin-bottom: 20px;
-    }
     
-
 }
 
 

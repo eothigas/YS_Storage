@@ -58,14 +58,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
                             produtosContainer.appendChild(produtoRow);
                         });
+
+                        totalPaginas = data.totalPaginas;
                     } else {
                         produtosContainer.innerHTML = `<tr><td colspan="7">Nenhum produto cadastrado</td></tr>`;
+                        totalPaginas = 1;
                     }
 
-                    totalPaginas = data.totalPaginas;
                     paginaAtual.textContent = `Página ${pagina} de ${totalPaginas}`;
                     prevBtn.disabled = (pagina === 1);
-                    nextBtn.disabled = (pagina === totalPaginas);
+                    nextBtn.disabled = (pagina === totalPaginas || totalPaginas === 0);
                 } else {
                     mostrarMensagem("Você precisa estar logado para acessar esta página.", "error");
                     window.location.href = './login.html';

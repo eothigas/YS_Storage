@@ -1,5 +1,5 @@
 /* Responsividade */
-@import url('https://fonts.googleapis.com/css2?family=Stoke:wght@300;400&display=swap');
+
 /* Botão MENU-NAV deve aparecer com resoluções menores ou igual que 808px */
 
 @media screen and (min-width: 300px) and (max-width: 500px) {
@@ -241,7 +241,7 @@
         justify-content: center;
         align-items: center;
         margin-top: 0px;
-        overflow: hidden;
+        /* overflow: hidden; */
         height: 800px;
     }
 
@@ -398,7 +398,8 @@
         align-items: center;
         text-align: center;
         font-size: 15px;
-        right: 12%;
+        bottom: 3%;
+        right: 5%;
     }
 
     .title-car {
@@ -410,11 +411,21 @@
         padding: 10px;
         margin: 0;
         margin-bottom: 20px;
+        height: 450px !important;
+    }
+
+    .carousel-container {
+        height: 500px !important;
     }
 
     .carousel-item{
+        height: 400px !important;
         margin: 0 auto;
         /* border-radius: 30px; */
+    }
+
+    .carousel-item img{
+       height: 400px;
     }
 
     .overlay:hover {
@@ -543,15 +554,19 @@
         display: grid;
         flex-direction: row;
         margin: 0, auto;
+        width: 100% !important;
+        height: 300px !important;
     }
 
     .imagem-planos {
         width: 100%;
+        margin: 0, auto;
     }
 
     #fundo-plano {
-        width: 100%;
-        height: auto;
+        width: 490px !important;
+        height: 300px !important;
+        margin: 0, 100px;
     }
 
     .logo-container {
@@ -576,74 +591,133 @@
     .atendimento {
         display: flex;
         justify-content: space-between;
-        align-items: flex-start; /* Alinhar ao topo, se desejado */
-        padding: 30px 50px 0 50px;
-        height: 350px; /* Ajuste a altura para permitir que o conteúdo se ajuste */
-        flex-wrap: wrap; /* Para permitir que os itens quebrem em telas menores */
+        padding: 20px 10px 20px 10px;
+        height: 200px;
     }
-    
-    .lado-esquerdo, .meio, .lado-direito {
-        width: 30%;
-        min-width: 250px; /* Defina um tamanho mínimo para cada coluna, se necessário */
+
+    .lado-esquerdo, .lado-direito {
+        width: 50%;
     }
-    
-    .lado-esquerdo h2, .lado-direito h2 {
-        font-size: 1.8em;
-        margin: 20px auto;
-        text-decoration: underline;
+
+    .lado-esquerdo {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lado-direito {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: left;
+        justify-content: left;
+    }
+
+    .lado-esquerdo h2, .lado-direito h2, .redes-sociais h2 {
+        font-size: 18px;
+        text-decoration: none;
+        margin-bottom: 10px;
     }
 
     .formas-contato .contato-item {
         display: flex;
+        flex-direction: row;
+        text-align: center;
         align-items: center;
-        margin-bottom: 10px;
+        margin: 0;
+        margin-bottom: 15px;
     }
-    
-    .formas-contato img {
-        width: 40px;
-        margin-right: 0px;
-    }
-    
-    .redes-sociais {
+
+    .contato-item a{
         display: flex;
-        margin-top: 20px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 12px;
     }
-    
-    .redes-sociais img {
-        width: 100px;
-        margin-right: 10px;
+
+    .formas-contato img {
+        width: 20px;
+        margin: 0;
     }
-    
+
+    .redes-sociais {
+        width: 450px;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        text-align: center;
+    }
+
+    .redes-sociais h2 {
+        margin-bottom: 20px;
+    }
+
+    #redes-icons {
+        display: flex;
+        gap: 10px;
+        margin: 0;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #redes-icons img {
+        margin: 0;
+        width: 20px;
+    }
+
     #meio-responsive {
         display: none;
+        height: 150px;
     }
-    
+
     .meio {
         display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
     }
-    
+
+    .meio img {
+        margin-bottom: 30px;
+    }
+
     .info-horario, .info-localizacao {
         display: flex;
         align-items: center;
-        margin-top: 20px;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10px;
+        font-size: 12px;
     }
-    
+
     .info-horario img, .info-localizacao img {
-        width: 30px;
-        margin-right: 10px;
+        display: none;
     }
-    
+
     a {
         color: white;
     }
-    
+
     a:hover {
         color: rgba(65, 87, 139);
     }
 
+    /* Rodapé */
+
     #footer-page {
-        width: 100%;
-        font-size: 8px;
+        background-color: rgb(30, 30, 30);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 3px;
+        font-size: 10px;
     }
 
 }
@@ -664,6 +738,11 @@
         font-size: 1.5rem;
     }
 
+    .info-horario #hour, .info-localizacao #local{
+        display: grid;
+        width: 20px;
+    }
+
 }
 
 @media screen and (min-width: 888px) {
@@ -676,6 +755,12 @@
 }
 
 @media screen and (min-width: 809px) and (max-width: 1070px) {
+
+    .info-horario #hour img, .info-localizacao #local img {
+        display: grid;
+        width: 20px;
+    }
+
 
      /* Seção Clientes */
     .cliente-secao {
@@ -747,13 +832,23 @@
 
 @media screen and (min-width: 1071px) {
 
+    #btn-topo {
+        bottom: 10px;
+        right: 5px;
+    }
+
     /* Seção Clientes */
    .cliente-secao {
        padding: 20px;
    }
    
+    .title-car {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+
    .titulo-secao, .titulo-carrossel {
-       font-size: 1.1em;
+       font-size: 25px;
    }
    
    .card {
@@ -782,15 +877,138 @@
         margin: 0;
         justify-content: center;
     }
+
+    /* Seção Atendimento */
+
+    .atendimento {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 70px 20px 70px;
+        height: 200px;
+    }
+
+    .lado-esquerdo, .lado-direito {
+        width: 50%;
+    }
+
+    .lado-direito {
+        align-items: right;
+        text-align: right;
+    }
+
+    .lado-esquerdo h2, .lado-direito h2, .redes-sociais h2 {
+        font-size: 20px;
+        text-decoration: none;
+    }
+
+    .formas-contato .contato-item {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        margin-bottom: 15px;
+    }
+
+    .contato-item a{
+        display: flex;
+        text-align: center;
+        align-items: center;
+    }
+
+    .formas-contato img {
+        width: 30px;
+        margin-right: 10px;
+    }
+
+    .redes-sociais {
+        width: 550px;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        text-align: center;
+    }
+
+    .redes-sociais h2 {
+        margin-bottom: 20px;
+    }
+
+    #redes-icons {
+        display: flex;
+        gap: 30px;
+        margin: 0;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #redes-icons img {
+        margin: 0;
+        width: 30px;
+    }
+
+    #meio-responsive {
+        display: none;
+        height: 150px;
+    }
+
+    .meio {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+    }
+
+    .meio img {
+        margin-bottom: 30px;
+    }
+
+    .info-horario, .info-localizacao {
+        display: flex;
+        align-items: right;
+        justify-content: end;
+        margin-top: 10px;
+    }
+
+    .info-horario img, .info-localizacao img {
+        width: 30px;
+        margin-left: 10px;
+    }
+
+    a {
+        color: white;
+    }
+
+    a:hover {
+        color: rgba(65, 87, 139);
+    }
+
+    /* Rodapé */
+
+    #footer-page {
+        background-color: rgb(30, 30, 30);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 5px;
+        font-size: 14px;
+    }
+
 }
 
 @media screen and (max-height: 600px) {
+
+    .info-horario #hour img, .info-localizacao #local img{
+        display: grid;
+        width: 20px;
+    }
 
     #btn-topo {
         position: fixed;
         align-items: center;
         text-align: center;
         font-size: 15px;
+        bottom: 5px;
         right: 10px;
     }
 
@@ -823,65 +1041,147 @@
 
     /* Seção Atendimento */
 
-    .lado-esquerdo h2, .lado-direito h2 {
-        font-size: 1.5em;
-        text-align: center;
+    .atendimento {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 10px 20px 10px;
+        height: 200px;
     }
 
-    .formas-contato {
-        margin: 0;
+    .lado-esquerdo, .lado-direito {
+        width: 50%;
+    }
+
+    .lado-esquerdo {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
         justify-content: center;
+    }
+
+    .lado-direito {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: left;
+        justify-content: left;
+    }
+
+    .lado-esquerdo h2, .lado-direito h2, .redes-sociais h2 {
+        font-size: 18px;
+        text-decoration: none;
+        margin-bottom: 10px;
+    }
+
+    .formas-contato .contato-item {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
         align-items: center;
+        margin: 0;
+        margin-bottom: 15px;
+    }
+
+    .contato-item a{
+        display: flex;
         text-align: center;
-        font-size: 0.9rem;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 12px;
     }
 
-    .contato-item {
-        width: 100%;
-    }
-
-    a {
-        width: 100%;
-    }
-
-    .lado-esquerdo h2, .lado-direito h2 {
-        font-size: 1.4em;
-        margin-bottom: 20px;
-        text-decoration: underline;
-        width: 200px;
-        text-align: center;
-    }
-
-    .formas-contato img, .redes-sociais img {
-        display: grid;
+    .formas-contato img {
         width: 20px;
-        align-items: center;
-        margin: 0 auto;
-        margin-bottom: 0px;
+        margin: 0;
     }
 
     .redes-sociais {
-        align-items: center;
+        width: 550px;
+        display: grid;
         justify-content: center;
-        margin: 20px auto 0;
+        align-items: center;
+        margin: 0;
+        text-align: center;
     }
 
-    .redes-sociais img {
-        height: 25px;
-        width: 25px;
-        margin: 0;
+    .redes-sociais h2 {
+        margin-bottom: 20px;
     }
-    
-    .redes-sociais a {
-        height: 25px;
-        width: 25px;
-        margin: 0 5px;
+
+    #redes-icons {
+        display: flex;
+        gap: 30px;
+        margin: 0;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #redes-icons img {
+        margin: 0;
+        width: 30px;
+    }
+
+    #meio-responsive {
+        display: none;
+        height: 150px;
+    }
+
+    .meio {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+    }
+
+    .meio img {
+        margin-bottom: 30px;
+    }
+
+    .info-horario, .info-localizacao {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10px;
+        font-size: 12px;
+    }
+
+    .info-horario img, .info-localizacao img {
+        display: none;
+    }
+
+    a {
+        color: white;
+    }
+
+    a:hover {
+        color: rgba(65, 87, 139);
+    }
+
+    /* Rodapé */
+
+    #footer-page {
+        background-color: rgb(30, 30, 30);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 3px;
+        font-size: 10px;
     }
 
 
 }
 
-@media screen and (min-height: 601px) and (max-height: 768px) {
+@media screen and (min-height: 601px) and (max-height: 632px) {
+
+    .info-horario #hour img, .info-localizacao #local img{
+        display: grid;
+        width: 20px;
+    }
 
     #btn-topo {
         position: fixed;

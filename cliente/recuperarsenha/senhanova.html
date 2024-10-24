@@ -56,7 +56,48 @@
         <!-- Botão para enviar o formulário -->
         <button id="button" type="submit">Redefinir</button>
 
+        <div id="message-container"></div> <!-- Div para mensagens -->
+
     </form>
-    <div id="message-container"></div> <!-- Div para mensagens -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.form_main'); // Seleciona o formulário
+            const messageContainer = document.getElementById('message-container');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Evita o envio padrão do formulário
+
+                const formData = new FormData(form);
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    messageContainer.innerHTML = ''; // Limpa mensagens anteriores
+                    if (data.error) {
+                        messageContainer.classList.add('error');
+                        messageContainer.innerHTML = data.error; // Exibe erro
+
+                        setTimeout(() => {
+                        messageContainer.innerHTML = '';
+                        messageContainer.classList.remove('error'); // Remove a classe de erro
+                    }, 5000); // 8000 milissegundos = 8 segundos
+                    } else if (data.success) {
+                        messageContainer.classList.remove('error');
+                        // Redirecionar após sucesso
+                        window.location.href = './senharedefinida.html';
+                    }
+                })
+                .catch(error => {
+                    messageContainer.classList.add('error');
+                    messageContainer.innerHTML = 'Erro na comunicação com o servidor.';
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>
