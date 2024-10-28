@@ -118,7 +118,7 @@ body {
     position: relative;
     overflow: hidden;
     width: 100%; /* Define a largura do container */
-    height: 750px; /* Define a altura do container */
+    height: 500px; /* Define a altura do container */
 }
 
 .highlight-carousel {
@@ -138,6 +138,7 @@ body {
     height: 100%;
     object-fit: cover;
     position: absolute; /* Faz as imagens se sobreporem */
+    filter: brightness(40%);
     top: 0;
     left: 0;
     opacity: 1; /* Inicialmente invisível */
@@ -149,26 +150,64 @@ body {
 }
 
 .highlight-over {
-    display: none;
+    display: flex;
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 5%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     color: white;
-    background-color: rgba(0, 0, 0, 0.349); /* Ajuste a opacidade se necessário */
+    background-color: rgba(19, 24, 35, 0.750); /* Ajuste a opacidade se necessário */
 }
 
 .highlight-text {
-    display: none;
+    display: flex;
+    flex-direction: column;
     font-size: 24px;
-    text-align: center;
-    opacity: 0; /* Inicialmente invisível */
+    text-align: left;
+    opacity: 1; /* Inicialmente invisível */
     transition: opacity 0.5s ease-in-out; /* Transição suave para a opacidade */
+    justify-content: end;
+}
+
+.highlight-text {
+    background-color: rgb(29, 34, 46, 0.7);
+    color: white; 
+    padding: 20px 10px; 
+    bottom: 200px;
+    left: 20px;
+    position: relative;
+    border-radius: 10px;
+    font-size: 1rem; 
+    max-width: 100%; 
+    width: 55%;
+    height: auto;
+    align-items: left;
+    /* clip-path: polygon(45% 0, 100% 0, 100% 100%, 0% 100%); */
+}
+
+.pagination {
+    display: flex;
+    gap: 10px;
+    background-color: rgb(19, 24, 35); 
+    margin-bottom: 10px;
+}
+
+.pagination-dot {
+    width: 30px;
+    height: 5px;
+    background-color: rgb(36, 56, 106);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.pagination-dot.active {
+    background-color: white;
 }
 
 .highlight-image {
@@ -177,16 +216,6 @@ body {
     margin-bottom: 20px;
     opacity: 0; /* Inicialmente invisível */
     transition: opacity 0.5s ease-in-out; /* Transição suave para a opacidade */
-}
-
-.highlight-over:hover {
-    background-color: rgba(0, 0, 0, 0.750);
-}
-
-.highlight-over:hover .highlight-text,
-.highlight-over:hover .highlight-image{
-    display: block;
-    opacity: 1;
 }
 
 /* Botão Orçamento */

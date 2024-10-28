@@ -33,13 +33,20 @@
     }
 
     .highlight-text {
-        font-size: 18px; /* Reduz o tamanho da fonte para telas menores */
+        font-size: 11px; /* Reduz o tamanho da fonte para telas menores */
+        bottom: 190px !important;
+        width: 70% !important;
     }
 
     .highlight-image {
         width: 80px; /* Ajusta o tamanho da imagem para telas menores */
     }
     
+    .pagination { 
+        margin-bottom: 5px !important;
+    }
+    
+
     /* Botão Orçamento */
     .add-orc {
         padding-top: 10px;
@@ -372,11 +379,17 @@
     }
 
     .highlight-text {
-        font-size: 18px; /* Reduz o tamanho da fonte para telas menores */
+        font-size: 11px; /* Reduz o tamanho da fonte para telas menores */
+        bottom: 140px !important;
+        width: 75% !important;
     }
 
     .highlight-image {
         width: 80px; /* Ajusta o tamanho da imagem para telas menores */
+    }
+    
+    .pagination { 
+        margin-bottom: 5px !important;
     }
     
     /* Botão Orçamento */
@@ -761,6 +774,23 @@
         width: 20px;
     }
 
+    .highlight-section {
+        height: 300px; /* Ajuste a altura conforme necessário */
+    }
+
+    .highlight-text {
+        font-size: 15px; /* Reduz o tamanho da fonte para telas menores */
+        bottom: 190px !important;
+        width: 70% !important;
+    }
+
+    .highlight-image {
+        width: 80px; /* Ajusta o tamanho da imagem para telas menores */
+    }
+    
+    .pagination { 
+        margin-bottom: 4px !important;
+    }
 
      /* Seção Clientes */
     .cliente-secao {
@@ -835,6 +865,24 @@
     #btn-topo {
         bottom: 10px;
         right: 5px;
+    }
+
+    .highlight-section {
+        height: 500px; /* Ajuste a altura conforme necessário */
+    }
+
+    .highlight-text {
+        font-size: 16px; /* Reduz o tamanho da fonte para telas menores */
+        bottom: 170px !important;
+        width: 70% !important;
+    }
+
+    .highlight-image {
+        width: 80px; /* Ajusta o tamanho da imagem para telas menores */
+    }
+    
+    .pagination { 
+        margin-bottom: 5px !important;
     }
 
     /* Seção Clientes */
@@ -1344,7 +1392,4 @@
         width: 25px;
         margin: 0 20px;
     }
-
-
-
 }

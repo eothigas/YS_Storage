@@ -1,215 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Verdana, sans-serif;
+    font-family: 'Inter';
+    color: white;
 }
 
 body {
     background-image: linear-gradient(to right, rgba(4, 9, 21, 1), rgba(23, 53, 123, 1), rgba(4, 9, 21, 1));
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-}
-
-#container {
-    display: flex;
     width: 100%;
-    max-width: 1200px;
-    border-radius: 30px;
+    height: 100dvh;
     overflow: hidden;
 }
 
-#caixa-esquerda, #caixa-direita {
-    flex: 1;
-    padding: 40px;
+a {
+    text-decoration: none;
+    color: white;
 }
 
-#caixa-esquerda {
+#container{
+    width: 80%;
+    height: 78vh;
     display: flex;
-    background-color: rgb(68, 68, 75);
-    color: white;
-    text-align: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
+    border-radius: 30px;
+    background-color: rgb(28, 33, 43);
+    position: relative;
+}
+
+#logo {
+    position: absolute;
+    right: 0;
+}
+
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 600px;
-}
-
-#caixa-esquerda h2 {
-    font-size: 40px;
-}
-
-#back:hover {
-    background-color: red;
-    color: black;
-}
-
-#caixa-direita {
-    position: relative;
-    display: grid;
-    background-color: rgb(20, 22, 27);
-    color: white;
+    margin: 0 auto;
     text-align: center;
-    font-size: 35px;
 }
 
-#image-error{
-    margin: auto auto;
+img {
+    margin-bottom: 35px;
 }
 
-@media screen and (max-width: 100px) {
-    body {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
+p {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 1340px) {
+
+    #caixa-esquerda {
+        display: none;
     }
+
+    .form {
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width: 601px) and (max-width: 1080px) {
 
     #container {
-        flex-direction: column;
-        width: 100%;
-        padding: 10px;
+        overflow: auto;
+        overflow-x: hidden;
     }
 
-    #caixa-esquerda, #caixa-direita {
-        width: 100%;
-        padding: 10px;
-    }
-
-    #caixa-esquerda h2 {
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
-}
-
-@media screen and (min-width: 300px) and (max-width: 449px) {
-    body {
-        flex-direction: column;
-        height: 800px;
-        padding: 20px;
-        position: relative; /* Para permitir o overlay do botão */
-    }
-
-    h2  {
-        font-size: 5px;
-        padding: 50px
-    }
-
-    p {
-        font-size: 20px;
-    }
-
-    #container {
-        flex-direction: column;
+    .form {
+        /* display: none; */
         width: 100%;
     }
 
-    #caixa-esquerda, #caixa-direita {
-        width: 100%;
-        padding: 20px;
-        margin: 0 auto;
-    }
-
-    #image-error {
+    .form img {
         width: 100px;
-        margin-top: 40px;
-        margin-bottom: 40px;
     }
 
-    #caixa-esquerda {
+    p {
         font-size: 20px;
-        padding: 0px;
-        margin: 0 auto;
     }
-
 }
 
-@media screen and (min-width: 450px) and (max-width: 767px) {
-    body {
-        flex-direction: column;
-        padding: 20px;
-        position: relative; /* Para permitir o overlay do botão */
+@media screen and (max-width: 600px) {
+
+    #container {
+        width: 90%;
+        height: 50%;
+        overflow: auto;
+        overflow-x: hidden;
     }
 
-    h2  {
-        font-size: 5px;
-        padding: 50px
+    form {
+        /* display: none; */
+        width: 100%;
     }
 
     p {
         font-size: 20px;
     }
 
-    #container {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    #caixa-esquerda, #caixa-direita {
-        width: 100%;
-        padding: 20px;
-    }
-
-    #image-error {
-        width: 150px;
-        margin-top: 40px;
-        margin-bottom: 40px;
-    }
-
 }
-
-/* Responsividade para 768px até 1200px */
-@media screen and (min-width: 768px) and (max-width: 1200px) {
-    body {
-        padding: 20px; /* Ajuste do padding */
-    }
-
-    #container {
-        flex-direction: row; /* Mantém a direção em linha */
-        width: 100%;
-        max-width: 1000px; /* Ajusta a largura máxima para se adaptar melhor */
-        padding: 20px;
-    }
-
-    #caixa-esquerda, #caixa-direita {
-        flex: 1; /* Ajusta o flex para uma divisão proporcional */
-        padding: 20px; /* Ajuste do padding */
-    }
-
-    #caixa-esquerda {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: rgb(68, 68, 75);
-        color: white;
-        text-align: center;
-        height: auto; /* Remove a altura fixa */
-        border-radius: 30px 0 0 30px;
-    }
-
-
-    #caixa-esquerda h2 {
-        font-size: 32px; /* Ajuste do tamanho da fonte */
-        margin-bottom: 20px; /* Ajusta o espaçamento inferior */
-    }
-
-    #caixa-direita {
-        background-color: rgb(20, 22, 27);
-        color: white;
-        text-align: center;
-        font-size: 24px; /* Ajusta o tamanho da fonte */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0 30px 30px 0;
-    }
-
-    #image-error {
-        margin: 20px auto; /* Centraliza a imagem */
-        width: 130px;
-    }
-
-}
-

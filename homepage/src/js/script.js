@@ -26,16 +26,61 @@ navIcon.addEventListener('click', () => {
     navIcon.classList.toggle('rotated'); // Adiciona/Remove a classe de rotação
 });
 
-// Passar imagens destaque 
-
 document.addEventListener('DOMContentLoaded', () => {
     const highlightImgs = document.querySelectorAll('.highlight-img');
+    const highlightText = document.querySelector('.highlight-text');
+    const pagination = document.querySelector('.pagination');
+    const intervalTime = 18000; // 18 segundos para cada imagem
+
+    const texts = [
+        { 
+            title: 'Gerenciamento de estoque seguro e organizado', 
+            paragraph: 'Controle o estoque de produtos e ativos físicos de sua empresa de maneira segura e organizada, garantindo a disponibilidade e o cuidado com os recursos essenciais para o seu negócio.' 
+        },
+        { 
+            title: 'Soluções Assertivas', 
+            paragraph: 'O sistema oferece funcionalidades para cadastrar, consultar, alterar e movimentar o estoque, além de gerenciar usuários com facilidade e precisão.' 
+        },
+        { 
+            title: 'Confiança e Qualidade', 
+            paragraph: 'Um bom gerenciamento de estoque é vital para qualquer empresa. A confiabilidade e qualidade nos processos garantem a eficiência e segurança dos serviços prestados.' 
+        }
+    ];
+
     let currentIndex = 0;
+    let interval;
+
+    function createPaginationDots() {
+        texts.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('pagination-dot');
+            if (index === currentIndex) dot.classList.add('active');
+            dot.addEventListener('click', () => showImage(index));
+            pagination.appendChild(dot);
+        });
+    }
+
+    function resetDotAnimation() {
+        document.querySelectorAll('.pagination-dot').forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+            // Remova a animação anterior e a animação de preenchimento
+            dot.style.animation = 'none'; // Remove a animação anterior
+            dot.offsetHeight; // Força o reflow para reiniciar a animação
+        });
+    }
 
     function showImage(index) {
         highlightImgs.forEach((img, i) => {
             img.style.opacity = i === index ? '1' : '0';
         });
+
+        highlightText.innerHTML = `
+            <h1>${texts[index].title}</h1>
+            <p>${texts[index].paragraph}</p>
+        `;
+
+        currentIndex = index;
+        resetDotAnimation();
     }
 
     function nextImage() {
@@ -43,11 +88,12 @@ document.addEventListener('DOMContentLoaded', () => {
         showImage(currentIndex);
     }
 
-    // Inicializa o carrossel mostrando a primeira imagem
+    // Inicializa o carrossel e cria a paginação
     showImage(currentIndex);
+    createPaginationDots();
 
-    // Troca de imagem a cada 10 segundos
-    setInterval(nextImage, 10000); // 10000 ms = 10 segundos
+    // Define o intervalo para troca automática das imagens e pontos
+    interval = setInterval(nextImage, intervalTime);
 });
 
 // Botão voltar ao Topo

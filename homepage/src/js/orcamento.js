@@ -1,3 +1,19 @@
+// Clique na página de plano (retorna o valor do select)
+document.addEventListener("DOMContentLoaded", function() {
+    // Obtém o plano selecionado do localStorage
+    const planoSelecionado = localStorage.getItem("planoSelecionado");
+
+    if (planoSelecionado) {
+        // Define o valor do <select> de acordo com o plano armazenado
+        const selectPlano = document.getElementById("question");
+        selectPlano.value = planoSelecionado;
+
+        // Limpa o localStorage para evitar seleção persistente em visitas futuras
+        localStorage.removeItem("planoSelecionado");
+    }
+});
+
+
 document.getElementById('mensagem').addEventListener('input', function () {
     const maxLength = this.getAttribute('maxlength');
     const currentLength = this.value.length;
@@ -9,15 +25,17 @@ document.getElementById('mensagem').addEventListener('input', function () {
 const selectElement = document.getElementById('question');
 const inputMessage = document.getElementById('input-message');
 const containerForm = document.getElementById('container');
+const boxLat = document.getElementById('caixa-esquerda');
 const inputGroup = document.querySelector('.input-group');
 const originalHeight = window.getComputedStyle(containerForm).height;
+const originalHeightLat = window.getComputedStyle(boxLat).height;
 
 // Função para atualizar a altura com base na largura da tela
 function updateContainerHeight() {
     const isSmallScreen = window.matchMedia("(max-width: 940px)").matches;
     
     // Se for uma tela pequena, aplica '75%' como altura, caso contrário, retorna a altura original
-    return isSmallScreen ? '75%' : originalHeight;
+    return isSmallScreen ? '95vh' : originalHeight;
 }
 
 // Atualizar a propriedade overflow-y da .input-group
@@ -41,10 +59,12 @@ selectElement.addEventListener('change', function() {
 
     if (this.value === 'duvidas_planos' || this.value === 'duvidas_sistemas' || this.value === 'outros_assuntos') {
         inputMessage.style.display = 'flex';
-        containerForm.style.height = isSmallScreen ? '85vh' : '95vh';
+        containerForm.style.height = isSmallScreen ? '95vh' : originalHeight;
+        boxLat.style.height = '100dvh';
     } else {
         inputMessage.style.display = 'none';
         containerForm.style.height = updateContainerHeight();
+        boxLat.style.height = originalHeightLat;
     }
     
     // Atualiza a propriedade overflow-y da .input-group com base na seleção
