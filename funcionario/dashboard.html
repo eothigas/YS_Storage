@@ -7,6 +7,7 @@
     <title>Your Storage - Home</title>
     <link rel="stylesheet" href="./src/css/dashboard.css">
     <link rel="stylesheet" href="./src/css/home/navbar.css">
+    <link rel="stylesheet" href="./src/css/home/sidebar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="./src/js/verify_session.js" type="text/javascript" defer></script>
 </head>
@@ -19,22 +20,47 @@
                 <i class="bi bi-layout-sidebar-inset" id="open-side"></i>
             </div>
             <nav id="sidebar">
-                <ul>
-                    <li>Home</li>
-                    <li>Cadastro</li>
-                    <li>Consulta</li>
-                    <li>Exportar</li>
+                <ul id="side_menu">
+                    <li>
+                        <span class="home-dash">
+                            <i class="bi bi-house home">Home</i>
+                        </span>
+                    </li>
+                    <li class="side_submenu" id="side_submenu">
+                        <span id="open_sub">
+                            <i class="bi bi-person-add register">Cadastro</i>
+                            <i class="bi bi-arrow-down-short down"></i>
+                        </span>
+                        <ul id="open-down-register">
+                            <li id="side-register"><i class="bi bi-person-badge">Funcionário</i></li>                
+                            <li id="side-register"><i class="bi bi-person">Cliente</i></li>
+                            <li id="side-register"><i class="bi bi-building">Storage</i></li>
+                            <li id="side-register"><i class="bi bi-buildings">Storage</i></li>
+                        </ul>
+                    </li>
+                    <li class="side_submenu" id="side_submenu_">
+                        <span id='open_sub_consult'>
+                            <i class="bi bi-person-vcard consult">Consultar</i>
+                            <i class="bi bi-arrow-down-short down"></i>
+                        </span>
+                        <ul id="open-down-consult">
+                            <li id="side-consult"><i class="bi bi-person-badge">Funcionário</i></li>
+                            <li id="side-consult"><i class="bi bi-person">Cliente</i></li>
+                            <li id="side-consult"><i class="bi bi-building">Empresa</i></li>
+                            <li id="side-consult"><i class="bi bi-buildings">Storage</i></li>
+                        </ul>
+                    </li>
+                    <li class="side_submenu">
+                        <span>
+                            <i class="bi bi-file-earmark-arrow-down export">Exportar</i>
+                        </span>
+                    </li>
                 </ul>
-            </nav>
-        </div>
-        <div id="right">
-            <div class="notifications">
-                <i class="bi bi-bell-fill"></i>
-            </div>
-            <div class="user-profile">
-                <img src="./src/images/user.jpg" alt="" id="img-profile">
-                <span id="username">Thiago Freitas</span>
-                <i class="bi bi-arrow-down-short" id="arrow"></i>
+                <div class="user-profile">
+                    <img src="./src/images/user.jpg" alt="" id="img-profile">
+                    <span id="username">Thiago Freitas</span>
+                    <i class="bi bi-arrow-right-short" id="arrow"></i>
+                </div>
                 <div class="modal-user">
                     <div class="account first">
                         <i class="bi bi-person-circle"></i>
@@ -49,6 +75,11 @@
                         <span class="user-account">Sair</span>
                     </div>
                 </div>
+            </nav>
+        </div>
+        <div id="right">
+            <div class="notifications">
+                <i class="bi bi-bell-fill"></i>
             </div>
         </div>
     </nav>
