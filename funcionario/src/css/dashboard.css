@@ -11,9 +11,15 @@ body {
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
+    color: white;
     width: 100%;
     height: 100vh;
     background-color: rgb(2, 21, 38);
+    overflow: hidden;
+}
+
+main {
+    margin-top: 60px;
 }
 
 

@@ -15,7 +15,7 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
+    position: absolute;
     gap: 15px;
     padding: 0 2px 0 0px;
     z-index: 1;
@@ -28,7 +28,7 @@
     margin: 0 ;
 }
 
-#left i {
+#left i::before, #left i::after {
     padding-left: 20px;
     font-size: 25px;
     width: 24px;
@@ -51,10 +51,11 @@
     height: 100dvh;
     margin-top: 42px;
     background-color: rgb(3, 52, 110);
+    transition: left 0.3s ease;
 }
 
-.open-side {
-    left: 0;
+.open-side-bar {
+    left: 0px;
 }
 
 #right {
