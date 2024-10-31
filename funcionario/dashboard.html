@@ -6,107 +6,59 @@
     <link rel="icon" href="./src/images/Logo_reduzido.svg" type="image/png">
     <title>Your Storage - Home</title>
     <link rel="stylesheet" href="./src/css/dashboard.css">
-    <link rel="stylesheet" href="./src/css/dashboard_responsive.css">
+    <link rel="stylesheet" href="./src/css/home/navbar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="./src/js/verify_session.js" type="text/javascript" defer></script>
 </head>
 <body>
- 
-    <div class="profile">
-        <img id="perfil-imagens" src="" alt="">
-        <div id="perfil-nome" class="profile-text">
-            <h2></h2>
-        </div>
-    </div>
-
-    <div class="logo-r">
-        <img src="./src/images/Logo_reduzido.svg" alt="Logo Reduzido">
-    </div>
     
-    <nav class="menu-lateral">
+    <nav id="navbar">
+        <div id="left">
+            <div class="icon-side">
+                <i class="bi bi-layout-sidebar" id="close-side"></i>
+                <i class="bi bi-layout-sidebar-inset" id="open-side"></i>
+            </div>
+            <nav id="sidebar">
+                <ul>
+                    <li>Home</li>
+                    <li>Cadastro</li>
+                    <li>Consulta</li>
+                    <li>Exportar</li>
+                </ul>
+            </nav>
+        </div>
+        <div id="right">
+            <div class="notifications">
+                <i class="bi bi-bell-fill"></i>
+            </div>
+            <div class="user-profile">
+                <img src="./src/images/user.jpg" alt="" id="img-profile">
+                <span id="username">Thiago Freitas</span>
+                <i class="bi bi-arrow-down-short" id="arrow"></i>
+                <div class="modal-user">
+                    <div class="account first">
+                        <i class="bi bi-person-circle"></i>
+                        <span class="user-account">Conta</span>
+                    </div>
+                    <div class="account mid">
+                        <i class="bi bi-gear"></i>
+                        <span class="user-account">Configurações</span>
+                    </div>
+                    <div class="account last">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span class="user-account">Sair</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
+    <!-- <nav class="menu-lateral">
         <div class="btn-expandir">
             <i class="bi bi-list" id="btn-exp"></i>
         </div>
+    </nav> -->
 
-        <ul id="cima">
-            <li class="item-menu">
-                <a href="">
-                    <span class="icon"><i class="bi bi-house-door"></i></span>
-                    <span class="txt-link">Home</span>
-                </a>    
-            </li>
-            <li class="item-menu" id="register">
-                <a>
-                    <span class="icon"><i class="bi bi-person-add"></i></span>
-                    <span class="txt-link">Cadastrar</span>
-                </a>
-                <ul class="submenu">
-                    <li><a href="./cadastro.php">Usuário</a></li><br>
-                    <li><a href="./cadastro_storage.php">Storage</a></li>
-                </ul>
-            </li>
-            <li class="item-menu" id='li-consulta'>
-                <a href="./consulta.html">
-                    <span class="icon"><i class="bi bi-person"></i></span>
-                    <span class="txt-link">Consultar Usuário</span>
-                </a>
-            </li>
-            <li class="item-menu">
-                <a href="./alterar.html">
-                    <span class="icon"><i class="bi bi-person-gear"></i></span>
-                    <span class="txt-link">Alterar Usuário</span>
-                </a>
-            </li>
-        </ul>
-
-        <ul id="baixo">
-            <hr>
-            <li class="item-footer1">
-                <a href="./profile.html">
-                    <img id="func_perfil" src="" alt="">
-                    <span class="txt-link">Perfil</span>
-                </a>
-            </li>
-            <li class="item-footer2">
-                <a id='logout'>
-                    <span class="icon"><i class="bi bi-box-arrow-right" id="logout"></i></span>
-                    <span class="txt-link-l">Sair</span>
-                </a>
-            </li>
-        </ul>
-
-    </nav>
-
-        <!-- Conteúdo Principal à Direita -->
-        <div class="main-content">
-            <!-- Cumprimento do Funcionário -->
-            <div class="welcome-message">
-                <h1 id="welcome-message">Olá!</h1>
-                <p>Bem-vindo à seção de funcionários - Your Storage!</p>
-            </div>
-    
-            <div class="user-info">
-                <h2>Usuários Cadastrados</h2>
-                <table id="total-usuarios">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Tipo</th>
-                            <th>Email</th>
-                            <th>Plano</th>
-                            <th>Empresa</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Linhas da tabela serão preenchidas pelo JavaScript -->
-                    </tbody>
-                </table>
-                <fontsize><em>*Mostrando Máximo 5 Usuários</em></fontsize>
-                <a href='./consulta.html'><button id="consultar-usuarios">Consultar Usuários</button></a>
-            </div>
-        </div>
-    </div>
     <script src="./src/js/dashboard.js" defer></script>
 </body>
 </html>
