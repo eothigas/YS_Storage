@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./src/css/dashboard.css">
     <link rel="stylesheet" href="./src/css/home/navbar.css">
     <link rel="stylesheet" href="./src/css/home/sidebar.css">
+    <link rel="stylesheet" href="./src/css/home/dash-main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="./src/js/verify_session.js" type="text/javascript" defer></script>
 </head>
@@ -34,7 +35,7 @@
                         <ul id="open-down-register">
                             <li id="side-register"><i class="bi bi-person-badge">Funcionário</i></li>                
                             <li id="side-register"><i class="bi bi-person">Cliente</i></li>
-                            <li id="side-register"><i class="bi bi-building">Storage</i></li>
+                            <li id="side-register"><i class="bi bi-building">Empresa</i></li>
                             <li id="side-register"><i class="bi bi-buildings">Storage</i></li>
                         </ul>
                     </li>
@@ -85,17 +86,81 @@
     </nav>
 
     <main>
-        <div>
-            <h2>Olá Mundo!</h2>
-            <p>Testando a main!</p>
+        <div id="home-dash">
+            <h2 id="title-cards">Dashboard</h2>
+            <div id="dash-cards">
+                <div id="card-workers" class="cards">
+                    <div class="dash-header">
+                        <i class="bi bi-person-badge header-title"><span>Funcionários</span></i>
+                        <div class="dash-info">
+                            <h4>Total</h4>
+                            <p>0</p>
+                        </div>
+                    </div>
+                    <img src="./src/images/Logo_reduzido.svg" alt="">
+                </div>
+                <div id="card-enterprise" class="cards">
+                    <div class="dash-header">
+                        <i class="bi bi-building header-title"><span>Empresas</span></i>
+                        <div class="dash-info">
+                            <h4>Total</h4>
+                            <p>0</p>
+                        </div>
+                    </div>
+                    <i class="bi bi-bar-chart-fill dash_icons"></i>
+                </div>
+
+                <div id="card-user" class="cards">
+                    <div class="dash-header">
+                        <i class="bi bi-person-circle header-title"><span>Clientes</span></i>
+                        <div class="dash-info">
+                            <h4>Total</h4>
+                            <p>0</p>
+                        </div>
+                    </div>
+                    <div id="user-graphic" class="dash_icons">
+                        <i class="bi bi-pie-chart"></i>
+                    </div>
+                </div>
+
+                <div id="card-storage" class="cards">
+                    <div class="dash-header">
+                        <i class="bi bi-buildings header-title"><span>Storages</span></i>
+                        <div class="dash-info">
+                            <h4>Total</h4>
+                            <p>0</p>
+                        </div>
+                    </div>
+                    <div id="storage-graphic" class="dash_icons">
+                        <i class="bi bi-pie-chart"></i>
+                    </div>
+                </div>
+            </div>
+            <h2 id="title-table">Empresas</h2>
+            <div id="dash-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Empresa</th>
+                            <th>Plano</th>
+                            <th>Clientes</th>
+                            <th>Storages</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="side-notification">
+            <h2 id="title-notifications">Notificações</h2>
+            <div id="notifications-area">
+                <i class="bi bi-info-circle info-notification">Sem notificações!</i>
+            </div>
         </div>
     </main>
-
-    <!-- <nav class="menu-lateral">
-        <div class="btn-expandir">
-            <i class="bi bi-list" id="btn-exp"></i>
-        </div>
-    </nav> -->
 
     <script src="./src/js/dashboard.js" defer></script>
 </body>
