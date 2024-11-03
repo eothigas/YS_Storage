@@ -3,11 +3,12 @@ const closeSide = document.getElementById('close-side');
 const openSide = document.getElementById('open-side');
 const sideBar = document.getElementById('sidebar');
 
-// Função para fechar o sidebar
+// Função para abrir o sidebar
 closeSide.onclick = function () {
     sideBar.style.left = '0'; // Mover o sidebar para a posição inicial
     closeSide.style.display = 'none'; // Oculta o ícone de fechar
     openSide.style.display = 'flex'; // Exibe o ícone de abrir
+    openSide.style.zIndex = '2'; // Exibe o ícone de abrir
 };
 
 // Função para abrir o sidebar
@@ -15,6 +16,7 @@ openSide.onclick = function () {
     sideBar.style.left = '-220px'; // Move o sidebar para fora da tela
     closeSide.style.display = 'flex'; // Exibe o ícone de fechar
     openSide.style.display = 'none'; // Oculta o ícone de abrir
+    openSide.style.zIndex = '1'; // Oculta o ícone de abrir
 };
 
 // Abrir configs de usuário

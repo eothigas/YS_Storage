@@ -37,12 +37,13 @@
     /* left: 0; */
     position: fixed;
     display: flex;
+    /* border: 1px solid red; */
     flex-direction: column;
     justify-content: space-between;
-    height: calc(100% - 60px);
+    height: 100dvh;
     overflow: hidden;
-    margin-top: 42px;
-    z-index: -1;
+    margin-top: -17px;
+    z-index: 1;
     background-color: rgb(3, 52, 110);
     transition: left 0.3s ease;
     overflow-y: auto;
@@ -63,6 +64,7 @@
     height: auto;
     gap: 10px;
     cursor: pointer;
+    margin-top: 60px;
 }
 
 #side_menu span {
