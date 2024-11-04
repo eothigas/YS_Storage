@@ -141,3 +141,7 @@ th, td {
 th {
     font-weight: bold;
 }
+
+.last-table {
+    margin-bottom: 20px;
+}

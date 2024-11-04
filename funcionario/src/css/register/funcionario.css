@@ -1,0 +1,114 @@
+main {
+    margin: 80px 0;
+}
+
+#register-table {
+    background-color: rgb(226, 226, 182);
+    color: rgb(3, 52, 110);
+    max-width: 900px;
+    justify-content: center;
+    align-items: center;
+    /* height: 100dvh; */
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 30px;
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+#register-table h2 {
+    margin-bottom: 20px;
+}
+
+.novo-funcionario {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.dropzone-area {
+    padding: 10px;
+    position: relative;
+    min-height: 2rem;
+    display: flex;
+    width: 536px;
+    font-size: 14px;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px dashed rgb(3, 52, 110);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropzone-area [type='file'] {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.file-info  {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#file-info-text {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-style: normal;
+}
+
+.name, .senha_funcionario {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 560px;
+    gap: 10px;
+}
+
+input.nome, input.sobrenome, input.senha, input.confirme-senha {
+    width: 255px;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 2px rgb(3, 52, 110, 0.7) solid;
+    color: rgb(3, 52, 110);
+    background-color: transparent;
+}
+
+input.identidade, input.contato, input.email {
+    width: 540px;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 2px rgb(3, 52, 110, 0.7) solid;
+    background-color: transparent;
+    color: rgb(3, 52, 110);
+}
+
+input:focus {
+    outline: none;
+}
+
+.btn-send {
+    width: 255px;
+    margin:  0 auto;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 2px rgb(3, 52, 110, 0.7) solid;
+    background-color: transparent;
+    color: rgb(3, 52, 110);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-send:hover {
+    background-color: rgb(3, 52, 110);
+    color: rgb(226, 226, 182);
+}
