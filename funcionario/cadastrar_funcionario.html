@@ -87,15 +87,15 @@
 
     <main>
        <div id="register-table">
-            <h2>Cadastrar Novo Funcionário</h2>
             <div class="space-register">
+                <h2>Cadastrar Novo Funcionário</h2>
                 <form action="" class="novo-funcionario">
                     <h4>Foto</h4>
                     <div class="dropzone-area">
                         <div class="file-upload-icon">
                             <!-- Aqui você pode adicionar um ícone, se quiser -->
                         </div>
-                        <input type="file" required id="upload-file" name="imagem" accept="image/*"/>
+                        <input type="file" required id="upload-file" name="imagem" accept="image/*" onchange="previewImage(event)"/>
                         <div class="file-info">
                             <img id="image-preview" style="display: none; width: 60px; height: 60px; margin-top: 0px; border-radius: 100%;" />
                             <i class="bi bi-image" id="file-info-text">Nenhuma imagem selecionada</i>
@@ -104,47 +104,88 @@
                     <div class="name">
                             <div class="name-input">
                                 <h4>Nome</h4>
-                                <input type="text" class="nome" placeholder="Digite o primeiro nome..." />
+                                <input type="text" class="nome" placeholder="Digite o primeiro nome..." oninput="updatePreview()" />
                             </div>
                             <div class="sobrenome-input">
                                 <h4>Sobrenome</h4>
-                                <input type="text" class="sobrenome" placeholder="Digite o segundo nome..."/>
+                                <input type="text" class="sobrenome" placeholder="Digite o segundo nome..." oninput="updatePreview()"/>
                             </div>
                     </div>
                     <div class="id">
                         <div class="identidade-input">
                             <h4>Identidade</h4>
-                            <input type="text" class="identidade" placeholder="RG ou CPF"/>
+                            <input type="text" class="identidade" placeholder="RG ou CPF" oninput="updatePreview()"/>
                         </div>
                     </div>
                     <div class="contact">
                         <div class="contato-input">
                             <h4>Contato</h4>
-                            <input type="text" class="contato" placeholder="(xx) xxxxx-xxxx" />
+                            <input type="text" class="contato" placeholder="(xx) xxxxx-xxxx" oninput="updatePreview()"/>
                         </div>
                     </div>
                     <div class="email-funcionario">
                         <div class="func-email">
                             <h4>Email</h4>
-                            <input type="email" class="email" placeholder="exemplo@email.com" />
+                            <input type="email" class="email" placeholder="exemplo@email.com" oninput="updatePreview()"/>
                         </div>
                     </div>
                     <div class="senha_funcionario">
                         <div class="senha-input">
                             <h4>Senha</h4>
-                            <input type="password" class="senha" />
+                            <div class="password">
+                                <input type="password" class="senha" maxlength="8" id="passwordInput"/>
+                                <i class="bi bi-eye-slash-fill" id="view"></i>
+                            </div>
+                            <div class="password-strength-container">
+                                <div class="password-strength" id="passwordStrength"></div>
+                                <span class="password-strength-text" id="passwordStrengthText"></span>
+                            </div>
                         </div>
                         <div class="confirm-input">
                             <h4>Confirme a Senha</h4>
-                            <input type="password" class="confirme-senha" />
+                            <div class="password">
+                                <input type="password" class="confirme-senha" />
+                                <i class="bi bi-eye-slash-fill" id="confirm"></i>
+                            </div>
                         </div>
                     </div>
                     <button type="submit" class="btn-send">Cadastrar Novo Funcionário</button>
                 </form>
             </div>
        </div>
+       <div class="register-information">
+        <h2>Prévia de Funcionário</h2>
+        <div id="card-register">
+            <div id="preview-account">
+                <div class="avatar">
+                    <h4>Avatar</h4>
+                    <i class="bi bi-person-badge" id='icon-image' style="font-size: 30px;"></i>
+                    <img id="avatar-preview" style="display: none; border: 2px solid rgb(226, 226, 182); border-radius: 50% ;width: 60px; height: 60px; border-radius: 100%;" />
+                </div>
+                <div class="name-account">
+                    <h4>Funcionário</h4>
+                    <p id="name-preview">Nome do Funcionário</p>
+                </div>
+                <div class="id-account">
+                    <h4>Identidade Funcionário</h4>
+                    <p id="id-preview">Identidade do Funcionário</p>
+                </div>
+                <div class="contact-account">
+                    <h4>Contato Funcionário</h4>
+                    <p id="contact-preview">Contato do Funcionário </p>
+                </div>
+                <div class="email-account">
+                    <h4>Email Funcionário</h4>
+                    <p id="email-preview">Email do Funcionário </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+       
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="./src/js/dashboard.js" defer></script>
     <script src="./src/js/cadastros.js" defer></script>
 </body>

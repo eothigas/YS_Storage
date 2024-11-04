@@ -1,27 +1,43 @@
 main {
-    margin: 80px 0;
+    margin: 70px auto;
+    gap: 20px !important;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90% !important;
+    justify-content: center !important;
+    /* flex-direction: column; */
 }
 
 #register-table {
     background-color: rgb(226, 226, 182);
     color: rgb(3, 52, 110);
-    max-width: 900px;
-    justify-content: center;
+    width: 60%;
+    justify-content: space-between;
     align-items: center;
-    /* height: 100dvh; */
-    margin: 0 auto;
-    margin-bottom: 20px;
+    height: 490px;
+    /* margin: 0 auto; */
+    /* margin-bottom: 20px; */
     padding: 30px;
     border-radius: 10px;
-    overflow-y: auto;
+    /* overflow-y: auto; */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px;
+    overflow: hidden;
 }
 
 #register-table h2 {
     margin-bottom: 20px;
 }
 
+.space-register {
+    width: 100%;
+}
+
 .novo-funcionario {
+    /* border: 1px blue solid; */
     display: flex;
+    width: 100%;
     flex-direction: column;
     gap: 10px;
     justify-content: center;
@@ -33,7 +49,7 @@ main {
     position: relative;
     min-height: 2rem;
     display: flex;
-    width: 536px;
+    width: 96.7%;
     font-size: 14px;
     text-align: center;
     justify-content: center;
@@ -70,12 +86,12 @@ main {
 .name, .senha_funcionario {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    width: 560px;
+    width: 100%;
     gap: 10px;
 }
 
 input.nome, input.sobrenome, input.senha, input.confirme-senha {
-    width: 255px;
+    width: 94.5%;
     padding: 5px 8px;
     border-radius: 5px;
     border: 2px rgb(3, 52, 110, 0.7) solid;
@@ -84,7 +100,7 @@ input.nome, input.sobrenome, input.senha, input.confirme-senha {
 }
 
 input.identidade, input.contato, input.email {
-    width: 540px;
+    width: 97.3%;
     padding: 5px 8px;
     border-radius: 5px;
     border: 2px rgb(3, 52, 110, 0.7) solid;
@@ -94,6 +110,58 @@ input.identidade, input.contato, input.email {
 
 input:focus {
     outline: none;
+}
+
+.password {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+#view, #confirm {
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+}
+
+.password-strength-container {
+    margin-top: 5px;
+}
+
+.password-strength {
+    height: 5px;
+    width: 100%;
+    background-color: rgb(226, 226, 182);
+    border-radius: 5px;
+    margin-top: 2px;
+}
+
+.password-strength span {
+    display: block;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.password-strength-text {
+    margin-top: 2px;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.strength-weak {
+    width: 33%;
+    background-color: red;
+}
+
+.strength-good {
+    width: 66%;
+    background-color: orange;
+}
+
+.strength-strong {
+    width: 100%;
+    background-color: green;
 }
 
 .btn-send {
@@ -111,4 +179,84 @@ input:focus {
 .btn-send:hover {
     background-color: rgb(3, 52, 110);
     color: rgb(226, 226, 182);
+}
+
+/* Infos de registro */
+
+.register-information {
+    /* border: 1px solid red; */
+    background-color: rgb(226, 226, 182);
+    height: 490px;
+    width: 28%;
+    margin: 0;
+    padding: 30px;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.register-information h2 {
+    margin: 30px 0 10px !important;
+    color: rgb(3, 52, 110);
+}
+
+#card-register {
+    border: 2px solid rgb(3, 52, 110);
+    border-radius: 5px;
+    width: 95%;
+    height: auto;
+    padding: 5px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#preview-account {
+    background-color: rgb(3, 52, 110);
+    color: rgb(226, 226, 182);
+    border-radius: 4px;
+    width: 100%;
+    height: 336px;
+    max-height: 420px;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+@media screen and (min-width: 700px) and (max-width: 1365px) {
+    
+    #register-table {
+        flex-direction: column;
+        width: 90%;
+        height: 110%;
+        margin: 0 auto 10px auto;
+        padding: 15px;
+        gap: 20px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .register-information {
+        width: 87%;
+        height: 385px;
+    }
+
+    .register-information h2 {
+        margin: 0 0 10px !important;
+    }
+
+    #card-register {
+        width: 90%;
+        height: 87%;
+        margin: 0 auto;
+    }
+
+    #preview-account {
+        width: 100%;
+        height: 94%;
+        padding: 10px 0;
+    }
+
 }
