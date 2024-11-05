@@ -32,7 +32,7 @@ main {
     width: 100%;
 }
 
-.novo-funcionario {
+.novo-cliente {
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -79,20 +79,30 @@ main {
     font-style: normal;
 }
 
-.name, .senha_funcionario {
+.name, .senha_cliente, .enterprise {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
     gap: 10px;
 }
 
-input.nome, input.sobrenome, input.senha, input.confirme-senha {
+input.nome, input.sobrenome, input.senha, input.confirme-senha, input.empresa {
     width: 94.5%;
     padding: 5px 8px;
     border-radius: 5px;
     border: 2px rgb(226, 226, 182) solid;
     color: rgb(226, 226, 182);
     background-color: transparent;
+}
+
+select {
+    width: 100%;
+    height: 59%;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 2px rgb(226, 226, 182) solid;
+    color: rgb(226, 226, 182);
+    background-color: rgb(3, 52, 110);
 }
 
 input.identidade, input.contato, input.email {
@@ -104,7 +114,7 @@ input.identidade, input.contato, input.email {
     color: rgb(226, 226, 182);
 }
 
-input:focus {
+input:focus, select:focus {
     outline: none;
 }
 

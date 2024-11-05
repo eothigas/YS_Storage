@@ -122,4 +122,3 @@ function updatePreview() {
     document.getElementById('contact-preview').innerText = contato;
     document.getElementById('email-preview').innerText = email;
 }
-

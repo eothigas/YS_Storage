@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./src/images/Logo_reduzido.svg" type="image/png">
+    <title>Your Storage - Novo Cliente</title>
+    <link rel="stylesheet" href="./src/css/dashboard.css">
+    <link rel="stylesheet" href="./src/css/home/navbar.css">
+    <link rel="stylesheet" href="./src/css/home/sidebar.css">
+    <link rel="stylesheet" href="./src/css/register/cliente.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="./src/js/verify_session.js" type="text/javascript" defer></script>
+</head>
+<body>
+    
+    <nav id="navbar">
+        <div id="left">
+            <div class="icon-side">
+                <i class="bi bi-layout-sidebar" id="close-side"></i>
+                <i class="bi bi-layout-sidebar-inset" id="open-side"></i>
+            </div>
+            <nav id="sidebar">
+                <ul id="side_menu">
+                    <li>
+                        <span class="home-dash">
+                            <i class="bi bi-house home">Home</i>
+                        </span>
+                    </li>
+                    <li class="side_submenu" id="side_submenu">
+                        <span id="open_sub">
+                            <i class="bi bi-person-add register">Cadastro</i>
+                            <i class="bi bi-arrow-down-short down"></i>
+                        </span>
+                        <ul id="open-down-register">
+                            <li id="side-register"><i class="bi bi-person-badge">Funcionário</i></li>                
+                            <li id="side-register"><i class="bi bi-person">Cliente</i></li>
+                            <li id="side-register"><i class="bi bi-building">Empresa</i></li>
+                            <li id="side-register"><i class="bi bi-buildings">Storage</i></li>
+                        </ul>
+                    </li>
+                    <li class="side_submenu" id="side_submenu_">
+                        <span id='open_sub_consult'>
+                            <i class="bi bi-person-vcard consult">Consultar</i>
+                            <i class="bi bi-arrow-down-short down"></i>
+                        </span>
+                        <ul id="open-down-consult">
+                            <li id="side-consult"><i class="bi bi-person-badge">Funcionário</i></li>
+                            <li id="side-consult"><i class="bi bi-person">Cliente</i></li>
+                            <li id="side-consult"><i class="bi bi-building">Empresa</i></li>
+                            <li id="side-consult"><i class="bi bi-buildings">Storage</i></li>
+                        </ul>
+                    </li>
+                    <li class="side_submenu">
+                        <span>
+                            <i class="bi bi-file-earmark-arrow-down export">Exportar</i>
+                        </span>
+                    </li>
+                </ul>
+                <div class="user-profile">
+                    <img src="./src/images/user.jpg" alt="" id="img-profile">
+                    <span id="username">Thiago Freitas</span>
+                    <i class="bi bi-arrow-right-short" id="arrow"></i>
+                </div>
+                <div class="modal-user">
+                    <div class="account first">
+                        <i class="bi bi-person-circle"></i>
+                        <span class="user-account">Conta</span>
+                    </div>
+                    <div class="account mid">
+                        <i class="bi bi-gear"></i>
+                        <span class="user-account">Configurações</span>
+                    </div>
+                    <div class="account last">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span class="user-account">Sair</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div id="right">
+            <div class="notifications">
+                <i class="bi bi-bell-fill"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+       <div id="register-table">
+            <div class="space-register">
+                <h2>Cadastrar Novo Cliente</h2>
+                <form action="" class="novo-cliente">
+                    <div class="name">
+                        <div class="name-input">
+                            <h4>Nome</h4>
+                            <input type="text" class="nome" placeholder="Digite o primeiro nome..." oninput="updatePreview()" />
+                        </div>
+                        <div class="sobrenome-input">
+                            <h4>Sobrenome</h4>
+                            <input type="text" class="sobrenome" placeholder="Digite o segundo nome..." oninput="updatePreview()"/>
+                        </div>
+                    </div>
+                    <div class="id">
+                        <div class="identidade-input">
+                            <h4>Identidade</h4>
+                            <input type="text" class="identidade" placeholder="RG ou CPF" oninput="updatePreview()"/>
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <div class="contato-input">
+                            <h4>Contato</h4>
+                            <input type="text" class="contato" placeholder="(xx) xxxxx-xxxx" oninput="updatePreview()"/>
+                        </div>
+                    </div>
+                    <div class="enterprise">
+                        <div class="enterprise-input">
+                            <h4>Empresa</h4>
+                            <input type="text" class="empresa" oninput="updatePreview()"/>
+                        </div>
+                        <div class="enterprise-input">
+                            <h4>Tipo</h4>
+                            <select class="enterprise-select" oninput="updatePreview()">
+                                <option value="">Selecione uma opção</option>
+                                <option value="administrador">Administrador</option>
+                                <option value="estoquista">Estoquista</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="email-cliente">
+                        <div class="func-email">
+                            <h4>Email</h4>
+                            <input type="email" class="email" placeholder="exemplo@email.com" oninput="updatePreview()"/>
+                        </div>
+                    </div>
+                    <div class="senha_cliente">
+                        <div class="senha-input">
+                            <h4>Senha</h4>
+                            <div class="password">
+                                <input type="password" class="senha" maxlength="8" id="passwordInput"/>
+                                <i class="bi bi-eye-slash-fill" id="view"></i>
+                            </div>
+                            <div class="password-strength-container">
+                                <div class="password-strength" id="passwordStrength"></div>
+                                <span class="password-strength-text" id="passwordStrengthText"></span>
+                            </div>
+                        </div>
+                        <div class="confirm-input">
+                            <h4>Confirme a Senha</h4>
+                            <div class="password">
+                                <input type="password" class="confirme-senha" />
+                                <i class="bi bi-eye-slash-fill" id="confirm"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-send">Cadastrar Novo Cliente</button>
+                </form>
+            </div>
+       </div>
+       <div class="register-information">
+        <h2>Prévia de Cliente</h2>
+        <div id="card-register">
+            <div id="preview-account">
+                <div class="name-account">
+                    <h4>Cliente</h4>
+                    <p id="name-preview">Nome do Cliente</p>
+                </div>
+                <div class="id-account">
+                    <h4>Identidade Cliente</h4>
+                    <p id="id-preview">Identidade do Cliente</p>
+                </div>
+                <div class="contact-account">
+                    <h4>Contato Cliente</h4>
+                    <p id="contact-preview">Contato do Cliente </p>
+                </div>
+                <div class="enterprise-account">
+                    <h4>Empresa</h4>
+                    <p id="enterprise-preview">Empresa do Cliente</p>
+                </div>
+                <div class="type-account">
+                    <h4>Tipo Cliente</h4>
+                    <p id="type-preview">Tipo do Cliente</p>
+                </div>
+                <div class="email-account">
+                    <h4>Email Cliente</h4>
+                    <p id="email-preview">Email do Cliente</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+       
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="./src/js/dashboard.js" defer></script>
+    <script src="./src/js/cadastro_cliente.js" defer></script>
+</body>
+</html>
