@@ -76,9 +76,13 @@
     align-items: center;
 }
 
+#side_menu span:hover {
+    color: rgb(3, 52, 110);
+}
+
 .side_submenu span:hover {
     background-color: rgb(226, 226, 182);
-    color: rgb(3, 52, 110);
+    color: rgb(3, 52, 110) !important;
 }
 
 .down {
@@ -94,7 +98,7 @@
     font-size: 20px;
     margin-left: 10px;
     font-style: normal;
-    align-items: center;
+    /* align-items: center; */
     gap: 10px;
 }
 
@@ -117,16 +121,33 @@
 }
 
 .home-dash:hover,
-.export:hover {
+.export-dash:hover {
+    color: rgb(3, 52, 110);
     background-color: rgb(226, 226, 182);
+}
+
+.home-dash:hover a {
     color: rgb(3, 52, 110);
 }
+
+.export-dash:hover a {
+    color: rgb(3, 52, 110);
+}
+
 
 #side-register:hover, 
 #side-consult:hover {
     background-color: rgb(226, 226, 182);
     color: rgb(3, 52, 110);
     border-radius: 5px;
+}
+
+#side-register:hover a {    
+    color: rgb(3, 52, 110);
+}
+
+#side-consult:hover a {    
+    color: rgb(3, 52, 110);
 }
 
 #side-register i, #side-consult i {

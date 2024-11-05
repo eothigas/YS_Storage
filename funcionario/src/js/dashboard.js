@@ -86,6 +86,9 @@ function hideConsultSubMenu() {
 // Evento de clique para exibir ou ocultar o submenu de registro
 openSubRegister.addEventListener("click", (event) => {
     event.stopPropagation();
+
+    hideConsultSubMenu();
+
     if (openDownRegister.classList.contains("show")) {
         hideRegisterSubMenu();
     } else {
@@ -96,6 +99,9 @@ openSubRegister.addEventListener("click", (event) => {
 // Evento de clique para exibir ou ocultar o submenu de consulta
 openSubConsult.addEventListener("click", (event) => {
     event.stopPropagation();
+
+    hideRegisterSubMenu();
+    
     if (openDownConsult.classList.contains("show")) {
         hideConsultSubMenu();
     } else {

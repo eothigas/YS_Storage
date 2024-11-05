@@ -28,4 +28,9 @@ main {
     /* overflow: hidden; */
 }
 
+a {
+    text-decoration: none;
+    color: rgb(226, 226, 182);
+}
+
 
