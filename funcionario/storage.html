@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./src/images/Logo_reduzido.svg" type="image/png">
+    <title>Your Storage - Novo Storage</title>
+    <link rel="stylesheet" href="./src/css/dashboard.css">
+    <link rel="stylesheet" href="./src/css/home/navbar.css">
+    <link rel="stylesheet" href="./src/css/home/sidebar.css">
+    <link rel="stylesheet" href="./src/css/register/storage.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="./src/js/verify_session.js" type="text/javascript" defer></script>
+</head>
+<body>
+    
+    <nav id="navbar">
+        <div id="left">
+            <div class="icon-side">
+                <i class="bi bi-layout-sidebar" id="close-side"></i>
+                <i class="bi bi-layout-sidebar-inset" id="open-side"></i>
+            </div>
+            <nav id="sidebar">
+                <ul id="side_menu">
+                    <li>
+                        <span class="home-dash">
+                            <i class="bi bi-house home">Home</i>
+                        </span>
+                    </li>
+                    <li class="side_submenu" id="side_submenu">
+                        <span id="open_sub">
+                            <i class="bi bi-person-add register">Cadastro</i>
+                            <i class="bi bi-arrow-down-short down"></i>
+                        </span>
+                        <ul id="open-down-register">
+                            <li id="side-register"><i class="bi bi-person-badge">Funcionário</i></li>                
+                            <li id="side-register"><i class="bi bi-person">Cliente</i></li>
+                            <li id="side-register"><i class="bi bi-building">Empresa</i></li>
+                            <li id="side-register"><i class="bi bi-buildings">Storage</i></li>
+                        </ul>
+                    </li>
+                    <li class="side_submenu" id="side_submenu_">
+                        <span id='open_sub_consult'>
+                            <i class="bi bi-person-vcard consult">Consultar</i>
+                            <i class="bi bi-arrow-down-short down"></i>
+                        </span>
+                        <ul id="open-down-consult">
+                            <li id="side-consult"><i class="bi bi-person-badge">Funcionário</i></li>
+                            <li id="side-consult"><i class="bi bi-person">Cliente</i></li>
+                            <li id="side-consult"><i class="bi bi-building">Empresa</i></li>
+                            <li id="side-consult"><i class="bi bi-buildings">Storage</i></li>
+                        </ul>
+                    </li>
+                    <li class="side_submenu">
+                        <span>
+                            <i class="bi bi-file-earmark-arrow-down export">Exportar</i>
+                        </span>
+                    </li>
+                </ul>
+                <div class="user-profile">
+                    <img src="./src/images/user.jpg" alt="" id="img-profile">
+                    <span id="username">Thiago Freitas</span>
+                    <i class="bi bi-arrow-right-short" id="arrow"></i>
+                </div>
+                <div class="modal-user">
+                    <div class="account first">
+                        <i class="bi bi-person-circle"></i>
+                        <span class="user-account">Conta</span>
+                    </div>
+                    <div class="account mid">
+                        <i class="bi bi-gear"></i>
+                        <span class="user-account">Configurações</span>
+                    </div>
+                    <div class="account last">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span class="user-account">Sair</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div id="right">
+            <div class="notifications">
+                <i class="bi bi-bell-fill"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+       <div id="register-table">
+            <div class="space-register">
+                <h2>Cadastrar Novo Storage</h2>
+                <form action="" class="novo-storage">
+                    <h4>Foto</h4>
+                    <div class="dropzone-area">
+                        <div class="file-upload-icon">
+                            <!-- Aqui você pode adicionar um ícone, se quiser -->
+                        </div>
+                        <input type="file" required id="upload-file" name="imagem" accept="image/*" onchange="previewImage(event)"/>
+                        <div class="file-info">
+                            <img id="image-preview" style="display: none; width: 60px; height: 60px; margin-top: 0px; border-radius: 100%;" />
+                            <i class="bi bi-image" id="file-info-text">Nenhuma imagem selecionada</i>
+                        </div>
+                    </div>
+                    <div class="name">
+                        <div class="name-input">
+                            <h4>Nome</h4>
+                            <input type="text" class="nome" placeholder="Digite o nome do storage..." oninput="updatePreview()" />
+                        </div>
+                        <div class="storage-enterprise-input">
+                            <h4>Empresa</h4>
+                            <select class="storage-enterprise" onchange="updateEmpresaPreview()">
+                                <option value="">Selecione uma opção</option>
+                                <option value="Ondev">Ondev</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="adress">
+                        <div class="adress-input">
+                            <h4>Endereço</h4>
+                            <input type="text" class="adress-storage" placeholder="Rua Exemplo, 1234 - Cidade - Estado" oninput="updatePreview()"/>
+                        </div>
+                    </div>
+                    <div class="measures">
+                        <div class="height-input">
+                            <h4>Altura</h4>
+                            <input type="text" class="altura" placeholder="-- Metros --" oninput="updatePreview()" />
+                        </div>
+                        <div class="width-input">
+                            <h4>Largura</h4>
+                            <input type="text" class="largura" placeholder="-- Metros --" oninput="updatePreview()" />
+                        </div>
+                        <div class="length-input">
+                            <h4>Comprimento</h4>
+                            <input type="text" class="comprimento" placeholder="-- Metros --" oninput="updatePreview()" />
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-send">Cadastrar Novo Storage</button>
+                </form>
+            </div>
+       </div>
+       <div class="register-information">
+        <h2>Prévia do Storage</h2>
+        <div id="card-register">
+            <div id="preview-account">
+                <div class="img-storage">
+                    <h4>Foto</h4>
+                    <i class="bi bi-buildings" id='icon-image' style="font-size: 30px;"></i>
+                    <img id="avatar-preview" style="display: none; border: 2px solid rgb(226, 226, 182); border-radius: 50% ;width: 60px; height: 60px; border-radius: 100%;" />
+                </div>
+                <div class="name-account">
+                    <h4>Nome Storage</h4>
+                    <p id="name-preview">Nome do Storage</p>
+                </div>
+                <div class="storage-enterprise-account">
+                    <h4>Empresa</h4>
+                    <p id="storage-preview">Empresa</p>
+                </div>
+                <div class="adress-account">
+                    <h4>Endereço Storage</h4>
+                    <p id="adress-preview">Endereço do Storage</p>
+                </div>
+                <div class="height-storage">
+                    <h4>Altura Storage</h4>
+                    <p id="height-preview">Altura do Storage</p>
+                </div>
+                <div class="width-storage">
+                    <h4>Largura Storage</h4>
+                    <p id="width-preview">Largura do Storage</p>
+                </div>
+                <div class="length-storage">
+                    <h4>Comprimento Storage</h4>
+                    <p id="length-preview">Comprimento do Storage</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+       
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="./src/js/dashboard.js" defer></script>
+    <script src="./src/js/cadastro_storage.js" defer></script>
+</body>
+</html>
