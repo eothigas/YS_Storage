@@ -1,0 +1,268 @@
+main {
+    margin: 70px auto;
+    gap: 20px !important;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90% !important;
+    justify-content: center !important;
+    /* flex-direction: column; */
+}
+
+#register-table {
+    background-color: rgb(3, 52, 110);
+    color: rgb(226, 226, 182);
+    width: 58%;
+    justify-content: space-between;
+    align-items: center;
+    height: 490px;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px;
+    overflow: hidden;
+    border: 2px solid rgb(226, 226, 182);
+}
+
+#register-table h2 {
+    margin-bottom: 20px;
+}
+
+.space-register {
+    width: 100%;
+}
+
+.nova-empresa {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.dropzone-area {
+    padding: 10px;
+    position: relative;
+    min-height: 2rem;
+    display: flex;
+    width: 96.7%;
+    font-size: 14px;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px dashed rgb(226, 226, 182);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropzone-area [type='file'] {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.file-info  {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#file-info-text {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-style: normal;
+}
+
+.name, .adress {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    gap: 10px;
+}
+
+input.nome, input.sobrenome, input.adress-enterprise {
+    width: 94.5%;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 2px rgb(226, 226, 182) solid;
+    color: rgb(226, 226, 182);
+    background-color: transparent;
+}
+
+select {
+    width: 100%;
+    height: 59%;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 2px rgb(226, 226, 182) solid;
+    color: rgb(226, 226, 182);
+    background-color: rgb(3, 52, 110);
+}
+
+input.identidade, input.contato, input.email {
+    width: 97.3%;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 2px rgb(226, 226, 182) solid;
+    background-color: transparent;
+    color: rgb(226, 226, 182);
+}
+
+input:focus, select:focus {
+    outline: none;
+}
+
+.password {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+#view, #confirm {
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+}
+
+.password-strength-container {
+    margin-top: 5px;
+}
+
+.password-strength {
+    height: 5px;
+    width: 100%;
+    background-color: rgb(3, 52, 110);
+    border-radius: 5px;
+    margin-top: 2px;
+}
+
+.password-strength span {
+    display: block;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.password-strength-text {
+    margin-top: 2px;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.strength-weak {
+    width: 33%;
+    background-color: red;
+}
+
+.strength-good {
+    width: 66%;
+    background-color: orange;
+}
+
+.strength-strong {
+    width: 100%;
+    background-color: green;
+}
+
+.btn-send {
+    width: 255px;
+    margin:  0 auto;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 2px rgb(226, 226, 182) solid;
+    background-color: transparent;
+    color: rgb(226, 226, 182);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-send:hover {
+    background-color: rgb(226, 226, 182);
+    color: rgb(3, 52, 110);
+}
+
+/* Infos de registro */
+
+.register-information {
+    border: 2px solid rgb(226, 226, 182);
+    background-color: rgb(226, 226, 182);
+    height: 530px;
+    width: 28%;
+    margin: 0;
+    padding: 10px 30px;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.register-information h2 {
+    margin: 0px 0 10px !important;
+    color: rgb(3, 52, 110);
+}
+
+#card-register {
+    border: 2px solid rgb(3, 52, 110);
+    border-radius: 5px;
+    width: 95%;
+    height: 90%;
+    padding: 5px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#preview-account {
+    background-color: rgb(3, 52, 110);
+    color: rgb(226, 226, 182);
+    border-radius: 4px;
+    width: 100%;
+    height: 437px;
+    max-height: 437px;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+@media screen and (min-width: 700px) and (max-width: 1365px) {
+    
+    #register-table {
+        flex-direction: column;
+        width: 90%;
+        height: 110%;
+        margin: 0 auto 10px auto;
+        padding: 15px;
+        gap: 20px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .register-information {
+        width: 87%;
+        height: 500px;
+    }
+
+    .register-information h2 {
+        margin: 0 0 10px !important;
+    }
+
+    #card-register {
+        width: 90%;
+        height: 90%;
+        margin: 0 auto;
+    }
+
+    #preview-account {
+        width: 100%;
+        height: 95.5%;
+        padding: 10px 0;
+    }
+
+}
