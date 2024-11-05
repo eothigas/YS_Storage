@@ -118,58 +118,6 @@ input:focus, select:focus {
     outline: none;
 }
 
-.password {
-    display: flex;
-    position: relative;
-    align-items: center;
-}
-
-#view, #confirm {
-    position: absolute;
-    right: 5px;
-    cursor: pointer;
-}
-
-.password-strength-container {
-    margin-top: 5px;
-}
-
-.password-strength {
-    height: 5px;
-    width: 100%;
-    background-color: rgb(3, 52, 110);
-    border-radius: 5px;
-    margin-top: 2px;
-}
-
-.password-strength span {
-    display: block;
-    height: 100%;
-    border-radius: 5px;
-}
-
-.password-strength-text {
-    margin-top: 2px;
-    display: block;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.strength-weak {
-    width: 33%;
-    background-color: red;
-}
-
-.strength-good {
-    width: 66%;
-    background-color: orange;
-}
-
-.strength-strong {
-    width: 100%;
-    background-color: green;
-}
-
 .btn-send {
     width: 255px;
     margin:  0 auto;
