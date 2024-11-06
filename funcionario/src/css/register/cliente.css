@@ -8,6 +8,63 @@ main {
     /* flex-direction: column; */
 }
 
+.notification {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    min-width: 22rem;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(1.6rem);
+    animation: fade-in 5s linear;
+    opacity: 0;
+    visibility: ;
+    z-index: 1;
+    justify-content: center;
+}
+
+.notification_body {
+    display: flex;
+    align-items: center; 
+    gap: 10px;
+    justify-content: center;
+}
+
+.notification_body i{
+    display: flex;
+    font-style: normal;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification--success {
+    background-color: green;    
+}
+
+.notification--error {
+    background-color: red;    
+}
+
+.notification--alert {
+    background-color: rgb(255, 165, 0, 0.8);    
+}
+
+
+@keyframes fade-in {
+    5% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    95% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
 #register-table {
     background-color: rgb(3, 52, 110);
     color: rgb(226, 226, 182);
@@ -22,6 +79,7 @@ main {
     gap: 0px;
     overflow: hidden;
     border: 2px solid rgb(226, 226, 182);
+    position: relative;
 }
 
 #register-table h2 {

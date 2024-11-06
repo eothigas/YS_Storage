@@ -22,20 +22,20 @@
             </div>
             <nav id="sidebar">
                 <ul id="side_menu">
-                    <li>
+                    <a href="../dashboard.html"><li>
                         <span class="home-dash">
-                            <a href="../dashboard.html"><i class="bi bi-house home">Home</i></a>
+                            <i class="bi bi-house home">Home</i>
                         </span>
-                    </li>
+                    </li></a>
                     <li class="side_submenu" id="side_submenu">
                         <span id="open_sub">
                             <i class="bi bi-person-add register">Cadastro</i>
                             <i class="bi bi-arrow-down-short down"></i>
                         </span>
                         <ul id="open-down-register">
-                            <li id="side-register"><a href="funcionario.html"><i class="bi bi-person-badge">Funcionário</i></a></li>                                
+                            <li id="side-register"><a href="funcionario.html"><i class="bi bi-person-badge">Funcionário</i></a></li>
+                            <li id="side-register"><a href="empresa.html"><i class="bi bi-building">Empresa</i></a></li>                                
                             <li id="side-register"><a href="cliente.html"><i class="bi bi-person">Cliente</i></a></li>
-                            <li id="side-register"><a href="empresa.html"><i class="bi bi-building">Empresa</i></a></li>
                             <li id="side-register"><a href="storage.html"><i class="bi bi-buildings">Storage</i></a></li>
                         </ul>
                     </li>
@@ -46,21 +46,27 @@
                         </span>
                         <ul id="open-down-consult">
                             <li id="side-consult"><i class="bi bi-person-badge">Funcionário</i></li>
-                            <li id="side-consult"><i class="bi bi-person">Cliente</i></li>
                             <li id="side-consult"><i class="bi bi-building">Empresa</i></li>
+                            <li id="side-consult"><i class="bi bi-person">Cliente</i></li>
                             <li id="side-consult"><i class="bi bi-buildings">Storage</i></li>
                         </ul>
                     </li>
                     <li class="side_submenu">
-                        <span>
+                        <span id='export-page'>
                             <i class="bi bi-file-earmark-arrow-down export">Exportar</i>
                         </span>
                     </li>
                 </ul>
-                <div class="user-profile">
+            </nav>
+        </div>
+        <div id="right">
+            <div class="notifications">
+                <i class="bi bi-bell-fill"></i>
+            </div>
+            <div class="user-profile">
                     <img src="../src/images/user.jpg" alt="" id="img-profile">
                     <span id="username">Thiago Freitas</span>
-                    <i class="bi bi-arrow-right-short" id="arrow"></i>
+                    <i class="bi bi-arrow-down-short" id="arrow"></i>
                 </div>
                 <div class="modal-user">
                     <div class="account first">
@@ -71,25 +77,24 @@
                         <i class="bi bi-gear"></i>
                         <span class="user-account">Configurações</span>
                     </div>
-                    <div class="account last">
+                    <div class="account last" id='logout-btn'>
                         <i class="bi bi-box-arrow-right"></i>
                         <span class="user-account">Sair</span>
                     </div>
                 </div>
-            </nav>
-        </div>
-        <div id="right">
-            <div class="notifications">
-                <i class="bi bi-bell-fill"></i>
-            </div>
         </div>
     </nav>
 
     <main>
        <div id="register-table">
             <div class="space-register">
+                <div class='notification' style='display: none;'>
+                    <div class='notification_body'>
+                        <!-- JS -->
+                    </div>
+                </div>
                 <h2>Cadastrar Novo Storage</h2>
-                <form action="" class="novo-storage">
+                <form action="../php/cadastro/storage.php" method='POST' class="novo-storage">
                     <h4>Foto</h4>
                     <div class="dropzone-area">
                         <div class="file-upload-icon">
@@ -104,11 +109,11 @@
                     <div class="name">
                         <div class="name-input">
                             <h4>Nome</h4>
-                            <input type="text" class="nome" placeholder="Digite o nome do storage..." oninput="updatePreview()" />
+                            <input type="text" class="nome" name='nome' placeholder="Digite o nome do storage..." oninput="updatePreview()" />
                         </div>
                         <div class="storage-enterprise-input">
                             <h4>Empresa</h4>
-                            <select class="storage-enterprise" onchange="updateEmpresaPreview()">
+                            <select class="storage-enterprise" name='empresa' onchange="updateEmpresaPreview()">
                                 <option value="">Selecione uma opção</option>
                                 <option value="Ondev">Ondev</option>
                             </select>
@@ -117,21 +122,21 @@
                     <div class="adress">
                         <div class="adress-input">
                             <h4>Endereço</h4>
-                            <input type="text" class="adress-storage" placeholder="Rua Exemplo, 1234 - Cidade - Estado" oninput="updatePreview()"/>
+                            <input type="text" class="adress-storage" name='endereco' placeholder="Rua Exemplo, 1234 - Cidade - Estado" oninput="updatePreview()"/>
                         </div>
                     </div>
                     <div class="measures">
                         <div class="height-input">
                             <h4>Altura</h4>
-                            <input type="text" class="altura" placeholder="-- Metros --" oninput="updatePreview()" />
+                            <input type="text" class="altura" name='altura' placeholder="-- Metros --" oninput="updatePreview()" />
                         </div>
                         <div class="width-input">
                             <h4>Largura</h4>
-                            <input type="text" class="largura" placeholder="-- Metros --" oninput="updatePreview()" />
+                            <input type="text" class="largura" name='largura' placeholder="-- Metros --" oninput="updatePreview()" />
                         </div>
                         <div class="length-input">
                             <h4>Comprimento</h4>
-                            <input type="text" class="comprimento" placeholder="-- Metros --" oninput="updatePreview()" />
+                            <input type="text" class="comprimento" name='comprimento' placeholder="-- Metros --" oninput="updatePreview()" />
                         </div>
                     </div>
                     <button type="submit" class="btn-send">Cadastrar Novo Storage</button>
@@ -180,6 +185,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="../src/js/dashboard.js" defer></script>
-    <script src="../src/js/cadastro_storage.js" defer></script>
+    <script src="../src/js/cadastro/cadastro_storage.js" defer></script>
+    <script src="../src/js/modal-user.js" defer></script>
 </body>
 </html>

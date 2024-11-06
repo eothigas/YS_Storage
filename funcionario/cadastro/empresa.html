@@ -22,20 +22,20 @@
             </div>
             <nav id="sidebar">
                 <ul id="side_menu">
-                    <li>
+                    <a href="../dashboard.html"><li>
                         <span class="home-dash">
-                            <a href="../dashboard.html"><i class="bi bi-house home">Home</i></a>
+                            <i class="bi bi-house home">Home</i>
                         </span>
-                    </li>
+                    </li></a>
                     <li class="side_submenu" id="side_submenu">
                         <span id="open_sub">
                             <i class="bi bi-person-add register">Cadastro</i>
                             <i class="bi bi-arrow-down-short down"></i>
                         </span>
                         <ul id="open-down-register">
-                            <li id="side-register"><a href="funcionario.html"><i class="bi bi-person-badge">Funcionário</i></a></li>                                
+                            <li id="side-register"><a href="funcionario.html"><i class="bi bi-person-badge">Funcionário</i></a></li>
+                            <li id="side-register"><a href="empresa.html"><i class="bi bi-building">Empresa</i></a></li>                                
                             <li id="side-register"><a href="cliente.html"><i class="bi bi-person">Cliente</i></a></li>
-                            <li id="side-register"><a href="empresa.html"><i class="bi bi-building">Empresa</i></a></li>
                             <li id="side-register"><a href="storage.html"><i class="bi bi-buildings">Storage</i></a></li>
                         </ul>
                     </li>
@@ -46,21 +46,27 @@
                         </span>
                         <ul id="open-down-consult">
                             <li id="side-consult"><i class="bi bi-person-badge">Funcionário</i></li>
-                            <li id="side-consult"><i class="bi bi-person">Cliente</i></li>
                             <li id="side-consult"><i class="bi bi-building">Empresa</i></li>
+                            <li id="side-consult"><i class="bi bi-person">Cliente</i></li>
                             <li id="side-consult"><i class="bi bi-buildings">Storage</i></li>
                         </ul>
                     </li>
                     <li class="side_submenu">
-                        <span>
+                        <span id='export-page'>
                             <i class="bi bi-file-earmark-arrow-down export">Exportar</i>
                         </span>
                     </li>
                 </ul>
-                <div class="user-profile">
+            </nav>
+        </div>
+        <div id="right">
+            <div class="notifications">
+                <i class="bi bi-bell-fill"></i>
+            </div>
+            <div class="user-profile">
                     <img src="../src/images/user.jpg" alt="" id="img-profile">
                     <span id="username">Thiago Freitas</span>
-                    <i class="bi bi-arrow-right-short" id="arrow"></i>
+                    <i class="bi bi-arrow-down-short" id="arrow"></i>
                 </div>
                 <div class="modal-user">
                     <div class="account first">
@@ -71,25 +77,24 @@
                         <i class="bi bi-gear"></i>
                         <span class="user-account">Configurações</span>
                     </div>
-                    <div class="account last">
+                    <div class="account last" id='logout-btn'>
                         <i class="bi bi-box-arrow-right"></i>
                         <span class="user-account">Sair</span>
                     </div>
                 </div>
-            </nav>
-        </div>
-        <div id="right">
-            <div class="notifications">
-                <i class="bi bi-bell-fill"></i>
-            </div>
         </div>
     </nav>
 
     <main>
        <div id="register-table">
             <div class="space-register">
+                <div class='notification' style='display: none;'>
+                    <div class='notification_body'>
+                        <!-- JS -->
+                    </div>
+                </div>
                 <h2>Cadastrar Nova Empresa</h2>
-                <form action="" class="nova-empresa">
+                <form action="../php/cadastro/empresa.php" method="POST" class="nova-empresa" enctype="multipart/form-data">
                     <h4>Logo</h4>
                     <div class="dropzone-area">
                         <div class="file-upload-icon">
@@ -101,30 +106,33 @@
                             <i class="bi bi-image" id="file-info-text">Nenhuma imagem selecionada</i>
                         </div>
                     </div>
+                    
                     <div class="name">
                         <div class="name-input">
                             <h4>Razão Social</h4>
-                            <input type="text" class="nome" placeholder="Digite o primeiro nome..." oninput="updatePreview()" />
+                            <input type="text" name="razao" class="nome" placeholder="Digite a razão social..." required />
                         </div>
                         <div class="sobrenome-input">
                             <h4>Nome Fantasia</h4>
-                            <input type="text" class="sobrenome" placeholder="Digite o segundo nome..." oninput="updatePreview()"/>
+                            <input type="text" name="fantasia" class="sobrenome" placeholder="Digite o nome fantasia..." />
                         </div>
                     </div>
+                    
                     <div class="id">
                         <div class="identidade-input">
                             <h4>Identidade</h4>
-                            <input type="text" class="identidade" placeholder="CPF ou CNPJ" oninput="updatePreview()"/>
+                            <input type="text" name="identidade" class="identidade" placeholder="CPF ou CNPJ" required />
                         </div>
                     </div>
+                    
                     <div class="adress">
                         <div class="adress-input">
                             <h4>Endereço</h4>
-                            <input type="text" class="adress-enterprise" placeholder="Rua Exemplo, 1234 - Cidade - Estado" oninput="updatePreview()"/>
+                            <input type="text" name="endereco" class="adress-enterprise" placeholder="Rua Exemplo, 1234 - Cidade - Estado" required />
                         </div>
                         <div class="plan-input">
                             <h4>Plano</h4>
-                            <select class="plan-select" oninput="updatePreview()">
+                            <select name="plano" class="plan-select" required>
                                 <option value="">Selecione uma opção</option>
                                 <option value="Básico">Básico</option>
                                 <option value="Logístico">Logístico</option>
@@ -132,18 +140,21 @@
                             </select>
                         </div>
                     </div>
+                    
                     <div class="contact">
                         <div class="contato-input">
                             <h4>Contato</h4>
-                            <input type="text" class="contato" placeholder="(xx) xxxxx-xxxx" oninput="updatePreview()"/>
+                            <input type="text" name="contato" class="contato" placeholder="(xx) xxxxx-xxxx" required />
                         </div>
                     </div>
+                    
                     <div class="email-cliente">
                         <div class="func-email">
                             <h4>Email</h4>
-                            <input type="email" class="email" placeholder="exemplo@email.com" oninput="updatePreview()"/>
+                            <input type="email" name="email" class="email" placeholder="exemplo@email.com" required />
                         </div>
                     </div>
+                    
                     <button type="submit" class="btn-send">Cadastrar Nova Empresa</button>
                 </form>
             </div>
@@ -190,6 +201,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="../src/js/dashboard.js" defer></script>
-    <script src="../src/js/cadastro_empresa.js" defer></script>
+    <script src="../src/js/cadastro/cadastro_empresa.js" defer></script>
+    <script src="../src/js/modal-user.js" defer></script>
 </body>
 </html>

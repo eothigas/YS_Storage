@@ -25,6 +25,7 @@
 .icon-side {
     display: flex;
     position: relative;
+    color: rgb(226, 226, 182);
 }
 
 #open-side {
@@ -76,6 +77,10 @@
     align-items: center;
 }
 
+#open_sub, #open_sub_consult, #export-page {
+    color: rgb(226, 226, 182);
+}
+
 #side_menu span:hover {
     color: rgb(3, 52, 110);
 }
@@ -118,20 +123,13 @@
     display: flex;
     max-height: 200px;
     opacity: 1;
+    color: rgb(226, 226, 182);
 }
 
 .home-dash:hover,
 .export-dash:hover {
     color: rgb(3, 52, 110);
     background-color: rgb(226, 226, 182);
-}
-
-.home-dash:hover a {
-    color: rgb(3, 52, 110);
-}
-
-.export-dash:hover a {
-    color: rgb(3, 52, 110);
 }
 
 
@@ -159,130 +157,4 @@
     /* justify-content: center; */
     text-align: left;
     padding: 8px 5px;
-}
-
-/* Perfil */
-.user-profile {
-    display: flex;
-    gap: 10px;
-    background-color: rgb(226, 226, 182);
-    color: rgb(71, 111, 141);
-    padding: 5px;
-    width: 95%;
-    max-height: 30px;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 700;
-    margin-top: 30px;
-    cursor: default;
-}
-
-.user-profile span {
-    text-wrap: nowrap;
-    overflow: hidden;
-}
-
-.user-profile #arrow {
-    font-size: 23px;
-    background-color: rgb(3, 52, 110);
-    border-radius: 10px;
-    width: 26px;
-    height: 25px;
-    text-align: center;
-    color: rgb(226, 226, 182);
-    cursor: pointer;
-}
-
-#arrow {
-    transition: transform 0.3s ease;
-}
-
-.rotate {
-    transform: rotate(180deg);
-}
-
-.user-profile img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
-
-.modal-user {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    z-index: 2;
-    bottom: 0;
-    left: 223px;
-    /* border: px solid rgb(3, 52, 110); */
-    width: 198px;
-    border-radius: 10px;
-    background-color: rgb(226, 226, 182);
-    /* gap: 10px; */
-    cursor: pointer;
-}
-
-.first {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    padding: 10px 10px;
-    border-radius: 7px 7px 0 0;
-    border-bottom: 2px rgb(3, 52, 110) solid;
-    color: rgb(3, 52, 110)
-}
-
-.mid {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    padding: 10px 10px;
-    color: rgb(3, 52, 110)
-}
-
-.first i, .mid i {
-    font-size: 20px;
-}
-
-.first:hover, 
-.mid:hover, 
-.last:hover {
-    background-color: rgb(3, 52, 110);
-    color: rgb(226, 226, 182);
-}
-
-.last {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    padding: 10px 10px;
-    border-radius: 0px 0px 7px 7px;
-    border-top: 2px rgb(3, 52, 110) solid;
-    color: rgb(3, 52, 110)
-}
-
-.logout-btn {
-    display: flex;
-    align-items: center;
-    padding: 5px 10px;
-    font-style: normal;
-    gap: 10px;
-    width: 80px;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-    background-color: rgb(226, 226, 182);
-    color: rgb(71, 111, 141);
-    font-weight: 700;
-}
-
-.logout-btn i {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-style: normal;
-    color: rgb(71, 111, 141);
-    font-weight: bold;
 }

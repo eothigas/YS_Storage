@@ -22,20 +22,20 @@
             </div>
             <nav id="sidebar">
                 <ul id="side_menu">
-                    <li>
+                    <a href="../dashboard.html"><li>
                         <span class="home-dash">
-                            <a href="../dashboard.html"><i class="bi bi-house home">Home</i></a>
+                            <i class="bi bi-house home">Home</i>
                         </span>
-                    </li>
+                    </li></a>
                     <li class="side_submenu" id="side_submenu">
                         <span id="open_sub">
                             <i class="bi bi-person-add register">Cadastro</i>
                             <i class="bi bi-arrow-down-short down"></i>
                         </span>
                         <ul id="open-down-register">
-                            <li id="side-register"><a href="funcionario.html"><i class="bi bi-person-badge">Funcionário</i></a></li>                                
+                            <li id="side-register"><a href="funcionario.html"><i class="bi bi-person-badge">Funcionário</i></a></li>
+                            <li id="side-register"><a href="empresa.html"><i class="bi bi-building">Empresa</i></a></li>                                
                             <li id="side-register"><a href="cliente.html"><i class="bi bi-person">Cliente</i></a></li>
-                            <li id="side-register"><a href="empresa.html"><i class="bi bi-building">Empresa</i></a></li>
                             <li id="side-register"><a href="storage.html"><i class="bi bi-buildings">Storage</i></a></li>
                         </ul>
                     </li>
@@ -46,21 +46,27 @@
                         </span>
                         <ul id="open-down-consult">
                             <li id="side-consult"><i class="bi bi-person-badge">Funcionário</i></li>
-                            <li id="side-consult"><i class="bi bi-person">Cliente</i></li>
                             <li id="side-consult"><i class="bi bi-building">Empresa</i></li>
+                            <li id="side-consult"><i class="bi bi-person">Cliente</i></li>
                             <li id="side-consult"><i class="bi bi-buildings">Storage</i></li>
                         </ul>
                     </li>
                     <li class="side_submenu">
-                        <span>
+                        <span id='export-page'>
                             <i class="bi bi-file-earmark-arrow-down export">Exportar</i>
                         </span>
                     </li>
                 </ul>
-                <div class="user-profile">
+            </nav>
+        </div>
+        <div id="right">
+            <div class="notifications">
+                <i class="bi bi-bell-fill"></i>
+            </div>
+            <div class="user-profile">
                     <img src="../src/images/user.jpg" alt="" id="img-profile">
                     <span id="username">Thiago Freitas</span>
-                    <i class="bi bi-arrow-right-short" id="arrow"></i>
+                    <i class="bi bi-arrow-down-short" id="arrow"></i>
                 </div>
                 <div class="modal-user">
                     <div class="account first">
@@ -71,55 +77,56 @@
                         <i class="bi bi-gear"></i>
                         <span class="user-account">Configurações</span>
                     </div>
-                    <div class="account last">
+                    <div class="account last" id='logout-btn'>
                         <i class="bi bi-box-arrow-right"></i>
                         <span class="user-account">Sair</span>
                     </div>
                 </div>
-            </nav>
-        </div>
-        <div id="right">
-            <div class="notifications">
-                <i class="bi bi-bell-fill"></i>
-            </div>
         </div>
     </nav>
 
     <main>
        <div id="register-table">
             <div class="space-register">
+                <div class='notification' style='display: none;'>
+                    <div class='notification_body'>
+                        <!-- JS -->
+                    </div>
+                </div>
                 <h2>Cadastrar Novo Cliente</h2>
-                <form action="" class="novo-cliente">
+                <form action="../php/cadastro/cliente.php" method="POST" class="novo-cliente">
                     <div class="name">
                         <div class="name-input">
                             <h4>Nome</h4>
-                            <input type="text" class="nome" placeholder="Digite o primeiro nome..." oninput="updatePreview()" />
+                            <input type="text" class="nome" placeholder="Digite o primeiro nome..." oninput="updatePreview()" name="nome" />
                         </div>
                         <div class="sobrenome-input">
                             <h4>Sobrenome</h4>
-                            <input type="text" class="sobrenome" placeholder="Digite o segundo nome..." oninput="updatePreview()"/>
+                            <input type="text" class="sobrenome" placeholder="Digite o segundo nome..." oninput="updatePreview()" name="sobrenome"/>
                         </div>
                     </div>
                     <div class="id">
                         <div class="identidade-input">
                             <h4>Identidade</h4>
-                            <input type="text" class="identidade" placeholder="RG ou CPF" oninput="updatePreview()"/>
+                            <input type="text" class="identidade" placeholder="RG ou CPF" oninput="updatePreview()" name="identidade"/>
                         </div>
                     </div>
                     <div class="contact">
                         <div class="contato-input">
                             <h4>Contato</h4>
-                            <input type="text" class="contato" placeholder="(xx) xxxxx-xxxx" oninput="updatePreview()"/>
+                            <input type="text" class="contato" placeholder="(xx) xxxxx-xxxx" oninput="updatePreview()" name="contato"/>
                         </div>
                     </div>
                     <div class="enterprise">
                         <div class="enterprise-input">
                             <h4>Empresa</h4>
-                            <input type="text" class="empresa" oninput="updatePreview()"/>
+                            <select class="empresa" oninput="updatePreview()" name="empresa">
+                                <!-- As opções serão inseridas aqui via JavaScript -->
+                            </select>
                         </div>
                         <div class="enterprise-input">
                             <h4>Tipo</h4>
-                            <select class="enterprise-select" oninput="updatePreview()">
+                            <select class="enterprise-select" oninput="updatePreview()" name="tipo">
                                 <option value="">Selecione uma opção</option>
                                 <option value="administrador">Administrador</option>
                                 <option value="estoquista">Estoquista</option>
@@ -129,14 +136,14 @@
                     <div class="email-cliente">
                         <div class="func-email">
                             <h4>Email</h4>
-                            <input type="email" class="email" placeholder="exemplo@email.com" oninput="updatePreview()"/>
+                            <input type="email" class="email" placeholder="exemplo@email.com" oninput="updatePreview()" name="email"/>
                         </div>
                     </div>
                     <div class="senha_cliente">
                         <div class="senha-input">
                             <h4>Senha</h4>
                             <div class="password">
-                                <input type="password" class="senha" maxlength="8" id="passwordInput"/>
+                                <input type="password" class="senha" maxlength="8" oninput="updatePreview()" name="senha" id="passwordInput"/>
                                 <i class="bi bi-eye-slash-fill" id="view"></i>
                             </div>
                             <div class="password-strength-container">
@@ -147,7 +154,7 @@
                         <div class="confirm-input">
                             <h4>Confirme a Senha</h4>
                             <div class="password">
-                                <input type="password" class="confirme-senha" />
+                                <input type="password" class="confirme-senha" oninput="updatePreview()" name="confirme_senha"/>
                                 <i class="bi bi-eye-slash-fill" id="confirm"></i>
                             </div>
                         </div>
@@ -193,6 +200,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="../src/js/dashboard.js" defer></script>
-    <script src="../src/js/cadastro_cliente.js" defer></script>
+    <script src="../src/js/cadastro/cadastro_cliente.js" defer></script>
+    <script src="../src/js/modal-user.js" defer></script>
 </body>
 </html>

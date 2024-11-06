@@ -46,7 +46,7 @@ document.addEventListener('mousemove', resetInactivityTimer); // Se mover o mous
 document.addEventListener('keypress', resetInactivityTimer); // Se teclar any tecla (estando com a guia selecionada)
 
 // Adiciona ouvintes de eventos para o botão de logout (botão de sair no menu-lateral)
-const logoutButton = document.getElementById('logout');
+const logoutButton = document.getElementById('logout-btn');
 if (logoutButton) {
     logoutButton.addEventListener('click', handleLogout); // Chama a função handleLogout
 }
