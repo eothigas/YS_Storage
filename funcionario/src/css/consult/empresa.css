@@ -97,6 +97,27 @@ th {
     font-weight: bold;
 }
 
+.btn-danger {
+    margin-left: 5px;
+    background-color: rgb(255, 0, 0, 0.7);
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: rgb(255, 0, 0, 0.5);
+}
+
+.btn-primary:hover {
+    background-color: rgb(255, 255, 255, 0.5);
+}
+
+.btn-danger, .btn-primary {
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
 .pagination {
     text-align: right;
     margin-top: 5px;

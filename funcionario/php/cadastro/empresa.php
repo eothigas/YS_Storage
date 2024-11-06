@@ -5,6 +5,7 @@ $host = $config['database']['host'];
 $dbname = $config['database']['dbname'];
 $user = $config['database']['user'];
 $password = $config['database']['password'];
+$imgurClientId = $config['imgur']['client_id'];
 
 header('Content-Type: application/json');
 
@@ -14,7 +15,6 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $logo = trim($_POST['logo']);
         $razao = trim($_POST['razao']);
         $fantasia = trim($_POST['fantasia']);
         $identidade = trim($_POST['identidade']);
@@ -22,6 +22,7 @@ try {
         $plano = trim($_POST['plano']);
         $contato = trim($_POST['contato']);
         $email = trim($_POST['email']);
+        $imagemPath = null; // Inicializando o caminho da imagem
 
         // Verifica se a identidade é única
         $stmt = $pdo->prepare("SELECT id FROM empresa WHERE identidade = :identidade");
@@ -33,9 +34,41 @@ try {
             exit();
         }
 
+        // Processa o upload da imagem para o IMGUR
+        if (!empty($_FILES["logo"]["name"])) {  
+            $imagemData = file_get_contents($_FILES["logo"]["tmp_name"]); 
+
+            // Faz o upload para o IMGUR
+            $url = "https://api.imgur.com/3/image";
+            $headers = [
+                "Authorization: Client-ID $imgurClientId",
+                "Content-Type: application/json"
+            ];
+            $postFields = json_encode(['image' => $base64]);
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec($ch);
+            curl_close($ch);
+
+            // Decodifica a resposta do IMGUR
+            $responseData = json_decode($response, true);
+            if (isset($responseData['data']['link'])) {
+                $imagemPath = $responseData['data']['link'];
+            } else {
+                echo json_encode(["status" => "error", "message" => "Erro ao fazer upload da imagem no IMGUR."]);
+                exit();
+            }
+        }
+
         // Insere os dados no banco de dados
-        $stmt = $pdo->prepare("INSERT INTO empresa (logo, razao, fantasia, identidade, endereco, plano, contato, emaill, data_criacao, data_atualizacao) VALUES (:logo, :razao, :fantasia, :identidade, :endereco, :plano, :contato, :emaill, NOW(), NOW())");
-        $stmt->bindParam(':logo', $logo);
+        $stmt = $pdo->prepare("INSERT INTO empresa (logo, razao, fantasia, identidade, endereco, plano, contato, emaill, data_criacao, data_atualizacao) 
+                               VALUES (:imagem, :razao, :fantasia, :identidade, :endereco, :plano, :contato, :emaill, NOW(), NOW())");
+        $stmt->bindParam(':imagem', $imagemPath);
         $stmt->bindParam(':razao', $razao);
         $stmt->bindParam(':fantasia', $fantasia);
         $stmt->bindParam(':identidade', $identidade);
