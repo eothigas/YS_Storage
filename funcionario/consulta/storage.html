@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../src/images/Logo_reduzido.svg" type="image/png">
+    <title>Your Storage - Consulta Storage</title>
+    <link rel="stylesheet" href="../src/css/consult/storage.css">
+    <link rel="stylesheet" href="../src/css/home/navbar.css">
+    <link rel="stylesheet" href="../src/css/home/sidebar.css">
+    <link rel="stylesheet" href="../src/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="../src/js/verify_session.js" type="text/javascript" defer></script>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div id="left">
+            <div class="icon-side">
+                <i class="bi bi-layout-sidebar" id="close-side"></i>
+                <i class="bi bi-layout-sidebar-inset" id="open-side"></i>
+            </div>
+            <nav id="sidebar">
+                <ul id="side_menu">
+                    <a href="../dashboard.html"><li>
+                        <span class="home-dash">
+                            <i class="bi bi-house home">Home</i>
+                        </span>
+                    </li></a>
+                    <li class="side_submenu" id="side_submenu">
+                        <span id="open_sub">
+                            <i class="bi bi-person-add register">Cadastro</i>
+                            <i class="bi bi-arrow-down-short down"></i>
+                        </span>
+                        <ul id="open-down-register">
+                            <li id="side-register"><a href="../cadastro/funcionario.html"><i class="bi bi-person-badge">Funcionário</i></a></li>
+                            <li id="side-register"><a href="../cadastro/empresa.html"><i class="bi bi-building">Empresa</i></a></li>                                
+                            <li id="side-register"><a href="../cadastro/cliente.html"><i class="bi bi-person">Cliente</i></a></li>
+                            <li id="side-register"><a href="../cadastro/storage.html"><i class="bi bi-buildings">Storage</i></a></li>
+                        </ul>
+                    </li>
+                    <li class="side_submenu" id="side_submenu_">
+                        <span id='open_sub_consult'>
+                            <i class="bi bi-person-vcard consult">Consultar</i>
+                            <i class="bi bi-arrow-down-short down"></i>
+                        </span>
+                        <ul id="open-down-consult">
+                            <li id="side-consult"><a href="funcionario.html"><i class="bi bi-person-badge">Funcionário</i></a></li>
+                            <li id="side-consult"><a href="empresa.html"><i class="bi bi-building">Empresa</i></a></li>
+                            <li id="side-consult"><a href="cliente.html"><i class="bi bi-person">Cliente</i></a></li>
+                            <li id="side-consult"><a href="storage.html"><i class="bi bi-buildings">Storage</i></a></li>
+                        </ul>
+                    </li>
+                    <li class="side_submenu">
+                        <span id='export-page'>
+                            <i class="bi bi-file-earmark-arrow-down export">Exportar</i>
+                        </span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div id="right">
+            <div class="notifications">
+                <i class="bi bi-bell-fill"></i>
+            </div>
+            <div class="user-profile">
+                    <img src="../src/images/user.jpg" alt="" id="img-profile">
+                    <span id="username">Thiago Freitas</span>
+                    <i class="bi bi-arrow-down-short" id="arrow"></i>
+                </div>
+                <div class="modal-user">
+                    <div class="account first">
+                        <i class="bi bi-person-circle"></i>
+                        <span class="user-account">Conta</span>
+                    </div>
+                    <div class="account mid">
+                        <i class="bi bi-gear"></i>
+                        <span class="user-account">Configurações</span>
+                    </div>
+                    <div class="account last" id='logout-btn'>
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span class="user-account">Sair</span>
+                    </div>
+                </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Cumprimento do Funcionário -->
+        <div class="welcome-msg">
+            <h1 id="welcome-msg">Consulta de Storages</h1>
+
+            <div class="user-info">
+                <div class="user-info-header">
+                    <div class="search-bar">
+                        <input type="text" id="search-input" placeholder="Pesquisar storages...">
+                    </div>
+                </div>
+                
+                <table id="total-usuarios">
+                    <thead>
+                        <tr>
+                            <th>Foto</th>
+                            <th>Nome</th>
+                            <th>Identidade</th>
+                            <th>Contato</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <!-- Linhas da tabela serão preenchidas pelo JavaScript -->
+                    </tbody>
+                </table>
+                
+                <div class="pagination">
+                    <button id="prev-btn" disabled>Anterior</button>
+                    <span id="page-info">Página 1 de 1</span>
+                    <button id="next-btn">Próxima</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../src/js/dashboard.js" defer></script>
+    <script src="../src/js/modal-user.js" defer></script>
+</body>
+</html>
