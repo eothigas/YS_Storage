@@ -22,21 +22,21 @@
             </div>
             <nav id="sidebar">
                 <ul id="side_menu">
-                    <li>
+                    <a href=" "><li>
                         <span class="home-dash">
-                            <a href=" "><i class="bi bi-house home">Home</i></a>
+                            <i class="bi bi-house home">Home</i>
                         </span>
-                    </li>
+                    </li></a>
                     <li class="side_submenu" id="side_submenu">
                         <span id="open_sub">
                             <i class="bi bi-person-add register">Cadastro</i>
                             <i class="bi bi-arrow-down-short down"></i>
                         </span>
                         <ul id="open-down-register">
-                            <li id="side-register"><a href="/funcionario/cadastro/funcionario.html"><i class="bi bi-person-badge">Funcionário</i></a></li>                                
-                            <li id="side-register"><a href="/funcionario/cadastro/cliente.html"><i class="bi bi-person">Cliente</i></a></li>
-                            <li id="side-register"><a href="/funcionario/cadastro/empresa.html"><i class="bi bi-building">Empresa</i></a></li>
-                            <li id="side-register"><a href="/funcionario/cadastro/storage.html"><i class="bi bi-buildings">Storage</i></a></li>
+                            <li id="side-register"><a href="./cadastro/funcionario.html"><i class="bi bi-person-badge">Funcionário</i></a></li>
+                            <li id="side-register"><a href="./cadastro/empresa.html"><i class="bi bi-building">Empresa</i></a></li>                                
+                            <li id="side-register"><a href="./cadastro/cliente.html"><i class="bi bi-person">Cliente</i></a></li>
+                            <li id="side-register"><a href="./cadastro/storage.html"><i class="bi bi-buildings">Storage</i></a></li>
                         </ul>
                     </li>
                     <li class="side_submenu" id="side_submenu_">
@@ -45,22 +45,28 @@
                             <i class="bi bi-arrow-down-short down"></i>
                         </span>
                         <ul id="open-down-consult">
-                            <li id="side-consult"><i class="bi bi-person-badge">Funcionário</i></li>
-                            <li id="side-consult"><i class="bi bi-person">Cliente</i></li>
-                            <li id="side-consult"><i class="bi bi-building">Empresa</i></li>
-                            <li id="side-consult"><i class="bi bi-buildings">Storage</i></li>
+                            <li id="side-consult"><a href="./consulta/funcionario.html"><i class="bi bi-person-badge">Funcionário</i></a></li>
+                            <li id="side-consult"><a href="./consulta/empresa.html"><i class="bi bi-building">Empresa</i></a></li>
+                            <li id="side-consult"><a href="./consulta/cliente.html"><i class="bi bi-person">Cliente</i></a></li>
+                            <li id="side-consult"><a href="./consulta/storage.html"><i class="bi bi-buildings">Storage</i></a></li>
                         </ul>
                     </li>
                     <li class="side_submenu">
-                        <span class="export-dash">
-                            <a href="exportar.html"><i class="bi bi-file-earmark-arrow-down export">Exportar</i></a>
+                        <span id='export-page'>
+                            <i class="bi bi-file-earmark-arrow-down export">Exportar</i>
                         </span>
                     </li>
                 </ul>
-                <div class="user-profile">
-                    <img src="./src/images/user.jpg" alt="" id="img-profile">
+            </nav>
+        </div>
+        <div id="right">
+            <div class="notifications">
+                <i class="bi bi-bell-fill"></i>
+            </div>
+            <div class="user-profile">
+                    <img src="../src/images/user.jpg" alt="" id="img-profile">
                     <span id="username">Thiago Freitas</span>
-                    <i class="bi bi-arrow-right-short" id="arrow"></i>
+                    <i class="bi bi-arrow-down-short" id="arrow"></i>
                 </div>
                 <div class="modal-user">
                     <div class="account first">
@@ -71,17 +77,11 @@
                         <i class="bi bi-gear"></i>
                         <span class="user-account">Configurações</span>
                     </div>
-                    <div class="account last">
+                    <div class="account last" id='logout-btn'>
                         <i class="bi bi-box-arrow-right"></i>
                         <span class="user-account">Sair</span>
                     </div>
                 </div>
-            </nav>
-        </div>
-        <div id="right">
-            <div class="notifications">
-                <i class="bi bi-bell-fill"></i>
-            </div>
         </div>
     </nav>
 
