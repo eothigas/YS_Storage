@@ -1,0 +1,233 @@
+.notification {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    min-width: 22rem;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(1.6rem);
+    animation: fade-in 5s linear;
+    opacity: 0;
+    visibility: ;
+    z-index: 1;
+    justify-content: center;
+}
+
+.notification_body {
+    display: flex;
+    align-items: center; 
+    gap: 10px;
+    justify-content: center;
+}
+
+.notification_body i{
+    display: flex;
+    font-style: normal;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification--success {
+    background-color: green;    
+}
+
+.notification--error {
+    background-color: red;    
+}
+
+.notification--alert {
+    background-color: rgb(255, 165, 0, 0.8);    
+}
+
+
+@keyframes fade-in {
+    5% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    95% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+#register-table {
+    background-color: rgb(3, 52, 110);
+    color: rgb(226, 226, 182);
+    width: 58%;
+    justify-content: space-between;
+    align-items: center;
+    height: 550px;
+    padding: 10px 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px;
+    overflow: hidden;
+    border: 2px solid rgb(226, 226, 182);
+    position: relative;
+    margin: 28px auto;
+}
+
+#register-table h2 {
+    margin-bottom: 20px;
+}
+
+.space-register {
+    width: 100%;
+}
+
+.novo-funcionario {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.dropzone-area {
+    padding: 10px;
+    position: relative;
+    min-height: 2rem;
+    display: flex;
+    width: 96.7%;
+    font-size: 14px;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px dashed rgb(226, 226, 182);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropzone-area [type='file'] {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.file-info  {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#file-info-text {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-style: normal;
+}
+
+.senha_funcionario {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    gap: 10px;
+}
+
+input.senha, input.confirme-senha {
+    width: 94.5%;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 2px rgb(226, 226, 182) solid;
+    color: rgb(226, 226, 182);
+    background-color: transparent;
+}
+
+input.nome, input.identidade, input.contato, input.email {
+    width: 97.3%;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 2px rgb(226, 226, 182) solid;
+    background-color: transparent;
+    color: rgb(226, 226, 182);
+}
+
+input:focus {
+    outline: none;
+}
+
+.password {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+#view, #confirm {
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+}
+
+.password-strength-container {
+    margin-top: 5px;
+}
+
+.password-strength {
+    height: 5px;
+    width: 100%;
+    background-color: rgb(3, 52, 110);
+    border-radius: 5px;
+    margin-top: 2px;
+}
+
+.password-strength span {
+    display: block;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.password-strength-text {
+    margin-top: 2px;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.strength-weak {
+    width: 33%;
+    background-color: red;
+}
+
+.strength-good {
+    width: 66%;
+    background-color: orange;
+}
+
+.strength-strong {
+    width: 100%;
+    background-color: green;
+}
+
+.btn-send {
+    width: 255px;
+    margin:  0 auto;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 2px rgb(226, 226, 182) solid;
+    background-color: transparent;
+    color: rgb(226, 226, 182);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-send:hover {
+    background-color: rgb(226, 226, 182);
+    color: rgb(3, 52, 110);
+}
+
+.actions-btn {
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+}

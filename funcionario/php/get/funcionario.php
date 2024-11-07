@@ -12,24 +12,36 @@ $password = $config['database']['password'];
 
 header('Content-Type: application/json'); // Define o cabeçalho para JSON
 
+// Verificar se o parâmetro 'id' foi fornecido na URL
+if (!isset($_GET['id'])) {
+    echo json_encode(['error' => 'ID do funcionário não fornecido.']);
+    exit;
+}
+
+$id = $_GET['id'];
+
 try {
     // Conexão com o banco de dados MySQL
     $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
     $pdo = new PDO($dsn, $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Consulta para selecionar os dados necessários
-    $stmt = $pdo->prepare("SELECT * FROM funcionarios");
+    // Consulta para selecionar os dados do funcionário pelo ID
+    $stmt = $pdo->prepare("SELECT * FROM funcionarios WHERE id = :id");
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
 
-    // Pega os resultados
-    $funcionarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // Verificar se o funcionário foi encontrado
+    $funcionario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Retorna os dados em JSON
-    echo json_encode(['status' => 'success', 'data' => $funcionarios]);
+    if ($funcionario) {
+        echo json_encode($funcionario);
+    } else {
+        echo json_encode(['error' => 'Funcionário não encontrado.']);
+    }
 
 } catch (PDOException $e) {
     // Em caso de erro, retorna uma mensagem de erro
-    echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
+    echo json_encode(['error' => 'Erro ao buscar dados do funcionário: ' . $e->getMessage()]);
 }
 ?>

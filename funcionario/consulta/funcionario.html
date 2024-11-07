@@ -6,6 +6,7 @@
     <link rel="icon" href="../src/images/Logo_reduzido.svg" type="image/png">
     <title>Your Storage - Consulta Funcionários</title>
     <link rel="stylesheet" href="../src/css/consult/funcionario.css">
+    <link rel="stylesheet" href="../src/css/edit/funcionario.css">
     <link rel="stylesheet" href="../src/css/home/navbar.css">
     <link rel="stylesheet" href="../src/css/home/sidebar.css">
     <link rel="stylesheet" href="../src/css/dashboard.css">
@@ -123,9 +124,92 @@
             </div>
         </div>
     </main>
+ 
+    <div id="register-table" style='display: none;'>
+        <div class="space-register">
+            <div class='notification' style='display: none;'>
+                <div class='notification_body'>
+                    <!-- JS -->
+                </div>
+            </div>
+            <h2>Editar Funcionário</h2>
+            <form action="../php/editar/funcionario.php" method="POST" enctype="multipart/form-data" class="novo-funcionario">
+                <h4>Foto</h4>
+                <div class="dropzone-area">
+                    <div class="file-upload-icon">
+                        <!-- Aqui você pode adicionar um ícone, se quiser -->
+                    </div>
+                    <input type="file" required id="upload-file" name="imagem" accept="image/*" onchange="previewImage(event)"/>
+                    <div class="file-info">
+                        <img id="image-preview" src='' alt='' style="display: none; width: 60px; height: 60px; margin-top: 0px; border-radius: 100%;" />
+                        <i class="bi bi-image" id="file-info-text">Nenhuma imagem selecionada</i>
+                    </div>
+                </div>
+                <div class="name">
+                    <div class="name-input">
+                        <h4>Nome</h4>
+                        <input type="text" class="nome" name="nome" placeholder="Digite o primeiro nome..." required oninput="updatePreview()" />
+                    </div>
+                </div>
+                <div class="id">
+                    <div class="identidade-input">
+                        <h4>Identidade</h4>
+                        <input type="text" class="identidade" name="identidade" placeholder="RG ou CPF" required oninput="updatePreview()"/>
+                    </div>
+                </div>
+                <div class="contact">
+                    <div class="contato-input">
+                        <h4>Contato</h4>
+                        <input type="text" class="contato" name="contato" placeholder="(xx) xxxxx-xxxx" required oninput="updatePreview()"/>
+                    </div>
+                </div>
+                <div class='status'>
+                    <div class='status-input'>
+                        <h4>Status</h4>
+                        <select class='status-select' name='status'>
+                            <option value=''></option>
+                            <option value='Ativo'>Ativo</option>
+                            <option value='Suspenso'>Suspenso</option>
+                        </select>
+                    </div>
+                <div class="email-funcionario">
+                    <div class="func-email">
+                        <h4>Email</h4>
+                        <input type="email" class="email" name="email" placeholder="exemplo@email.com" required oninput="updatePreview()"/>
+                    </div>
+                </div>
+                <div class="senha_funcionario">
+                    <div class="senha-input">
+                        <h4>Senha</h4>
+                        <div class="password">
+                            <input type="password" class="senha" name="senha" maxlength="8" id="passwordInput" required />
+                            <i class="bi bi-eye-slash-fill" id="view"></i>
+                        </div>
+                        <div class="password-strength-container">
+                            <div class="password-strength" id="passwordStrength"></div>
+                            <span class="password-strength-text" id="passwordStrengthText"></span>
+                        </div>
+                    </div>
+                    <div class="confirm-input">
+                        <h4>Confirme a Senha</h4>
+                        <div class="password">
+                            <input type="password" class="confirme-senha" name="confirme_senha" required />
+                            <i class="bi bi-eye-slash-fill" id="confirm"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class='actions-btn'>
+                    <button type="submit" class="btn-save">Salvar Alterações</button>
+                    <button type="submit" class="btn-cancel">Cancelar Alterações</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
 
     <script src="../src/js/dashboard.js" defer></script>
     <script src='../src/js/consulta/funcionario.js' defer></script>
+    <script src='../src/js/get/funcionario.js' defer></script>
     <script src="../src/js/modal-user.js" defer></script>
 </body>
 </html>

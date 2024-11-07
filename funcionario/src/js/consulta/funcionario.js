@@ -7,9 +7,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const nextBtn = document.getElementById("next-btn");
     const pageInfo = document.getElementById("page-info");
     const searchInput = document.getElementById("search-input");
+    const btnCancel = document.querySelector(".btn-cancel");  // Referência para o botão de cancelar
 
     // Função para buscar dados dos funcionários
-    fetch('../php/consulta/funcionario.php') // Altere para o caminho do seu script PHP
+    fetch('../php/consulta/funcionario.php')
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
@@ -18,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 updatePaginationInfo();
             } else {
                 console.error('Erro ao carregar dados:', data.message);
-                displayNoResultsMessage(); // Exibe mensagem caso não haja dados no PHP
+                displayNoResultsMessage();
             }
         })
         .catch(error => console.error('Erro na requisição:', error));
@@ -41,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 const fotoCell = document.createElement('td');
                 const img = document.createElement('img');
-                img.src = funcionario.imagem;
+                img.src = funcionario.imagem || 'default.jpg';
                 img.alt = 'Foto do Funcionário';
                 img.style.width = '50px';
                 img.style.height = '50px';
@@ -67,8 +68,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 const statusCell = document.createElement('td');
                 statusCell.textContent = funcionario.status;
-
-                // Adicionar cor condicional ao status
                 if (funcionario.status === 'Ativo') {
                     statusCell.style.color = 'green';
                     statusCell.style.fontWeight = 'bold';
@@ -76,7 +75,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     statusCell.style.color = 'red';
                     statusCell.style.fontWeight = 'bold';
                 }
-
                 row.appendChild(statusCell);
 
                 const acoesCell = document.createElement('td');
@@ -86,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const editButton = document.createElement('button');
                 editButton.classList.add('btn', 'btn-primary', 'btn-sm');
                 editButton.innerHTML = '<i class="fas fa-edit"></i> Editar';
-                editButton.onclick = () => editarFuncionario(funcionario.id);
+                editButton.onclick = () => abrirModalEdicao(funcionario.id);
                 acoesCell.appendChild(editButton);
 
                 // Botão de Excluir
@@ -97,7 +95,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 acoesCell.appendChild(deleteButton);
 
                 row.appendChild(acoesCell);
-
                 tbody.appendChild(row);
             });
         }
@@ -120,8 +117,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function updatePaginationInfo() {
         const filteredData = getFilteredData();
         const totalPages = Math.ceil(filteredData.length / rowsPerPage);
-
-        // Se não houver dados, configure a paginação para "Página 1 de 1"
+        
         if (filteredData.length === 0) {
             pageInfo.textContent = "Página 1 de 1";
             prevBtn.disabled = true;
@@ -145,9 +141,41 @@ document.addEventListener("DOMContentLoaded", function() {
         );
     }
 
+    // Função para abrir o modal de edição e preencher com os dados do funcionário selecionado
+    function abrirModalEdicao(id) {
+        fetch(`../php/get/funcionario.php?id=${id}`)
+            .then(response => response.json())
+            .then(funcionario => {
+                if (funcionario.error) {
+                    alert(funcionario.error);
+                } else {
+                    document.getElementById('register-table').style.display = 'flex';
+                    document.querySelector('main').style.display = 'none';
+                    document.querySelector('#navbar').style.display = 'none';
+
+                    document.querySelector('.nome').value = funcionario.nome;
+                    document.querySelector('.identidade').value = funcionario.identidade;
+                    document.querySelector('.contato').value = funcionario.contato;
+                    document.querySelector('.status-select').value = funcionario.status;
+                    document.querySelector('.email').value = funcionario.email;
+
+                    const imagePreview = document.getElementById('image-preview');
+                    if (funcionario.foto) {
+                        imagePreview.src = funcionario.foto;
+                        imagePreview.style.display = 'block';
+                        document.getElementById('file-info-text').style.display = 'none';
+                    } else {
+                        imagePreview.style.display = 'none';
+                        document.getElementById('file-info-text').style.display = 'block';
+                    }
+                }
+            })
+            .catch(error => console.error('Erro ao carregar os dados do funcionário:', error));
+    }
+
     // Evento de input para o campo de pesquisa
     searchInput.addEventListener("input", () => {
-        currentPage = 1; // Reinicia para a primeira página após a pesquisa
+        currentPage = 1;
         displayTable();
         updatePaginationInfo();
     });
@@ -167,5 +195,10 @@ document.addEventListener("DOMContentLoaded", function() {
             displayTable();
             updatePaginationInfo();
         }
+    });
+
+    // Evento para o botão de cancelamento (recarregar a página)
+    btnCancel.addEventListener("click", () => {
+        location.reload();
     });
 });
