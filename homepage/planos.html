@@ -3,190 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./src/css/planos_.css">
     <link rel="icon" href="./src/images/Logo_reduzido.svg" type="image/png">
     <title>Your Storage - Planos</title>
-    <link rel="stylesheet" href="./src/css/planos.css">
-    <!-- Importação de ícones (por exemplo, Font Awesome) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script>
-        window.onload = function() {
-            const params = new URLSearchParams(window.location.search);
-            const linkElement = document.getElementById('back');
-            
-            if (params.get('hideBack') === 'true' && linkElement) {
-                linkElement.style.display = 'none';
-            }
-        };
-    </script>
+      window.onload = function() {
+          const params = new URLSearchParams(window.location.search);
+          const linkElement = document.getElementById('back');
+          
+          if (params.get('hideBack') === 'true' && linkElement) {
+              linkElement.style.display = 'none';
+          }
+      };
+
+      document.addEventListener("DOMContentLoaded", function() {
+          // Função para salvar o plano selecionado
+          function selecionarPlano(plano) {
+              localStorage.setItem("planoSelecionado", plano);
+          }
+
+          // Verifica se os botões existem antes de adicionar os event listeners
+          const basicoBtn = document.getElementById("basico-btn");
+          const logBtn = document.getElementById("log-btn");
+          const premiumBtn = document.getElementById("premium-btn");
+
+          if (basicoBtn) {
+              basicoBtn.addEventListener("click", function() {
+                  selecionarPlano("plano_basico");
+              });
+          }
+
+          if (logBtn) {
+              logBtn.addEventListener("click", function() {
+                  selecionarPlano("plano_logistico");
+              });
+          }
+
+          if (premiumBtn) {
+              premiumBtn.addEventListener("click", function() {
+                  selecionarPlano("plano_premium");
+              });
+          }
+      });
+  </script>
 </head>
 <body>
-    
-    
-    <div id="principal">
 
-        <div id="back">
-            <a id='link' href="javascript:void(0);" onclick="history.back();" aria-hidden="true"><i class="fas fa-times circular-icon" aria-label="Voltar a página principal"></i></a>
+  <!-- Navegação (fechar página) -->
+  <div class="return">
+    <a id='link' href="javascript:void(0);" onclick="history.back();" aria-hidden="true"><i class="bi bi-x" id="back"></i></a>
+  </div>
+
+  <!-- Título -->
+  <div id="main-head">
+    <h1 id="title">Planos</h1>
+    <p id="cont">Na Your Storage, entendemos que cada cliente tem necessidades únicas, por isso oferecemos uma variedade de planos que se ajustam 
+      perfeitamente ao seu perfil e ao que você procura. 
+      Seja você um pequeno empreendedor, uma empresa em crescimento ou uma corporação estabelecida, temos a solução ideal para ajudá-lo
+      a alcançar seus objetivos.
+    </p>
+  </div>
+
+  <!-- Cards Explicação -->
+  <div class="image-row">
+    <div class="image-container">
+        <div id="desc">
+          <img src="./src/images/espaco.jpg" alt="Imagem 1">
+          <h2>Espaços</h2>
+          <p>O espaço, seja virtual ou físico, representa o local onde os produtos da sua empresa são cadastrados para gerenciamento e controle, e assim, gerenciados por sua empresa. 
+            O sistema permite organizar, visualizar e monitorar o estoque de seus ativos de forma eficiente e centralizada.</p>
         </div>
-
-        <div id="item1">
-            <div id="box1">
-                <div id="rec">
-                    <ul id="recomend">
-                        <li class="destaque"><span>Mais Comum</span></li>
-                    </ul>
-                </div>
-
-                <div class="logo">
-                    <img src="./src/images/Logo_reduzido.svg" width="100">
-                    <p>Plano Básico</p>
-                </div>
-                
-                <hr id="item1">
-
-                <div class="text1">
-                    <p class="plan-cont">Plano contém: </p>
-                    <ul class="point">
-                        <li class="info">Espaço Virtual
-                        <p class="desc1">No espaço virtual, você poderá organizar seus produtos
-                            ou ativos de maneira clara e organizada.
-                        </p>
-
-                        </li>
-                        <li class="info2">Máximo 5 Usuários
-                        <p class="desc2">Neste plano, você poderá
-                            cadastrar o máximo de cinco (5) usuários.
-                        </p>
-                        </li>
-
-                        <li class="info3">Máximo 250 produtos
-                        <p class='desc3' class="desc3">Neste plano, 
-                            você poderá cadastrar o máximo de duzentos e cinquenta (250)
-                            produtos. 
-                        </p>
-                        </li>
-                    </ul>
-
-                    <hr id="item1">
-
-                    <div class="orc1">
-                        <a href='./orcamento.html'><button class='btn-orc1' type="submit">Solicitar Orçamento do Plano</button></a>
-                    </div>
-
-                    <div id="rest1"></div>
-
-                </div>
-                
-            </div>
-        </div>
-
-        <div id="item2">
-            <div id="box2">
-                
-                <div>
-                    <ul id="hyper">
-                        <li class="desconto1"><span>Desconto 10%</span></li>
-                    </ul>
-                </div>
-                
-                <div class="logo2">
-                    <img src="./src/images/Logo_reduzido.svg" width="100">
-                    <p>Plano Logístico</p>
-                </div>
-
-                <hr id="item2">
-                
-                <div class="text2">
-                    <p class="plan-cont">Plano contém: </p>
-                    <ul class="point">
-                        <li class="info4">Espaço Virtual e Físico
-                        <p class="desc4">No espaço fisico e virtual, você poderá organizar
-                            seus produtos ou ativos de maneira clara e organizada. Terá acesso a 
-                            visualização de storages contratados.
-                        </p>
-
-                        </li>
-                        <li class="info5">Máximo 10 Usuários
-                        <p class="desc5">Neste plano, você poderá
-                            cadastrar o máximo de dez (10) usuários.
-                        </p>
-                        </li>
-
-                        <li class="info6">Máximo 700 produtos
-                        <p class='desc6'>Neste plano, 
-                            você poderá cadastrar o máximo de seiscentos (700)
-                            produtos. 
-                        </p>
-                        </li>
-                    </ul>
-
-                    <hr id="item2">
-
-                    <div class="orc2">
-                        <a href='./orcamento.html'><button class='btn-orc2' type="submit">Solicitar Orçamento do Plano</button></a>
-                    </div>
-
-                    <div id="rest2"></div>
-
-                </div>
-
-            </div>
-        </div>
-
-        <div id="item3">
-            <div id="box3">
-                <div>
-                    <ul id="hyper2">
-                        <li class="desconto2"><span>Desconto 20%</span></li>
-                    </ul>
-                </div>
-
-                <div class="logo3">
-                    <img src="./src/images/Logo_reduzido.svg" width="100">
-                    <p>Plano Premium</p>
-                </div>
-                
-                <hr id="item3">
-
-                <div class="text3">
-                    <p class="plan-cont">Plano contém: </p>
-                    <ul class="point">
-                        <li class="info7">Espaço Virtual e Físico
-                        <p class="desc7">No espaço fisico e virtual, você poderá organizar
-                            seus produtos ou ativos de maneira clara e organizada. Terá acesso a 
-                            visualização de storages contratados.
-                        </p>
-
-                        </li>
-                        <li class="info8">Usuários Ilimitados
-                        <p class="desc8"> Neste plano, você terá 
-                            cadastro de usuários ilimitado.
-                            
-                        </p>
-                        </li>
-
-                        <li class="info9">Produtos Ilimitados
-                        <p class='desc9'>Neste plano, 
-                            você terá cadastro de produtos ilimitado.
-                        </p>
-                        </li>
-                    </ul>
-
-                    <hr id="item3">
-
-                    <div class="orc3">
-                        <a href='./orcamento.html'><button class='btn-orc3' type="submit">Solicitar Orçamento do Plano</button></a>
-                    </div>
-
-                    <div id="rest3"></div>
-
-                </div>
-
-            </div>
-        </div>
-
     </div>
 
-<script src="./src/js/script.js"></script>
+    <div class="image-container">
+      <div id="desc">
+        <img src="./src/images/users.jpg" alt="Imagem 1">
+        <h2>Usuários</h2>
+        <p>No sistema, os usuários possuem acesso para gerenciar o estoque da empresa, realizando operações como cadastro, atualização e movimentação de produtos. 
+          Cada usuário possui um nível de permissão específico, garantindo segurança e controle no acesso às informações.</p>
+      </div>
+    </div>
+ 
+    <div class="image-container">
+      <div id="desc">
+        <img src="./src/images/produto.jpg" alt="Imagem 1">
+        <h2>Produtos</h2>
+        <p>Os produtos, ou ativos da empresa, são cadastrados e geridos pelos usuários dentro do sistema. Este módulo de serviço permite o controle completo dos produtos cadastrados no sistema, incluindo detalhes e quantidade, 
+          garantindo confiabilidade e precisão na gestão do estoque.</p>
+      </div>
+    </div>
+  </div>
 
+  <!-- Seção de planos -->
+  <div class="container">
+      <h2 id="head-cont">Escolha um dos Planos, e entre em contato!</h2>
+      <div id="card">
+        <div class="car-plan" id="basico-plan">
+          <div class="head">
+            <h4 class='title-card'>Plano Básico</h4>
+            <h5>Ideal para MarketPlaces</h5>
+            <p>A partir de</p>
+            <div class='data-price'>
+              <div class='st'>
+                <h6>R$</h6>
+                <div> </div>
+              </div>
+              <div class='nd'>
+                <h4>100</h4>
+              </div>
+              <div class='th'>
+                <div> </div>
+                <h6>/mês</h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="body">
+            <span id="basic">Mais Comum</span>
+            <div class="info-basic">
+              <i class="bi bi-laptop">
+                <p class='top-b'>Espaço Virtual <span class="tooltip-top" id='tool-top'>O espaço é onde você conseguirá cadastrar seus ativos/produtos e gerenciá-los.</span></p>
+              </i>
+              <i class="bi bi-person">
+                <p class='mid-b'>Máximo 5 Usuários <span class="tooltip-mid" id='tool-mid'>Os usuários são quem vão acessar o sistema.</span></p>
+              </i>
+              <i class="bi bi-box">
+                <p class='bottom-b'>Máximo 250 Produtos <span class="tooltip-bottom" id='tool-bottom'>Produtos são os ativos, bens, produtos de sua empresa. Estes serão gerenciados dentro do sistema.</span></p>
+              </i>
+            </div>
+          </div>
+
+          <div class="button-plan">
+            <a href='./orcamento.html'><button type="button" id='basico-btn'>Solicitar Orçamento</button></a>
+          </div>
+
+        </div>
+
+        <div class="car-plan" id="logistico-plan">
+          <div class="head">
+            <h4 class='title-card'>Plano Logístico</h4>
+            <h5>Ideal para Centros Logísticos</h5>
+            <p>A partir de</p>
+            <div class='data-price'>
+              <div class='st'>
+                <h6>R$</h6>
+                <div> </div>
+              </div>
+              <div class='nd'>
+                <h4>250</h4>
+              </div>
+              <div class='th'>
+                <div> </div>
+                <h6>/mês</h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="body">
+            <span id="log">Desconto 10%</span>
+            <div class="info-logistic">
+              <i class="bi bi-laptop">
+                <p class='top-l'>Espaço Físico e Virtual <span class="tooltip-top" id='tool-top'>O espaço é onde você conseguirá cadastrar seus ativos/produtos e gerenciá-los.</span></p>
+              </i>
+              <i class="bi bi-person">
+                <p class='mid-l'>Máximo 10 Usuários <span class="tooltip-mid" id='tool-mid'>Os usuários são quem vão acessar o sistema.</span></p>
+              </i>
+              <i class="bi bi-box">
+                <p class='bottom-l'>Máximo 700 Produtos <span class="tooltip-bottom" id='tool-bottom'>Produtos são os ativos, bens, produtos de sua empresa. Estes serão gerenciados dentro do sistema.</span></p>
+              </i>
+            </div>
+          </div>
+
+          <div class="button-plan">
+            <a href='./orcamento.html'><button type="button" id='log-btn'>Solicitar Orçamento</button></a>
+          </div>
+        </div>
+
+        <div class="car-plan" id="premium-plan">
+          <div class="head">
+            <h4 class='title-card'>Plano Premium</h4>
+            <h5>Ideal para Empresas de Grande Porte</h5>
+            <p>A partir de</p>
+            <div class='data-price'>
+              <div class='st'>
+                <h6>R$</h6>
+                <div> </div>
+              </div>
+              <div class='nd'>
+                <h4>400</h4>
+              </div>
+              <div class='th'>
+                <div> </div>
+                <h6>/mês</h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="body">
+            <span id="premium">Desconto 20%</span>
+            <div class="info-premium">
+              <i class="bi bi-laptop">
+                <p class='top-p'>Espaço Físico e Virtual <span class="tooltip-top" id='tool-top'>O espaço é onde você conseguirá cadastrar seus ativos/produtos e gerenciá-los.</span></p>
+              </i>
+              <i class="bi bi-person">
+                <p class='mid-p'>Usuários Ilimitados <span class="tooltip-mid" id='tool-mid'>Os usuários são quem vão acessar o sistema.</span></p>
+              </i>
+              <i class="bi bi-box">
+                <p class='bottom-p'>Produtos Ilimitados <span class="tooltip-bottom" id='tool-bottom'>Produtos são os ativos, bens, produtos de sua empresa. Estes serão gerenciados dentro do sistema.</span></p>
+              </i>
+            </div>
+          </div>
+
+          <div class="button-plan">
+            <a href='./orcamento.html'><button type="button" id='premium-btn'>Solicitar Orçamento</button></a>
+          </div>
+        </div>
+      </div>
+      <p style='margin-bottom: 40px; max-width: 460px; text-align: center';>* O valor do tipo de plano pode variar conforme as demandas de sua empresa. 
+            Faça já seu orçamento prévio!
+      </p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div id="footer_copyright">
+      &#169
+      Your Storage - Todos os direitos reservados | 2024
+    </div>
+  </footer>
+  
 </body>
 </html>

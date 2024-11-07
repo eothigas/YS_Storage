@@ -1,0 +1,274 @@
+#testimonials {
+    position: relative;
+    background-color: rgb(23, 32, 55);
+    margin-top: 30px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#testimonials_header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 40px auto 20px;
+    width: 80%;
+}
+
+#testimonials_header h2 {
+    font-size: 2rem;
+}
+
+#testimonials_header p {
+    font-size: 1.2rem;
+}
+
+/* Estilo geral para o container do swiper */
+.swiper-container {
+    width: 100%;
+    max-width: 1300px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px 0 40px;
+    position: relative;
+}
+
+/* Estilo dos slides */
+.swiper-slide {
+    background-color: rgb(30, 30, 30);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 auto;
+    box-sizing: border-box;
+    min-height: 200px; /* Define uma altura mínima para os cards */
+}
+
+/* Estilo do autor do testemunho */
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.author-avatar img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+    filter: brightness(100%);
+}
+
+.author-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: white;
+}
+
+.author-info p {
+    margin: 0;
+    font-size: 14px;
+    color: rgb(152, 150, 150);
+}
+
+/* Estilo da citação */
+.testimonial-quote {
+    font-size: 16px;
+    font-style: italic;
+    color: white;
+    line-height: 1.6;
+    text-align: center;
+    margin-top: auto; /* Empurra a citação para o final do slide */
+}
+
+/* Estilos da paginação do swiper */
+.swiper-pagination {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+/* Cor dos dots inativos */
+.swiper-pagination-bullet {
+    background-color: white !important; /* Cor padrão para dots inativos */
+    color: white;
+}
+
+#question-testimonial {
+    display: flex;
+    width: 60%;
+    height: 100%;
+    gap: 35px;
+    align-items: center;
+    text-align: center;
+    border: 2px solid rgb(66, 66, 66);
+    border-radius: 30px;
+    background-color: rgb(7, 11, 22);
+    margin: 42px auto;
+    padding: 20px 50px 0;
+    position: relative;
+}
+
+.enterprise-user {
+    width: 250px;
+    height: 400px;
+}
+
+.enterprise-user img {
+    width: 250px;
+    height: 100%;
+}
+
+.four-wallbreak {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    width:  60%;
+}
+
+.testimonial-logo {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    width: 50px;
+}
+
+.link-plan {
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    border: 1px solid white;
+    color: white;
+    width: 90%;
+    background-color: rgb(23, 32, 55);
+    cursor: pointer;
+}
+
+.link-plan:hover {
+    background-color: rgb(23, 32, 55, .7);
+}
+
+@media screen and (min-width: 945px) and (max-width: 1100px) {
+    
+    .enterprise-user {
+        width: 220px;
+        height: 370px;
+    }
+    
+    .enterprise-user img {
+        width: 220px;
+        height: 100%;
+    }
+
+    .four-wallbreak h2 {
+        font-size: 20px;
+    }
+
+    .four-wallbreak p {
+        font-size: 13px;
+    }
+
+    .testimonial-logo {
+        width: 45px;
+    }
+    
+    .link-plan {
+        padding: 8px;
+        width: 140px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-width: 782px) and (max-width: 945px) {
+
+    #question-testimonial {
+        display: flex;
+        width: 60%;
+        height: 100%;
+        gap: 30px;
+        padding: 20px 30px 0;
+    }
+
+    .enterprise-user {
+        width: 180px;
+        height: 290px;
+    }
+    
+    .enterprise-user img {
+        width: 180px;
+        height: 100%;
+        align-items: baseline;
+    }
+
+    .four-wallbreak h2 {
+        font-size: 16px;
+    }
+
+    .four-wallbreak p {
+        font-size: 11px;
+        width: 100%;
+    }
+
+    .testimonial-logo {
+        width: 40px;
+    }
+    
+    .link-plan {
+        padding: 8px;
+        width: 120px;
+        font-size: 11px;
+    }
+
+}
+
+
+@media screen and (max-width: 781px) {
+    #question-testimonial {
+        display: flex;
+        width: 90%;
+        gap: 30px;
+        padding: 10px 0px;
+        border-radius: 10px;
+    }
+
+    .enterprise-user {
+        display: none;
+    }
+
+    .four-wallbreak {
+        gap: 15px;
+        width: 100%;
+        text-align: center;
+        margin: 15px 30px;
+        align-items: center;
+    }
+
+    .four-wallbreak h2 {
+        font-size: 24px;
+    }
+
+    .four-wallbreak p {
+        font-size: 13px;
+        width: 100%;
+    }
+
+    .testimonial-logo {
+        display: none;
+    }
+    
+    .link-plan {
+        padding: 8px;
+        width: 100%;
+        font-size: 13px;
+    }
+}

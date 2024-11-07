@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth; /* Faz a rolagem ser suave */
+}
+
+body {
+    background-color: rgb(7, 11, 22);
+    color: white;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    height: 100hv;
+    z-index: 1;
+    position: relative;
+}
+
+#btn-topo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 2;
+    background-color:  rgba(120, 120, 120, 0.13);
+    color: #fff;
+    border-radius: 20px;
+    border: 4px solid white;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  #btn-topo.show {
+    opacity: 1;
+    visibility: visible;
+  }

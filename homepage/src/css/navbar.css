@@ -1,0 +1,142 @@
+/* Navbar Normal */
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(23, 32, 55);
+}
+
+#nav-btn-open, #nav-btn-close {
+    display: none;
+}
+
+#logo {
+    width: 200px;
+    max-width: 200px;
+    padding: 5px;
+}
+
+#lista-navbar {
+    display: flex;
+    gap: 30px;
+    padding-right: 10px;
+    align-items: center;
+    list-style: none;
+    text-decoration: none;
+}
+
+#lista-navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+#lista-navbar a:hover {
+    color: rgb(56, 89, 169);
+}
+
+#lista-navbar button {
+    padding: 15px 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#lista-navbar i {
+    font-style: normal;
+    font-size: 16px;
+}
+
+#login-btn.bi {
+    width: 30px;
+    height: 30px;
+    font-size: 20px
+}
+
+.login-button:hover {
+    background-color: rgb(255, 255, 255, 0.9);
+}
+
+.login span {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 808px) {
+    
+    #navbar {
+        display: none;
+    }
+
+    #logo {
+        width: 150px;
+    }
+
+    #nav-btn-open, #nav-btn-close {
+        font-size: 25px;
+        padding-right: 10px;
+        cursor: pointer;
+    }
+
+    #nav-btn-open {
+        display: flex;
+    }
+
+    #responsive-navbar {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgb(23, 32, 55);
+    }
+
+    #destaque-flow {
+        z-index: 1;
+        position: relative;
+    }
+
+    #lista {
+        display: none;
+        flex-direction: column;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        width: 100%;
+        height: 304px;
+        background-color: rgb(23, 32, 55);
+        position: absolute;
+        right: 0;
+        padding: 0;
+        z-index: 2;
+        top: 70px;
+    }
+
+    #lista li {
+        width: auto;
+        justify-content: center;
+    }
+
+    #lista a {
+        color: white;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    #lista a:hover {
+        color: rgb(56, 89, 169);
+    }
+
+    #lista button {
+        padding: 15px 10px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    #lista i {
+        font-style: normal;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}

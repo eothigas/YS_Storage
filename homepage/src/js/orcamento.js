@@ -1,3 +1,9 @@
+// Java Void
+document.getElementById('back').addEventListener('click', (event) => {
+    event.preventDefault(); // Previne o comportamento padrão do link
+    window.history.back(); // Retorna à página anterior
+});
+
 // Clique na página de plano (retorna o valor do select)
 document.addEventListener("DOMContentLoaded", function() {
     // Obtém o plano selecionado do localStorage

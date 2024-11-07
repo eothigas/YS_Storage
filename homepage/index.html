@@ -3,324 +3,358 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Empresa voltada a locação e gerenciamento de espaços de armazenamento fisíco e virtual.">
-    <link rel="icon" href="./src/images/Logo_reduzido.svg" type="image/png">
+    <link rel="shortcut icon" href="./src/images/Logo_reduzido.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./src/css/index.css">
+    <link rel="stylesheet" href="./src/css/navbar.css">
+    <link rel="stylesheet" href="./src/css/destaque-flow.css">
+    <link rel="stylesheet" href="./src/css/carrossel-flow.css">
+    <link rel="stylesheet" href="./src/css/testimonials.css">
+    <link rel="stylesheet" href="./src/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <title>Your Storage - Home</title>
-    <link rel="stylesheet" href="./src/css/webview.css">
-    <link rel="stylesheet" href="./src/css/webview2.css">
-    <link rel="stylesheet" href="./src/css/webview-responsive.css">
-    <!-- Importação de ícones (por exemplo, Font Awesome) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
-    <header>
-        <!-- Navegação -->
-        <nav class="navbar" aria-label="Links de Navegação do Site">
-            <div class="nav-container">
-                    <img src="./src/images/Logo.svg" class="nav-logo" width="200" alt="Your Storage - Logo">
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="#sobre-nos" class="nav-links">Sobre Nós</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="./planos.html" class="nav-links">Planos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#fale-conosco" class="nav-links">Fale Conosco</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../cliente/login/index.html" class="nav-links btn-login">
-                            <img src="./src/images/Vector.svg" class="img-login" alt="Login"></i> Meu Storage
-                        </a>
-                    </li>
-                </ul>
-                <div class="nav-icon" aria-label="Menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main>    
-        <!-- Destaque com Carrossel de Imagens -->
-        <section class="highlight-section" aria-label="Seção de Destaque">
-            <div class="highlight-carousel">
-                <div class="highlight-container" aria-live="polite">
-                    <img class="highlight-img" src="./src/images/st1.jpg" type="image/jpg" alt="Imagem Destaque">
-                    <img class="highlight-img" src="./src/images/st2.jpg" type="image/jpg" alt="Imagem Destaque">
-                    <img class="highlight-img" src="./src/images/st3.jpg" type="image/jpg" alt="Imagem Destaque">
-                </div>
-                <div class="highlight-over">
-                    <img src="./src/images/Logo_reduzido.svg" class="highlight-image">
-                    <div class="highlight-text">
-                        Your Storage<br>
-                        Seu storage está aqui!
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--Botão Orçamento-->
-        <section class="add-orc">
-            <div class="add-orc">
-                <a href="./orcamento.html"><button class="orcamento" type="button" aria-label="Adquira já seu orçamento!">Adquira já seu orçamento!</button></a>
-            </div>
-        </section>
-
-        <!-- Carrossel de Imagens -->
-        <section class="carousel-section" id="carousel">
-            
-            <div id='btnShow'></div>
-            
-            <div class="title-car">
-                Confira nossos principais storages!
-            </div>
-
-            <div class="carousel-container" arial-live="polite">
-                
-                <button class="left-btn" aria-label="Imagem anterior">
-                    <i class="fas fa-chevron-left" aria-hidden="true"></i>
+    <!-- Navbar -->
+    <nav id="navbar">
+        <img src="./src/images/Logo.svg" alt="" id="logo">
+        <ul id="lista-navbar">
+            <li><a href=" ">Sobre nós</a></li>
+            <li><a href="https://www.yourstorage.x10.mx/homepage/planos.html">Planos</a></li>
+            <li><a href="#footer_content" id="fale-conosco">Fale Conosco</a></li>
+            <a href="https://www.yourstorage.x10.mx/cliente/login/index.html" class="login"><li>
+                <button class="login-button">
+                    <i class="bi bi-person-circle" id="login-btn">
+                        <span>Meu Storage</span>
+                    </i>
                 </button>
-                <button class="right-btn" aria-label="Próxima imagem">
-                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                </li>
+            </a>
+        </ul>
+    </nav>
+
+    <!-- Navbar Responsiva -->
+    <nav id="responsive-navbar" style="display: none;">
+        <img src="./src/images/Logo.svg" alt="" id="logo">
+        <i class="bi bi-list" id="nav-btn-open"></i>
+        <i class="bi bi-x" id="nav-btn-close"></i>
+        <ul id="lista">
+            <li><a href= " ">Sobre nós</a></li>
+            <li><a href="https://www.yourstorage.x10.mx/homepage/planos.html">Planos</a></li>
+            <li><a href=" ">Fale Conosco</a></li>
+            <a href="https://www.yourstorage.x10.mx/cliente/login/index.html" class="login"><li>
+                <button class="login">
+                    <i class="bi bi-person-circle">
+                        <span>Meu Storage</span>
+                    </i>
                 </button>
+                </li>
+            </a>            
+        </ul>
+    </nav>
+
+    <!-- Seção destaque apresentação -->
+    <section id="destaque-flow">
+        <div class="container-img">
+            <img class="highlight-img" src="./src/images/st3.jpg" alt="">
+            <img class="highlight-img" src="./src/images/st2.jpg" alt="">
+            <img class="highlight-img" src="./src/images/security.png" alt="">
+        </div>
+        <div class="legenda"></div>
+        <div class="pagination">
+        </div>
+    </section>
+
+    <!-- Carrossel Storages -->
+    <section id="carrossel-flow">
+        <div id="carrossel-header">
+            <h2>Storages Destaques</h2>
+            <p>Veja abaixo storages destaques, que são gerenciados pela equipe da Your Storage:</p>
+        </div>
+        <div class="swiper">
+            <div class="open-info">
+                <i class="bi bi-eye" id="view">Clique para Visualizar</i>
+                <div id="info-view" style="display: none;"> 
+                    <h2>Storage Ondev</h2>
+                    <i class="bi bi-arrow-down-up"><p>Altura: 10m</p></i>
+                    <i class="bi bi-arrow-left-right"><p>Largura: 10m</p></i>
+                    <i class="bi bi-arrows"><p>Comprimento: 20m</p></i>
+                    <button type="button" class="return" id="return-btn">Voltar</button>
+                </div>
+            </div>
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide" id="slide"><img src="./src/images/self1.jpg" alt=""></div>
+                <div class="swiper-slide" id="slide"><img src="./src/images/self2.jpg" alt=""></div>
+                <div class="swiper-slide" id="slide"><img src="./src/images/self3.jpg" alt=""></div>
+            </div>
+          <!-- If we need navigation buttons -->
+          <div class="swiper-slide-button swiper-button-prev" id="left-btn"></div>
+          <div class="swiper-slide-button swiper-button-next" id="right-btn"></div>
+        </div>
+
+        <div id="contact-question">
+            <div class="title-question">
+                <h2>Tem dúvidas sobre nossos serviços?!</h2>
+                <p>Acesse agora mesmo nosso fomulário, e preencha os campos com seus dados! Assim,
+                    conseguiremos entrar em contato, e explicar sobre nossos serviços. Não é prático?
+                </p>
+
+                <a href="https://www.yourstorage.x10.mx/homepage/orcamento.html"><button type="button" id="link-form">Preencher Formulário</button></a>
+                <p id="contact-happiness">Estamos um passo mais próximo de te conhecer! 🎉</p>
+            </div>
+            <img src="./src/images/contact.jpeg" alt="">
+        </div>
+    </section>
+
+    <!-- Feedbacks Clientes + Link para Plaos -->
+    <section id="testimonials">
+        <div id="testimonials_header">
+            <h2>Clientes Satisfeitos</h2>
+            <p>
+                Veja abaixo, o feedback de alguns clientes que utilizaram nosso sistema:
+            </p>
+        </div>
+        <div class="swiper-container mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" id="slide-testimonial">
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="src/images/testimonials/client1.jpg" alt="Imagem de uma pessoa">
+                        </div>
+                        <div class="author-info">
+                            <h3>Maria Silva</h3>
+                            <p>Cliente da empresa Fictícia Ltda.</p>
+                        </div>
+                    </div>
+                    <blockquote class="testimonial-quote">
+                        "A Your Storage tem sido essencial para o gerenciamento do meu estoque. Recomendo a todos!"
+                    </blockquote>
+                </div>
+                <div class="swiper-slide" id="slide-testimonial">
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="src/images/testimonials/client2.jpg" alt="Imagem de uma pessoa">
+                        </div>
+                        <div class="author-info">
+                            <h3>João Oliveira</h3>
+                            <p>Cliente da empresa Super Produtos S.A.</p>
+                        </div>
+                    </div>
+                    <blockquote class="testimonial-quote">
+                        "A minha empresa teve um crescimento significativo desde que começamos a usar a Your Storage!"
+                    </blockquote>
+                </div>
+                <div class="swiper-slide" id="slide-testimonial">
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="src/images/testimonials/client3.jpg" alt="Imagem de uma pessoa">
+                        </div>
+                        <div class="author-info">
+                            <h3>Lucas Mendes</h3>
+                            <p>Cliente da empresa Tech Innovators</p>
+                        </div>
+                    </div>
+                    <blockquote class="testimonial-quote">
+                        "Com a Your Storage, meu fluxo de trabalho ficou muito mais organizado e eficiente!"
+                    </blockquote>
+                </div>
+                <div class="swiper-slide" id="slide-testimonial">
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="src/images/testimonials/client4.jpg" alt="Imagem de uma pessoa">
+                        </div>
+                        <div class="author-info">
+                            <h3>Fernanda Costa</h3>
+                            <p>Cliente da empresa Elite Solutions</p>
+                        </div>
+                    </div>
+                    <blockquote class="testimonial-quote">
+                        "A Your Storage facilitou muito o gerenciamento dos nossos ativos. Estou muito satisfeita!"
+                    </blockquote>
+                </div>
+                <div class="swiper-slide" id="slide-testimonial">
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="src/images/testimonials/client5.jpg" alt="Imagem de uma pessoa">
+                        </div>
+                        <div class="author-info">
+                            <h3>Juliana Lima</h3>
+                            <p>Cliente da empresa Construtora XYZ</p>
+                        </div>
+                    </div>
+                    <blockquote class="testimonial-quote">
+                        "Com a Your Storage, o controle de estoque se tornou muito mais simples e eficiente!"
+                    </blockquote>
+                </div>
+                <div class="swiper-slide" id="slide-testimonial">
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="src/images/testimonials/client6.jpg" alt="Imagem de uma pessoa">
+                        </div>
+                        <div class="author-info">
+                            <h3>Paulo Almeida</h3>
+                            <p>Cliente da empresa Global Imports</p>
+                        </div>
+                    </div>
+                    <blockquote class="testimonial-quote">
+                        "A Your Storage realmente melhorou nossa gestão de produtos. Super recomendo!"
+                    </blockquote>
+                </div>
+                <div class="swiper-slide" id="slide-testimonial">
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="src/images/testimonials/client7.jpg" alt="Imagem de uma pessoa">
+                        </div>
+                        <div class="author-info">
+                            <h3>Rafael Santos</h3>
+                            <p>Cliente da empresa Fábrica de Roupas ABC</p>
+                        </div>
+                    </div>
+                    <blockquote class="testimonial-quote">
+                        "Desde que adotamos a Your Storage, nossa eficiência aumentou bastante. Estou impressionado!"
+                    </blockquote>
+                </div>
+                <div class="swiper-slide" id="slide-testimonial">
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="src/images/testimonials/client8.jpg" alt="Imagem de uma pessoa">
+                        </div>
+                        <div class="author-info">
+                            <h3>Camila Ferreira</h3>
+                            <p>Cliente da empresa Distribuidora FastTrack</p>
+                        </div>
+                    </div>
+                    <blockquote class="testimonial-quote">
+                        "A Your Storage fez toda a diferença no gerenciamento dos nossos ativos. Recomendo fortemente!"
+                    </blockquote>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div id="question-testimonial">
+            <div class="enterprise-user">
+                <img src="./src/images/testimonials/person-smile.png" alt="">
+            </div>
+            <div class="four-wallbreak">
+                <h2>Você e sua empresa, podem ser nosso mais novo case de sucesso!</h2>
+                <p>Que tal dar o próximo passo para transformar o <span style="color: rgb(75, 106, 185);">gerenciamento de ativos da sua empresa?</span></p>
                 
+                <p>Nosso sistema de gerenciamento de estoque é ideal para monitorar e organizar seus produtos e equipamentos de 
+                    forma prática e segura.
+                </p> 
+                
+                <p>Clique abaixo para explorar nossos planos, e encontre a melhor solução para o seu negócio!</p>
+                
+                <button type='button' class="link-plan" id="planos-button">Planos</button>
+            </div>
+            <img class='testimonial-logo' src="./src/images/Logo_reduzido.svg" alt="">
+        </div>
+    </section>
 
-                <div class="carousel-item" data-info="info1" alt="Exemplo Storage 1">
-                    <div class="info-box" id="info1">
-                        <div class="info-content">
-                            <h2>Storage Ondev</h2>
-                            <p>Altura: 10 metros</p>
-                            <p>Largura: 20 metros</p>
-                            <p>Comprimento: 30 metros</p>
-                            <button class="close-info">Voltar</button>
+    <!-- Footerpage -->
+    <footer>
+        <div id="footer_content">
+            <div id="footer_contacts">
+                <h2>Canais de Atendimento</h2>
+
+                <div id="footer_info_contact">
+                    
+                        <div class="email-contact">
+                            <a href="mailto:yourstoragee@gmail.com, noreply@yourstorage.x10.mx" target="_blank" class="footer-link" id="email">
+                                <i class="fa-solid fa-envelope"></i>
+                            </a>
+                            <p>yourstoragee@gmail.com</p>
                         </div>
-                    </div>
-                    <img src="https://i.imgur.com/GNS4EJP.png" alt="Imagem do Storage" width="1000" height='800' style="border-radius: 18px;">
-                    <div class="overlay" height='400'>
-                        <img src="./src/images/olho_aberto.png" class="view">
-                        <p>
-                            Visualizar
-                        </p>
-                    </div>
-                </div>
 
-                <div class="carousel-item" data-info="info2">
-                    <div class="info-box" id="info2">
-                        <div class="info-content">
-                            <h2>Storage Proteção</h2>
-                            <p>Altura: 5 metros</p>
-                            <p>Largura: 5 metros</p>
-                            <p>Comprimento: 10 metros</p>
-                            <button class="close-info">Voltar</button>
-                        </div>
+                    <div class="phone-contact">
+                        <a href="tel:+5511972813108" target="_blank" class="footer-link" id="telefone">
+                            <i class="fa-solid fa-phone"></i>
+                        </a>
+                        <p>(11) 1234-5678</p>
                     </div>
-                    <img src="https://i.imgur.com/vBXhbbR.jpeg" alt="Imagem do Storage" width="1000" style="border-radius: 18px;"> 
-                    <div class="overlay">
-                        <img src="./src/images/olho_aberto.png" class="view">
-                        Visualizar
-                    </div>
-                </div>
-
-                <div class="carousel-item" data-info="info3">
-                    <div class="info-box" id="info3">
-                        <div class="info-content">
-                            <h2>Storage InvestIN</h2>
-                            <p>Altura: 3 metros</p>
-                            <p>Largura: 3 metros</p>
-                            <p>Comprimento: 6 metros</p>
-                            <button class="close-info">Voltar</button>
-                        </div>
-                    </div>
-                    <img src="https://i.imgur.com/eB9E65S.jpeg" width="1000" height="744" style="border-radius: 18px;">
-                    <div class="overlay">
-                        <img src="./src/images/olho_aberto.png" class="view">
-                        Visualizar
+                    
+                    <div class="whatsapp-contact">
+                        <a href="https://wa.me/5511972813108?text=Olá, tudo bem? Fiquei interessado no sistema. Podemos conversar?" target="_blank" class="footer-link" id="whatsapp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <p>(11) 97281-3108</p>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <hr id="separa-section">
-
-        <!-- Seção Clientes -->
-        <section class="cliente-secao" id="client-section">
-            <h2 class="titulo-secao">Satisfação de Clientes</h2>
             
-            <div class="linha-superior card" aria-label="Comentário de cliente">
-                <div class="texto-esquerda">
-                    <hr id="separa-texto-cima">
-                    <p><em>O sistema da YourStorage superou todas as minhas expectativas!
-                    Desde o momento em que comecei a utilizar, fiquei impressionada com a facilidade e eficiência da plataforma. O sistema é extremamente intuitivo, e o controle que ele oferece sobre os ativos da empresa é incomparável.</p><br>
-                    <p>A agilidade no cadastro e na movimentação dos produtos é excelente, e a atualização em tempo real do estoque me dá total segurança. O suporte ao cliente também foi muito atencioso e eficiente, sempre pronto para ajudar.</p>
-                    <p>Sem dúvida, a YourStorage é uma ferramenta essencial para quem busca organização, controle e otimização. Estou mais do que satisfeita!</em></p>
-                    <hr id="separa-texto-baixo">
-                    <p id="client">Maria Oliveira - Gerente de Vendas na TechFlux Eletronics</p>
-                </div>
-            
-                <div class="imagem-direita">
-                    <img src="./src/images/maria.png" alt="Foto da cliente Maria Oliveira">
-                </div>
-            </div>
+            <div class="our-networks">
+                <h2>Redes Sociais</h2>
 
-            <div class="linha-inferior card" aria-label="Comentário de cliente">
-                <div class="imagem-esquerda">
-                    <img src="./src/images/joao.png" alt="Foto do cliente João Oliveira">
-                </div>
-            
-                <div class="texto-direita">
-                    <hr id="separa-texto-cima">
-                    <p><em>Desde que comecei a usar o sistema da YourStorage, percebi uma melhora significativa no controle dos ativos da minha empresa. A plataforma é prática, fácil de usar e me dá muita segurança.</p><br> 
-                    <p>O cadastro dos ativos é ágil e me permite organizar tudo de forma eficiente. Acredito que ainda sempre há espaço para melhorias em termos de automação e suporte, mas no geral, o sistema tem sido uma ferramenta essencial para manter tudo sob controle.</em></p>
-                    <hr id="separa-texto-baixo">
-                    <p id="client">João Oliveira - Diretor de Operações na PrimeAssets Solutions</p>
+                <div id="footer_social_media">
+                    <a href="https://instagram.com/eothigas_07" target="_blank" class="footer-link" id="instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/profile.php?id=61567778275296" target="_blank"class="footer-link" id="facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="https://youtube.com/@YourStorage" target="_blank" class="footer-link" id="youtube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+                    <a href="https://wa.me/5511972813108?text=Olá, tudo bem?"  target="_blank" class="footer-link" id="whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
                 </div>
             </div>
 
-            <h3 class="titulo-carrossel">+ Empresas Satisfeitas</h3>
-            
-            <div class="carrossel-container">
-                <div class="carrossel">
-                    <div class="carrossel-images">
-                        <div class="carousel-images-inner">
-                            <img class='img-client' src="./src/images/client_1.png" alt="Cliente 1">
-                            <img class='img-client' src="./src/images/client_2.png" alt="Cliente 2">
-                            <img class='img-client' src="./src/images/client_3.png" alt="Cliente 3">
-                            <img class='img-client' src="./src/images/client_4.png" alt="Cliente 4">
-                            <img class='img-client' src="./src/images/client_5.png" alt="Cliente 5">
-                            <img class='img-client' src="./src/images/client_6.png" alt="Cliente 6">
-                            <img class='img-client' src="./src/images/client_7.png" alt="Cliente 7">
-                            <img class='img-client' src="./src/images/client_8.png" alt="Cliente 8">
-                            <img class='img-client' src="./src/images/client_9.png" alt="Cliente 9">
-                            <img class='img-client' src="./src/images/client_10.png" alt="Cliente 10">
-                            <img class='img-client' src="./src/images/client_11.png" alt="Cliente 11">
-                            <img class='img-client' src="./src/images/client_12.png" alt="Cliente 12">
-                        </div>
-                    </div>
+            <div id="footer_service">
+                <h2>Atendimento Presencial</h2>
 
-                    <div class="nav-client">
-                        <div class="nav-itens" data-index="0"></div>
-                        <div class="nav-itens" data-index="1"></div>
-                        <div class="nav-itens" data-index="2"></div>
-                        <div class="nav-itens" data-index="3"></div>
-                        <div class="nav-itens" data-index="4"></div>
-                        <div class="nav-itens" data-index="5"></div>
-                        <div class="nav-itens" data-index="6"></div>
-                        <div class="nav-itens" data-index="7"></div>
-                        <div class="nav-itens" data-index="8"></div>
-                        <div class="nav-itens" data-index="9"></div>
-                        <div class="nav-itens" data-index="10"></div>
-                        <div class="nav-itens" data-index="11"></div>
-                        <div class="nav-itens" data-index="12"></div>
-                    </div>
-                </div>
-            </div>  
-        </section>
-
-        <hr id="separa-section">
-
-        <!-- Link para Página de Planos -->
-        <section class="planos-secao">
-            <h2 class="titulo-planos">Explore Nossos Planos!</h2>
-            <p class="subtitulo-planos">Clique na imagem abaixo para descobrir o plano que melhor se adapta às suas necessidades.</p>
-            <div class="imagem-planos-container">
-                <div class="imagem-planos">
-                    <a href="./planos.html"><img id='fundo-plano' src="./src/images/plano.jpg" width="800" height="400"  alt="Clique aqui para conferir os planos"></a>
-                            <div class="logo-container">
-                                <a id="linkplan" href="./planos.html">Conferir Planos</a>
-                            </div>
-                </div>
-            </div>
-        </section>
-
-        <hr id="separa-section">
-
-        <!-- Seção Atendimento -->
-        <section class="atendimento" id="fale-conosco">
-            <div class="lado-esquerdo">
-                <h2>Canais de atendimento</h2>
-                <div class="formas-contato">
-                    <div class="contato-item">
-                        <a href="tel:+5511972813108">
-                            <img src="./src/images/phone.png" alt="Telefone" target="_blank">
-                            <span>(11) 97281-3108</span>
+                <div id="footer_info_service">
+                    <div class="dayhour-service">
+                        <a class="footer-link_" style="display: none;" id="street_">
+                            <i class="fa fa-clock"></i>
+                        </a>
+                        <p>Segunda à Sexta - 09h às 18h</p>
+                        <a class="footer-link" id="street">
+                            <i class="fa fa-clock"></i>
                         </a>
                     </div>
-                    <div class="contato-item">
-                        <a href="mailto:yourstoragee@gmail.com, noreply@yourstorage.x10.mx">
-                            <img src="./src/images/email.png" alt="Email" target="_blank">
-                            <span>yourstoragee@gmail.com</span>
+
+                    <div class="adress-service">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Avenida+1,+123+-+Cidade+-+Estado" target="_blank"  class="footer-link_" style="display: none;" id="adress_">
+                            <i class='fa-solid fa-location-dot'></i>
+                        </a>
+                        <p>Avenida 1, 123 - Cidade - Estado</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Avenida+1,+123+-+Cidade+-+Estado" target="_blank" class="footer-link" id="adress">
+                            <i class='fa-solid fa-location-dot'></i>
                         </a>
                     </div>
-                    <div class="contato-item">
-                        <a href="https://wa.me/5511972813108?text=Olá, tudo bem? Fiquei interessado no sistema. Podemos conversar?" target="_blank">
-                            <img src="./src/images/whatsapp.png" alt="WhatsApp">
-                            <span>(11) 97281-3108</span>
+
+                    <div class="adress-code-service">
+                        <a href="https://www.google.com/maps/search/?api=1&query=01153-000" target="_blank"  class="footer-link_" style="display: none;" id="code_">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </a>
+                        <p>Cep: 01153-000</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=01153-000" target="_blank" class="footer-link" id="code">
+                            <i class="fa-solid fa-map-location-dot"></i>
                         </a>
                     </div>
                 </div>
             </div>
-        
-            <div class="meio">
-                <img src="./src/images/Icon1.png" width="45" height="45" alt="Icon 1">
-                <img src="./src/images/Icon2.png" width="45" height="45" alt="Icon 2">
-                <img src="./src/images/Icon1.png" width="45" height="45" alt="Icon 1">
-                <img src="./src/images/Icon2.png" width="45" height="45" alt="Icon 2">
-                <img src="./src/images/Icon1.png" width="45" height="45" alt="Icon 1">
-            </div>
+        </div>
 
-            <hr id="meio-responsive">
-        
-            <div class="redes-sociais">
-                <h2>Nossas redes sociais</h2>
-                    <div id='redes-icons'>
-                        <a href="https://instagram.com/eothigas_07" target="_blank">
-                            <img src="./src/images/instagram.png" alt="Instagram">
-                        </a>
-                        <a href="https://facebook.com/yourprofile" target="_blank">
-                            <img src="./src/images/facebook.png" alt="Facebook">
-                        </a>
-                        <a href="https://youtube.com/@YourStorage" target="_blank">
-                            <img src="./src/images/youtube.png" alt="YouTube">
-                        </a>
-                        <a href="https://wa.me/5511972813108?text=Olá, tudo bem?" target="_blank">
-                            <img src="./src/images/whatsapp.png" alt="WhatsApp">
-                        </a>
-                    </div>
-            </div>
-
-            <div class="lado-direito">
-                <h2>Horário de atendimento</h2>
-                <div class="info-horario">
-                    <img id='hour' src="./src/images/clock.png" alt="Horário" style="display: none;">
-                    <span>
-                        Aberto ao Público:<br>
-                        Segunda a Sexta 09h às 18h
-                    </span>
-                    <img src="./src/images/clock.png" alt="Horário">
-                </div>
-                <div class="info-localizacao">
-                    <img id='local' src="./src/images/locate.png" alt="Localização" style="display: none;">
-                    <span>
-                        Avenida 1, 123 - Cidade - Estado<br>
-                        Cep: 12345 - 678
-                    </span>
-                    <img src="./src/images/locate.png" alt="Localização">
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Rodapé -->
-    <footer id="footer-page" aria-label="Rodapé" role="contentinfo">
-        <h2>©Your Storage - Todos os direitos reservados | 2024</h2>
+        <div id="footer_copyright">
+            &#169
+            Your Storage | Todos direitos reservados | 2024
+        </div>
     </footer>
 
     <!-- Botão de Voltar ao Topo -->
     <button id="btn-topo" aria-label="Voltar ao topo"><i class="fas fa-arrow-up" aria-label="Voltar ao topo"></i></button>
 
-    <script src="./src/js/script.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./src/js/index.js"></script>
 </body>
 </html>

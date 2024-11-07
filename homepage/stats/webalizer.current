@@ -1,0 +1,1491 @@
+# Webalizer V2.23-08 Incremental Data - 10/29/2024 23:33:02
+2024 10 29 23 33 2
+234328 227719 198 198 102 84 17577259228 12321 280 0
+5 1 53301 1 29
+15692 14884 89817243 3 781 5
+6225 5904 115662214 3 506 5
+196 128 3908267 3 32 3
+9 2 12626 5 9 5
+0 0 0 0 0 0
+103 95 4172580 2 19 2
+2241 2230 122106029 1 83 4
+1796 1775 26934418 3 59 7
+1797 1732 27082114 5 124 7
+49 46 3911038 2 6 2
+81 67 389117 3 21 3
+11 2 15481 5 11 5
+0 0 0 0 0 0
+0 0 0 0 0 0
+8 2 13200 1 7 1
+0 0 0 0 0 0
+2617 2524 38793785 2 179 3
+0 0 0 0 0 0
+5 1 21168 1 5 1
+2496 2018 38541741 4 476 4
+6440 5952 412121389 28 1314 27
+1858 1648 120649490 111 290 100
+120316 117126 10337073315 12 4397 21
+5686 5485 141004216 9 1358 18
+625 547 20573582 4 84 12
+354 314 21903298 4 61 11
+559 360 18517948 4 80 9
+64913 64675 6016578823 5 2366 11
+251 202 17456146 5 53 15
+0 0 0 0 0 0
+0 0 0 0 0 0
+4392 4133 123379292 845
+42682 42614 4034088509 1108
+54107 53934 5132453791 1461
+1237 1213 57973438 103
+403 363 5220780 34
+138 127 9618816 18
+984 966 21144180 26
+1877 1667 37982446 49
+21221 21105 1924197598 823
+8570 8448 533665901 354
+25564 25427 2201333692 996
+10867 10535 766749020 508
+29010 26167 1854875033 1752
+5978 5736 125985829 530
+4183 3914 53468546 252
+4292 4168 241207694 395
+1996 1902 36575900 259
+1782 1315 39571595 230
+3658 3370 98282121 730
+5268 4972 140317902 967
+2563 2378 55963196 321
+834 749 20935527 162
+1034 888 20048615 191
+1688 1628 42219807 207
+0
+0
+0
+227719
+0
+0
+0
+0
+0
+42
+0
+786
+349
+0
+4238
+0
+0
+0
+53
+0
+9
+1073
+5
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+54
+0
+0
+0
+0
+0
+# -urls- 
+/funcionario/src/images/fundo4.jpg
+0 118 0 38864960 0 0
+/funcionario/php/get_clients.php
+0 35 0 19074 0 0
+/funcionario/src/js/verify_session.js
+0 985 0 805560 0 0
+/cliente/src/js/restrict.js
+0 52 0 82300 0 0
+/cliente/src/css/homeresponsive.css
+0 213 0 184648 0 0
+/homepage/src/images/Storage_1.png
+0 2464 0 1721220689 0 0
+/cliente/sistema/php/excluir_produto.php
+0 15 0 720 0 0
+/funcionario/php/check_session.php
+0 1828 0 92266 0 0
+/homepage/src/css/webview-responsive.css
+0 5091 0 13058646 0 0
+/homepage/src/images/Logo.svg
+0 5096 0 372469302 0 0
+/homepage/src/images/joao.png
+0 5094 0 999767657 0 0
+/homepage/src/images/client_8.png
+0 5091 0 153603811 0 0
+/homepage/src/css/orcamento.css
+0 293 0 349049 0 0
+/funcionario/src/css/profileresponsive.css
+0 35 0 31576 0 0
+/homepage_/src/images/Logo_reduzido.svg
+0 4 0 265700 0 0
+/funcionario/src/css/dashboard_responsive.css
+0 54 0 46908 0 0
+/homepage/planos_.html
+0 51 0 78986 0 3
+/homepage_/src/images/security.png
+0 4 0 70868 0 0
+/cliente/sistema/consultaprod.html
+0 430 0 614081 2 4
+/cliente/recuperarsenha/php/verificar_codigo.php
+0 134 0 9141 0 0
+/cliente/login/php/log_cliente.php
+0 193 0 13635 0 0
+/homepage/
+0 5361 0 17375386 45 47
+/errors/error500.html
+0 1 0 516 0 0
+/cliente/sistema/php/update_user.php
+0 23 0 1290 0 0
+/homepage_/src/images/self3.jpg
+0 4 0 331656 0 0
+/cliente/sistema/movimentaprod.html
+0 87 0 68147 0 0
+/funcionario/src/js/profile.js
+0 35 0 81859 0 0
+/homepage/src/css/planos_.css
+0 29 0 22638 0 0
+/cliente/sistema/php/consulta_storages.php
+0 770 0 264095 0 0
+/errors/error404.html
+0 1 0 524 0 0
+/funcionario/alterar.html
+0 195 0 230783 2 2
+/homepage_/src/images/st2.jpg
+0 4 0 2577916 0 0
+/homepage/src/images/Vector.svg
+0 5092 0 1624911 0 0
+/homepage/src/images/olho_aberto.png
+0 5092 0 3102563 0 0
+/homepage/src/images/client_5.png
+0 5090 0 208288004 0 0
+/homepage/src/images/st2.jpg
+0 5095 0 3223300235 0 0
+/cliente/src/images/Logo_reduzido.svg
+0 1794 0 118305388 0 0
+/homepage/src/images/produto.jpg
+0 19 0 1410125 0 0
+/homepage/src/images/Icon1.png
+0 3270 0 2597253 0 0
+/funcionario/src/js/cadastro.js
+0 652 0 552453 0 0
+/cliente/sistema/settings.html
+0 306 0 724597 0 1
+/homepage/php/process_form.php
+0 9 0 878 0 0
+/cliente/src/css/senhanova.css
+0 34 0 35237 0 0
+/cliente/src/css/login.css
+0 145 0 112079 0 0
+/errors/img/401.png
+0 173 0 28172425 0 0
+/cliente/recuperarsenha/php/reenviar_codigo.php
+0 19 0 715 0 0
+/homepage/src/css/webview.css
+0 5092 0 9781925 0 0
+/homepage/src/images/youtube.png
+0 3269 0 2339081 0 0
+/homepage/src/images/client_9.png
+0 5091 0 176777754 0 0
+/errors/error401.html
+0 2 0 970 0 0
+/cliente/sistema/cadastroprod.html
+0 48 0 28349 0 1
+/cliente/src/js/consultaprod.js
+0 367 0 809442 0 0
+/api/log_cliente.php
+0 16 0 3197 0 0
+/homepage_/src/css/
+0 4 0 848 0 0
+/homepage/src/images/client_2.png
+0 5090 0 173751319 0 0
+/errors/html/error401.html
+0 245 0 98497 0 0
+/cliente/src/js/home.js
+0 212 0 368838 0 0
+/homepage/src/images/caixa.png
+0 87 0 466973 0 0
+/homepage/src/images/client_10.png
+0 5090 0 170932324 0 0
+/cliente/src/css/recuperarsenha.css
+0 87 0 65030 0 0
+/funcionario/src/js/
+0 118 0 105352 0 1
+/cliente/sistema/php/consultaprod.php
+0 6910 0 3857074 0 0
+/homepage/src/js/script.js
+0 5873 0 10130845 0 0
+/homepage/src/js/orcamento.js
+0 77 0 129094 0 0
+/funcionario/src/js/alterar.js
+0 138 0 460558 0 0
+/funcionario/php/consulta_usuarios.php
+0 834 0 148976 0 0
+/funcionario/src/images/fundo5.jpg
+0 118 0 50043710 0 0
+/cliente/src/css/consultaprod.css
+0 367 0 756381 0 0
+/homepage/src/images/client_4.png
+0 5091 0 134016227 0 0
+/homepage_/src/images/self1.jpg
+0 4 0 531392 0 0
+/funcionario/php/deletar_usuario.php
+0 1 0 51 0 0
+/funcionario/profile.html
+0 74 0 46265 1 5
+/funcionario/src/css/log_funcionario.css
+0 118 0 119375 0 0
+/cliente/sistema/home.html
+0 272 0 311126 5 2
+/cliente/recuperarsenha/php/atualizar_senha.php
+0 23 0 1329 0 0
+/funcionario/cadastro_storage.php
+0 188 0 224318 0 0
+/funcionario/src/images/fundo2.jpg
+0 118 0 60391730 0 0
+/cliente/sistema/php/edit_users.php
+0 108 0 8983 0 0
+/funcionario/src/css/alterar_responsive.css
+0 138 0 117371 0 0
+/homepage_/src/images/contact.jpeg
+0 4 0 232144 0 0
+/funcionario/src/css/cadastro.css
+0 750 0 1509146 0 0
+/funcionario/
+0 143 0 85248 16 5
+/homepage/src/images/client_6.png
+0 5091 0 135039489 0 0
+/funcionario/php/alterar_usuario.php
+0 57 0 4269 0 0
+/cliente/sistema/php/listar_produtos.php
+0 848 0 683869 0 0
+/cliente/sistema/php/check_session.php
+0 2229 0 214652 0 0
+/homepage_/src/images/st3.jpg
+0 4 0 1971180 0 0
+/cliente/recuperarsenha/senhanova.html
+0 46 0 44580 0 0
+/funcionario/src/js/dashboard.js
+0 55 0 73253 0 0
+/errors/html/error500.html
+0 9 0 3462 0 0
+/cliente/src/css/cadastroprodresponsive.css
+0 23 0 15599 0 0
+/cliente/src/css/consultaprodresponsive.css
+0 60 0 55822 0 0
+/funcionario/cadastro.php
+0 861 0 1658197 0 0
+/homepage/src/images/Storage_2.png
+0 2474 0 1172431270 0 0
+/homepage/src/images/error.png
+0 1089 0 5495040 0 0
+/homepage/src/images/whatsapp.png
+0 3270 0 4327165 0 0
+/errors/css/404.css
+0 747 0 366665 0 0
+/homepage/src/images/st1.jpg
+0 4603 0 833820702 0 0
+/cliente/src/css/codigo.css
+0 270 0 237656 0 0
+/homepage/src/css/orcamentoerro.css
+0 960 0 632103 0 0
+/funcionario/src/js/consulta.js
+0 56 0 94893 0 0
+/funcionario/consulta.html
+0 77 0 59472 0 1
+/funcionario/php//get_clients.php
+0 184 0 54511 0 0
+/homepage/src/images/locate.png
+0 3269 0 4162911 0 0
+/homepage/src/images/Icon2.png
+0 3269 0 2576767 0 0
+/cliente/recuperarsenha/recuperarsenha.html
+0 112 0 127537 1 2
+/funcionario/src/css/consultaresponsive.css
+0 56 0 48399 0 0
+/homepage/src/images/client_7.png
+0 5091 0 138972802 0 0
+/homepage/src/css/orcamentopendente.css
+0 59 0 38508 0 0
+/errors/html/error404.html
+0 750 0 311960 0 0
+/cliente/src/css/cadastroprod.css
+0 22 0 24080 0 0
+/cliente/recuperarsenha/php/validar_codigo.php
+0 104 0 8774 0 0
+/funcionario/php/get_profile.php
+0 1845 0 225479 0 0
+/funcionario/src/css/log_responsive.css
+0 118 0 45416 0 0
+/funcionario/src/css/alterar.css
+0 138 0 300649 0 0
+/homepage/src/images/fundo_planos.png
+0 2418 0 88851475 0 0
+/homepage_/src/css/navbar.css
+0 4 64574 2172 0 0
+/cliente/src/css/senharedefinida.css
+0 10 0 5537 0 0
+/homepage_/
+0 5 25 5200 2 0
+/homepage/planos.html
+0 844 0 917373 1 4
+/cliente/sistema/php/produtos_destaque.php
+0 756 0 87269 0 0
+/PHP/php.ini
+0 3 0 678 0 0
+/homepage/src/css/planos.css
+0 796 0 1838868 0 0
+/cliente/sistema/php/consultar_plano.php
+0 260 0 25349 0 0
+/homepage/src/images/client_12.png
+0 5092 0 141560736 0 0
+/homepage/src/images/maria.png
+0 5092 0 654638190 0 0
+/funcionario/php/logout.php
+0 28 0 560 0 0
+/cliente/src/css/settings.css
+0 282 0 461901 0 0
+/funcionario/dashboard.html
+0 90 0 61098 5 4
+/homepage/src/css/webview2.css
+0 5091 0 10687044 0 0
+/homepage_/src/css/carrossel-flow.css
+0 4 0 2944 0 0
+/homepage/src/images/client_3.png
+0 5090 0 129628460 0 0
+/errors/error403.html
+0 3 0 1056 0 0
+/funcionario/src/css/cadastroresponsive.css
+0 750 0 671882 0 0
+/cliente/src/js/verify_session.js
+0 632 0 581960 0 0
+/funcionario/src/images/Logo_reduzido.svg
+0 2076 0 137062478 0 0
+/homepage/src/images/facebook.png
+0 3269 0 2738640 0 0
+/homepage/src/images/espaco.jpg
+0 21 0 1883301 0 0
+/cliente/sistema/php/user-register.php
+0 34 0 1841 0 0
+/homepage/src/images/st3.jpg
+0 5094 0 2465266984 0 0
+/homepage/src/images/plano.jpg
+0 2667 0 1297568144 0 0
+/errors/img/logo_reduzido.svg
+0 975 0 64233581 0 0
+/cliente/src/js/settings.js
+0 282 0 256107 0 0
+/cliente/sistema/php/buscar_usuarios.php
+0 359 0 50683 0 0
+/funcionario/php/cadastrar_storage.php
+0 18 0 1223 0 0
+/funcionario/src/images/fundo1.jpg
+0 118 0 35198810 0 0
+/cliente/src/js/movimentaprod.js
+0 67 0 69957 0 0
+/cliente/sistema/php/atualizar_produto.php
+0 1780 0 173255 0 0
+/homepage/src/images/client_11.png
+0 5092 0 198027981 0 0
+/errors/img/404.png
+0 806 0 146085844 0 0
+/homepage/orcamentopendente.html
+0 123 0 29575 0 2
+/cliente/recuperarsenha/senharedefinida.html
+0 12 0 4550 0 0
+/homepage/src/images/confirm.png
+0 60 0 284520 0 0
+/homepage/src/images/clock.png
+0 3269 0 3300240 0 0
+/homepage/src/images/phone.png
+0 3270 0 3725146 0 0
+/funcionario/src/images/fundo3.jpg
+0 118 0 67913430 0 0
+/funcionario/src/css/consulta.css
+0 56 0 83823 0 0
+/homepage_/src/images/Logo.svg
+0 4 0 297444 0 0
+/homepage/src/images/email.png
+0 3270 0 3969994 0 0
+/funcionario/php/atualizar_funcionario.php
+0 32 0 3132 0 0
+/funcionario/php/upload_img.php
+0 9 0 666 0 0
+/funcionario/php/log_funcionario.php
+0 152 0 9564 0 0
+/cliente/src/css/home.css
+0 212 0 287369 0 0
+/funcionario/php/cadastrar_usuario.php
+0 3 0 261 0 0
+/funcionario/src/css/dashboard.css
+0 54 0 79203 0 0
+/homepage_/src/images/self2.jpg
+0 4 0 337148 0 0
+/cliente/src/css/settingsresponsive.css
+0 172 0 201936 0 0
+/cliente/src/css/enviocodigo.css
+0 10 0 4542 0 0
+/funcionario/src/images/fundo6.jpg
+0 118 0 41759830 0 0
+/cliente/src/css/movimentaprodresponsive.css
+0 24 0 22008 0 0
+/funcionario/src/css/profile.css
+0 35 0 55191 0 0
+/cliente/src/js/actions_modal.js
+0 279 0 718346 0 0
+/homepage/src/images/Logo_reduzido.svg
+0 12203 0 802662259 0 0
+/cliente/src/js/cadastroprod.js
+0 22 0 23883 0 0
+/homepage/orcamentoerro.html
+0 1135 0 495830 1 0
+/homepage_/src/css/destaque-flow.css
+0 4 54 2072 0 0
+/homepage/orcamento.html
+0 236 0 171460 10 7
+/homepage/src/images/Storage_3.png
+0 2487 0 1078586622 0 0
+/funcionario/src/js/cadastro_storage.js
+0 104 0 182918 0 0
+/cliente/src/css/movimentaprod.css
+0 67 0 71114 0 0
+/cliente/src/css/modal-settings.css
+0 282 0 395014 0 0
+/homepage/src/images/instagram.png
+0 3269 0 4115166 0 0
+/cliente/recuperarsenha/enviocodigo.html
+0 40 0 4200 0 0
+/cliente/recuperarsenha/codigo.html
+0 397 0 512473 0 0
+/errors/img/500.png
+0 1 0 138912 0 0
+/errors/css/500.css
+0 6 0 3262 0 0
+/cliente/login/
+0 195 0 286965 6 5
+/cliente/sistema/php/cadastro_produto.php
+0 19 0 796 0 0
+/cliente/sistema/php/registrar_movimentacao.php
+0 73 0 7697 0 0
+/homepage_/src/js/
+0 4 0 5616 0 1
+/cliente/recuperarsenha/php/recuperar_senha.php
+0 36 0 4161 0 0
+/cliente/sistema/php/buscar_produtos.php
+0 3 0 18 0 0
+/errors/html/error403.html
+0 3 0 1364 0 0
+/cliente/sistema/php/get_storages.php
+0 258 0 67361 0 0
+/homepage/php/process_form1.php
+0 7 0 449 0 0
+/homepage/src/images/client_1.png
+0 5089 0 170953605 0 0
+/homepage/src/images/users.jpg
+0 21 0 1242171 0 0
+/errors/css/401.css
+0 251 0 135649 0 0
+# End Of Table - urls
+# -sites- (monthly)
+185.68.246.44
+0 1 0 1044 1 1729562839
+-
+119.15.83.218
+0 1 0 1007 1 1728489921
+-
+104.166.80.220
+0 4 1 7270 1 1728645741
+/homepage/
+201.87.117.161
+0 8035 7435 399804011 2 1729521033
+-
+152.254.253.253
+0 190886 187130 16468020359 34 1730244782
+/homepage/
+45.81.148.201
+0 41 41 3901110 1 1729566028
+/homepage/
+187.90.221.126
+0 6 1 2825 1 1730232734
+/homepage/
+5.181.168.128
+0 1 0 1234 1 1729562864
+-
+212.119.42.43
+0 2 0 2018 1 1729562842
+-
+185.197.28.60
+0 3 1 4996 1 1728059046
+/homepage/
+45.133.7.65
+0 36 36 3830721 1 1729584676
+/homepage/
+104.152.52.68
+0 1 0 1234 1 1729720345
+-
+54.213.225.84
+0 86 80 7674646 1 1729524633
+/homepage/
+104.166.80.173
+0 3 1 6281 1 1729711630
+/homepage/
+187.182.237.223
+0 48 44 2693210 1 1729793515
+/homepage/orcamento.html
+93.177.117.110
+0 1 0 1235 1 1729562868
+-
+192.175.111.234
+0 1 0 1059 0 0
+-
+87.120.112.4
+0 3 1 6044 1 1729633362
+/homepage/
+104.166.80.241
+0 3 1 6281 1 1729971775
+/homepage/
+104.166.80.124
+0 4 1 7270 1 1728598551
+/homepage/
+35.188.76.104
+0 8 2 13200 1 1729000299
+-
+77.83.25.61
+0 1 0 1058 0 0
+-
+103.131.95.72
+0 1 1 3153 1 1729563221
+/homepage/
+87.236.176.14
+0 3 1 6289 1 1729569981
+/homepage/
+5.188.217.191
+0 1 0 1234 1 1729562842
+-
+198.240.127.60
+0 40 40 3853738 1 1729562813
+/homepage/
+179.61.228.23
+0 6 1 9340 1 1729563965
+/homepage/
+186.211.31.4
+0 11 11 2733122 1 1729511464
+/funcionario/src/js/
+193.163.89.210
+0 2 0 2019 1 1729562865
+-
+146.185.204.30
+0 1 0 1048 1 1729562864
+-
+94.102.49.206
+0 42 40 3836275 1 1729562705
+/homepage/
+54.88.179.33
+0 5 1 21168 1 1729367342
+-
+186.66.165.60
+0 1463 1322 103310386 36 1730163514
+/homepage/
+80.82.70.198
+0 1 1 67627 0 0
+-
+104.166.80.252
+0 42 38 2689540 1 1729720298
+/homepage/
+64.15.129.114
+0 1 0 963 0 0
+-
+134.209.145.186
+0 5 2 75075 1 1729392172
+/homepage/
+205.169.39.162
+0 13 7 22763 1 1729508857
+/homepage/
+193.31.126.76
+0 1 1 3676 1 1729562876
+/homepage/
+198.44.140.213
+0 4 1 6574 1 1729516380
+/homepage/
+106.161.65.206
+0 9 1 12571 1 1729564012
+-
+45.148.127.172
+0 1 0 1058 0 0
+-
+185.152.93.37
+0 1 0 1234 1 1729562868
+-
+37.120.147.154
+0 1 0 1011 1 1729563011
+-
+146.19.140.218
+0 1 0 1048 1 1729562865
+-
+66.249.85.42
+0 1 1 1944 1 1729457087
+/cliente/recuperarsenha/recuperarsenha.html
+205.169.39.13
+0 17 13 1293998 1 1727806283
+/homepage/
+185.176.50.220
+0 1 0 1048 1 1728698181
+-
+161.35.157.207
+0 5 2 75075 1 1728201214
+/homepage/
+192.175.111.246
+0 4 1 19115 1 1729514700
+/homepage/
+172.241.250.173
+0 2 0 2034 0 0
+-
+193.233.90.213
+0 1 1 3676 1 1729562868
+/homepage/
+193.187.95.134
+0 1 0 1234 1 1729562847
+-
+104.152.52.66
+0 1 0 1234 1 1729672149
+-
+141.98.87.253
+0 1 1 3676 1 1729562877
+/homepage/
+149.88.16.243
+0 42 40 3836275 1 1729562661
+/homepage/
+79.110.28.171
+0 1 0 1236 0 0
+-
+191.178.192.162
+0 51 44 4092208 1 1729516985
+/homepage/
+83.171.224.242
+0 2 0 2019 1 1729562844
+-
+88.99.26.177
+0 1 0 1044 1 1729508790
+-
+185.152.95.121
+0 2 0 2019 1 1729562865
+-
+141.98.84.157
+0 1 1 3676 1 1729562870
+/homepage/
+79.98.181.155
+0 3 1 4743 1 1729562765
+/homepage/
+213.232.120.154
+0 1 0 1226 1 1729562841
+-
+135.125.27.226
+0 12 4 22506 2 1729562704
+/homepage/
+104.166.80.94
+0 3 1 6044 1 1729624956
+/homepage/
+138.185.180.196
+0 3 2 184315 1 1729516894
+-
+201.46.22.197
+0 432 402 17034406 5 1730235428
+/homepage_/src/js/
+192.3.50.12
+0 1 0 795 1 1728071880
+-
+185.68.153.200
+0 1 0 1226 1 1729562840
+-
+116.206.228.184
+0 1 0 1197 1 1729563965
+-
+77.81.142.11
+0 3 3 147911 1 1729563547
+/homepage/
+85.239.37.229
+0 1 0 1234 1 1729562843
+-
+193.202.86.247
+0 1 1 3676 1 1729562845
+/homepage/
+87.236.176.197
+0 3 0 3393 1 1728776349
+-
+95.164.100.39
+0 1 1 3153 1 1729562764
+/homepage/
+46.101.112.94
+0 2 0 2270 1 1729738737
+-
+198.12.64.46
+0 44 40 2692451 1 1729564665
+/homepage/
+173.244.55.48
+0 43 41 3839951 1 1729584684
+/homepage/
+146.70.38.84
+0 3 1 6400 1 1729562760
+/homepage/
+212.143.94.254
+0 42 40 3861287 1 1729562796
+/homepage/
+45.134.142.80
+0 123 120 11506440 1 1729563459
+/homepage/
+104.166.80.19
+0 3 1 6044 1 1729537376
+/homepage/
+146.19.39.45
+0 1 1 3676 1 1729562847
+/homepage/
+40.80.158.10
+0 54 51 4240280 1 1729575591
+-
+194.104.10.11
+0 1 0 1236 0 0
+-
+154.194.21.48
+0 40 40 3834685 1 1729563014
+/homepage/
+104.143.88.9
+0 1 0 795 1 1728059040
+-
+188.241.249.154
+0 1 1 3931 1 1729563240
+/homepage/
+104.171.153.23
+0 1 0 1048 1 1728713385
+-
+35.164.170.136
+0 6 2 39694 1 1729744595
+/homepage/
+165.231.253.249
+0 5 3 150119 1 1729563031
+-
+193.202.14.246
+0 1 0 1236 0 0
+-
+68.183.245.101
+0 81 80 7718597 1 1729563997
+/homepage/
+85.254.40.57
+0 42 40 3836275 1 1729563014
+/homepage/
+177.91.160.132
+0 11 11 2733122 1 1729507502
+/funcionario/src/js/
+167.88.60.251
+0 3 3 147911 1 1729563024
+/homepage/
+185.61.216.144
+0 2 0 2018 1 1729562867
+-
+177.26.243.91
+0 191 126 3903730 1 1727983277
+/funcionario/src/js/
+5.181.169.242
+0 2 0 2019 1 1729562873
+-
+207.244.124.70
+0 3 1 6281 1 1729712787
+/homepage/
+54.36.226.161
+0 4 0 4198 0 0
+-
+200.155.173.98
+0 825 787 37349401 3 1727897857
+/funcionario/src/js/
+191.96.145.72
+0 3 0 3059 1 1729563011
+/homepage/
+77.83.27.80
+0 1 0 1234 1 1729562865
+-
+88.218.47.39
+0 1 0 1236 0 0
+-
+148.113.152.91
+0 1 0 1085 1 1729563679
+-
+5.183.254.223
+0 2 0 2019 1 1729562867
+-
+67.21.32.154
+0 1 0 1020 1 1729563010
+/homepage/
+193.202.13.221
+0 1 1 3676 1 1729562869
+/homepage/
+213.108.3.113
+0 1 0 1226 1 1729562843
+-
+104.152.52.60
+0 1 0 1226 1 1729672724
+-
+185.88.37.190
+0 1 0 1234 1 1729562866
+-
+135.148.100.196
+0 6 1 22059 2 1729552155
+/homepage/
+168.90.226.6
+0 25 25 2498154 1 1730140477
+/homepage/
+192.175.111.247
+0 2 0 2096 1 1729514701
+-
+107.173.253.42
+0 1 0 1044 1 1728071869
+-
+35.90.44.180
+0 88 80 7676228 1 1729524631
+/homepage/
+193.138.218.224
+0 6 1 9618 1 1729509355
+/homepage/
+191.178.195.5
+0 332 92 3952016 1 1729446807
+/cliente/sistema/settings.html
+85.239.37.253
+0 1 0 1058 0 0
+-
+176.126.104.99
+0 2 0 2019 1 1729562872
+-
+138.204.208.242
+0 98 93 4097505 1 1728233099
+/cliente/login/
+23.154.177.19
+0 2 2 144017 0 0
+-
+203.109.60.65
+0 2 1 5402 1 1729744615
+/homepage/
+104.166.80.32
+0 3 1 6445 1 1730145484
+/homepage/
+89.248.171.23
+0 42 40 3836275 1 1729562934
+/homepage/
+185.208.236.124
+0 3 1 4996 1 1728698183
+/homepage/
+37.72.141.180
+0 1 0 1235 1 1729562843
+-
+5.101.6.194
+0 45 41 3842319 1 1729562758
+/homepage/
+149.88.22.44
+0 12 2 82194 1 1729563811
+-
+205.169.39.22
+0 44 40 1861010 1 1729504872
+/homepage/
+172.255.125.171
+0 3 1 6109 1 1729563252
+/homepage/
+179.125.213.78
+0 45 45 3903768 1 1728564920
+/cliente/login/
+20.57.85.89
+0 1 1 91351 0 0
+-
+193.202.8.123
+0 1 0 1044 1 1729562841
+-
+46.101.92.200
+0 2 0 2270 1 1729911307
+-
+103.108.94.170
+0 5 1 8143 1 1729563966
+/homepage/
+119.12.185.4
+0 1 1 4168 1 1729744571
+/homepage/
+187.182.7.76
+0 1004 921 35565758 7 1730235412
+/homepage/
+54.234.248.233
+0 2 1 68503 0 0
+-
+77.83.24.224
+0 1 0 1044 1 1729562841
+-
+94.154.113.80
+0 1 0 1234 1 1729562871
+-
+23.27.145.188
+0 3 1 4996 1 1728713388
+/homepage/
+104.237.188.4
+0 27 25 2499669 1 1730115571
+/homepage/
+34.122.147.229
+0 43 40 3837319 2 1729508812
+/homepage/
+45.159.20.178
+0 1 0 1226 1 1729562840
+-
+189.46.139.231
+0 20944 19930 166806989 5 1727892840
+/cliente/recuperarsenha/codigo.html
+54.247.57.72
+0 48 43 3913301 1 1729510391
+/homepage/
+179.61.240.169
+0 1 0 1197 1 1729563964
+-
+167.160.35.195
+0 3 1 4996 1 1728071886
+/homepage/
+104.248.93.208
+0 5 2 75312 1 1729849055
+/homepage/
+104.166.80.239
+0 3 1 6281 1 1729798112
+/homepage/
+178.20.215.76
+0 2 0 2019 1 1729562846
+-
+193.203.10.126
+0 1 0 1236 0 0
+-
+104.166.80.15
+0 45 41 3842319 1 1729549041
+/homepage/
+201.92.105.73
+0 5369 5297 157630445 12 1728490325
+/funcionario/dashboard.html
+45.149.36.142
+0 9 9 75432 1 1728467455
+/cliente/login/
+200.187.85.4
+0 19 19 2739064 1 1729507496
+/funcionario/src/js/
+212.119.42.40
+0 1 0 1054 0 0
+-
+134.122.90.183
+0 5 2 75312 1 1730017726
+/homepage/
+44.234.56.236
+0 49 47 3934889 1 1729577919
+/homepage/
+177.26.248.87
+0 3 2 2267 1 1727982362
+/funcionario/
+204.8.96.102
+0 1 1 3894 1 1729563547
+/homepage/
+108.71.95.181
+0 3 1 6044 1 1729562689
+/homepage/
+192.175.111.233
+0 3 1 18067 1 1729514699
+/homepage/
+201.95.30.9
+0 74 66 378686 1 1728644140
+/cliente/sistema/movimentaprod.html
+193.163.92.204
+0 1 0 1226 1 1729562843
+-
+146.190.157.172
+0 5 2 75128 1 1729672545
+/homepage/
+45.149.149.228
+0 4 1 7278 1 1729563246
+/homepage/
+185.89.43.214
+0 1 0 1054 0 0
+-
+191.8.249.250
+0 2615 2524 38791515 2 1729170564
+/funcionario/profile.html
+193.202.9.59
+0 2 0 2019 1 1729562849
+-
+51.81.46.212
+0 3 1 18898 1 1729516045
+/homepage/
+85.239.36.173
+0 1 1 3676 1 1729562847
+/homepage/
+68.183.118.82
+0 2 0 2270 1 1729157504
+-
+103.75.116.245
+0 1 0 795 1 1729563217
+-
+205.169.39.228
+0 21 13 1574927 1 1729504475
+/homepage/
+193.163.89.149
+0 1 1 3676 1 1729562844
+/homepage/
+142.93.38.79
+0 2 0 2270 1 1729566411
+-
+178.62.23.192
+0 2 0 2270 1 1727928651
+-
+149.34.248.76
+0 1 0 1197 1 1729563029
+-
+192.175.111.240
+0 1 0 1048 1 1729514700
+-
+104.152.52.73
+0 1 0 1226 1 1729720873
+-
+94.102.63.27
+0 3 1 6044 1 1729562701
+/homepage/
+104.237.171.15
+0 43 40 3836904 1 1729644137
+/homepage/
+217.145.226.85
+0 2 0 2019 1 1729562843
+-
+212.18.127.57
+0 1 0 1048 1 1729562868
+-
+103.4.19.25
+0 1 0 795 1 1729563219
+-
+77.81.142.71
+0 8 3 152989 1 1729563088
+-
+185.88.100.60
+0 1 1 3676 1 1729562852
+/homepage/
+104.166.80.87
+0 3 1 6281 1 1730058309
+/homepage/
+34.123.170.104
+0 44 40 3838118 2 1729508812
+-
+83.97.117.194
+0 1 0 1234 1 1729562845
+-
+177.26.227.192
+0 131 58 29069 1 1727854632
+/cliente/sistema/home.html
+146.19.39.52
+0 1 1 3676 1 1729562867
+/homepage/
+104.166.80.0
+0 3 1 6281 1 1729884909
+/homepage/
+46.161.58.210
+0 1 0 1054 0 0
+-
+# End Of Table - sites (monthly)
+# -sites- (daily)
+152.254.253.253
+0 112 73 5904432 9 1730244782
+/homepage/
+187.90.221.126
+0 6 1 2825 1 1730232734
+/homepage/
+186.66.165.60
+0 31 27 2572345 1 1730163514
+/homepage/
+201.46.22.197
+0 39 38 3612278 2 1730235428
+/homepage_/src/js/
+187.182.7.76
+0 63 63 5364266 2 1730235412
+/homepage/
+# End Of Table - sites (daily)
+# -referrers- 
+https://www.yourstorage.x10.mx/homepage/rt.html
+0 3
+https://www.yourstorage.x10.mx/cliente/login/php/log_cliente1.php
+0 2
+https://www.yourstorage.x10.mx/cliente/recuperarsenha/codigo.html
+0 1172
+https://www.yourstorage.x10.mx/cliente/recuperarsenha/enviocodigo.html
+0 205
+https://yourstorage.x10.mx
+0 2
+http://yourstorage.x10.mx/robots.txt
+0 3
+https://www.yourstorage.x10.mx/homepage/orcamento.html
+0 693
+https://www.yourstorage.x10.mx/funcionario/consulta.html
+0 1494
+https://www.yourstorage.x10.mx/fale-conosco
+0 6
+https://www.yourstorage.x10.mx/errors/html/error404.html
+0 2181
+https://www.yourstorage.x10.mx/cliente/
+0 3
+https://www.yourstorage.x10.mx/homepage/php/process_form1.php
+0 4
+https://www.yourstorage.x10.mx/client/index.html
+0 3
+https://www.yourstorage.x10.mx/cliente/sistema/
+0 3
+http://www.yourstorage.x10.mx/favicon.ico
+0 2
+https://www.yourstorage.x10.mx/cliente/login/login.html
+0 2
+https://www.yourstorage.x10.mx/errors/html/yourstorage.x10.mx/homepage
+0 3
+http://www.yourstorage.x10.mx
+0 3
+https://www.yourstorage.x10.mx/homepage/
+0 38370
+https://www.yourstorage.x10.mx/cliente/sistema/php/edit_users.php
+0 5
+https://www.yourstorage.x10.mx/cliente/sistema/php/consulta_storages
+0 1
+https://www.yourstorage.x10.mx/cliente/sistema/php/registrar_movimentacao.php
+0 24
+https://www.yourstorage.x10.mx/cliente/login/php/log_cliente.php
+0 3
+https://www.yourstorage.x10.mx/funcionario/cadastro_storage.php
+0 1177
+https://yourstorage.x10.mx/robots.txt
+0 5
+https://www.yourstorage.x10.mx/funcionario/php/cadastrar_storage.php
+0 10
+https://www.yourstorage.x10.mx/errors/error403.html
+0 5
+https://www.yourstorage.x10.mx/cliente/recuperarsenha/php/validar_codigo.php
+0 27
+https://www.yourstorage.x10.mx/cliente/recuperarsenha/php/atualizar_senha.php
+0 2
+https://www.yourstorage.x10.mx/funcionario/
+0 170
+https://www.yourstorage.x10.mx/z0f76a1d14fd21a8fb5fd0d03e0fdc3d3cedae52f
+0 3
+https://www.yourstorage.x10.mx/cliente/sistema/php/buscar_usuarios.php
+0 9
+https://www.yourstorage.x10.mx/cliente/senhanova.html
+0 1
+https://www.yourstorage.x10.mx/homepage/index.html
+0 138136
+https://www.yourstorage.x10.mx/cliente/sistema/home.html
+0 3568
+https://www.yourstorage.x10.mx/contato
+0 12
+https://www.yourstorage.x10.mx/php
+0 23
+https://www.yourstorage.x10.mx/cliente/sistema/php/atualizar_produto.php
+0 108
+http://yourstorage.x10.mx
+0 4
+https://www.yourstorage.x10.mx/homepage/php/process_form.php
+0 7
+https://www.yourstorage.x10.mx/funcionario/php/log_funcionario.php
+0 2
+https://www.google.com/
+0 12
+- (Direct Request)
+0 18060
+https://www.yourstorage.x10.mx/funcionario/php/cadastrar_usuario.php
+0 1
+https://www.yourstorage.x10.mx/PHP/
+0 2
+https://www.yourstorage.x10.mx/errors/html/error401.html
+0 727
+https://www.yourstorage.x10.mx/cliente/sistema/cliente/login/
+0 15
+https://www.yourstorage.x10.mx/cliente/sistema/php/consultaprod.php
+0 16
+https://www.yourstorage.x10.mx/funcionario/php/check_session.php
+0 3
+https://www.yourstorage.x10.mx/homepage/orcamentoerro.html
+0 3681
+https://www.yourstorage.x10.mx/cliente/php/check_session.php
+0 1
+https://www.yourstorage.x10.mx/homepage
+0 25
+https://www.yourstorage.x10.mx/cliente/sistema/php/listar_produtos.php
+0 14
+https://www.yourstorage.x10.mx/cliente/sistema/php/user-register.php
+0 20
+https://x11.x10hosting.com:2222/
+0 3
+https://www.yourstorage.x10.mx/homepage/planos.html
+0 3141
+https://www.yourstorage.x10.mx/errors/html/errors401.html
+0 18
+https://www.yourstorage.x10.mx/funcionario/php/get_profile.php
+0 15
+https://www.yourstorage.x10.mx/errors/html/error500.html
+0 19
+https://www.yourstorage.x10.mx/api/log_cliente.php
+0 7
+https://www.yourstorage.x10.mx/cliente/sistema/php/processar_movimentacao.php
+0 3
+http://yourstorage.x10.mx/
+0 1
+https://www.yourstorage.x10.mx/
+0 31
+https://www.yourstorage.x10.mx/funcio
+0 5
+https://www.bing.com/
+0 1
+http://www.yourstorage.x10.mx/robots.txt
+0 3
+https://www.yourstorage.x10.mx/funcionario/cadastro_storage
+0 2
+https://www.yourstorage.x10.mx/funcionario/cadastro.php
+0 5728
+https://www.yourstorage.x10.mx/cliente/sistema/php/consulta_storages.php
+0 7
+https://www.yourstorage.x10.mx/PHP/php.ini
+0 18
+https://www.yourstorage.x10.mx/cliente/login/index.html
+0 330
+https://www.yourstorage.x10.mx/funcionario/alterar.html
+0 2096
+https://www.yourstorage.x10.mx/cliente/sistema/php/
+0 2
+http://127.0.0.1:5500/
+0 3
+https://www.yourstorage.x10.mx/cliente/login/
+0 372
+https://yourstorage.x10.mx/
+0 5
+https://www.yourstorage.x10.mx/cliente/sistema/php/buscar_produtos.php
+0 1
+https://www.yourstorage.x10.mx/cliente/sistema/php/check_session.php
+0 21
+https://www.yourstorage.x10.mx/funcionario/php/index.html
+0 1
+https://www.yourstorage.x10.mx/cliente/sistema/login/index.html
+0 11
+https://www.yourstorage.x10.mx/homepage/orcamentopendente.html
+0 270
+https://www.yourstorage.x10.mx/funcionario/profile.html
+0 557
+https://www.yourstorage.x10.mx/cliente/recuperarsenha/senharedefinida.html
+0 28
+https://www.yourstorage.x10.mx/cliente/sistema/settings.html
+0 3949
+https://www.yourstorage.x10.mx/cliente/sistema/movimentaprod.html
+0 946
+https://www.yourstorage.x10.mx/cliente/sistema/consultaprod.html
+0 2820
+https://www.yourstorage.x10.mx/funcionario/dashboard.html
+0 1242
+https://www.yourstorage.x10.mx/cliente/recuperarsenha/php/verificar_codigo.php
+0 51
+https://www.yourstorage.x10.mx/homepage_/
+0 61
+http://www.yourstorage.x10.mx/homepage/
+0 6
+https://www.yourstorage.x10.mx/cliente/sistema/src/js/verify_session.js.
+0 1
+https://www.yourstorage.x10.mx/homepage/planos_.html
+0 230
+https://www.yourstorage.x10.mx/sistema/home.html
+0 1
+https://www.yourstorage.x10.mx/funcionario/index.html
+0 1302
+https://www.yourstorage.x10.mx/funcionario/php/consulta_usuarios.php
+0 2
+https://www.yourstorage.x10.mx/cliente/recuperarsenha/senhanova.html
+0 128
+https://www.yourstorage.x10.mx/cliente/login/php/log_cliente2.php
+0 1
+https://www.yourstorage.x10.mx/cliente/recuperarsenha/php/recuperar_senha.php
+0 8
+https://www.yourstorage.x10.mx
+0 6
+https://www.yourstorage.x10.mx/cliente/sistema/cadastroprod.html
+0 409
+https://www.yourstorage.x10.mx/cliente/recuperarsenha/recuperarsenha.html
+0 432
+http://192.168.15.93:5500/
+0 1
+# End Of Table - referrers
+# -agents- 
+Google-ilp
+0 1
+Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko
+0 2
+Mozilla/5.0 (Linux; Android 8.0.0; SM-G965U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.111 Mobile S
+0 43
+Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Sa
+0 44
+Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36
+0 11
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+0 79
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.5 Safari/605.1.15
+0 1
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Safari/537.36
+0 23
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+0 42
+Mozilla/5.0 (compatible; InternetMeasurement/1.0; +https://internet-measurement.com/)
+0 6
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6422.78 Safari/537.36
+0 43
+fasthttp
+0 1
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+0 11
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36
+0 8
+Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534+ (KHTML, like Gecko) BingPreview/1.0b
+0 1
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36
+0 40
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36
+0 728
+Mozilla/5.0 (X11; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0
+0 1356
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36
+0 48
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+0 186890
+Mozilla/5.0 (iPhone; CPU iPhone OS 17_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1.2 Mobile/15E14
+0 1
+Mozilla/5.0 (Linux; Android 14; SM-A546E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36
+0 3
+Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Mobile/15E148 
+0 51
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36
+0 43
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+0 1474
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/122.0.0.0 Safari/537.36
+0 42
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36
+0 4
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.2
+0 3
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+0 35
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) yourstorage/1.0.0 Chrome/130.0.6723.59 Elect
+0 111
+Mozilla/5.0 (Linux; Android 14; SM-A155M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36
+0 43
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+0 1542
+Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; Zoom 3.6.0; rv:11.0) like Gecko
+0 9
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+0 2
+Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/537.36
+0 4
+Java/1.8.0_262
+0 6
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36
+0 1
+Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/120.0
+0 42
+Mozilla/5.0 (iPhone; CPU iPhone OS 17_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Mobile/15E14
+0 4
+Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36
+0 90
+Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+0 4
+Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko
+0 4
+Mozilla/5.0 (iPhone; CPU iPhone OS 16_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Mobile/15E148 
+0 41
+Mozilla/5.0 (iPhone; CPU iPhone OS 17_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Mobile/15E148 
+0 8
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+0 60
+Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/117.0
+0 66
+Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Mobile Safari/
+0 76
+WhatsApp/2.2440.9 W
+0 2
+WhatsApp/2.23.20.0
+0 6
+Mozilla/5.0 (X11; Linux i686; rv:109.0) Gecko/20100101 Firefox/120.0
+0 77
+python-requests/2.32.3
+0 3
+Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 
+0 2
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
+0 10
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+0 12
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 Edg/121.0.0.0
+0 1
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+0 19
+Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/
+0 4
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.1
+0 87
+Mozilla/5.0 (X11; Linux x86_64; rv:83.0) Gecko/20100101 Firefox/83.0
+0 3
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36
+0 3
+python-requests/2.31.0
+0 107
+curl/7.61.1
+0 4
+Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36
+0 1752
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/92.0.4515.159 Safari/537.36
+0 87
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+0 86
+Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.5993.80 Mobile Safari/537.36
+0 1
+Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/26.0 Chrome/122.0.0.0 Mobile Safari/
+0 25
+Scrapy/2.11.2 (+https://scrapy.org)
+0 3
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+0 9
+Mozilla/5.0 \\(Windows NT 10.0\\; Win64\\; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/100.0.4896.60 Safari/537.
+0 5
+Python/3.9 aiohttp/3.8.1
+0 3
+Mozilla/5.0 (Linux; Android 12; Pixel 6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36
+0 49
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+0 37136
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6422.141 Safari/537.36
+0 11
+Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36
+0 767
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36
+0 1
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+0 603
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/109.0.5414.46 Safari/537.36
+0 123
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+0 82
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.5938.132 Safari/537.36
+0 61
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+0 4
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Safari/605.1.15
+0 4
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:125.0) Gecko/20100101 Firefox/125.0
+0 18
+Mozilla/5.0 (Windows NT 6.3; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0
+0 2
+# End Of Table - agents
+# -search strings- 
+# End Of Table - search strings
+# -usernames- 
+# End Of Table - usernames

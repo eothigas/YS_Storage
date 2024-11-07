@@ -32,16 +32,26 @@ try {
     $nome = htmlspecialchars($_POST['nome'], ENT_QUOTES, 'UTF-8');
     $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
     $telefone = htmlspecialchars($_POST['telefone'], ENT_QUOTES, 'UTF-8');
-    $mensagem = htmlspecialchars($_POST['mensagem'], ENT_QUOTES, 'UTF-8');
+    $mensagem = !empty($_POST['mensagem']) ? htmlspecialchars($_POST['mensagem'], ENT_QUOTES, 'UTF-8') : null;  // Mensagem pode ser nula
+    $enterprise = htmlspecialchars($_POST['enterprise'], ENT_QUOTES, 'UTF-8');
+    $cnpj = htmlspecialchars($_POST['cnpj'], ENT_QUOTES, 'UTF-8');
+    $question = htmlspecialchars($_POST['question'], ENT_QUOTES, 'UTF-8');
 
-    // Verifica se o e-mail é válido
-    if (!$email) {
-        echo json_encode(["error" => "E-mail inválido."]);
+    // Verifica se o e-mail já está registrado no banco de dados
+    $checkEmailSql = "SELECT COUNT(*) FROM orcamento WHERE email = :email";
+    $checkEmailStmt = $pdo->prepare($checkEmailSql);
+    $checkEmailStmt->bindParam(':email', $email);
+    $checkEmailStmt->execute();
+
+    // Se o e-mail já estiver registrado, redireciona para a página de erro
+    if ($checkEmailStmt->fetchColumn() > 0) {
+        header("Location: /homepage/orcamentoerro.html");
         exit();
     }
 
-    // Prepara a consulta SQL
-    $sql = "INSERT INTO orcamento (nome, email, telefone, mensagem) VALUES (:nome, :email, :telefone, :mensagem)";
+    // Prepara a consulta SQL para inserção
+    $sql = "INSERT INTO orcamento (nome, email, telefone, mensagem, enterprise, cnpj, question) 
+            VALUES (:nome, :email, :telefone, :mensagem, :enterprise, :cnpj, :question)";
     $stmt = $pdo->prepare($sql);
 
     // Vincula os parâmetros
@@ -49,6 +59,9 @@ try {
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':telefone', $telefone);
     $stmt->bindParam(':mensagem', $mensagem);
+    $stmt->bindParam(':enterprise', $enterprise);
+    $stmt->bindParam(':cnpj', $cnpj);
+    $stmt->bindParam(':question', $question);
 
     // Executa a consulta
     $stmt->execute();
@@ -87,12 +100,12 @@ try {
     } else {
         echo "Erro ao enviar o e-mail.";
         // Redireciona para a página de erro, se necessário
-        // header("Location: /homepage/orcamentoerro.html");
-        // exit();
+        header("Location: /homepage/orcamentoerro.html");
+        exit();
     }
 } catch (PDOException $e) {
     // Mostra o erro para depuração
-    echo header("Location: /homepage");
+    echo json_encode(["error" => "Erro ao processar o formulário: " . $e->getMessage()]);
     exit();
 }
 ?>

@@ -1,0 +1,291 @@
+/* Estilização Footerpage */
+
+footer {
+    width: 100%;
+    color: white;
+    background-color:  rgb(23, 32, 55);
+}
+
+.footer-link {
+    text-decoration: none;
+}
+
+/* Footer Pai */
+#footer_content {
+    margin: 30px 0 0;
+    background-color:  rgb(23, 32, 55);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: .3rem 1rem;
+}
+
+/* Atendimento */
+
+#footer_info_contact {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    margin-top: .7rem;
+} 
+
+#footer_info_contact .footer-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    color: white;
+    border-radius: 50%;
+    transition: all 0.4s;
+}
+
+.email-contact, .phone-contact, .whatsapp-contact {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+#whatsapp {
+    background-color: #25d366;
+    display: flex;
+    gap: 10px;
+}
+
+#email {
+    background-color: rgb(78, 78, 160);
+}
+
+#telefone {
+    background-color: rgb(64, 64, 64);
+}
+
+#footer_info_contact .footer-link i {
+    font-size: 1.25rem;    
+}
+
+#footer_info_contact .footer-link:hover {
+    opacity: 0.8;
+}
+
+/* Footer Redes Sociais */
+
+.our-networks {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+} 
+
+.our-networks h2 {
+    text-align: center;
+}
+
+#footer_social_media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 2rem;
+    height: 100%;
+} 
+
+#footer_social_media .footer-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    transition: all 0.4s;
+}
+
+#footer_social_media .footer-link i {
+    font-size: 1.5rem;    
+}
+
+#footer_social_media .footer-link:hover {
+    opacity: 0.8;
+}
+
+#instagram {
+    background: linear-gradient(#7f37c9, #ff2992, #ff9807);
+}
+
+#facebook {
+    background-color: #4267b3;
+}
+
+#youtube {
+    background-color: red;
+}
+
+#whatsapp {
+    background-color: #25d366;
+}
+
+/* Horários e funcionamento */
+
+#services h1 {
+    margin-bottom: 0.75rem;
+}
+
+#footer_service {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: right;
+    text-align: right;
+    position: relative;
+}
+
+#footer_info_service {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: right;
+    text-align: right;
+    gap: .2rem;
+    width: 100%;
+    margin-top: .7rem;
+    position: relative;
+    right: 0;
+    bottom: 0;
+} 
+
+.dayhour-service, .adress-service, .adress-code-service {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    gap: 10px;
+    right: 0;
+}
+
+.dayhour-service a, .adress-service a, .adress-code-service a {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    background-color: rgb(7, 11, 22);
+    text-decoration: none;
+}
+
+#footer_info_service .footer-link  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    color: white;
+    border-radius: 50%;
+    transition: all 0.4s;
+}
+
+#footer_info_service .footer-link_ {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 2.5rem;
+    width: 2.5rem; */
+    padding: 10px;
+    color: white;
+    border-radius: 50%;
+    transition: all 0.4s;
+}
+
+#footer_info_service .footer-link i, #footer_info_service .footer-link_ i  {
+    font-size: 1.25rem;    
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+}
+
+#footer_info_service .footer-link,
+#footer_info_service .footer-link_:hover  {
+    opacity: 0.8;
+}
+
+/* Copyright */
+#footer_copyright {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(30, 30, 30);
+    font-size: 0.9rem;
+    padding: .4rem;
+}
+
+@media screen and (min-width: 796px) and (max-width: 1108px) {
+    #footer_content {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        justify-content: center !important;
+    }
+
+    #footer_content h2 {
+        text-align: center !important;
+        font-size: 16px !important;
+    }
+
+    .our-networks h2 {
+        text-align: left;
+    }
+
+    #footer_service h2 {
+        text-align: right !important;
+    }
+
+    #footer_contacts h2 {
+        text-align: left !important;
+    }
+
+    #footer_service p {
+        font-size: 11px;
+        text-align: right !important;
+    }
+
+    #footer_contacts p {
+        font-size: 11px;
+        text-align: left !important;
+    }
+
+    #footer_social_media {
+        gap: 15px
+    }
+
+}
+
+@media screen and (max-width: 795px) {
+    #footer_content {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+        justify-content: center !important;
+    }
+
+    #footer_content h2 {
+        text-align: left !important;
+        font-size: 18px !important;
+    }
+
+    .dayhour-service, .adress-service, .adress-code-service {
+        justify-content: left;
+    }
+
+    #footer_social_media {
+        margin-top: 10px;
+        gap: 25px;
+        justify-content: left;
+    }
+
+    #footer_info_service i, a#street.footer-link, a#adress.footer-link, a#code.footer-link {
+        display: none;
+    }
+
+    #footer_info_service i, a#street_.footer-link_, a#adress_.footer-link_, a#code_.footer-link_ {
+        display: flex !important;
+        width: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -7,7 +7,17 @@
     <title>Your Storage - Orçamento</title>
     <link rel='stylesheet' href="./src/css/orcamento.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const linkElement = document.getElementById('back');
+            
+            if (params.get('hideBack') === 'true' && linkElement) {
+                linkElement.style.display = 'none';
+            }
+        };
+    </script>
 </head>
 <body>
     
@@ -19,10 +29,8 @@
         <div class="form">
             <form id='form-orc' action="./php/process_form.php" method="POST">
             
-                <div id="close">
-                    <a id='link' href="./index.html" aria-hidden="true">
-                        <i class="fas fa-times circular-icon" aria-label="Voltar a página principal"></i>
-                    </a>
+                <div class="return">
+                    <a id='link' href="javascript:void(0);" onclick="history.back();" aria-hidden="true"><i class="bi bi-x" id="back"></i></a>
                 </div>
 
                 <div id="form-header">
@@ -51,19 +59,19 @@
                         <label for="telefone">Telefone*</label>
                         <input type="tel" id="telefone" name="telefone" required
                         autocomplete="tel" inputmode='tel' 
-                        minlength="11" maxlength="15" 
+                        maxlength="11" 
                         placeholder="(00) 00000-0000"
                         oninput="formatPhone(this)">
                     </div>
 
                     <div class='input-box' id="input-enterprise">
-                        <label for="nome">Empresa*</label>
+                        <label for="enterprise">Empresa*</label>
                         <input type="text" id="enterprise" name="enterprise" required maxlength="35" 
                         autocomplete="enterprise" placeholder="Seu empresa">
                     </div>
 
                     <div class='input-box' id="input-cnpj">
-                        <label for="nome">CNPJ ou CPF*</label>
+                        <label for="cnpj">CNPJ ou CPF*</label>
                         <input type="text" id="cnpj" name="cnpj" required 
                         autocomplete="off" placeholder="Seu CNPJ ou CPF"
                         oninput="formatCNPJCPF(this)">
@@ -85,7 +93,7 @@
                     <div class='input-box' id="input-message" style="display: none;">
                         <label for="mensagem">Digite aqui</label>
                         <textarea id="mensagem" name="mensagem" rows="1" 
-                            maxlength="150" placeholder="Descreva brevemente..." required></textarea>
+                            maxlength="150" placeholder="Descreva brevemente..." ></textarea>
                             <span id="charCount">150 caracteres restantes</span>
                     </div>
                 </div>
