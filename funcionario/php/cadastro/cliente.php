@@ -48,9 +48,10 @@ try {
         // Hash da senha
         $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-        // Insere os dados na tabela clientes
+        // Insere os dados na tabela clientes com ajuste do fuso horário para +02:00
         $stmt = $pdo->prepare("INSERT INTO clientes (nome, identidade, contato, empresa, tipo, email, senha, data_criacao, data_atualizacao)
-            VALUES (:nome, :identidade, :contato, :empresa, :tipo, :email, :senha, NOW(), NOW())");
+            VALUES (:nome, :identidade, :contato, :empresa, :tipo, :email, :senha, 
+                    CONVERT_TZ(NOW(), '+00:00', '+02:00'), CONVERT_TZ(NOW(), '+00:00', '+02:00'))");
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':identidade', $identidade);
         $stmt->bindParam(':contato', $contato);

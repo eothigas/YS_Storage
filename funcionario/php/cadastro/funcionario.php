@@ -81,7 +81,13 @@ try {
         $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
         // Insere os dados no banco de dados
-        $stmt = $pdo->prepare("INSERT INTO funcionarios (imagem, nome, identidade, contato, email, senha, data_criacao, data_atualizacao) VALUES (:imagem, :nome, :identidade, :contato, :email, :senha, NOW(), NOW())");
+        $stmt = $pdo->prepare("
+            INSERT INTO funcionarios 
+            (imagem, nome, identidade, contato, email, senha, data_criacao, data_atualizacao) 
+            VALUES 
+            (:imagem, :nome, :identidade, :contato, :email, :senha, 
+            CONVERT_TZ(NOW(), '+00:00', '+02:00'), CONVERT_TZ(NOW(), '+00:00', '+02:00'))
+        ");
         $stmt->bindParam(':imagem', $imagemPath);
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':identidade', $identidade);

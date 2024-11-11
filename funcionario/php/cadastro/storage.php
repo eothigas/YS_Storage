@@ -71,9 +71,10 @@ try {
             }
         }
 
-        // Insere os dados no banco de dados
+        // Insere os dados no banco de dados com ajuste do fuso horário para +02:00
         $stmt = $pdo->prepare("INSERT INTO storage (imagem, nome, empresa, endereco, altura, largura, comprimento, data_criacao, data_atualizacao)
-            VALUES (:imagem, :nome, :empresa, :endereco, :altura, :largura, :comprimento, NOW(), NOW())");
+            VALUES (:imagem, :nome, :empresa, :endereco, :altura, :largura, :comprimento, 
+                    CONVERT_TZ(NOW(), '+00:00', '+02:00'), CONVERT_TZ(NOW(), '+00:00', '+02:00'))");
         $stmt->bindParam(':imagem', $imagemPath);
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':empresa', $empresa);

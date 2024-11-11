@@ -38,6 +38,9 @@ try {
         if (!empty($_FILES["logo"]["name"])) {  
             $imagemData = file_get_contents($_FILES["logo"]["tmp_name"]); 
 
+            // Codifica a imagem em base64
+            $base64 = base64_encode($imagemData);
+
             // Faz o upload para o IMGUR
             $url = "https://api.imgur.com/3/image";
             $headers = [
@@ -55,7 +58,7 @@ try {
             $response = curl_exec($ch);
             curl_close($ch);
 
-            // Decodifica a resposta do IMGUR
+            // Verifica se a resposta é válida
             $responseData = json_decode($response, true);
             if (isset($responseData['data']['link'])) {
                 $imagemPath = $responseData['data']['link'];
@@ -65,9 +68,10 @@ try {
             }
         }
 
-        // Insere os dados no banco de dados
-        $stmt = $pdo->prepare("INSERT INTO empresa (logo, razao, fantasia, identidade, endereco, plano, contato, emaill, data_criacao, data_atualizacao) 
-                               VALUES (:imagem, :razao, :fantasia, :identidade, :endereco, :plano, :contato, :emaill, NOW(), NOW())");
+        // Insere os dados no banco de dados com ajuste de fuso horário (+02:00) para as colunas de data
+        $stmt = $pdo->prepare("INSERT INTO empresa (logo, razao, fantasia, identidade, endereco, plano, contato, email, data_criacao, data_atualizacao) 
+                               VALUES (:imagem, :razao, :fantasia, :identidade, :endereco, :plano, :contato, :email, 
+                                       CONVERT_TZ(NOW(), '+00:00', '+02:00'), CONVERT_TZ(NOW(), '+00:00', '+02:00'))");
         $stmt->bindParam(':imagem', $imagemPath);
         $stmt->bindParam(':razao', $razao);
         $stmt->bindParam(':fantasia', $fantasia);
@@ -75,7 +79,7 @@ try {
         $stmt->bindParam(':endereco', $endereco);
         $stmt->bindParam(':plano', $plano);
         $stmt->bindParam(':contato', $contato);
-        $stmt->bindParam(':emaill', $email);
+        $stmt->bindParam(':email', $email);
 
         if ($stmt->execute()) {
             echo json_encode(["status" => "success", "message" => "Empresa cadastrada com sucesso!"]);
