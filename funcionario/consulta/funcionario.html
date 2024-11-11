@@ -133,13 +133,14 @@
                 </div>
             </div>
             <h2>Editar Funcionário</h2>
-            <form action="../php/editar/funcionario.php" method="POST" enctype="multipart/form-data" class="novo-funcionario">
+            <form action="../php/editar/funcionario.php" method="POST" enctype="multipart/form-data" class="editar-funcionario">
+                <input type="hidden" name="id_funcionario" id="funcionario-id">
                 <h4>Foto</h4>
                 <div class="dropzone-area">
                     <div class="file-upload-icon">
                         <!-- Aqui você pode adicionar um ícone, se quiser -->
                     </div>
-                    <input type="file" required id="upload-file" name="imagem" accept="image/*" onchange="previewImage(event)"/>
+                    <input type="file" id="upload-file" name="imagem" accept="image/*"/>
                     <div class="file-info">
                         <img id="image-preview" src='' alt='' style="display: none; width: 60px; height: 60px; margin-top: 0px; border-radius: 100%;" />
                         <i class="bi bi-image" id="file-info-text">Nenhuma imagem selecionada</i>
@@ -148,19 +149,19 @@
                 <div class="name">
                     <div class="name-input">
                         <h4>Nome</h4>
-                        <input type="text" class="nome" name="nome" placeholder="Digite o primeiro nome..." required oninput="updatePreview()" />
+                        <input type="text" class="nome" name="nome" placeholder="Digite o primeiro nome..." required />
                     </div>
                 </div>
                 <div class="id">
                     <div class="identidade-input">
                         <h4>Identidade</h4>
-                        <input type="text" class="identidade" name="identidade" placeholder="RG ou CPF" required oninput="updatePreview()"/>
+                        <input type="text" class="identidade" name="identidade" placeholder="RG ou CPF" required/>
                     </div>
                 </div>
                 <div class="contact">
                     <div class="contato-input">
                         <h4>Contato</h4>
-                        <input type="text" class="contato" name="contato" placeholder="(xx) xxxxx-xxxx" required oninput="updatePreview()"/>
+                        <input type="text" class="contato" name="contato" placeholder="(xx) xxxxx-xxxx" required/>
                     </div>
                 </div>
                 <div class='status'>
@@ -172,17 +173,18 @@
                             <option value='Suspenso'>Suspenso</option>
                         </select>
                     </div>
+                </div>
                 <div class="email-funcionario">
                     <div class="func-email">
                         <h4>Email</h4>
-                        <input type="email" class="email" name="email" placeholder="exemplo@email.com" required oninput="updatePreview()"/>
+                        <input type="email" class="email" name="email" placeholder="exemplo@email.com" required/>
                     </div>
                 </div>
                 <div class="senha_funcionario">
                     <div class="senha-input">
                         <h4>Senha</h4>
                         <div class="password">
-                            <input type="password" class="senha" name="senha" maxlength="8" id="passwordInput" required />
+                            <input type="password" class="senha" name="senha" maxlength="8" id="passwordInput"  />
                             <i class="bi bi-eye-slash-fill" id="view"></i>
                         </div>
                         <div class="password-strength-container">
@@ -193,7 +195,7 @@
                     <div class="confirm-input">
                         <h4>Confirme a Senha</h4>
                         <div class="password">
-                            <input type="password" class="confirme-senha" name="confirme_senha" required />
+                            <input type="password" class="confirme-senha" name="confirme_senha" maxlength="8"  />
                             <i class="bi bi-eye-slash-fill" id="confirm"></i>
                         </div>
                     </div>
@@ -210,6 +212,7 @@
     <script src="../src/js/dashboard.js" defer></script>
     <script src='../src/js/consulta/funcionario.js' defer></script>
     <script src='../src/js/get/funcionario.js' defer></script>
+    <script src='../src/js/editar/funcionario.js' defer></script>
     <script src="../src/js/modal-user.js" defer></script>
 </body>
 </html>

@@ -6,6 +6,7 @@
     <link rel="icon" href="../src/images/Logo_reduzido.svg" type="image/png">
     <title>Your Storage - Consulta Cliente</title>
     <link rel="stylesheet" href="../src/css/consult/cliente.css">
+    <link rel="stylesheet" href="../src/css/edit/cliente.css">
     <link rel="stylesheet" href="../src/css/home/navbar.css">
     <link rel="stylesheet" href="../src/css/home/sidebar.css">
     <link rel="stylesheet" href="../src/css/dashboard.css">
@@ -98,7 +99,7 @@
                     </div>
                 </div>
                 
-                <table id="total-usuarios">
+                <table id="total-clientes">
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -125,8 +126,123 @@
         </div>
     </main>
 
+    <!-- Modal de Editar Cliente -->
+    <div id="register-table" style="display: none;">
+        <div class="space-register">
+            <div class="notification" style="display: none;">
+                <div class="notification_body">
+                    <!-- Mensagens de Notificação -->
+                </div>
+            </div>
+            <h2>Editar Cliente</h2>
+            <form action="../php/editar/cliente.php" method="POST" enctype="multipart/form-data" class="editar-cliente">
+                <!-- Campo oculto para armazenar o ID do cliente -->
+                <input type="hidden" name="id_cliente" id="cliente-id">
+
+
+                <!-- Nome do Cliente -->
+                <div class="name">
+                    <div class="name-input">
+                        <h4>Nome</h4>
+                        <input type="text" class="nome" name="nome" id="editNome" placeholder="Digite o nome do cliente..." required />
+                    </div>
+                </div>
+
+                <!-- Identidade do Cliente (RG ou CPF) -->
+                <div class="id">
+                    <div class="identidade-input">
+                        <h4>Identidade</h4>
+                        <input type="text" class="identidade" name="identidade" id="editIdentidade" placeholder="Digite o RG ou CPF" required/>
+                    </div>
+                </div>
+
+                <!-- Contato do Cliente -->
+                <div class="contact">
+                    <div class="contato-input">
+                        <h4>Contato</h4>
+                        <input type="text" class="contato" name="contato" id="editContato" placeholder="(xx) xxxxx-xxxx" required/>
+                    </div>
+                </div>
+
+                <!-- Email do Cliente -->
+                <div class="email-cliente">
+                    <div class="func-email">
+                        <h4>Email</h4>
+                        <input type="email" class="email" name="email" id="editEmail" placeholder="exemplo@email.com" required />
+                    </div>
+                </div>
+
+                <!-- Empresa do Cliente -->
+                <div class="empresa">
+                    <div class="empresa-input">
+                        <h4>Empresa</h4>
+                        <select class="empresa-edit" name="empresa" id="editEmpresa" required>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id='tipo-status'>
+                    <!-- Tipo de Cliente -->
+                    <div class="tipo">
+                        <div class="tipo-input">
+                            <h4>Tipo</h4>
+                            <select class="tipo-select" name='status-tipo' required>
+                                <option value=''>Selecione uma opção</option>
+                                <option value='Administrador'>Administrador</option>
+                                <option value='Estoquista'>Estoquista</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Status do Cliente -->
+                    <div class="status">
+                        <div class="status-input">
+                            <h4>Status</h4>
+                            <select class="status-select" name="status-cliente" id="editStatus">
+                                <option value=''>Selecione uma opção</option>
+                                <option value="Ativo">Ativo</option>
+                                <option value="Suspenso">Suspenso</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="senha_cliente">
+                    <div class="senha-input">
+                        <h4>Senha</h4>
+                        <div class="password">
+                            <input type="password" class="senha" name="senha" maxlength="8" id="passwordInput"  />
+                            <i class="bi bi-eye-slash-fill" id="view"></i>
+                        </div>
+                        <div class="password-strength-container">
+                            <div class="password-strength" id="passwordStrength"></div>
+                            <span class="password-strength-text" id="passwordStrengthText"></span>
+                        </div>
+                    </div>
+                    <div class="confirm-input">
+                        <h4>Confirme a Senha</h4>
+                        <div class="password">
+                            <input type="password" class="confirme-senha" name="confirme_senha" maxlength="8"  />
+                            <i class="bi bi-eye-slash-fill" id="confirm"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botões de Ação -->
+                <div class="actions-btn">
+                    <button type="submit" class="btn-save">Salvar Alterações</button>
+                    <button type="button" class="btn-cancel" data-bs-dismiss="modal">Cancelar Alterações</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
     <script src="../src/js/dashboard.js" defer></script>
     <script src="../src/js/consulta/cliente.js" defer></script>
+    <script src='../src/js/get/cliente.js' defer></script>
+    <script src='../src/js/editar/cliente.js' defer></script>
     <script src="../src/js/modal-user.js" defer></script>
 </body>
 </html>

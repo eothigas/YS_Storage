@@ -6,6 +6,7 @@
     <link rel="icon" href="../src/images/Logo_reduzido.svg" type="image/png">
     <title>Your Storage - Consulta</title>
     <link rel="stylesheet" href="../src/css/consult/empresa.css">
+    <link rel="stylesheet" href="../src/css/edit/empresa.css">
     <link rel="stylesheet" href="../src/css/home/navbar.css">
     <link rel="stylesheet" href="../src/css/home/sidebar.css">
     <link rel="stylesheet" href="../src/css/dashboard.css">
@@ -98,7 +99,7 @@
                     </div>
                 </div>
                 
-                <table id="total-usuarios">
+                <table id="total-empresas">
                     <thead>
                         <tr>
                             <th>Logo</th>
@@ -126,8 +127,97 @@
         </div>
     </main>
 
+    <div id="register-table" style='display: none;'>
+        <div class="space-register">
+            <div class='notification' style='display: none;'>
+                <div class='notification_body'>
+                    <!-- JS -->
+                </div>
+            </div>
+            <h2>Editar Empresa</h2>
+            <form action="../php/editar/funcionario.php" method="POST" enctype="multipart/form-data" class="editar-empresa">
+                <input type="hidden" name="empresa-id" id="empresa-id">
+
+                <h4>Foto</h4>
+                <div class="dropzone-area">
+                    <div class="file-upload-icon">
+                        <!-- Aqui você pode adicionar um ícone, se quiser -->
+                    </div>
+                    <input type="file" id="upload-file" name="imagem" accept="image/*"/>
+                    <div class="file-info">
+                        <img id="image-preview" name="imagem" src='' alt='' style="display: none; width: 60px; height: 60px; margin-top: 0px; border-radius: 100%;" />
+                        <i class="bi bi-image" id="file-info-text"> Nenhuma imagem selecionada</i>
+                    </div>
+                </div>
+
+                <div class="name">
+                    <div class="name-input">
+                        <h4>Razão Social</h4>
+                        <input type="text" class="razao" name="razao" placeholder="Digite a razão social..." required />
+                    </div>
+                </div>
+
+                <div class="id">
+                    <div class="identidade-input">
+                        <h4>Identidade</h4>
+                        <input type="text" class="identidade" name="identidade" placeholder="RG ou CPF" required/>
+                    </div>
+                </div>
+
+                <div class="endereco">
+                    <div class="endereco-input">
+                        <h4>Endereço</h4>
+                        <input type="text" class="endereco" id="endereco-input" name="endereco" placeholder="Digite o endereço..." required/>
+                    </div>
+                </div>
+
+                <div class="plano">
+                    <div class="plano-input">
+                        <h4>Plano</h4>
+                        <select class="plano-select" name="plano">
+                            <option value="Básico">Básico</option>
+                            <option value="Logístico">Logístico</option>
+                            <option value="Premium">Premium</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="contact">
+                    <div class="contato-input">
+                        <h4>Contato</h4>
+                        <input type="text" class="contato" name="contato" placeholder="(xx) xxxxx-xxxx" required/>
+                    </div>
+                </div>
+
+                <div class="email-funcionario">
+                    <div class="func-email">
+                        <h4>Email</h4>
+                        <input type="email" class="email" id='email-input' name="email" placeholder="exemplo@email.com" required/>
+                    </div>
+                </div>
+
+                <div class="status">
+                    <div class="status-input">
+                        <h4>Status</h4>
+                        <select class="status-select" name="status">
+                            <option value="Ativo">Ativo</option>
+                            <option value="Suspenso">Suspenso</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="actions-btn">
+                    <button type="submit" class="btn-save">Salvar Alterações</button>
+                    <button type="submit" class="btn-cancel">Cancelar Alterações</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="../src/js/dashboard.js" defer></script>
     <script src="../src/js/consulta/empresa.js" defer></script>
+        <script src='../src/js/get/empresa.js' defer></script>
+    <script src='../src/js/editar/empresa.js' defer></script>
     <script src="../src/js/modal-user.js" defer></script>
 </body>
 </html>
