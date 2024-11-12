@@ -237,7 +237,7 @@ input:focus, select:focus {
     justify-content: center;
 }
 
-@media screen and (min-width: 700px) and (max-width: 1365px) {
+@media screen and (min-width: 700px) and (max-width: 1280px) {
     
     #register-table {
         flex-direction: column;

@@ -163,6 +163,7 @@ main {
     width: auto;
     gap: 30px;
     overflow: hidden;
+    margin: 0 auto;
 }
 
 input.nome, select {
@@ -212,6 +213,7 @@ input:focus, select:focus {
     color: rgb(226, 226, 182);
     font-weight: bold;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 .btn-send:hover {
@@ -264,7 +266,7 @@ input:focus, select:focus {
     justify-content: center;
 }
 
-@media screen and (min-width: 700px) and (max-width: 1365px) {
+@media screen and (min-width: 700px) and (max-width: 1280px) {
     
     #register-table {
         flex-direction: column;
