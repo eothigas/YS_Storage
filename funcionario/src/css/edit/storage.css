@@ -61,7 +61,7 @@
     width: 58%;
     justify-content: space-between;
     align-items: center;
-    height: 600px;
+    height: 590px;
     padding: 10px 30px;
     border-radius: 10px;
     display: flex;
@@ -81,7 +81,7 @@
     width: 100%;
 }
 
-.editar-funcionario {
+.editar-storage {
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -122,35 +122,37 @@
 }
 
 #file-info-text {
-    display: flex !important;
+    display: flex;
     gap: 10px;
     align-items: center;
     font-style: normal;
 }
 
-.senha_funcionario {
+.measures {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 100%;
-    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    width: auto;
+    gap: 40px;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
-input.senha, input.confirme-senha {
-    width: 94.5%;
-    padding: 5px 8px;
-    border-radius: 5px;
-    border: 2px rgb(226, 226, 182) solid;
-    color: rgb(226, 226, 182);
-    background-color: transparent;
-}
-
-input.nome, input.identidade, input.contato, input.email {
+input.razao, input.endereco, input.email {
     width: 97.3%;
     padding: 5px 8px;
     border-radius: 5px;
     border: 2px rgb(226, 226, 182) solid;
     background-color: transparent;
     color: rgb(226, 226, 182);
+}
+
+input.altura, input.largura, input.comprimento {
+    width: auto;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 2px rgb(226, 226, 182) solid;
+    color: rgb(226, 226, 182);
+    background-color: transparent;
 }
 
 select {
@@ -167,60 +169,9 @@ input:focus, select:focus {
     outline: none;
 }
 
-.password {
-    display: flex;
-    position: relative;
-    align-items: center;
-}
-
-#view, #confirm {
-    cursor: pointer;
-    margin-left: -30px;
-}
-
-.password-strength-container {
-    margin-top: 5px;
-}
-
-.password-strength {
-    height: 5px;
-    width: 100%;
-    background-color: rgb(3, 52, 110);
-    border-radius: 5px;
-    margin-top: 2px;
-}
-
-.password-strength span {
-    display: block;
-    height: 100%;
-    border-radius: 5px;
-}
-
-.password-strength-text {
-    margin-top: 2px;
-    display: block;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.strength-weak {
-    width: 33%;
-    background-color: red;
-}
-
-.strength-good {
-    width: 66%;
-    background-color: orange;
-}
-
-.strength-strong {
-    width: 100%;
-    background-color: green;
-}
-
 .btn-save, .btn-cancel {
     width: 255px;
-    /* margin:  0 auto; */
+    margin:  10px 0 0 0;
     padding: 5px 8px;
     border-radius: 5px;
     border: 2px rgb(226, 226, 182) solid;
