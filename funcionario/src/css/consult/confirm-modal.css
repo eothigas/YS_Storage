@@ -1,0 +1,40 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background-color: rgb(3, 52, 110);
+  color: rgb(226, 226, 182);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid rgb(226, 226, 182);
+}
+#confirm-delete, #cancel-delete {
+  background-color: transparent;
+  color: rgb(226, 226, 182);
+  border: 1px solid rgb(226, 226, 182);
+  border-radius: 8px;
+  padding: 5px;
+  margin-top: 30px;
+  width: 200px;
+  cursor: pointer;
+}
+#cancel-delete {
+  margin-left: 10px;
+}
+#confirm-delete:hover{
+  background-color: green;
+  font-weight: bold;
+}
+#cancel-delete:hover{
+  background-color: red;
+  font-weight: bold;
+}

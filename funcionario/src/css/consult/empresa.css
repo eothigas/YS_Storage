@@ -86,7 +86,7 @@ table {
     margin-top: 40px;
 }
 th, td {
-    padding: 12px;
+    padding: 8px;
     text-align: center;
     border-bottom: 1px rgb(226, 226, 182) solid;
     align-items: center;
@@ -97,8 +97,16 @@ th {
     font-weight: bold;
 }
 
+th .acoes-cell(odd), th .acoes-cell(even) {
+    height: 74.5px !important;
+}
+
+td.acoes-cell {
+    gap: 5px !important;
+}
+
 .btn-danger {
-    margin-left: 5px;
+    margin-left: 10px;
     background-color: rgb(255, 0, 0, 0.7);
     color: white;
 }
@@ -112,6 +120,7 @@ th {
 }
 
 .btn-danger, .btn-primary {
+    width: 75px;
     padding: 5px 8px;
     border-radius: 5px;
     border: none;
