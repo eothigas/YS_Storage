@@ -153,6 +153,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     document.querySelector('main').style.display = 'none';
                     document.querySelector('#navbar').style.display = 'none';
 
+                    document.getElementById('funcionario-id').value = funcionario.id
                     document.querySelector('.nome').value = funcionario.nome;
                     document.querySelector('.identidade').value = funcionario.identidade;
                     document.querySelector('.contato').value = funcionario.contato;
@@ -171,6 +172,49 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             })
             .catch(error => console.error('Erro ao carregar os dados do funcionário:', error));
+    }
+
+    // Função para exibir o modal de confirmação
+    function excluirFuncionario(id) {
+    // Exibir o modal de confirmação
+    const modal = document.getElementById('confirm-modal');
+    modal.style.display = 'flex';
+
+    // Evento para cancelar a exclusão
+    document.getElementById('cancel-delete').onclick = () => {
+        modal.style.display = 'none';
+    };
+
+    // Evento para confirmar a exclusão
+    document.getElementById('confirm-delete').onclick = () => {
+        // Chamar a função de exclusão no PHP (via AJAX ou Fetch)
+        excluirFuncionarioDoBanco(id);
+        modal.style.display = 'none'; // Fechar o modal após confirmar
+    };
+    }
+
+    // Função para excluir o funcionário do banco
+    function excluirFuncionarioDoBanco(id) {
+        fetch('../php/deletar/funcionario.php', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: id })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+            location.reload();;
+            // Atualizar a lista ou remover o item da interface
+            } else {
+            alert('Erro ao excluir o funcionário!');
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Erro ao tentar excluir o funcionário!');
+        });
     }
 
     // Evento de input para o campo de pesquisa
