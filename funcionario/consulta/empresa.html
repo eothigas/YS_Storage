@@ -6,6 +6,7 @@
     <link rel="icon" href="../src/images/Logo_reduzido.svg" type="image/png">
     <title>Your Storage - Consulta</title>
     <link rel="stylesheet" href="../src/css/consult/empresa.css">
+    <link rel="stylesheet" href="../src/css/consult/confirm-modal.css">
     <link rel="stylesheet" href="../src/css/edit/empresa.css">
     <link rel="stylesheet" href="../src/css/home/navbar.css">
     <link rel="stylesheet" href="../src/css/home/sidebar.css">
@@ -127,6 +128,15 @@
         </div>
     </main>
 
+    <!-- Modal de confirmação -->
+    <div id="confirm-modal" style="display: none;" class="modal">
+        <div class="modal-content">
+            <h2>Tem certeza que deseja excluir este storage?</h2>
+            <button id="confirm-delete">Confirmar</button>
+            <button id="cancel-delete">Cancelar</button>
+        </div>
+    </div>
+
     <div id="register-table" style='display: none;'>
         <div class="space-register">
             <div class='notification' style='display: none;'>
@@ -216,7 +226,7 @@
 
     <script src="../src/js/dashboard.js" defer></script>
     <script src="../src/js/consulta/empresa.js" defer></script>
-        <script src='../src/js/get/empresa.js' defer></script>
+    <script src='../src/js/get/empresa.js' defer></script>
     <script src='../src/js/editar/empresa.js' defer></script>
     <script src="../src/js/modal-user.js" defer></script>
 </body>

@@ -6,6 +6,7 @@
     <link rel="icon" href="../src/images/Logo_reduzido.svg" type="image/png">
     <title>Your Storage - Consulta Cliente</title>
     <link rel="stylesheet" href="../src/css/consult/cliente.css">
+    <link rel="stylesheet" href="../src/css/consult/confirm-modal.css">
     <link rel="stylesheet" href="../src/css/edit/cliente.css">
     <link rel="stylesheet" href="../src/css/home/navbar.css">
     <link rel="stylesheet" href="../src/css/home/sidebar.css">
@@ -125,6 +126,15 @@
             </div>
         </div>
     </main>
+
+    <!-- Modal de confirmação -->
+    <div id="confirm-modal" style="display: none;" class="modal">
+        <div class="modal-content">
+            <h2>Tem certeza que deseja excluir este storage?</h2>
+            <button id="confirm-delete">Confirmar</button>
+            <button id="cancel-delete">Cancelar</button>
+        </div>
+    </div>
 
     <!-- Modal de Editar Cliente -->
     <div id="register-table" style="display: none;">

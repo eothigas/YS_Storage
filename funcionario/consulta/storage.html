@@ -6,11 +6,14 @@
     <link rel="icon" href="../src/images/Logo_reduzido.svg" type="image/png">
     <title>Your Storage - Consulta Storage</title>
     <link rel="stylesheet" href="../src/css/consult/storage.css">
+    <link rel="stylesheet" href="../src/css/consult/confirm-modal.css">
+    <link rel="stylesheet" href="../src/css/edit/storage.css">
     <link rel="stylesheet" href="../src/css/home/navbar.css">
     <link rel="stylesheet" href="../src/css/home/sidebar.css">
     <link rel="stylesheet" href="../src/css/dashboard.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="../src/js/consulta/storages.js"></script>
     <script src="../src/js/verify_session.js" type="text/javascript" defer></script>
 </head>
 <body>
@@ -98,7 +101,7 @@
                     </div>
                 </div>
                 
-                <table id="total-usuarios">
+                <table id="total-storages">
                     <thead>
                         <tr>
                             <th>Foto</th>
@@ -126,8 +129,88 @@
         </div>
     </main>
 
+    <!-- Modal de confirmação -->
+    <div id="confirm-modal" style="display: none;" class="modal">
+        <div class="modal-content">
+            <h2>Tem certeza que deseja excluir este storage?</h2>
+            <button id="confirm-delete">Confirmar</button>
+            <button id="cancel-delete">Cancelar</button>
+        </div>
+    </div>
+
+    <div id="register-table" style='display: none;'>
+        <div class="space-register">
+            <div class='notification' style='display: none;'>
+                <div class='notification_body'>
+                    <!-- JS -->
+                </div>
+            </div>
+            <h2>Editar Storage</h2>
+            <form action="../php/editar/storage.php" method="POST" enctype="multipart/form-data" class="editar-storage">
+                <input type="hidden" name="storage-id" id="storage-id">
+
+                <h4>Foto</h4>
+                <div class="dropzone-area">
+                    <div class="file-upload-icon">
+                        <!-- Aqui você pode adicionar um ícone, se quiser -->
+                    </div>
+                    <input type="file" id="upload-file" name="imagem" accept="image/*"/>
+                    <div class="file-info">
+                        <img id="image-preview" name="imagem" src='' alt='' style="display: none; width: 60px; height: 60px; margin-top: 0px; border-radius: 100%;" />
+                        <i class="bi bi-image" id="file-info-text"> Nenhuma imagem selecionada</i>
+                    </div>
+                </div>
+
+                <div class="name">
+                    <div class="name-input">
+                        <h4>Razão Social</h4>
+                        <input type="text" class="razao" name="razao" placeholder="Digite a razão social..." required />
+                    </div>
+                </div>
+
+                <div class="endereco">
+                    <div class="endereco-input">
+                        <h4>Endereço</h4>
+                        <input type="text" class="endereco" id="endereco-input" name="endereco" placeholder="Digite o endereço..." required/>
+                    </div>
+                </div>
+                
+                <div class='measures'>
+                    <div class="height">
+                        <h4>Altura</h4>
+                        <input type="number" class="altura" name='altura' placeholder="-- Metros --" required/>
+                    </div>
+                    <div class="width">
+                        <h4>Largura</h4>
+                        <input type="number" class="largura" name='largura' placeholder="-- Metros --" required/>
+                    </div>
+                    <div class="length">
+                        <h4>Comprimento</h4>
+                        <input type="number" class="comprimento" name='comprimento' placeholder="-- Metros --" required/>
+                    </div>
+                </div>
+
+                <div class="status">
+                    <div class="status-input">
+                        <h4>Status</h4>
+                        <select class="status-select" name="status">
+                            <option value="Ativo">Ativo</option>
+                            <option value="Suspenso">Suspenso</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="actions-btn">
+                    <button type="submit" class="btn-save">Salvar Alterações</button>
+                    <button type="submit" class="btn-cancel">Cancelar Alterações</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="../src/js/dashboard.js" defer></script>
-    <script src="../src/js/consulta/storage.js" defer></script>
+    <script src='../src/js/get/storage.js' defer></script>
+    <script src='../src/js/editar/storage.js' defer></script>
     <script src="../src/js/modal-user.js" defer></script>
 </body>
 </html>
