@@ -111,7 +111,7 @@ try {
         exit();
     } else {
         echo "Erro ao enviar o e-mail.";
-        // Redireciona para a página de erro, se necessário
+        // Redireciona para a página de erro
         header("Location: /homepage/orcamentoerro.html");
         exit();
     }
