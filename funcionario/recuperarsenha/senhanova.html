@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../src/images/Logo_reduzido.svg" type="image/png">
+    <link rel="stylesheet" href="../src/css/recpassword/senhanova.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script>
+        function togglePasswordVisibility(toggleId, inputId) {
+            const passwordInput = document.getElementById(inputId);
+            const toggleIcon = document.getElementById(toggleId);
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text"; // Exibir senha
+                toggleIcon.classList.remove('bi-eye-fill');
+                toggleIcon.classList.add('bi-eye-slash-fill'); // Troca para ícone de "ocultar"
+            } else {
+                passwordInput.type = "password"; // Ocultar senha
+                toggleIcon.classList.remove('bi-eye-slash-fill');
+                toggleIcon.classList.add('bi-eye-fill'); // Troca para ícone de "mostrar"
+            }
+        }
+    </script>
+    <title>Your Storage - Recuperação de Senha</title>
+</head>
+<body>
+     
+    <form class="form_main" action="./php/atualizar_senha.php" method="POST">
+        <img class="logo" src="../src/images/Logo_reduzido.svg">
+        <h2 class="heading">Recuperar Senha</h2>
+        <p>Redefina sua senha no campo abaixo.</p>
+
+        <!-- Campo de nova senha -->
+        <div class="inputContainer">
+            <svg viewBox="0 0 16 16" fill="rgb(226, 226, 182)" height="16" width="16" xmlns="http://www.w3.org/2000/svg" class="inputIcon">
+            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
+            </svg>
+            <input placeholder="Senha" id="password" class="inputField" type="password" name="senhanova" maxLength='8' required>
+            <i class="bi bi-eye-fill" id="toggle-password-1" onclick="togglePasswordVisibility('toggle-password-1', 'password')"></i>
+            <div class="icon-container">
+                <i class="bi bi-info-circle tooltip-icon"></i>
+                <span class="tooltip">Máximo 8 caracteres</span>
+            </div>
+        </div>
+
+        <!-- Campo de confirmação de senha -->
+        <div class="inputContainer">
+            <svg viewBox="0 0 16 16" fill="rgb(226, 226, 182)" height="16" width="16" xmlns="http://www.w3.org/2000/svg" class="inputIcon">
+            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
+            </svg>
+            <input placeholder="Confirme sua Senha" id="confirm-password" class="inputField" type="password" name="confirm" maxLength='8' required>
+            <i class="bi bi-eye-fill" id="toggle-password-2" style="cursor: pointer;" onclick="togglePasswordVisibility('toggle-password-2', 'confirm-password')"></i>
+        </div>
+                    
+        <!-- Botão para enviar o formulário -->
+        <button id="button" type="submit">Redefinir</button>
+
+        <div id="message-container"></div> <!-- Div para mensagens -->
+
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.form_main'); // Seleciona o formulário
+            const messageContainer = document.getElementById('message-container');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Evita o envio padrão do formulário
+
+                const formData = new FormData(form);
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    messageContainer.innerHTML = ''; // Limpa mensagens anteriores
+                    if (data.error) {
+                        messageContainer.classList.add('error');
+                        messageContainer.innerHTML = data.error; // Exibe erro
+
+                        setTimeout(() => {
+                        messageContainer.innerHTML = '';
+                        messageContainer.classList.remove('error'); // Remove a classe de erro
+                    }, 5000); // 8000 milissegundos = 8 segundos
+                    } else if (data.success) {
+                        messageContainer.classList.remove('error');
+                        // Redirecionar após sucesso
+                        window.location.href = './senharedefinida.html';
+                    }
+                })
+                .catch(error => {
+                    messageContainer.classList.add('error');
+                    messageContainer.innerHTML = 'Erro na comunicação com o servidor.';
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="../src/css/home/navbar.css">
     <link rel="stylesheet" href="../src/css/home/sidebar.css">
     <link rel="stylesheet" href="../src/css/register/cliente.css">
+    <link rel="stylesheet" href="../src/css/home/modal_notifications.css">
+    <link rel="stylesheet" href="../src/css/notification/modal_notifications.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="../src/js/dashboard/profile/data_profile.js" defer></script>
     <script src="../src/js/verify_session.js" type="text/javascript" defer></script>
 </head>
 <body>
@@ -52,38 +55,55 @@
                         </ul>
                     </li>
                     <li class="side_submenu">
-                        <span id='export-page'>
-                            <i class="bi bi-file-earmark-arrow-down export">Exportar</i>
-                        </span>
+                        <a href="../exportar/exportar.html">
+                            <span id='export-page'>
+                                <i class="bi bi-file-earmark-arrow-down export">Exportar</i>
+                            </span>
+                        </a>
                     </li>
                 </ul>
             </nav>
         </div>
         <div id="right">
-            <div class="notifications">
+            <div class="notifications" onclick="openModal()" style='cursor: pointer;'>
                 <i class="bi bi-bell-fill"></i>
             </div>
             <div class="user-profile">
-                    <img src="../src/images/user.jpg" alt="" id="img-profile">
-                    <span id="username">Thiago Freitas</span>
-                    <i class="bi bi-arrow-down-short" id="arrow"></i>
+                <img src=" " alt="" id="img-profile">
+                <span id="username">Funcionário</span>
+                <i class="bi bi-arrow-down-short" id="arrow"></i>
+            </div>
+            <div class="modal-user">
+                <div class="account last" id='logout-btn'>
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span class="user-account">Sair</span>
                 </div>
-                <div class="modal-user">
-                    <div class="account first">
-                        <i class="bi bi-person-circle"></i>
-                        <span class="user-account">Conta</span>
-                    </div>
-                    <div class="account mid">
-                        <i class="bi bi-gear"></i>
-                        <span class="user-account">Configurações</span>
-                    </div>
-                    <div class="account last" id='logout-btn'>
-                        <i class="bi bi-box-arrow-right"></i>
-                        <span class="user-account">Sair</span>
-                    </div>
-                </div>
+            </div>
         </div>
     </nav>
+
+    <div id="notificationsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Notificações</h5>
+                <button class="close" onclick="closeModalNote()">X</button>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button id="antButton" onclick="changePage(-1)" disabled>Voltar</button>
+                <button id="proxButton" onclick="changePage(1)">Avançar</button>
+            </div>
+            <div class="notification-count"></div>
+        </div>
+    </div>
+
+    <div id="orcamento-modal-note" class="orcamento-modal-note">
+        <div class="orcamento-modal-content-note">
+            <span class="orcamento-close-btn-note" onclick="closeModalOrc()">&times;</span>
+            <h2>Detalhes do Formulário</h2>
+            <div id="orcamento-area-note"></div>
+        </div>
+    </div>
 
     <main>
        <div id="register-table">
@@ -108,13 +128,13 @@
                     <div class="id">
                         <div class="identidade-input">
                             <h4>Identidade</h4>
-                            <input type="text" class="identidade" placeholder="RG ou CPF" oninput="updatePreview()" name="identidade"/>
+                            <input type="text" id='identidade' class="identidade" placeholder="RG ou CPF" oninput="updatePreview()" name="identidade"/>
                         </div>
                     </div>
                     <div class="contact">
                         <div class="contato-input">
                             <h4>Contato</h4>
-                            <input type="text" class="contato" placeholder="(xx) xxxxx-xxxx" oninput="updatePreview()" name="contato"/>
+                            <input type="text" id='contato' class="contato" placeholder="(xx) xxxxx-xxxx" oninput="updatePreview()" name="contato"/>
                         </div>
                     </div>
                     <div class="enterprise">
@@ -200,7 +220,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="../src/js/dashboard.js" defer></script>
+    <script src="../src/js/formatar_dado/format.js" defer></script>
     <script src="../src/js/cadastro/cadastro_cliente.js" defer></script>
     <script src="../src/js/modal-user.js" defer></script>
+    <script src="../src/js/dashboard/notification/modal_notification.js" defer></script>
 </body>
 </html>

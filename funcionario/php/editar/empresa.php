@@ -31,6 +31,12 @@ if ($conn->connect_error) {
 // Configurar o charset da conexão para UTF-8
 $conn->set_charset("utf8mb4");
 
+// Função para obter o horário atual com fuso horário +02:00
+function getCurrentDateTimeWithTimezone() {
+    $datetime = new DateTime('now', new DateTimeZone('Europe/Paris')); // Fuso horário de Paris (+02:00)
+    return $datetime->format('Y-m-d H:i:s');
+}
+
 // Configuração do IMGUR
 $imgurClientId = $config['imgur']['client_id'] ?? '';
 
@@ -147,7 +153,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $types .= "s";
     }
 
-    $query .= "data_atualizacao = CONVERT_TZ(NOW(), '+00:00', '+02:00')";
+    $query .= "data_atualizacao = ?";
+
+    // Obter a data e hora atual com fuso horário +02:00
+    $data_atualizacao = getCurrentDateTimeWithTimezone();
+
+    // Adicionar o parâmetro da data de atualização
+    $params[] = $data_atualizacao;
+    $types .= "s";
 
     // Remover a última vírgula da consulta
     $query = rtrim($query, ', ') . " WHERE id = ?";
@@ -162,7 +175,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Executar a query
         if ($stmt->execute()) {
-            echo json_encode(['status' => 'success', 'message' => 'Empresa atualizada com sucesso.']);
+            // Inserir na tabela notification_status
+            $insertQuery = "INSERT INTO notification_status (nome, tipo, data_criacao, data_atualizacao) VALUES (?, ?, ?, ?)";
+
+            // Preparar a consulta de inserção
+            if ($insertStmt = $conn->prepare($insertQuery)) {
+                // O nome será a razão social
+                $nome = $razao;
+                // O tipo de notificação será 'empresa_alteracao'
+                $tipo = 'empresa_alteracao';
+
+                // Bind dos parâmetros
+                $insertStmt->bind_param("ssss", $nome, $tipo, $data_atualizacao, $data_atualizacao);
+
+                // Executar a inserção
+                if ($insertStmt->execute()) {
+                    echo json_encode(['status' => 'success', 'message' => 'Empresa atualizada com sucesso.']);
+                } else {
+                    echo json_encode(['status' => 'error', 'message' => 'Erro ao criar notificação: ' . $insertStmt->error]);
+                }
+
+                // Fechar a consulta de inserção
+                $insertStmt->close();
+            } else {
+                echo json_encode(['status' => 'error', 'message' => 'Erro na preparação da consulta de notificação: ' . $conn->error]);
+            }
+
         } else {
             echo json_encode(['status' => 'error', 'message' => 'Erro ao atualizar a empresa: ' . $stmt->error]);
         }

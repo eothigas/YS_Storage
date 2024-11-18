@@ -10,10 +10,10 @@ if (!$config) {
 }
 
 // Obtém as configurações do banco de dados a partir do php.ini
-$host = $config['database']['host'] ?? null;
-$dbname = $config['database']['dbname'] ?? null;
-$user = $config['database']['user'] ?? null;
-$password = $config['database']['password'] ?? null;
+$host = $config['database']['host'];
+$dbname = $config['database']['dbname'];
+$user = $config['database']['user'];
+$password = $config['database']['password'];
 
 if (!$host || !$dbname || !$user || !$password) {
     echo json_encode(["error" => "Configurações do banco de dados inválidas"]);
@@ -49,9 +49,9 @@ try {
         exit();
     }
 
-    // Prepara a consulta SQL para inserção
-    $sql = "INSERT INTO orcamento (nome, email, telefone, mensagem, enterprise, cnpj, question) 
-            VALUES (:nome, :email, :telefone, :mensagem, :enterprise, :cnpj, :question)";
+    // Prepara a consulta SQL para inserção na tabela orcamento
+    $sql = "INSERT INTO orcamento (nome, email, telefone, mensagem, enterprise, cnpj, question, data_criacao, data_atualizacao) 
+            VALUES (:nome, :email, :telefone, :mensagem, :enterprise, :cnpj, :question, CONVERT_TZ(NOW(), '+00:00', '+02:00'), CONVERT_TZ(NOW(), '+00:00', '+02:00'))";
     $stmt = $pdo->prepare($sql);
 
     // Vincula os parâmetros
@@ -66,10 +66,22 @@ try {
     // Executa a consulta
     $stmt->execute();
 
+    // Obtém o último ID inserido na tabela orcamento
+    $idOrcamento = $pdo->lastInsertId();
+
+    // Prepara a inserção na tabela notification_status
+    $stmtNotification = $pdo->prepare("
+        INSERT INTO notification_status (nome, tipo, data_criacao, data_atualizacao, id_orcamento)
+        VALUES (:nome, 'formulario', CONVERT_TZ(NOW(), '+00:00', '+02:00'), CONVERT_TZ(NOW(), '+00:00', '+02:00'), :id_orcamento)
+    ");
+    $stmtNotification->bindParam(':nome', $nome);
+    $stmtNotification->bindParam(':id_orcamento', $idOrcamento); // Liga o ID do orçamento ao parâmetro :id_orcamento
+    $stmtNotification->execute();
+
+
     // Configurações do e-mail
-    $to = $email;
-    $headers .= "Subject: =?UTF-8?B?" . base64_encode($subject) . "?=" . "\r\n";
     $subject = 'Recebimento de Formulário - Your Storage';
+    $to = $email;
     $body = "
     <html>
     <head>

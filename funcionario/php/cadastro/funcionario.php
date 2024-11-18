@@ -96,7 +96,34 @@ try {
         $stmt->bindParam(':senha', $senhaHash);
 
         if ($stmt->execute()) {
-            echo json_encode(["status" => "success", "message" => "Funcionário cadastrado com sucesso!"]);
+            // Recupera o ID do funcionário recém-cadastrado
+            $funcionarioId = $pdo->lastInsertId();
+
+            // Insere na tabela notification_status (sem a coluna 'status')
+            $stmtNotification = $pdo->prepare("
+                INSERT INTO notification_status (nome, tipo, data_criacao, data_atualizacao)
+                VALUES (:nome, 'funcionario_cadastro', CONVERT_TZ(NOW(), '+00:00', '+02:00'), CONVERT_TZ(NOW(), '+00:00', '+02:00'))
+            ");
+            $stmtNotification->bindParam(':nome', $nome);
+
+            if ($stmtNotification->execute()) {
+                // Após a inserção, insere na tabela notificacoes
+                $notificationId = $pdo->lastInsertId();
+                $stmtNotificacoes = $pdo->prepare("
+                    INSERT INTO notificacoes (id_funcionario, id_notification)
+                    VALUES (:funcionarioId, :notificationId)
+                ");
+                $stmtNotificacoes->bindParam(':funcionarioId', $funcionarioId);
+                $stmtNotificacoes->bindParam(':notificationId', $notificationId);
+
+                if ($stmtNotificacoes->execute()) {
+                    echo json_encode(["status" => "success", "message" => "Funcionário cadastrado com sucesso!"]);
+                } else {
+                    echo json_encode(["status" => "error", "message" => "Erro ao inserir notificação."]);
+                }
+            } else {
+                echo json_encode(["status" => "error", "message" => "Erro ao cadastrar status de notificação."]);
+            }
         } else {
             echo json_encode(["status" => "error", "message" => "Erro ao cadastrar funcionário."]);
         }

@@ -29,7 +29,8 @@ main {
     height: auto;
     margin: 0 auto;
     padding: 20px;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: auto;
 }
 
 .user-info-header {

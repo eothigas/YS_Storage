@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    background-color: rgb(2, 21, 38, 0.9);
+    background-image: linear-gradient(to right, rgb(2, 21, 38), rgb(3, 52, 110), rgb(2, 21, 38));
+    backdrop-filter: blur(6px);
+    backdrop-filter: brightness(-10px);
+    background-repeat: no-repeat;
+}
+
+.envio {
+    width: 420px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(2, 21, 38, 0.5);
+    backdrop-filter: blur(7px);
+    margin: auto;
+    padding: 30px 30px 30px 30px;
+    border-radius: 20px;
+}
+
+.logo {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 50px;
+}
+
+.heading {
+    font-size: 2rem;
+    color: rgb(226, 226, 182);
+    font-weight: 700;
+    margin: 0px 0 30px 0;
+}
+
+p {
+    font-size: 16px;
+    color: rgb(226, 226, 182);
+    text-align: center;
+    padding: 5px;
+    margin: 15px 0 30px 0;
+    border-radius: 10px;
+}
+
+.bi {
+    color: rgb(226, 226, 182);
+    font-size: 60px;
+    margin-top: 0px;
+    transition: 0.5s;
+}
+
+#message-container {
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: 5px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    font-size: 15px;
+}
+
+.success {
+    display: flex; /* Mostrar se for sucesso */
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.error {
+    display: flex; /* Mostrar se for erro */
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 900px) {
+
+    .envio {
+        width: 400px;
+        height: 360px;
+    }
+
+}

@@ -84,7 +84,19 @@ try {
         $stmt->bindParam(':comprimento', $comprimento);
 
         if ($stmt->execute()) {
-            echo json_encode(["status" => "success", "message" => "Storage cadastrado com sucesso!"]);
+            // Recupera o ID do storage recém-cadastrado
+            $storageId = $pdo->lastInsertId();
+
+            // Insere na tabela notification_status para o storage
+            $stmtNotification = $pdo->prepare("INSERT INTO notification_status (nome, tipo, data_criacao, data_atualizacao)
+                VALUES (:nome, 'storage_cadastro', CONVERT_TZ(NOW(), '+00:00', '+02:00'), CONVERT_TZ(NOW(), '+00:00', '+02:00'))");
+            $stmtNotification->bindParam(':nome', $nome);
+
+            if ($stmtNotification->execute()) {
+                echo json_encode(["status" => "success", "message" => "Storage cadastrado com sucesso!"]);
+            } else {
+                echo json_encode(["status" => "error", "message" => "Erro ao cadastrar status de notificação."]);
+            }
         } else {
             echo json_encode(["status" => "error", "message" => "Erro ao cadastrar storage."]);
         }

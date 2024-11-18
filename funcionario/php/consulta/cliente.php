@@ -19,7 +19,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Consulta para selecionar os dados necessários
-    $stmt = $pdo->prepare("SELECT * FROM clientes");
+    $stmt = $pdo->prepare("SELECT * FROM clientes ORDER BY RAND()");
     $stmt->execute();
 
     // Pega os resultados

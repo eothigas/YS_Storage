@@ -1,9 +1,10 @@
 
 #home-dash {
-    /* margin: 10px 30px; */
     display: flex;
     flex-direction: column;
     justify-content: left;
+    margin-bottom: 20px;
+    height: auto;
 }
 
 #dash-cards {
@@ -23,6 +24,10 @@
     border: 1px solid rgb(226, 226, 182, 0.5);
     overflow: hidden;
     /* box-shadow: 0px 0px 5px .5px rgb(226, 226, 182); */
+}
+
+.cards:hover {
+    background-color: rgb(226, 226, 182, 0.8);
 }
 
 .cards img {
@@ -61,7 +66,7 @@
 }
 
 .dash-info h4 {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
 }
 
@@ -101,11 +106,12 @@
     font-style: normal;
 }
 
-.info-notification {
+i.info-notification {
     display: flex;
     align-items: center;
     font-style: normal;
     gap: 10px;
+    color: rgb(3, 52, 110);
 }
 
 /* Table */
@@ -114,7 +120,7 @@
     margin: 20px 0 5px;
 }
 
-#dash-table {
+.dash-table {
     border: 1px solid rgb(226, 226, 182, 0.5);
     display: flex;
     flex-direction: column;
@@ -123,6 +129,10 @@
     border-radius: 10px;
     padding: 15px;
     text-align: center;
+}
+
+#dash-table-storages {
+    margin-bottom: 20px;
 }
 
 table {

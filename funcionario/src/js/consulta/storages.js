@@ -152,65 +152,97 @@ document.addEventListener("DOMContentLoaded", function() {
         );
     }
 
-    // Função para abrir o modal de edição e preencher com os dados da empresa selecionada
+    // Função para abrir o modal de edição e preencher com os dados do storage selecionado
     function abrirModalEdicao(id) {
-        fetch(`../php/get/storage.php?id=${id}`)
-            .then(response => response.json())
-            .then(storage => {
-                if (storage.error) {
-                    alert(storage.error);
-                } else {
-                    const modal = document.getElementById('register-table');
-                    const main = document.querySelector('main');
-                    const navbar = document.querySelector('#navbar');
+        // Buscar os dados do storage e as empresas
+        Promise.all([
+            fetch(`../php/get/storage.php?id=${id}`), // Requisição para obter os dados do storage
+            fetch('../php/get_empresas_cliente.php') // Requisição para obter as empresas
+        ])
+        .then(responses => Promise.all(responses.map(response => response.json()))) // Aguardar as duas respostas
+        .then(([storage, empresas]) => {
+            if (storage.error) {
+                alert(storage.error);
+            } else {
+                // Preencher os dados do storage no modal
+                const modal = document.getElementById('register-table');
+                const main = document.querySelector('main');
+                const navbar = document.querySelector('#navbar');
 
-                    if (modal && main && navbar) {
-                        modal.style.display = 'flex';
-                        main.style.display = 'none';
-                        navbar.style.display = 'none';
+                if (modal && main && navbar) {
+                    modal.style.display = 'flex';
+                    main.style.display = 'none';
+                    navbar.style.display = 'none';
 
-                        const idField = document.getElementById('storage-id');
-                        const razaoField = document.querySelector('.razao');
-                        const enderecoField = document.querySelector('#endereco-input');
-                        const alturaField = document.querySelector('.altura');
-                        const larguraField = document.querySelector('.largura');
-                        const comprimentoField = document.querySelector('.comprimento');
-                        const statusField = document.querySelector('.status-select');
+                    const idField = document.getElementById('storage-id');
+                    const razaoField = document.querySelector('.razao');
+                    const enderecoField = document.querySelector('#endereco-input');
+                    const alturaField = document.querySelector('.altura');
+                    const larguraField = document.querySelector('.largura');
+                    const comprimentoField = document.querySelector('.comprimento');
+                    const statusField = document.querySelector('.status-select');
+                    const enterpriseSelect = document.querySelector('.enterprise-select');
 
-                        if (idField) idField.value = storage.id;
-                        if (razaoField) razaoField.value = storage.nome;
-                        if (enderecoField) enderecoField.value = storage.endereco;
-                        if (alturaField) alturaField.value = storage.altura;
-                        if (larguraField) larguraField.value = storage.largura;
-                        if (comprimentoField) comprimentoField.value = storage.comprimento;
-                        if (statusField) statusField.value = storage.status;
-                    } else {
-                        console.error("Alguns elementos do modal não foram encontrados.");
+                    if (idField) idField.value = storage.id;
+                    if (razaoField) razaoField.value = storage.nome;
+                    if (enderecoField) enderecoField.value = storage.endereco;
+                    if (alturaField) alturaField.value = storage.altura;
+                    if (larguraField) larguraField.value = storage.largura;
+                    if (comprimentoField) comprimentoField.value = storage.comprimento;
+                    if (statusField) statusField.value = storage.status;
+
+                    // Preencher o campo de empresas no modal
+                    if (enterpriseSelect) {
+                        // Limpar o select antes de adicionar novas opções
+                        enterpriseSelect.innerHTML = ''; 
+
+                        // Adicionar a empresa do storage ao select
+                        const optionSelected = document.createElement('option');
+                        optionSelected.value = storage.empresa;
+                        optionSelected.textContent = storage.empresa;
+                        enterpriseSelect.appendChild(optionSelected);
+
+                        // Adicionar as outras empresas à lista de opções
+                        if (empresas.status === 'success' && Array.isArray(empresas.data)) {
+                            empresas.data.forEach(empresa => {
+                                if (empresa.razao !== storage.empresa) { // Impedir que a empresa já atribuída seja inserida novamente
+                                    const option = document.createElement('option');
+                                    option.value = empresa.razao;
+                                    option.textContent = empresa.razao;
+                                    enterpriseSelect.appendChild(option);
+                                }
+                            });
+                        } else {
+                            console.error('Erro: retorno de empresas não é válido');
+                        }
                     }
+                } else {
+                    console.error("Alguns elementos do modal não foram encontrados.");
                 }
-            })
-            .catch(error => {
-                console.error('Erro ao carregar os dados da empresa:', error);
-                alert("Não foi possível carregar os dados da empresa. Tente novamente mais tarde.");
-            });
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao carregar os dados do storage ou empresas:', error);
+            alert("Não foi possível carregar os dados do storage. Tente novamente mais tarde.");
+        });
     }
 
     // Função para exibir o modal de confirmação
     function excluirStorage(id) {
     // Exibir o modal de confirmação
-    const modal = document.getElementById('confirm-modal');
-    modal.style.display = 'flex';
+    const confirmModal = document.getElementById('confirm-modal');
+    confirmModal.style.display = 'flex';
 
     // Evento para cancelar a exclusão
     document.getElementById('cancel-delete').onclick = () => {
-        modal.style.display = 'none';
+        confirmModal.style.display = 'none';
     };
 
     // Evento para confirmar a exclusão
     document.getElementById('confirm-delete').onclick = () => {
         // Chamar a função de exclusão no PHP (via AJAX ou Fetch)
         excluirStorageDoBanco(id);
-        modal.style.display = 'none'; // Fechar o modal após confirmar
+        confirmModal.style.display = 'none'; // Fechar o modal após confirmar
     };
     }
 

@@ -45,11 +45,12 @@
  /* Perfil */ 
 .user-profile {
     display: flex;
+    justify-content: space-between;
     gap: 10px;
     background-color: rgb(226, 226, 182);
     color: rgb(3, 52, 110);
     padding: 5px;
-    width: 95%;
+    width: 200px;
     border-radius: 10px;
     margin-right: 10px;
     max-height: 30px;
@@ -96,38 +97,14 @@
     top: 55px;
     right: 10px;
     /* border: px solid rgb(3, 52, 110); */
-    width: 200px;
-    border-radius: 10px;
+    width: 210px;
+    border-radius: 0px 0px 7px 7px;
     background-color: rgb(226, 226, 182);
     /* gap: 10px; */
     cursor: pointer;
 }
 
-.first {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    padding: 10px 10px;
-    border-radius: 7px 7px 0 0;
-    border-bottom: 2px rgb(3, 52, 110) solid;
-    color: rgb(3, 52, 110)
-}
-
-.mid {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    padding: 10px 10px;
-    color: rgb(3, 52, 110)
-}
-
-.first i, .mid i {
-    font-size: 20px;
-}
-
-.first:hover, 
-.mid:hover, 
-.last:hover {
+.modal-user:hover{
     background-color: rgb(3, 52, 110);
     color: rgb(226, 226, 182);
 }
@@ -137,9 +114,8 @@
     gap: 10px;
     align-items: center;
     padding: 10px 10px;
-    border-radius: 0px 0px 7px 7px;
-    border-top: 2px rgb(3, 52, 110) solid;
-    color: rgb(3, 52, 110)
+    border-radius: 7px 7px 0px 0px;
+    color: rgb(3, 52, 110);
 }
 
 .logout-btn {
@@ -166,4 +142,12 @@
     font-style: normal;
     color: rgb(71, 111, 141);
     font-weight: bold;
+}
+
+.modal-user:hover i{
+    color: rgb(226, 226, 182);
+}
+
+.modal-user:hover .user-account {
+    color: rgb(226, 226, 182);
 }

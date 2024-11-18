@@ -82,7 +82,21 @@ try {
         $stmt->bindParam(':email', $email);
 
         if ($stmt->execute()) {
-            echo json_encode(["status" => "success", "message" => "Empresa cadastrada com sucesso!"]);
+            // Recupera o ID da empresa recém-cadastrada
+            $empresaId = $pdo->lastInsertId();
+
+            // Insere na tabela notification_status
+            $stmtNotification = $pdo->prepare("
+                INSERT INTO notification_status (nome, tipo, data_criacao, data_atualizacao)
+                VALUES (:razao, 'empresa_cadastro', CONVERT_TZ(NOW(), '+00:00', '+02:00'), CONVERT_TZ(NOW(), '+00:00', '+02:00'))
+            ");
+            $stmtNotification->bindParam(':razao', $razao); // Usando o nome (razão) da empresa como título da notificação
+
+            if ($stmtNotification->execute()) {
+                echo json_encode(["status" => "success", "message" => "Empresa cadastrada com sucesso!"]);
+            } else {
+                echo json_encode(["status" => "error", "message" => "Erro ao cadastrar status de notificação."]);
+            }
         } else {
             echo json_encode(["status" => "error", "message" => "Erro ao cadastrar empresa."]);
         }

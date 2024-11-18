@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    background-color: rgb(2, 21, 38, 0.9);
+    background-image: linear-gradient(to right, rgb(2, 21, 38), rgb(3, 52, 110), rgb(2, 21, 38));
+    backdrop-filter: blur(6px);
+    backdrop-filter: brightness(-10px);
+    background-repeat: no-repeat;
+}
+
+.form_main {
+    width: 420px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(2, 21, 38, 0.5);
+    backdrop-filter: blur(7px);
+    margin: auto;
+    padding: 30px 30px 30px 30px;
+    border-radius: 20px;
+}
+
+.logo {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 50px;
+}
+
+.heading {
+    font-size: 2rem;
+    color: rgb(226, 226, 182);
+    font-weight: 700;
+    margin: 0px 0 30px 0;
+}
+
+p {
+    font-size: 16px;
+    color: rgb(226, 226, 182);
+    text-align: center;
+    padding: 5px;
+    margin: 15px 0 30px 0;
+    border-radius: 10px;
+}
+
+.inputContainer {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#inputIcon {
+    position: absolute;
+    left: 10px;
+    color: rgb(226, 226, 182);
+    font-size: 20px;
+}
+
+.inputField {
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid rgb(226, 226, 182);
+    border-radius: 10px;
+    margin: 10px 0;
+    color: rgb(226, 226, 182);
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 35px;
+}
+
+.inputField:focus {
+    outline: none;
+}
+
+.inputField::placeholder {
+    color: rgb(226, 226, 182, 0.6);
+    font-size: 1em;
+    font-weight: 500;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+#button-send {
+    position: relative;
+    width: 60%;
+    border: none;
+    background-color: rgb(3, 52, 110);
+    height: 40px;
+    color: rgb(226, 226, 182);
+    font-size: 1em;
+    font-weight: 500;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#button-send:hover {
+    background-color: rgb(3, 52, 110, 0.8);
+}
+
+#code {
+    display: none;
+    position: absolute;
+    bottom: 105px;
+}
+
+#button-resend {
+    display: none;
+    position: absolute;
+    width: 180px;
+    border: none;
+    background-color: rgb(226, 226, 182);
+    height: 40px;
+    color: rgb(3, 52, 110);
+    font-size: 1em;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    bottom: 90px;
+}
+
+#button-resend:hover {
+    background-color: rgb(226, 226, 182, 0.8);
+}
+  
+#message-container {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    z-index: 1000;
+    font-size: 14px;
+}
+
+.success {
+    display: flex; /* Mostrar se for sucesso */
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.error {
+    display: flex; /* Mostrar se for erro */
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 1365px) {
+
+    #code {
+        display: none;
+        position: absolute;
+        bottom: 20px;
+    }
+
+    #button-resend {
+        display: none;
+        position: absolute;
+        width: 30%;
+        border: none;
+        background-color: rgb(73, 120, 156);
+        height: 40px;
+        color: white;
+        font-size: .8em;
+        font-weight: 500;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        margin-top: 2px;
+        cursor: pointer;
+        overflow: hidden;
+        bottom: 10px;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+
+    .form_main {
+        width: 400px;
+        height: 360px;
+    }
+
+    #code {
+        display: none;
+        position: absolute;
+        bottom: 40px;
+    }
+
+    #button-resend {
+        display: none;
+        position: absolute;
+        width: 40%;
+        border: none;
+        background-color: rgb(73, 120, 156);
+        height: 40px;
+        color: white;
+        font-size: .8em;
+        font-weight: 500;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        margin-top: 2px;
+        cursor: pointer;
+        overflow: hidden;
+        bottom: 30px;
+    }
+
+}

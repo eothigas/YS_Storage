@@ -177,19 +177,19 @@ document.addEventListener("DOMContentLoaded", function() {
     // Função para exibir o modal de confirmação
     function excluirFuncionario(id) {
     // Exibir o modal de confirmação
-    const modal = document.getElementById('confirm-modal');
-    modal.style.display = 'flex';
+    const confirmModal = document.getElementById('confirm-modal');
+    confirmModal.style.display = 'flex';
 
     // Evento para cancelar a exclusão
     document.getElementById('cancel-delete').onclick = () => {
-        modal.style.display = 'none';
+        confirmModal.style.display = 'none';
     };
 
     // Evento para confirmar a exclusão
     document.getElementById('confirm-delete').onclick = () => {
         // Chamar a função de exclusão no PHP (via AJAX ou Fetch)
         excluirFuncionarioDoBanco(id);
-        modal.style.display = 'none'; // Fechar o modal após confirmar
+        confirmModal.style.display = 'none'; // Fechar o modal após confirmar
     };
     }
 

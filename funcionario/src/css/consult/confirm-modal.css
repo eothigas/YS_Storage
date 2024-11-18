@@ -1,4 +1,4 @@
-.modal {
+.modal-confirm {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
 }
-.modal-content {
+.modal-content-confirm {
   background-color: rgb(3, 52, 110);
   color: rgb(226, 226, 182);
   padding: 20px;

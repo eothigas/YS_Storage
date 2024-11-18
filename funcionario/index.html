@@ -35,15 +35,24 @@
                     <input type="email" id="email" name="email" required>
                 </div> 
                     
-                <div class="user-box">
+                <div class="user-box" id='box-password'>
                     <label for="password">Senha</label>
-                    <input type="password" id="password" name="password" required>
-                    <i class="fas fa-eye toggle-password" id="toggle-password"></i>
+                    <div class='password-inputbox'>
+                        <input type="password" id="password" name="password" required  maxlength="8"/>
+                        <i class="fas fa-eye toggle-password" id="toggle-password"></i>
+                    </div>
                 </div>
+                
                 <button type="submit" class="login-btn">Entrar</button>
-            
+                
+                <div id="forgot-password">
+                    <a href="./recuperarsenha/recuperarsenha.html">Esqueci minha senha</a>
+                </div>
+
+                
                 <div id="message" style="display:none;"></div> <!-- Div para exibir as mensagens -->
             </form>
+            
         </div>
 
     <script src="./src/js/index.js"></script>

@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const nextBtn = document.getElementById("next-btn");
     const pageInfo = document.getElementById("page-info");
     const searchInput = document.getElementById("search-input");
+    const btnCancel = document.querySelector(".btn-cancel");
 
     // Função para buscar dados dos clientes
     fetch('../php/consulta/cliente.php') // Altere para o caminho correto do seu script PHP
@@ -153,8 +154,6 @@ document.addEventListener("DOMContentLoaded", function() {
         ])
         .then(responses => Promise.all(responses.map(response => response.json()))) // Aguardar as duas respostas
         .then(([clientes, empresas]) => {
-            console.log("Clientes:", clientes); // Verifica os dados retornados do cliente
-            console.log("Empresas:", empresas); // Verifica os dados retornados das empresas
 
             if (clientes.error) {
                 alert(clientes.error);
@@ -198,19 +197,19 @@ document.addEventListener("DOMContentLoaded", function() {
     // Função para exibir o modal de confirmação
     function excluirCliente(id) {
     // Exibir o modal de confirmação
-    const modal = document.getElementById('confirm-modal');
-    modal.style.display = 'flex';
+    const confirmModal = document.getElementById('confirm-modal');
+    confirmModal.style.display = 'flex';
 
     // Evento para cancelar a exclusão
     document.getElementById('cancel-delete').onclick = () => {
-        modal.style.display = 'none';
+        confirmModal.style.display = 'none';
     };
 
     // Evento para confirmar a exclusão
     document.getElementById('confirm-delete').onclick = () => {
         // Chamar a função de exclusão no PHP (via AJAX ou Fetch)
         excluirClienteDoBanco(id);
-        modal.style.display = 'none'; // Fechar o modal após confirmar
+        confirmModal.style.display = 'none'; // Fechar o modal após confirmar
     };
     }
 
@@ -260,5 +259,10 @@ document.addEventListener("DOMContentLoaded", function() {
             displayTable();
             updatePaginationInfo();
         }
+    });
+
+    // Evento para o botão de cancelamento (recarregar a página)
+    btnCancel.addEventListener("click", () => {
+        location.reload();
     });
 });

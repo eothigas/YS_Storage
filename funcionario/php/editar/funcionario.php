@@ -182,9 +182,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Executar a query
         if ($stmt->execute()) {
-            echo json_encode(['status' => 'success', 'message' => 'Funcionário atualizado com sucesso.']);
+            // Recupera o ID do funcionário recém-alterado
+            $funcionarioId = $conn->insert_id; // Usando mysqli para pegar o último ID inserido
+
+            // Inserir na tabela notification_status
+            $stmtNotification = $conn->prepare("
+                INSERT INTO notification_status (nome, tipo, data_criacao, data_atualizacao) 
+                VALUES (?, 'funcionario_alteracao', CONVERT_TZ(NOW(), '+00:00', '+02:00'), CONVERT_TZ(NOW(), '+00:00', '+02:00'))
+            ");
+            $stmtNotification->bind_param('s', $nome);
+
+            if ($stmtNotification->execute()) {
+                echo json_encode(["status" => "success", "message" => "Funcionário atualizado com sucesso."]);
+            } else {
+                echo json_encode(["status" => "error", "message" => "Erro ao cadastrar status de notificação: " . $stmtNotification->error]);
+            }
+
+            $stmtNotification->close();
         } else {
-            echo json_encode(['status' => 'error', 'message' => 'Erro ao atualizar o funcionário: ' . $stmt->error]);
+            echo json_encode(["status" => "error", "message" => "Erro ao atualizar o funcionário: " . $stmt->error]);
         }
 
         $stmt->close();

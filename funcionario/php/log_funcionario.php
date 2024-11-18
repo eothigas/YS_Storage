@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     // Preparação de seleção para verificação dos dados (conforme o email)
-    $stmt = $pdo->prepare('SELECT id, nome, senha FROM funcionarios WHERE email = ?');
+    $stmt = $pdo->prepare('SELECT id, nome, senha, status FROM funcionarios WHERE email = ?');
     $stmt->execute([$email]);
 
     if ($stmt->rowCount() > 0) {
@@ -41,18 +41,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id = $user['id'];
         $nome = $user['nome'];
         $hashed_password = $user['senha'];
+        $status = $user['status']; // Obtém o status do usuário
 
-        // Verifica a senha
-        if (password_verify($password, $hashed_password)) {
-            $_SESSION['id_funcionario'] = $id;
-            $_SESSION['nome_funcionario'] = $nome;
-            $_SESSION['email_funcionario'] = $email;
-
-            // Retorna um JSON de sucesso com a URL de redirecionamento
-            echo json_encode(["status" => "success", "redirect_url" => "dashboard.html"]);
+        // Verifica se o usuário está ativo
+        if ($status === 'Suspenso') {
+            // Retorna um JSON com a mensagem de erro de usuário suspenso
+            echo json_encode(["status" => "error", "message" => "Usuário Suspenso."]);
         } else {
-            // Retorna um JSON com a mensagem de erro de senha incorreta
-            echo json_encode(["status" => "error", "message" => "Senha incorreta. Por favor, tente novamente."]);
+            // Verifica a senha
+            if (password_verify($password, $hashed_password)) {
+                // Armazenar informações na sessão
+                $_SESSION['id_funcionario'] = $id;
+                $_SESSION['nome_funcionario'] = $nome;
+                $_SESSION['email_funcionario'] = $email;
+                $_SESSION['status_funcionario'] = $status; // Armazenar o status também na sessão
+
+                // Retorna um JSON de sucesso com a URL de redirecionamento
+                echo json_encode(["status" => "success", "redirect_url" => "dashboard.html"]);
+            } else {
+                // Retorna um JSON com a mensagem de erro de senha incorreta
+                echo json_encode(["status" => "error", "message" => "Senha incorreta. Por favor, tente novamente."]);
+            }
         }
     } else {
         // Retorna um JSON com a mensagem de erro de email não encontrado

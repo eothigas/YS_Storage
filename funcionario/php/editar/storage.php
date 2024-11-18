@@ -71,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_storage = $_POST['storage-id'] ?? null;
     $logo_url = null;
     $razao = $_POST['razao'] ?? null;
+    $empresa = $_POST['empresa'] ?? null;
     $endereco = $_POST['endereco'] ?? null;
     $altura = $_POST['altura'] ?? null;
     $largura = $_POST['largura'] ?? null;
@@ -95,6 +96,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($razao) {
         $query .= "nome = ?, ";
         $params[] = $razao;
+        $types .= "s";
+    }
+    if ($empresa) {
+        $query .= "empresa = ?, ";
+        $params[] = $empresa;
         $types .= "s";
     }
     if ($endereco) {
@@ -131,17 +137,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $params[] = $id_storage;
     $types .= "i";
 
-    // Agora, ao invés de "echo", usamos json_encode para evitar problemas na saída
-    $query_log = json_encode(['query' => $query, 'params' => $params]);
-
-    // Log da query, apenas para depuração
-    file_put_contents('query_log.json', $query_log . PHP_EOL, FILE_APPEND);
-
     if ($stmt = $conn->prepare($query)) {
         // A ligação de parâmetros deve ser correta
         $stmt->bind_param($types, ...$params);
 
         if ($stmt->execute()) {
+            // Após o sucesso da atualização, registrar a alteração na tabela notification_status
+            $stmt_insert = $conn->prepare("INSERT INTO notification_status (nome, tipo, data_criacao, data_atualizacao) VALUES (?, 'storage_alteracao', CONVERT_TZ(NOW(), '+00:00', '+02:00'), CONVERT_TZ(NOW(), '+00:00', '+02:00'))");
+            $stmt_insert->bind_param("s", $razao);  // O nome é passado para o título da notificação
+            $stmt_insert->execute();
+            $stmt_insert->close();
+
             echo json_encode(['status' => 'success', 'message' => 'Storage atualizado com sucesso.']);
         } else {
             echo json_encode(['status' => 'error', 'message' => 'Erro ao atualizar o storage: ' . $stmt->error]);

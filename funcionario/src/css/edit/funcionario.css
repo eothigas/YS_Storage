@@ -71,6 +71,28 @@
     border: 2px solid rgb(226, 226, 182);
     position: relative;
     margin: 8px auto;
+    z-index: 1;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.75); /* Fundo escuro semitransparente */
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    visibility: hidden; /* Inicialmente invisível */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* Transição suave */
+    z-index: 10;
+}
+
+.status-input {
+    position: relative; /* Para o tooltip se posicionar em relação ao campo */
+}
+
+.email-funcionario {
+    position: relative; /* Para o tooltip se posicionar em relação ao campo */
 }
 
 #register-table h2 {
@@ -161,6 +183,7 @@ select {
     border: 2px rgb(226, 226, 182) solid;
     color: rgb(226, 226, 182);
     background-color: rgb(3, 52, 110);
+    position: relative;
 }
 
 input:focus, select:focus {

@@ -18,8 +18,8 @@ try {
     $pdo = new PDO($dsn, $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Consulta para selecionar os dados necessários
-    $stmt = $pdo->prepare("SELECT * FROM funcionarios");
+    // Consulta para selecionar os dados dos funcionários em ordem aleatória
+    $stmt = $pdo->prepare("SELECT * FROM funcionarios ORDER BY RAND()");
     $stmt->execute();
 
     // Pega os resultados

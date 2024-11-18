@@ -73,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $params = [];
     $types = "";
 
+    // Construção dinâmica da query
     if ($nome) {
         $query .= "nome = ?, ";
         $params[] = $nome;
@@ -123,20 +124,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $params[] = $id_cliente;
     $types .= "i";
 
-    if ($stmt = $conn->prepare($query)) {
-        // Bind dos parâmetros
-        $stmt->bind_param($types, ...$params);
+    // Iniciar transação para garantir consistência
+    $conn->begin_transaction();
 
-        // Executar a query
-        if ($stmt->execute()) {
-            echo json_encode(['status' => 'success', 'message' => 'Cliente atualizado com sucesso.']);
+    try {
+        if ($stmt = $conn->prepare($query)) {
+            // Bind dos parâmetros
+            $stmt->bind_param($types, ...$params);
+
+            // Executar a query
+            if ($stmt->execute()) {
+                // Registrar a alteração na tabela notification_status
+                $stmt_insert = $conn->prepare("INSERT INTO notification_status (nome, tipo, data_criacao, data_atualizacao) VALUES (?, 'cliente_alteracao', CONVERT_TZ(NOW(), '+00:00', '+02:00'), CONVERT_TZ(NOW(), '+00:00', '+02:00'))");
+                $stmt_insert->bind_param("s", $nome);
+                $stmt_insert->execute();
+                $stmt_insert->close();
+
+                // Commit da transação
+                $conn->commit();
+
+                echo json_encode(['status' => 'success', 'message' => 'Cliente atualizado com sucesso.']);
+            } else {
+                // Rollback em caso de erro
+                $conn->rollback();
+                echo json_encode(['status' => 'error', 'message' => 'Erro ao atualizar o cliente: ' . $stmt->error]);
+            }
+
+            $stmt->close();
         } else {
-            echo json_encode(['status' => 'error', 'message' => 'Erro ao atualizar o cliente: ' . $stmt->error]);
+            // Rollback em caso de erro na preparação
+            $conn->rollback();
+            echo json_encode(['status' => 'error', 'message' => 'Erro na preparação da consulta: ' . $conn->error]);
         }
-
-        $stmt->close();
-    } else {
-        echo json_encode(['status' => 'error', 'message' => 'Erro na preparação da consulta: ' . $conn->error]);
+    } catch (Exception $e) {
+        // Rollback em caso de exceção
+        $conn->rollback();
+        echo json_encode(['status' => 'error', 'message' => 'Erro inesperado: ' . $e->getMessage()]);
     }
 
     // Fechar a conexão com o banco de dados

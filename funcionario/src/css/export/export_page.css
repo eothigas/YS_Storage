@@ -1,0 +1,127 @@
+main {
+    margin-left: 0 !important;
+}
+
+.archive {
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.welcome-msg {
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 0 auto 20px;
+    width: 96%;
+    height: auto;
+    border: 2px solid rgb(226, 226, 182);
+    overflow: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin-bottom: 10px;
+    color: rgb(226, 226, 182);
+}
+
+h2 {
+    color: rgb(226, 226, 182);
+}
+
+.export-area {
+    background-color: rgb(3, 52, 110);
+    border-radius: 8px;
+    width: 100%;
+    height: calc(100% - 40px); /* Ajuste 50px conforme a altura real do h1 */
+    padding: 20px;
+    box-sizing: border-box;
+    color: #ffffff;
+    overflow: auto;
+}
+
+.export-area h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.select-export,
+.select-export-download {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 2px solid rgb(226, 226, 182);
+    background-color: transparent;
+    color: rgb(226, 226, 182); 
+}
+
+select:focus {
+    outline: none;
+}
+
+option {
+    background-color: rgb(3, 52, 110);
+    color: rgb(226, 226, 182); 
+}
+
+.btn-download {
+    margin-bottom: 5px;
+    background-color: rgb(2, 21, 38);
+    color: rgb(226, 226, 182); 
+    padding: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid rgb(226, 226, 182);
+    width: 160px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 0.8s;
+}
+
+.btn-download i {
+    position: absolute;
+    top: 200%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.8s;
+}
+
+.btn-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.8s;
+}
+
+.btn-download:hover i {
+    top: 50%;
+}
+
+.btn-download:hover .btn-text {
+    top: -200%;
+}
+
+.bi.bi-file-earmark-excel-fill {
+    color: green;
+    font-size: 20px;
+}
+
+.bi.bi-file-earmark-pdf-fill {
+    color: red;
+    font-size: 20px;
+}
+
+.span-archive {
+    color: rgb(226, 226, 182);
+    font-size: 16px;
+}
