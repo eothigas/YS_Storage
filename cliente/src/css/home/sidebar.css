@@ -1,0 +1,160 @@
+/* rgb(3, 52, 110) claro */ 
+/* rgb(2, 21, 38) escuro */
+/* rgb(226, 226, 182) "branco" */
+/* rgb(71, 111, 141) tom acizentado */
+/* rgb(46, 100, 153) azuul claro (escuro) */
+/* rgb(90, 150, 180) azul claro (claro) */
+
+
+/* sidebar */
+#left {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0 ;
+}
+
+#close-side::before, #open-side::before {
+    padding-left: 20px;
+    font-size: 25px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.icon-side {
+    display: flex;
+    position: relative;
+    color: rgb(226, 226, 182);
+}
+
+#open-side {
+    display: none;
+}
+
+#sidebar {
+    width: 220px;
+    left: -220px;
+    /* left: 0; */
+    position: fixed;
+    display: flex;
+    /* border: 1px solid red; */
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100dvh;
+    overflow: hidden;
+    margin-top: -17px;
+    z-index: 1;
+    background-color: rgb(3, 52, 110);
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    /* margin: 0; */
+    /* top: 0; */
+}
+
+.open-side-bar {
+    left: 0px;
+}
+
+/* Submenu */
+
+#side_menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    gap: 10px;
+    cursor: pointer;
+    margin-top: 60px;
+}
+
+#side_menu span {
+    /* margin-left: 20px; */
+    padding: 10px 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#open_sub, #open_sub_consult, #export-page {
+    color: rgb(226, 226, 182);
+}
+
+#side_menu span:hover {
+    color: rgb(3, 52, 110);
+}
+
+.side_submenu span:hover {
+    background-color: rgb(226, 226, 182);
+    color: rgb(3, 52, 110) !important;
+}
+
+.down {
+    transition: transform 0.3s ease; /* Transição suave */
+}
+
+.down.rotate {
+    transform: rotate(180deg); /* Rotaciona o ícone */
+}
+
+.home, .register, .consult, .export, .down {
+    display: flex;
+    font-size: 20px;
+    margin-left: 10px;
+    font-style: normal;
+    /* align-items: center; */
+    gap: 10px;
+}
+
+#open-down-register, #open-down-consult {
+    display: none;
+    flex-direction: column;
+    margin: 10px 10px 0 40px;
+    gap: 10px;
+    list-style: none;
+    width: 68%;
+    opacity: 0;                
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+#open-down-register.show, #open-down-consult.show {
+    display: flex;
+    max-height: 200px;
+    opacity: 1;
+    color: rgb(226, 226, 182);
+}
+
+.home-dash:hover,
+.export-dash:hover {
+    color: rgb(3, 52, 110);
+    background-color: rgb(226, 226, 182);
+}
+
+
+#side-register:hover, 
+#side-consult:hover {
+    background-color: rgb(226, 226, 182);
+    color: rgb(3, 52, 110);
+    border-radius: 5px;
+}
+
+#side-register:hover a {    
+    color: rgb(3, 52, 110);
+}
+
+#side-consult:hover a {    
+    color: rgb(3, 52, 110);
+}
+
+#side-register i, #side-consult i {
+    display: flex;
+    gap: 10px;
+    font-style: normal;
+    font-size: 18px;
+    align-items: center;
+    /* justify-content: center; */
+    text-align: left;
+    padding: 8px 5px;
+}

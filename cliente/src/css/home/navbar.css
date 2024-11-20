@@ -1,0 +1,153 @@
+/* NAVBAR */
+
+/* rgb(3, 52, 110) claro */ 
+/* rgb(2, 21, 38) escuro */
+/* rgb(226, 226, 182) "branco" */
+/* rgb(71, 111, 141) tom acizentado */
+/* rgb(46, 100, 153) azuul claro (escuro) */
+/* rgb(90, 150, 180) azul claro (claro) */
+
+#navbar {
+    display: flex;
+    background-color: rgb(3, 52, 110);
+    color: white;
+    height: 60px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    gap: 15px;
+    padding: 0 2px 0 0px;
+    z-index: 1;
+}
+
+#right {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    z-index: 1;
+}
+
+.notifications {
+    display: flex;
+    background-color: rgb(226, 226, 182);
+    color: rgb(3, 52, 110);
+    padding: 8px;
+    border-radius: 10px;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+ /* Perfil */ 
+.user-profile {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: rgb(226, 226, 182);
+    color: rgb(3, 52, 110);
+    padding: 5px;
+    width: 200px;
+    border-radius: 10px;
+    margin-right: 10px;
+    max-height: 30px;
+    align-items: center;
+    font-weight: 700;
+    cursor: default;
+}
+
+.user-profile span {
+    text-wrap: nowrap;
+    overflow: hidden;
+}
+
+.user-profile #arrow {
+    font-size: 23px;
+    background-color: rgb(3, 52, 110);
+    border-radius: 10px;
+    width: 26px;
+    height: 25px;
+    text-align: center;
+    color: rgb(226, 226, 182);
+    cursor: pointer;
+}
+
+#arrow {
+    transition: transform 0.3s ease;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.user-profile img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.modal-user {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    z-index: 2;
+    top: 55px;
+    right: 10px;
+    /* border: px solid rgb(3, 52, 110); */
+    width: 210px;
+    border-radius: 0px 0px 7px 7px;
+    background-color: rgb(226, 226, 182);
+    /* gap: 10px; */
+    cursor: pointer;
+}
+
+.modal-user:hover{
+    background-color: rgb(3, 52, 110);
+    color: rgb(226, 226, 182);
+}
+
+.last {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 10px;
+    border-radius: 7px 7px 0px 0px;
+    color: rgb(3, 52, 110);
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    font-style: normal;
+    gap: 10px;
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(226, 226, 182);
+    color: rgb(3, 52, 110);
+    font-weight: 700;
+}
+
+.logout-btn i {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-style: normal;
+    color: rgb(71, 111, 141);
+    font-weight: bold;
+}
+
+.modal-user:hover i{
+    color: rgb(226, 226, 182);
+}
+
+.modal-user:hover .user-account {
+    color: rgb(226, 226, 182);
+}
