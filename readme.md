@@ -2,7 +2,7 @@
 
 <img src='./homepage/src/images/Logo.svg'/>
 
-<p><b>Your Storage</b> é um sistema desenvolvido para resolver os desafios do gerenciamento de estoques, oferecendo ferramentas robustas para organizar e monitorar bens e ativos, sejam físicos ou virtuais.</p>
+<p><b>Your Storage</b> é um sistema desenvolvido para resolver os desafios do gerenciamento de estoques, oferecendo ferramentas robutas para organizar e monitorar bens e ativos, sejam físicos ou virtuais.</p>
 
 <p>O sistema proporciona uma gestão integrada e eficiente, desde o cadastro inicial dos itens até a realização de movimentações. Além disso, <b>Your Storage</b> suporta múltiplos usuários, com sistema de permissões e tipos de usuários para criar uma estrutura hierárquica adaptada às necessidades de uma empresa.</p>
 
