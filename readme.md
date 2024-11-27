@@ -19,10 +19,6 @@ Diante dessa realidade, a necessidade de uma solução robusta e eficiente torna
 
 Com sua abordagem inovadora e flexível, a Your Storage oferece às empresas a capacidade de transformar a gestão de estoques em um diferencial estratégico, garantindo eficiência, segurança e controle total sobre os recursos corporativos.</p>
 
-<hr>
+<h2>Processos dentro do Sistema</h2>
 
-<p>
-    <a href="https://youtu.be/fapHnlTCpQE" target="_blank" style="font-size: 16px; color: #333; text-decoration: none;">
-        <span style="font-size: 16px; color: white;">Envio de Formulário (Assista no YouTube)</span>
-    </a>
-</p>
+
