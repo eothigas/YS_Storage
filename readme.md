@@ -21,6 +21,9 @@ Com sua abordagem inovadora e flexível, a Your Storage oferece às empresas a c
 
 <hr>
 
-
-[![Envio de Formulário (Assista no YouTube)](./homepage/src/images/Logo_reduzido.svg)](https://youtu.be/fapHnlTCpQE)
-
+<p align="center">
+  <a href="https://youtu.be/fapHnlTCpQE" target="_blank">
+    <img src="./homepage/src/images/Logo_reduzido.svg" alt="Envio de Formulário" />
+  </a>
+  <span>Envio de Formulário (Assista no YouTube)</span>
+</p>
