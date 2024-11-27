@@ -1036,7 +1036,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="t-wX3JThj0y7XgVO3nM4" name="Exportar-Funcionário">
-    <mxGraphModel dx="2729" dy="3274" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="7167" dy="5458" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1044,21 +1044,21 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="gcvmNgFMLKgjLmNgzgMZ-2" value="&lt;span style=&quot;font-size: 13px;&quot;&gt;Acessar barra lateral&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="-670" y="-970" width="100" height="100" as="geometry" />
+          <mxGeometry x="-710" y="-1990" width="100" height="100" as="geometry" />
         </mxCell>
         <mxCell id="gcvmNgFMLKgjLmNgzgMZ-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="gcvmNgFMLKgjLmNgzgMZ-4" target="gcvmNgFMLKgjLmNgzgMZ-6">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="gcvmNgFMLKgjLmNgzgMZ-4" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;Clicar em Exportar&lt;/span&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="-482" y="-990" width="140" height="140" as="geometry" />
+          <mxGeometry x="-522" y="-2010" width="140" height="140" as="geometry" />
         </mxCell>
         <mxCell id="gcvmNgFMLKgjLmNgzgMZ-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="gcvmNgFMLKgjLmNgzgMZ-6" target="3p0y9sX2P_4fSOLMdIyN-1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-94" y="-920" as="targetPoint" />
+            <mxPoint x="-134" y="-1940" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="gcvmNgFMLKgjLmNgzgMZ-6" value="&lt;span style=&quot;color: rgb(51, 51, 51); font-size: 13px;&quot;&gt;Selecione qual das opções quer exportar dados&lt;/span&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="-290" y="-990" width="140" height="140" as="geometry" />
+          <mxGeometry x="-330" y="-2010" width="140" height="140" as="geometry" />
         </mxCell>
         <mxCell id="3p0y9sX2P_4fSOLMdIyN-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="3p0y9sX2P_4fSOLMdIyN-1" target="3p0y9sX2P_4fSOLMdIyN-2">
           <mxGeometry relative="1" as="geometry" />
@@ -1067,44 +1067,44 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="3p0y9sX2P_4fSOLMdIyN-1" value="&lt;span style=&quot;color: rgb(255, 255, 255); font-size: 13px;&quot;&gt;Escolha formato&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#666666;" vertex="1" parent="1">
-          <mxGeometry x="-90" y="-990" width="141" height="140" as="geometry" />
+          <mxGeometry x="-130" y="-2010" width="141" height="140" as="geometry" />
         </mxCell>
         <mxCell id="L88WMc1qoyfxXH0MNekH-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="3p0y9sX2P_4fSOLMdIyN-2" target="L88WMc1qoyfxXH0MNekH-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="3p0y9sX2P_4fSOLMdIyN-2" value="&lt;span style=&quot;color: rgb(51, 51, 51); font-size: 13px;&quot;&gt;Gera arquivo em formato planilha Excel&lt;/span&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="-90" y="-1180" width="140" height="140" as="geometry" />
+          <mxGeometry x="-130" y="-2200" width="140" height="140" as="geometry" />
         </mxCell>
         <mxCell id="L88WMc1qoyfxXH0MNekH-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="3p0y9sX2P_4fSOLMdIyN-3" target="L88WMc1qoyfxXH0MNekH-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="3p0y9sX2P_4fSOLMdIyN-3" value="&lt;span style=&quot;color: rgb(51, 51, 51); font-size: 13px;&quot;&gt;Gera arquivo em formato PDF&lt;/span&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="-90" y="-800" width="140" height="140" as="geometry" />
+          <mxGeometry x="-130" y="-1820" width="140" height="140" as="geometry" />
         </mxCell>
         <mxCell id="qmIw9KvzSEwcpDr__XmT-1" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Planilha&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="1">
-          <mxGeometry x="-9.998571428571495" y="-1010" as="geometry">
+          <mxGeometry x="-49.998571428571495" y="-2030" as="geometry">
             <mxPoint x="-11" y="-3" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="qmIw9KvzSEwcpDr__XmT-2" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;PDF&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="1">
-          <mxGeometry x="-9.998571428571495" y="-820" as="geometry">
+          <mxGeometry x="-49.998571428571495" y="-1840" as="geometry">
             <mxPoint x="-11" y="-3" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="L88WMc1qoyfxXH0MNekH-1" value="FIM" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#999999;" vertex="1" parent="1">
-          <mxGeometry x="550" y="-970" width="100" height="100" as="geometry" />
+          <mxGeometry x="510" y="-1990" width="100" height="100" as="geometry" />
         </mxCell>
         <mxCell id="L88WMc1qoyfxXH0MNekH-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="L88WMc1qoyfxXH0MNekH-2" target="L88WMc1qoyfxXH0MNekH-7">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="L88WMc1qoyfxXH0MNekH-2" value="&lt;span style=&quot;color: rgb(51, 51, 51); font-size: 13px;&quot;&gt;Clicar em Download no formato escolhido&lt;/span&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="90" y="-990" width="140" height="140" as="geometry" />
+          <mxGeometry x="50" y="-2010" width="140" height="140" as="geometry" />
         </mxCell>
         <mxCell id="L88WMc1qoyfxXH0MNekH-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="L88WMc1qoyfxXH0MNekH-7" target="L88WMc1qoyfxXH0MNekH-1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="L88WMc1qoyfxXH0MNekH-7" value="&lt;font color=&quot;#333333&quot;&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Realiza Download do arquivo&lt;/span&gt;&lt;/font&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="330" y="-990" width="140" height="140" as="geometry" />
+          <mxGeometry x="290" y="-2010" width="140" height="140" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
