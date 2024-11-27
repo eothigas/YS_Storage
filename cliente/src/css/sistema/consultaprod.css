@@ -1,28 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 * {
     margin: 0;
     padding: 0;
-    font-family: Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
-    background-color: rgb(2, 21, 38);
-    margin: 0;
-    padding: 0;
-    height: 100dvh;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    color: rgb(226, 226, 182);
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(2, 21, 38);
+    overflow-x: hidden;
 }
 
-div.container {
-    margin-left: 200px;
-    transition: margin-left 0.3s ease;
-    width: 900px;
-    margin: auto;
-    background-color: rgb(3, 52, 110);
+a {
+    text-decoration: none;
     color: rgb(226, 226, 182);
+}
+
+.container {
+    transition: margin-left 0.3s ease;
+    width: 80%;
+    height: auto;
+    margin: 85px auto 0;
+    background-color: rgb(3, 52, 110);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    border: 2px solid rgb(226, 226, 182);
 }
 
 h1 {
@@ -40,7 +51,7 @@ h1 {
 #search-input {
     width: 206px;
     padding: 5px;
-    font-size: 14px;
+    font-size: 16px;
     border-radius: 5px;
     border: 2px rgb(226, 226, 182) solid;
     background-color: rgb(2, 36, 74);
@@ -56,60 +67,67 @@ h1 {
     outline: none;
 }
 
-table {
+.table {
     width: 100%;
-    padding: 2px;
-    border: 4px rgb(226, 226, 182) solid;
-    border-radius: 10px;
+    font-size: 1em;
+    color: rgb(226, 226, 182);
+    margin: 10px auto 0;
+    border-spacing: 0;
+    border-radius: 5px;
 }
 
 th, td {
-    padding: 8px;
+    padding: 10px;
     text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
-th {
+thead {
+    background-color: rgb(226, 226, 182);
+    color: rgb(3, 52, 110);
+    font-weight: bold;
+    /* border: 1px solid red !important; */
+    border-radius: 5px;
+}
+
+td {
     background-color: rgb(2, 21, 38);
-    color: rgb(226, 226, 182);
-    padding: 12px;
-    font-size: 16px;
-    text-align: center;
+    border-bottom: 1px solid rgb(226, 226, 182);
 }
 
-tbody tr:nth-child(odd) {
-    background-color: rgb(71, 111, 141);
-    color: rgb(226, 226, 182);
+tr:last-child td {
+    border-bottom: none;
 }
 
-tbody tr:nth-child(even) {
-    background-color: rgb(110, 172, 218);
-    color: rgb(2, 21, 38);
+tr:last-child td:first-child {
+    border-radius: 0 0 0 5px;
 }
 
-tbody td {
-    padding: 12px;
-    text-align: center;
+tr:last-child td:last-child {
+    border-radius: 0 0 5px 0;
 }
 
 tbody img {
     width: 60px;
     height: 60px;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 50%; /* Deixa as imagens redondas */
 }
 
 tbody td button {
     padding: 8px 12px;
-    background-color: rgb(2, 21, 38);
-    color: white;
+    background-color: rgb(226, 226, 182);
+    color: rgb(2, 21, 38);
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-weight: bold;
 }
 
 tbody td button:hover {
-    background-color: rgba(2, 21, 38, 0.7);
+    background-color: rgba(226, 226, 182, 0.7);
 }
 
 .pagination {
@@ -130,7 +148,7 @@ tbody td button:hover {
 
 #page-info {
     margin-left: 5px;
-    font-size:  12px;
+    font-size: 12px;
     color: rgb(226, 226, 182);
 }
 
@@ -144,8 +162,8 @@ button#prev-btn, button#next-btn {
 }
 
 
-/* Modal styles */
-.modal {
+/* Modal editar produto */
+#modal-editar-produto {
     display: none;
     position: fixed;
     top: 0;
@@ -161,15 +179,18 @@ button#prev-btn, button#next-btn {
 .modal-content {
     background-color: rgb(3, 52, 110);
     color: rgb(226, 226, 182);
-    padding: 20px;
+    padding: 10px 20px;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    width: 500px;
+    width: 70%;
     position: relative;
+    margin-top: 60px;
+    border: 2px solid rgb(226, 226, 182);
+    overflow-y: auto;
 }
 
 .modal-content h2 {
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
     font-size: 24px;
 }
 
@@ -181,7 +202,7 @@ button#prev-btn, button#next-btn {
 
 .modal-content label {
     display: block;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .modal-content input, .modal-content textarea, .modal-content button {
@@ -195,6 +216,12 @@ button#prev-btn, button#next-btn {
     resize: none;
 }
 
+#codigo-editar, #nome-editar, #descricao-editar, #quantidade-editar {
+    height: 18px;
+    font-size: 14px;
+    overflow: hidden;
+}
+
 input:focus, textarea:focus {
     outline: none;
 } 
@@ -203,7 +230,7 @@ input:focus, textarea:focus {
     text-align: center;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 #quantidade-editar {
@@ -222,7 +249,8 @@ input:focus, textarea:focus {
     background-color: rgb(2, 36, 74);
     border: 1px rgb(204, 204, 204) solid;
     color: rgb(226, 226, 182);
-    padding: 10px;
+    padding: 8px;
+    font-size: 16px;
 }
 
 #tipo-editar:focus {
@@ -237,16 +265,12 @@ input:focus, textarea:focus {
     transition: background-color 0.3s;
 }
 
-.change .btn :hover {
-    background-color: red;
-}
-
 /* Close button */
 .modal-content .close {
     position: absolute;
     top: 10px;
-    right: 10px;
-    font-size: 28px;
+    right: 20px;
+    font-size: 30px;
     cursor: pointer;
     color: #AAAAAA;
     font-weight: bold;
@@ -256,160 +280,38 @@ input:focus, textarea:focus {
     color: #000;
 }
 
-#mensagem {
-    text-align: center;
-    color: #28a745;
-    font-weight: bold;
-}
-
-#btn-menu {
-    font-size: 40px;
-    font-weight: bold;
-    color: rgb(226, 226, 182);
-    margin-left: 5px;
-    cursor: pointer;
-}
-
-#btn-close {
-    font-size: 40px;
-    font-weight: bold;
-    color: rgb(226, 226, 182);
-    margin-left: 5px;
-    cursor: pointer;
-}
-
-.bi.bi-plus-square, .bi.bi-search, .bi.bi-arrow-left-right, .bi.bi-house, .bi.bi-gear, .bi.bi-box-arrow-right {
-    display: grid;
-    gap: 10px;
-    color: rgb(226, 226, 182);
-    font-size: 30px;
-    padding: 10px;
-}
-
-#baixo a {
-    padding-bottom: 0px;
-    padding-top: 0;
-}
-
-#settings {
-    border-top: 2px rgb(226, 226, 182) solid;
-}
-
-
-.menu-lateral {
-    width: 260px;
-    z-index: 1;
-    background-color: rgb(3, 52, 110);
-    color: white;
-    position: fixed;
-    height: 100%;
-    padding: 20px 0;
-    transition: width 0.5s ease;
-    overflow: hidden;
-}
-
-.menu-lateral ~ .container {
-    filter: blur(5px);
-}
-
-.menu-lateral.fechado ~ .container {
-    filter: blur(0);
-}
-
-/* Estilo para ocultar o menu lateral */
-.menu-lateral.fechado {
-    width: 50px;
-    overflow: hidden;
-}
-
-.menu-lateral ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.menu-lateral li {
-    display: grid;
-    align-items: center;
-    padding: 0px 0 0px 0;
-    margin-top: 20px;
-}
-
-.menu-lateral a {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    color: rgb(226, 226, 182); /* Mude para a cor desejada */
-    padding: 10px 0;
-}
-
-.menu-lateral a:hover {
-    background-color: rgb(226, 226, 182);
-    color: rgb(3, 52, 110);
-}
-
-.menu-lateral a:hover .bi {
-    color: rgb(3, 52, 110);
-}
-
-#page {
-    background-color: rgb(226, 226, 182);
-    color: rgb(3, 52, 110);
-}
-
-.menu-icon {
-    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.menu-text {
-    /* Estilos para o texto do link */
-    font-size: 16px;
-    font-weight: normal;
-    text-decoration: none;
-    transition: .2s ease;
-    text-wrap: nowrap;
-    opacity: 1;
-}
-
-.menu-lateral a:hover .menu-text {
-    transition: none;
-}
-
-.menu-lateral.fechado .menu-text {
-    opacity: 0;
-    padding-left: 20px;
-}
-
 /* Confirmar exclusão */
 
-.modal {
-    display: none; /* Oculto por padrão */
+#modal-confirmacao {
+    display: none;
     position: fixed;
-    z-index: 1; /* Fica na frente */
+    z-index: 1; 
     left: 0;
     top: 0;
-    width: 100%; /* Largura total */
-    height: 100%; /* Altura total */
-    overflow: auto; /* Habilita o scroll se necessário */
-    background-color: rgb(0,0,0); /* Cor de fundo */
-    background-color: rgba(0,0,0,0.4); /* Fundo com transparência */
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
 }
 
 .modal-content-exclusion {
     background-color: rgb(2, 21, 38);
     color: rgb(226, 226, 182);
-    margin: 15% auto; /* 15% do topo e centralizado */
+    margin: 15% auto; 
     padding: 20px;
     border-radius: 10px;
-    width: 50%; /* Largura */
+    width: 50%; 
     height: 200px;
-    font-size: 20px;
+    font-size: 25px;
     text-align: center;
     align-items: center;
     justify-content: center;
+}
+
+#imagem-preview {
+    width: 70px;
+    height: 60px;
 }
 
 .change {
@@ -419,11 +321,17 @@ input:focus, textarea:focus {
     margin-top: 10px;
 }
 
+#excluir-produto, #save {
+    color: rgb(226, 226, 182);
+    font-size: 14px;
+}
+
+
 #excluir-produto:hover {
     background-color: #ff1a1a; /* Cor de fundo ao passar o mouse (vermelho mais escuro) */
 }
 
-button[type="button"]:hover {
+#save:hover {
     background-color: #45a049; /* Cor de fundo ao passar o mouse (verde mais escuro) */
 }
 
@@ -446,6 +354,8 @@ button[type="button"]:hover {
     cursor: pointer;
     background-color: rgb(226, 226, 182);
     font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px;
 }
 
 #btn-confirm {
@@ -468,14 +378,14 @@ button[type="button"]:hover {
 
 #destaque {
     display: flex;
-    align-items: center; /* Alinha verticalmente */
+    align-items: center; 
     margin: 10px 0;
 }
 
 #destaque-editar {
     margin: 0;
     margin-top: 3px;
-    margin-left: 5px; /* Adiciona um espaço entre a checkbox e o texto */
+    margin-left: 5px;
 }
 
 label#destaque-editar {
@@ -483,20 +393,31 @@ label#destaque-editar {
 }
 
 #mensagem {
+    display: flex;
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    right: 60px;
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
     display: none; /* Inicialmente oculta */
+    text-align: center;
+    font-weight: bold;
 }
 
 .success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+    background-color: green;    
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
 }
 
 .error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+    background-color: red;
+    color: white !;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
 }

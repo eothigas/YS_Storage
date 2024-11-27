@@ -72,11 +72,13 @@ function carregarUsuarios() {
             tbody.innerHTML = ''; // Limpa o conteúdo existente
 
             // Adiciona cada usuário à tabela
-            info.usuarios.forEach(usuario => { // Altere 'data' para 'info'
+            info.usuarios.forEach(usuario => { 
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td style="display: none;">${usuario.id}</td>
                     <td>${usuario.nome}</td>
+                    <td>${usuario.identidade}</td>
+                    <td>${usuario.contato}</td>
                     <td>${usuario.tipo}</td>
                     <td>${usuario.email}</td>
                     <td><button id="edt" onclick="abrirModalUsuario('${usuario.email}')" style="padding: 5px 20px; border-radius: 5px;">Editar</button></td>
@@ -132,7 +134,9 @@ function abrirModalUsuario(email) {
 
             // Preenche os campos do modal com os dados do usuário
             document.getElementById('edit-id').value = user.id; 
-            document.getElementById('edit-name').value = user.nome; 
+            document.getElementById('edit-name').value = user.nome;
+            document.getElementById('edit-identidade').value = user.identidade; 
+            document.getElementById('edit-contato').value = user.contato; 
             document.getElementById('tipo').value = user.tipo; 
             document.getElementById('edit-email').value = user.email;
             document.getElementById('edit-password').value = ''; // Limpa o campo de senha
@@ -203,6 +207,8 @@ document.getElementById('edit-users').addEventListener('submit', function(event)
     function salvarUsuario() {
         const id = document.getElementById('edit-id').value; // ID do usuário a ser editado
         const nome = document.getElementById('edit-name').value; // Novo nome
+        const identidade = document.getElementById('edit-identidade').value; // Novo nome
+        const contato = document.getElementById('edit-contato').value; // Novo nome
         const tipo = document.getElementById('tipo').value; // Novo tipo
         const email = document.getElementById('edit-email').value; // Novo email
         const password = document.getElementById('edit-password').value; // Nova senha
@@ -218,6 +224,8 @@ document.getElementById('edit-users').addEventListener('submit', function(event)
                 const bodyData = {
                     'edit-id': id,
                     'edit-name': nome,
+                    'edit-identidade': identidade,
+                    'edit-contato': contato,
                     'tipo': tipo,
                     'edit-email': email,
                     'edit-password': password || '',

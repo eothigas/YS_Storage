@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 * {
     margin: 0;
     padding: 0;
-    font-family: Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -20,13 +21,13 @@ body {
 }
 
 .form_main {
-    width: 400px;
-    height: 400px;
+    width: 420px;
+    height: 420px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(2, 21, 38, 0.6);
+    background-color: rgb(2, 21, 38, 0.7);
     backdrop-filter: blur(7px);
     margin: auto;
     padding: 30px 30px 30px 30px;
@@ -62,11 +63,56 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: transparent;
+}
+
+.bi.bi-eye-fill, .bi-eye-slash-fill {
+    position: absolute;
+    right: 5px;
+    top: 30px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.724);
+    font-size: 20px;
+    position: absolute;
 }
 
 .inputIcon {
     position: absolute;
     left: 10px;
+}
+
+.icon-container {
+    position: absolute;
+    display: inline-block;
+    right: -24px;
+    color: white;
+    font-size: 20px;
+}
+
+.tooltip {
+    visibility: hidden;
+    background-color:rgb(2, 21, 38, 0.8);
+    color: white;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1;
+    bottom: -135%; /* Ajuste a posição do tooltip conforme necessário */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.icon-container:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transition: margin .5s;
 }
 
 .inputField {
@@ -138,18 +184,25 @@ p {
 }
   
 #message-container {
-    display: none;
+    display: block;
+    width: 70%;
+    position: absolute;
+    bottom: 10px;
+    /* right: 5px */
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    font-size: 12px;
+    text-align: center;
+}
+
+.error {
+    display: flex;
     background-color: red;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
-    position: relative;
-    top: 50px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    z-index: 1000;
-    font-size: 15px;
-}
+}  
 
 @media screen and (max-width: 900px) {
 

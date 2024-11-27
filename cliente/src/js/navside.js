@@ -13,7 +13,7 @@ closeSide.onclick = function () {
 
 // Função para abrir o sidebar
 openSide.onclick = function () {
-    sideBar.style.left = '-220px'; // Move o sidebar para fora da tela
+    sideBar.style.left = '-242px'; // Move o sidebar para fora da tela
     closeSide.style.display = 'flex'; // Exibe o ícone de fechar
     openSide.style.display = 'none'; // Oculta o ícone de abrir
     openSide.style.zIndex = '1'; // Oculta o ícone de abrir

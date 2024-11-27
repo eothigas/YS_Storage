@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 * {
     margin: 0;
     padding: 0;
-    font-family: Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -20,13 +21,13 @@ body {
 }
 
 .envio {
-    width: 400px;
-    height: 400px;
+    width: 420px;
+    height: 420px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(2, 21, 38, 0.6);
+    background-color: rgb(2, 21, 38, 0.7);
     backdrop-filter: blur(7px);
     margin: auto;
     padding: 30px 30px 30px 30px;
@@ -62,6 +63,33 @@ p {
     margin-bottom: 80px;
     border-radius: 10px;
     transition: 0.5s;
+}
+
+#message-container {
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: 5px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    font-size: 15px;
+}
+
+.success {
+    display: flex; /* Mostrar se for sucesso */
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.error {
+    display: flex; /* Mostrar se for erro */
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
 
 @media screen and (max-width: 900px) {

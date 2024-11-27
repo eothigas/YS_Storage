@@ -1,30 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 * {
     margin: 0;
     padding: 0;
-    font-family: Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
-    background-color: rgb(2, 21, 38);
-    margin: 0;
-    padding: 0;
-    height: 100dvh;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    color: rgb(226, 226, 182);
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(2, 21, 38);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(226, 226, 182);
 }
 
 .config-container {
-    justify-content: center;
-    align-items: center;
-    margin-left: 200px;
     transition: margin-left 0.3s ease;
-    width: 900px;
-    margin: auto;
+    width: 80%;
+    height: auto;
+    margin: 85px auto 0;
     background-color: rgb(3, 52, 110);
-    color: rgb(226, 226, 182);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    border: 2px solid rgb(226, 226, 182);
 }
 
 h1 {
@@ -74,6 +83,7 @@ h1 {
     margin: auto;
     position: relative;
     text-align: center;
+    border: 2px solid rgb(226, 226, 182);
 }
 
 .close {
@@ -158,138 +168,17 @@ button.tablinks {
     color: white;
 }
 
-#btn-menu {
-    font-size: 40px;
-    font-weight: bold;
-    color: rgb(226, 226, 182);
-    margin-left: 5px;
-    cursor: pointer;
-}
-
-#btn-close {
-    font-size: 40px;
-    font-weight: bold;
-    color: rgb(226, 226, 182);
-    margin-left: 5px;
-    cursor: pointer;
-}
-
-.bi.bi-plus-square, .bi.bi-search, .bi.bi-arrow-left-right, .bi.bi-house, .bi.bi-gear, .bi.bi-box-arrow-right {
-    display: grid;
-    gap: 10px;
-    color: rgb(226, 226, 182);
-    font-size: 30px;
-    padding: 10px;
-}
-
-#baixo a {
-    padding-bottom: 0px;
-    padding-top: 0;
-}
-
-#settings {
-    border-top: 2px rgb(226, 226, 182) solid;
-}
-
-.menu-lateral {
-    width: 260px;
-    z-index: 1;
-    background-color: rgb(3, 52, 110);
-    color: white;
-    position: fixed;
-    height: 100%;
-    padding: 20px 0;
-    transition: width 0.5s ease;
-    overflow: hidden;
-}
-
-.menu-lateral ~ .config-container {
-    filter: blur(5px);
-}
-
-.menu-lateral.fechado ~ .config-container {
-    filter: blur(0);
-}
-
-/* Estilo para ocultar o menu lateral */
-.menu-lateral.fechado {
-    width: 50px;
-    overflow: hidden;
-}
-
-.menu-lateral ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.menu-lateral li {
-    display: grid;
-    align-items: center;
-    padding: 0px 0 0px 0;
-    margin-top: 20px;
-}
-
-.menu-lateral a {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    color: rgb(226, 226, 182); /* Mude para a cor desejada */
-    padding: 10px 0;
-}
-
-#page {
-    background-color: rgb(226, 226, 182);
-    color: rgb(3, 52, 110);
-}
-
-
-.menu-lateral a:hover {
-    background-color: rgb(226, 226, 182);
-    color: rgb(3, 52, 110);
-}
-
-.menu-lateral a:hover .bi {
-    color: rgb(3, 52, 110);
-}
-
-.menu-icon {
-    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.menu-text {
-    /* Estilos para o texto do link */
-    font-size: 16px;
-    font-weight: normal;
-    text-decoration: none;
-    transition: .2s ease;
-    text-wrap: nowrap;
-    opacity: 1;
-}
-
-.menu-lateral a:hover .menu-text {
-    transition: none;
-}
-
-.menu-lateral.fechado .menu-text {
-    opacity: 0;
-    padding-left: 20px;
-}
-
 #edt {
     border: none;
-    background-color: rgb(2, 21, 38);
-    color: rgb(226, 226, 182);
+    background-color: rgb(226, 226, 182);
+    color: rgb(2, 21, 38);
 }
 
 #edt:hover {
     outline: none;
     border: none;
-    background-color: rgb(2, 21, 38, 0.7);
-    color: rgb(226, 226, 182);
+    background-color: rgb(226, 226, 182, 0.7);
+    color: rgb(2, 21, 38);
 }
 
 .pagination {

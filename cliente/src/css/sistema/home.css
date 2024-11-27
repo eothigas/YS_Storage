@@ -1,0 +1,289 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, sans-serif;
+}
+
+body {
+    background-color: rgb(2, 21, 38);
+    margin: 0;
+    padding: 0;
+    height: 100dvh;
+    display: flex;
+}
+
+.container {
+    flex-grow: 1;
+    /* padding: 20px; */
+    width: 100dvh;
+    height: auto;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.section-top {
+    display: flex;
+    position: relative;
+    margin: 20px 45px 20px 85px;
+    z-index: 0;
+    background-color: rgb(3, 52, 110);
+    padding: 10px;
+    transition: margin-left 0.8s ease;
+    border-radius: 10px;
+}
+
+#info {
+    text-align: center;
+    color: rgb(226, 226, 182);
+}
+
+.image-slider {
+    display: none;
+    max-width: 550px;
+    max-height: 340px;
+    width: 550px;
+    height: 340px;
+    border-radius: 0;
+}
+
+img.slider-image {
+    max-width: 550px; 
+    max-height: 340px;
+    width: 550px;
+    height: 340px;
+    border-radius: 10px;
+}
+
+.text-block {
+    display: none;
+    gap: 5px;
+    width: 50%; 
+    height: 200px;
+    margin: auto 0;
+    padding: 0 20px;
+    color: white;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+#title {
+    margin: 0 auto 20px auto;
+    color: rgb(226, 226, 182);
+}
+
+p {
+    margin: 0 auto;
+    width: 300px;
+    gap: 5px;
+    padding-bottom: 15px;
+    font-size: 18px;
+    color: rgb(226, 226, 182);
+}
+
+.bi.bi-map, .bi.bi-bounding-box {
+    font-size: 18px;
+    color: rgb(226, 226, 182);
+    margin-right: 10px;
+}
+
+svg {
+    margin-right: 10px;
+}
+
+.section-bottom {
+    position: fixed;
+    bottom: 0px;
+    margin-left: 50px;
+    width: calc(100% - 70px);
+    overflow: hidden;
+    background-color: rgb(3, 52, 110);
+    padding: 10px 10px;
+}
+
+.text-center {
+    color: rgb(226, 226, 182);
+    text-align: center;
+    padding-bottom: 5px;
+    font-size: 20px;
+}
+
+td.text-center {
+    color: rgb(2, 21, 38);
+}
+
+table {
+    width: 95%;
+    padding: 2px;
+    border: 4px rgb(226, 226, 182) solid;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+#produtos-destaque {
+    transition: opacity 0.5s ease-in-out; /* Transição de opacidade */
+    opacity: 1; /* Opacidade inicial */
+}
+
+.fade-out {
+    opacity: 0; /* Opacidade 0 para a saída */
+}
+
+.fade-in {
+    opacity: 1; /* Opacidade 1 para a entrada */
+}
+
+th, td {
+    width: 100px;
+    padding: 3px;            /* Espaçamento interno para melhorar a legibilidade */
+    text-align: center;        /* Alinha o texto à esquerda */
+    align-items: center;
+    justify-content: center;
+}
+
+th {
+    background-color: rgb(2, 21, 38); /* Cor de fundo para o cabeçalho */
+    color: rgb(226, 226, 182);
+}
+
+tr {
+    background-color: rgb(110, 172, 218);
+    color: rgb(2, 21, 38);
+}
+
+.product-image {
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+
+.consult-prod {
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
+    margin: 10px 0 0 30px;
+    background-color: rgb(2, 21, 38);
+    color: rgb(226, 226, 182);
+    cursor: pointer;
+}
+
+.consult-prod:hover {
+    background-color: rgb(2, 21, 38, 0.7);
+}
+
+#btn-menu {
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(226, 226, 182);
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#btn-close {
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(226, 226, 182);
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.bi.bi-plus-square, .bi.bi-search, .bi.bi-arrow-left-right, .bi.bi-house, .bi.bi-gear, .bi.bi-box-arrow-right {
+    display: grid;
+    gap: 10px;
+    color: rgb(226, 226, 182);
+    font-size: 30px;
+    padding: 10px;
+}
+
+#baixo a {
+    padding-bottom: 0px;
+    padding-top: 0;
+}
+
+#settings {
+    border-top: 2px rgb(226, 226, 182) solid;
+}
+
+.menu-lateral {
+    width: 260px;
+    background-color: rgb(3, 52, 110);
+    color: white;
+    position: fixed;
+    height: 100dvh;
+    padding: 20px 0;
+    transition: width 0.5s ease;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.menu-lateral ~ .container {
+    filter: blur(5px);
+}
+
+.menu-lateral.fechado ~ .container {
+    filter: blur(0);
+}
+
+/* Estilo para ocultar o menu lateral */
+.menu-lateral.fechado {
+    width: 50px;
+    overflow: hidden;
+}
+
+.menu-lateral ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-lateral li {
+    display: grid;
+    align-items: center;
+    padding: 0px 0 0px 0;
+    margin-top: 20px;
+}
+
+.menu-lateral a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: rgb(226, 226, 182); /* Mude para a cor desejada */
+    padding: 10px 0;
+}
+
+.menu-lateral a:hover {
+    background-color: rgb(226, 226, 182);
+    color: rgb(3, 52, 110);
+}
+
+.menu-lateral a:hover .bi {
+    color: rgb(3, 52, 110);
+}
+
+
+.menu-icon {
+    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-text {
+    /* Estilos para o texto do link */
+    font-size: 16px;
+    font-weight: normal;
+    text-decoration: none;
+    transition: .2s ease;
+    text-wrap: nowrap;
+    opacity: 1;
+}
+
+.menu-lateral a:hover .menu-text {
+    transition: none;
+}
+
+.menu-lateral.fechado .menu-text {
+    opacity: 0;
+    padding-left: 20px;
+}

@@ -33,19 +33,19 @@ a {
     justify-content: space-between;
     overflow: hidden;
     margin-top: 60px;
-    border: 1px solid red;
 }
 
 .section-top {
+    width: 78%;
     display: flex;
     position: relative;
-    margin: 20px;
+    margin: 20px auto;
     z-index: 0;
     background-color: rgb(3, 52, 110);
     padding: 10px;
     transition: margin-left 0.8s ease;
     border-radius: 10px;
-    border: 1px solid red;
+    border: 1px solid rgb(226, 226, 182);
 }
 
 #info {
@@ -55,16 +55,14 @@ a {
 
 .image-slider {
     display: none;
-    max-width: 550px;
-    max-height: 340px;
-    width: 550px;
-    height: 340px;
+    max-width: 480px;
+    max-height: 290px;
     border-radius: 0;
 }
 
 img.slider-image {
-    max-width: 550px; 
-    max-height: 340px;
+    max-width: 470px; 
+    max-height: 290px;
     width: 550px;
     height: 340px;
     border-radius: 10px;
@@ -73,7 +71,7 @@ img.slider-image {
 .text-block {
     display: none;
     gap: 5px;
-    width: 50%; 
+    width: 60%; 
     height: 200px;
     margin: auto 0;
     padding: 0 20px;
@@ -112,6 +110,7 @@ svg {
     overflow: hidden;
     background-color: rgb(3, 52, 110);
     padding: 10px 10px;
+    border-top: 1px solid rgb(226, 226, 182);
 }
 
 .table-product {
@@ -133,11 +132,8 @@ svg {
     font-size: 1em;
     color: rgb(226, 226, 182);
     margin: 10px auto 0;
-    /* border: 1px solid rgb(226, 226, 182); */
-}
-
-tr {
-    border-radius: 5px !important; 
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 th, td {
@@ -156,7 +152,6 @@ thead {
 
 td {
     background-color: rgb(2, 21, 38);
-    border-radius: 5px;
 }
 
 #produtos-destaque {

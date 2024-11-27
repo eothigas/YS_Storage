@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Checagem de sessão (usuário logado?)
 async function checkSession() {
     try {
-        const response = await fetch('./php/check_session.php'); // Script PHP para verificar e criar sessão
+        const response = await fetch('/cliente/sistema/php/check_session.php'); // Script PHP para verificar e criar sessão
         if (!response.ok) {
             throw new Error('Erro ao verificar a sessão');
         }
@@ -38,8 +38,8 @@ function alertInactivity() {
 }
 
 // Função para lidar com o logout
-async function handleLogout() {
-    await fetch('./php/logout.php', { method: 'POST' }); // Invalida a sessão no servidor
+async function handleLogoutClient() {
+    await fetch('/clientes/sistema/php/logout.php', { method: 'POST' }); // Invalida a sessão no servidor
     window.location.href = 'https://www.yourstorage.x10.mx/cliente/login/'; // Redireciona para a página de login
 }
 
@@ -59,7 +59,7 @@ document.addEventListener('mousemove', resetInactivityTimer); // Se mover o mous
 document.addEventListener('keypress', resetInactivityTimer); // Se teclar any tecla (estando com a guia selecionada)
 
 // Adiciona ouvintes de eventos para o botão de logout (botão de sair no menu-lateral)
-const logoutButton = document.getElementById('logout');
+const logoutButton = document.getElementById('logout-btn');
 if (logoutButton) {
-    logoutButton.addEventListener('click', handleLogout); // Chama a função handleLogout
+    logoutButton.addEventListener('click', handleLogoutClient); // Chama a função handleLogout
 }

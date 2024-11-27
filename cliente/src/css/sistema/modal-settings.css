@@ -33,29 +33,59 @@ p {
 
 table {
     width: 100%;
-    padding: 2px;
-    border: 4px rgb(226, 226, 182) solid;
-    border-radius: 10px;
+    border-collapse: collapse;
+    font-size: 1em;
+    color: rgb(226, 226, 182);
+    margin: 10px auto 0;
+    border-radius: 5px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 th, td {
-    padding: 8px;     
-    text-align: center;     
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
-th {
-    background-color: rgb(2, 21, 38); /* Cor de fundo para o cabeçalho */
-    color: rgb(226, 226, 182);
+thead {
+    background-color: rgb(226, 226, 182);
+    color: rgb(3, 52, 110);
+    font-weight: bold;
+    
 }
 
-tr:nth-child(even) {
-    background-color:  rgb(90, 150, 180);
-    color: black
+td {
+    background-color: rgb(2, 21, 38);
+    border-bottom: 1px solid rgb(226, 226, 182);
 }
 
-tr:nth-child(odd) {
-    background-color: rgb(110, 172, 218, 0.4);
-    color: rgb(226, 226, 182);
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:last-child td:first-child {
+    border-radius: 0 0 0 5px;
+}
+
+tr:last-child td:last-child {
+    border-radius: 0 0 5px 0;
+}
+
+tbody td button {
+    padding: 8px 12px;
+    background-color: rgb(226, 226, 182);
+    color: rgb(2, 21, 38);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+tbody td button:hover {
+    background-color: rgb(226, 226, 182, 0.7);
 }
 
 .pagination {
@@ -128,7 +158,8 @@ tr:nth-child(odd) {
     color: white;
     /* padding: 0px 20px; */
     border-radius: 10px;
-    max-width: 480px;
+    width: 800px;
+    max-width: 800px;
     margin: auto;
     position: relative;
     text-align: center;
@@ -150,26 +181,9 @@ tr:nth-child(odd) {
     background-color: rgb(226, 226, 182);
 }
 
-#edit-users {
-    display: flex;
-    flex-direction: column;
-    width: 450px;
-    gap: 10px;
-    margin: 10px 10px;
-}
-
-
-#register-users {
-    display: flex;
-    flex-direction: column;
-    width: 450px;
-    gap: 10px;
-    margin: 10px 10px;
-}
-
-input {
-    width: 438px;
-    max-width: 438px;
+#edit-name, #edit-identidade, #edit-contato, #edit-email, #edit-password, #confirm-password {
+    width: 100%;
+    max-width: 770px;
     background-color: rgb(2, 21, 38, 0.4);
     color: rgb(226, 226, 182);
     border: 1px rgb(226, 226, 182) solid;
@@ -178,12 +192,27 @@ input {
     border-radius: 5px;
 }
 
-select{
-    background-color: rgb(2, 21, 38, 0.4);
+#edit-users {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 780px;
+    gap: 10px;
+    margin: 10px 10px;
+}
+
+#tipo-user, #tipo {
+    background-color: rgb(2, 21, 38, 0.4) !important;
     color: rgb(226, 226, 182);
     border: 1px rgb(226, 226, 182) solid;
     padding: 5px;
     border-radius: 5px;
+    width: 782px;
+    max-width: 782px;
+}
+
+option {
+    background-color: rgb(3, 52, 110);
 }
 
 select:focus {
@@ -354,22 +383,43 @@ button {
 /* Cadastrar Usuário */
 
 .client-registration  {
-    background-color: rgb(3, 52, 110);
+    background-color: rgb(2, 21, 38);
     color: white;
     margin: auto;
     border-radius: 10px;
-    max-width: 480px;
+    width: 100%;
+    max-width: 800px;
 }
 
-.register {
+.register-user {
     background-color: rgb(226, 226, 182);
     color: rgb(2, 21, 38);
     border-radius: 5px 5px 0 0;
+    font-weight: bold;
 }
 
 .input-container, .confirm-container {
     position: relative;
     background-color: transparent;
+}
+
+#name-user, #identidade-user, #contato-user, #email-user, #password, #password-confirm {
+    width: 100%;
+    max-width: 770px;
+    background-color: rgb(2, 21, 38, 0.4);
+    color: rgb(226, 226, 182);
+    border: 1px rgb(226, 226, 182) solid;
+    padding: 5px;
+    outline: 0;
+    border-radius: 5px;
+}
+
+#register-users {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    gap: 10px;
+    margin: 10px 10px;
 }
 
 .bi.bi-eye-fill, .bi-eye-slash-fill {
@@ -391,11 +441,12 @@ button {
     justify-content: center;
     align-items: center;
     color: rgb(226, 226, 182); /* Pode ajustar a cor se necessário */
-    font-size: 12px; /* Ajuste o tamanho da fonte */
+    font-size: 14px; /* Ajuste o tamanho da fonte */
     margin-left: 10px;
     position: absolute;
     text-wrap: nowrap;
     bottom: 6px; /* Ajuste a posição para exibir logo abaixo do input */
+    right: -110px;
 }
 
 .input-container input:focus + .fontsize-text,

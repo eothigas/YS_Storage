@@ -19,6 +19,7 @@
     gap: 15px;
     padding: 0 2px 0 0px;
     z-index: 1;
+    border-bottom: 1px solid rgb(226, 226, 182);
 }
 
 #right {
@@ -27,19 +28,6 @@
     gap: 15px;
     align-items: center;
     z-index: 1;
-}
-
-.notifications {
-    display: flex;
-    background-color: rgb(226, 226, 182);
-    color: rgb(3, 52, 110);
-    padding: 8px;
-    border-radius: 10px;
-    width: 24px;
-    height: 24px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
 }
 
  /* Perfil */ 
@@ -84,9 +72,10 @@
 }
 
 .user-profile img {
-    width: 30px;
+    width: 35px;
     height: 30px;
     border-radius: 50%;
+    background-color: rgb(3, 52, 110);
 }
 
 .modal-user {
@@ -98,6 +87,7 @@
     right: 10px;
     /* border: px solid rgb(3, 52, 110); */
     width: 210px;
+    height: 40px;
     border-radius: 0px 0px 7px 7px;
     background-color: rgb(226, 226, 182);
     /* gap: 10px; */
@@ -112,28 +102,29 @@
 .last {
     display: flex;
     gap: 10px;
+    height: auto;
     align-items: center;
-    padding: 10px 10px;
+    padding: 0px 10px;
     border-radius: 7px 7px 0px 0px;
     color: rgb(3, 52, 110);
 }
 
-.logout-btn {
+#logout-btn {
     display: flex;
     align-items: center;
     padding: 5px 10px;
     font-style: normal;
     gap: 10px;
-    width: 80px;
+    width: 190px;
     height: 40px;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
     border: none;
     background-color: rgb(226, 226, 182);
-    color: rgb(3, 52, 110);
+    color: rgb(3, 52, 110) !important;
     font-weight: 700;
 }
 
-.logout-btn i {
+#logout-btn i {
     font-size: 20px;
     display: flex;
     align-items: center;
@@ -144,10 +135,30 @@
     font-weight: bold;
 }
 
+#logout-btn.account.last:hover {
+    background-color:rgb(3, 52, 110);
+    color: rgb(226, 226, 182) !important;
+}
+
+#logout-btn.account.last:hover .bi.bi-box-arrow-right {
+    color: rgb(226, 226, 182) !important;
+}
+#logout-btn.account.last:hover .user-account {
+    color: rgb(226, 226, 182) !important;
+}
+
+.modal-user:hover {
+    background-color: rgb(3, 52, 110);
+}
+
 .modal-user:hover i{
-    color: rgb(226, 226, 182);
+    color: rgb(3, 52, 110);
 }
 
 .modal-user:hover .user-account {
-    color: rgb(226, 226, 182);
+    color: rgb(3, 52, 110);
+}
+
+.bi.bi-box-arrow-right {
+    color: rgb(3, 52, 110) !important;
 }

@@ -1,18 +1,3 @@
-function toggleMenu() {
-    var menu = document.getElementById("menuLateral");
-    var content = document.querySelector(".config-container");
-    var menuIcon = document.querySelector("#btn-menu");
-    var closeIcon = document.querySelector("#btn-close");
-
-    // Alterna a classe 'fechado' no menu lateral
-    menu.classList.toggle("fechado");
-    content.classList.toggle("expanded");
-
-    // Alterna a exibição dos ícones
-    menuIcon.style.display = menu.classList.contains("fechado") ? "inline" : "none";
-    closeIcon.style.display = menu.classList.contains("fechado") ? "none" : "inline";
-}
-
 // Abrir modal
 function openModal() {
     document.getElementById('modal').style.display = 'flex';

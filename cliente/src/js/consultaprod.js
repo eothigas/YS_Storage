@@ -126,13 +126,13 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('destaque-editar').checked = (destaque == 1); // Marcar se destaque for 1
 
         // Exibir o modal
-        modalEditar.style.display = 'grid';
+        modalEditar.style.display = 'flex';
 
         // Evento de clique para o botão de salvar
         const saveBtn = document.getElementById('save');
         saveBtn.onclick = function () {
             const formData = new FormData();
-            formData.append('codigo-editar', codigo); // Mudei para 'codigo-editar'
+            formData.append('codigo-editar', codigo); 
             formData.append('nome-editar', document.getElementById('nome-editar').value);
             formData.append('descricao-editar', document.getElementById('descricao-editar').value);
             formData.append('quantidade-editar', document.getElementById('quantidade-editar').value);

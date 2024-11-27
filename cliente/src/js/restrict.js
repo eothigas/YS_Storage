@@ -3,8 +3,8 @@ function verificarPlano() {
     fetch('./php/check_session.php')
         .then(response => response.json())
         .then(data => {
-            const plano = data.plano; // Supondo que o retorno é um JSON com um campo 'plano'
-            const empresa = data.empresa; // Obtém a empresa da sessão
+            const plano = data.plano;
+            const empresa = data.empresa;
             aplicarRestricoes(plano, empresa);
         })
         .catch(error => console.error('Erro ao verificar o plano:', error));
@@ -54,15 +54,12 @@ function aplicarRestricoes(plano, empresa) {
             const messageElement = document.getElementById('mensagem-aviso');
             const registerProd = document.getElementById('form-cadastro-produto');
 
-            const inputProd = registerProd.querySelectorAll('input');
-            const areaProd = registerProd.querySelectorAll('textarea');
+            const inputProd = registerProd.querySelectorAll('.restrict-input');
             const selectProd = registerProd.querySelectorAll('select');
-            const checkboxes = registerProd.querySelectorAll('input[type="checkbox"]');
-            const fileInputs = registerProd.querySelectorAll('input[type="file"]');
             const btnProd = registerProd.querySelectorAll('button');
 
             if (produtosCadastrados >= maxProdutos) {
-                messageElement.innerHTML = 'Você atingiu o limite de 250 produtos cadastrados.';
+                messageElement.innerHTML = `Você atingiu o limite de ${maxProdutos} produtos cadastrados.`;
                 messageElement.style.display = 'block'; // Torna o elemento visível
 
                 // Desabilita os inputs de produto
@@ -71,28 +68,10 @@ function aplicarRestricoes(plano, empresa) {
                     input.style.cursor = 'not-allowed';
                 });
 
-                // Desabilita as textareas de produto
-                areaProd.forEach(textArea => {
-                    textArea.readOnly = true;
-                    textArea.style.cursor = 'not-allowed';
-                });
-
                 // Desabilita os selects de produto
                 selectProd.forEach(select => {
                     select.disabled = true;
                     select.style.cursor = 'not-allowed';
-                });
-
-                // Desabilita os checkboxes de produto
-                checkboxes.forEach(checkbox => {
-                    checkbox.disabled = true; 
-                    checkbox.style.cursor = 'not-allowed'; 
-                });
-
-                // Desabilita os inputs de file
-                fileInputs.forEach(fileInput => {
-                    fileInput.disabled = true;
-                    fileInput.style.cursor = 'not-allowed'; 
                 });
 
                 // Desabilita os botões de produto
@@ -100,6 +79,8 @@ function aplicarRestricoes(plano, empresa) {
                     button.disabled = true;
                     button.style.cursor = 'not-allowed';
                 });
+                
+                
             }
         });
 
@@ -115,7 +96,7 @@ function aplicarRestricoes(plano, empresa) {
 
             if (usuariosCadastrados >= maxUsuarios) {
                 // Exibe mensagem sobre limite de usuários
-                messageElement.innerHTML = 'Você atingiu o limite de 5 usuários cadastrados.';
+                messageElement.innerHTML = `Você atingiu o limite de ${maxUsuarios} usuários cadastrados.`;
                 messageElement.style.display = 'block'; // Torna o elemento visível
 
                 // Desabilita os inputs de usuário
@@ -157,7 +138,7 @@ function aplicarRestricoes(plano, empresa) {
             const btnProd = registerProd.querySelectorAll('button');
 
             if (produtosCadastrados >= maxProdutos) {
-                messageElement.innerHTML = 'Você atingiu o limite de 600 produtos cadastrados.';
+                messageElement.innerHTML = messageElement.innerHTML = `Você atingiu o limite de ${maxProdutos} produtos cadastrados.`;
                 messageElement.style.display = 'block'; // Torna o elemento visível
 
                 // Desabilita os inputs de produto
@@ -210,7 +191,7 @@ function aplicarRestricoes(plano, empresa) {
 
             if (usuariosCadastrados >= maxUsuarios) {
                 // Exibe mensagem sobre limite de usuários
-                messageElement.innerHTML = 'Você atingiu o limite de 5 usuários cadastrados.';
+                messageElement.innerHTML = `Você atingiu o limite de ${maxUsuarios} usuários cadastrados.`;
                 messageElement.style.display = 'block'; // Torna o elemento visível
 
                 // Desabilita os inputs de usuário
