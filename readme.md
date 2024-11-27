@@ -19,6 +19,18 @@ Diante dessa realidade, a necessidade de uma solução robusta e eficiente torna
 
 Com sua abordagem inovadora e flexível, a Your Storage oferece às empresas a capacidade de transformar a gestão de estoques em um diferencial estratégico, garantindo eficiência, segurança e controle total sobre os recursos corporativos.</p>
 
-<h2>Processos dentro do Sistema</h2>
+<h2>Processos e fluxos dentro do Sistema</h2>
+
+<h3>Formulário</h3>
+
+<a href='https://www.yourstorage.x10.mx/fluxogramas/Formul%C3%A1rio/fluxo.html'> 📜 Clique aqui para acessar processo e fluxo de Envio de Formulário</a>
+
+<h3>Funcionário</h3>
+
+<a href='https://www.yourstorage.x10.mx/fluxogramas/Funcion%C3%A1rio/fluxo.html'> 👨‍💼 Clique aqui para acessar processos e fluxos de Funcionários</a>
+
+<h3>Cliente</h3>
+
+<a href='https://www.yourstorage.x10.mx/fluxogramas/Cliente/fluxo.html'> 🤝 Clique aqui para acessar processos e fluxos de Clientes</a>
 
 
