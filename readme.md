@@ -23,6 +23,6 @@ Com sua abordagem inovadora e flexível, a Your Storage oferece às empresas a c
 
 <p>
     <a href="https://youtu.be/fapHnlTCpQE" target="_blank" style="font-size: 16px; color: #333; text-decoration: none;">
-        <span style="font-size: 16px; color: #333;">Envio de Formulário (Assista no YouTube)</span>
+        <span style="font-size: 16px; color: white;">Envio de Formulário (Assista no YouTube)</span>
     </a>
 </p>
