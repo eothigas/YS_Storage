@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../src/css/home/home.css">
     <link rel="stylesheet" href="../src/css/home/navbar.css">
     <link rel="stylesheet" href="../src/css/home/sidebar.css">
-    <!-- <link rel="stylesheet" href="../src/css/homeresponsive.css"> -->
+    <link rel="stylesheet" href="../src/css/sistema/homeresponsive.css">
     <script src="../src/js/verify_session.js" type="text/javascript" defer></script>
     <title>Your Storage - Home</title>
 </head>
@@ -17,39 +17,65 @@
         <div id="left">
             <div class="icon-side">
                 <i class="bi bi-layout-sidebar" id="close-side"></i>
-                <i class="bi bi-layout-sidebar-inset" id="open-side"></i>
             </div>
             <nav id="sidebar">
+                <i class="bi bi-layout-sidebar-inset" id="open-side"></i>
+                <hr id='separa-side-up'>
                 <ul id="side_menu">
-                    <a href=" "><li>
-                        <span class="home-dash">
-                            <i class="bi bi-house home">Home</i>
-                        </span>
-                    </li></a>
+                    <li>
+                        <a href=" ">
+                            <span class="home-dash">
+                                <i class="bi bi-house home">
+                                    <span class='legend'>Home</span>
+                                </i>
+                            </span>
+                        </a>
+                    </li>
                     <li class="side_submenu" id="side_submenu">
-                        <span id="open_sub">
-                            <i class="bi bi-person-add register">Cadastro</i>
-                        </span>
+                        <a href="./cadastroprod.html">
+                            <span id="open_sub_register">
+                                <i class="bi bi bi-plus-square register">
+                                    <span class='legend'>Cadastrar Produto</span>
+                                </i>
+                            </span>
+                        </a>
                     </li>
                     <li class="side_submenu" id="side_submenu_">
-                        <span id='open_sub_consult'>
-                            <i class="bi bi-person-vcard consult">Consultar</i>
-                        </span>
+                        <a href="./consultaprod.html">    
+                            <span id='open_sub_consult'>
+                                <i class="bi bi-search consult">
+                                    <span class='legend'>Consultar Produto</span>
+                                </i>
+                            </span>
+                        </a>
                     </li>
                     <li class="side_submenu">
-                        <a href="./exportar/exportar.html">
-                            <span id='export-page'>
-                                <i class="bi bi-file-earmark-arrow-down export">Exportar</i>
+                        <a href="./movimentaprod.html">
+                            <span id='moviment-prod'>
+                                <i class="bi bi-arrow-left-right moviment">
+                                    <span class='legend'>Movimentar Estoque</span>
+                                </i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="side_submenu">
+                        <a href="./settings.html">
+                            <span id='settings'>
+                                <i class="bi bi-gear settings">
+                                    <span class='legend'>Configurações</span>
+                                </i>
                             </span>
                         </a>
                     </li>
                 </ul>
+                <hr id='separa-side-down'>
+                <img class="logo-side" src="../src/images/Logo.svg"  width='180' height="100" style='margin: 0 auto';>
             </nav>
         </div>
         <div id="right">
             <div class="user-profile">
                 <img src=" " alt="" id="img-profile">
-                <span id="username">Funcionário</span>
+                <span id="username">Cliente</span>
                 <i class="bi bi-arrow-down-short" id="arrow"></i>
             </div>
             <div class="modal-user">
@@ -109,6 +135,6 @@
 
     <script src="../src/js/home.js"></script>
     <script src="../src/js/navside.js"></script>
-
+    <script src="../src/js/navbar-info.js"></script>
 </body>
 </html>

@@ -19,28 +19,25 @@ $message = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Obtém os dados do formulário
     $nome = ucwords($_POST['name'] ?? '');
-    $email = $_POST['email-user'] ?? null;
+    $identidade = $_POST['identidade'] ?? ''; 
+    $contato = $_POST['contato'] ?? '';
+    $email = $_POST['email-user'] ?? null;  
     $senha = trim($_POST['password'] ?? '');
     $confirmarSenha = trim($_POST['confirm-password']) ?? null;
     $tipoUser = trim($_POST['tipo-user']) ?? null;
-
-    // // Verifica se algum dos campos essenciais está vazio
-    // if (empty($nome) || empty($email) || empty($senha) || empty($confirmarSenha)) {
-    //     echo json_encode(['message' => 'Todos os campos são obrigatórios.', 'type' => 'error']);
-    //     exit;
-    // }
 
     try {
         $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Verifica se o email já está cadastrado
-        $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
+        // Verifica se a identidade ou o email já estão cadastrados
+        $stmt = $pdo->prepare("SELECT * FROM clientes WHERE identidade = :identidade OR email = :email");
+        $stmt->bindParam(':identidade', $identidade);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
-            // Se o usuário já existe
+            // Se a identidade ou email já existe
             echo json_encode(['message' => 'Usuário já existe.', 'type' => 'error']);
             exit;
         }
@@ -57,13 +54,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         // Insere o novo usuário
-        $stmt = $pdo->prepare("INSERT INTO usuarios (nome, email, senha, tipo, empresa, plano) VALUES (:nome, :email, :senha, :tipo, :empresa, :plano)");
+        $stmt = $pdo->prepare("INSERT INTO clientes (nome, identidade, contato, email, senha, tipo, empresa, data_criacao, data_atualizacao) 
+                                    VALUES (:nome, :identidade, :contato, :email, :senha, :tipo, :empresa, CONVERT_TZ(NOW(), '+00:00', '+02:00'), CONVERT_TZ(NOW(), '+00:00', '+02:00'))");
         $stmt->bindParam(':nome', $nome);
-        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':identidade', $identidade);
+        $stmt->bindParam(':contato', $contato);
+        $stmt->bindParam(':email', $email); 
         $stmt->bindParam(':senha', password_hash($senha, PASSWORD_DEFAULT));
         $stmt->bindParam(':tipo', $tipoUser);
         $stmt->bindParam(':empresa', $_SESSION['empresa']);
-        $stmt->bindParam(':plano', $_SESSION['plano']);
         $stmt->execute();
 
         echo json_encode(['message' => 'Usuário cadastrado com sucesso.', 'type' => 'success']);

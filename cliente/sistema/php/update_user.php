@@ -22,6 +22,8 @@ try {
         // Obtém os dados do formulário
         $id = $_POST['edit-id']; 
         $nome = ucwords($_POST['edit-name'] ?? '');
+        $identidade = ucwords($_POST['edit-identidade'] ?? '');
+        $contato = ucwords($_POST['edit-contato'] ?? '');
         $email = $_POST['edit-email'] ?? null;
         $senha = trim($_POST['edit-password'] ?? '');
         $confirmarSenha = trim($_POST['confirm-password'] ?? null);
@@ -34,7 +36,7 @@ try {
         }
 
         // Verifica se o email já está cadastrado (exceto o usuário atual)
-        $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email AND id != :id");
+        $stmt = $pdo->prepare("SELECT * FROM clientes WHERE email = :email AND id != :id");
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
@@ -56,7 +58,7 @@ try {
         }
 
         // Prepara a consulta para atualizar os dados do usuário
-        $updateQuery = "UPDATE usuarios SET nome = :nome, email = :email, tipo = :tipo";
+        $updateQuery = "UPDATE clientes SET nome = :nome, identidade = :identidade, contato = :contato, email = :email, tipo = :tipo, data_atualizacao = CONVERT_TZ(NOW(), '+00:00', '+02:00')";
         if (!empty($senha)) {
             $updateQuery .= ", senha = :senha"; // Adiciona a senha se fornecida
         }
@@ -64,6 +66,8 @@ try {
 
         $stmt = $pdo->prepare($updateQuery);
         $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':identidade', $identidade);
+        $stmt->bindParam(':contato', $contato);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':tipo', $tipoUser);
         $stmt->bindParam(':id', $id);
@@ -75,9 +79,9 @@ try {
 
         // Executa a consulta
         if ($stmt->execute()) {
-            echo json_encode(['message' => 'Usuário atualizado com sucesso.', 'type' => 'success']);
+            echo json_encode(['message' => 'Cliente atualizado com sucesso.', 'type' => 'success']);
         } else {
-            echo json_encode(['message' => 'Falha ao atualizar o usuário.', 'type' => 'error']);
+            echo json_encode(['message' => 'Falha ao atualizar o cliente.', 'type' => 'error']);
         }
     } else {
         echo json_encode(['error' => 'Método de requisição inválido.']);

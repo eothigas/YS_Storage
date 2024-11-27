@@ -16,7 +16,8 @@ if (isset($_SESSION['email'])) {
         'tipo' => $_SESSION['tipo'],
         'email' => $_SESSION['email'],
         'plano' => $_SESSION['plano'],
-        'empresa' => $_SESSION['empresa']
+        'empresa' => $_SESSION['empresa'],
+        'logo' => $_SESSION['logo']
     ], JSON_UNESCAPED_UNICODE);
 } else {
     echo json_encode(['loggedIn' => false]);

@@ -31,7 +31,7 @@ try {
     }
 
     // Prepara e executa a consulta para deletar o usuário
-    $stmt = $pdo->prepare("DELETE FROM usuarios WHERE email = :email");
+    $stmt = $pdo->prepare("DELETE FROM clientes WHERE email = :email");
     $stmt->bindParam(':email', $email);
     $stmt->execute();
 

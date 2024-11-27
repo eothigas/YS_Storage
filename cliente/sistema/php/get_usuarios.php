@@ -26,7 +26,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Total de usuários filtrados pela empresa
-    $totalStmt = $pdo->prepare("SELECT COUNT(*) FROM usuarios WHERE empresa = :empresa");
+    $totalStmt = $pdo->prepare("SELECT COUNT(*) FROM clientes WHERE empresa = :empresa");
     $totalStmt->bindParam(':empresa', $empresa);
     $totalStmt->execute();
     $totalUsers = $totalStmt->fetchColumn();

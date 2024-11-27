@@ -31,14 +31,14 @@ try {
     $offset = ($page - 1) * $limit;
 
     // Total de usuários filtrados pela empresa
-    $totalStmt = $pdo->prepare("SELECT COUNT(*) FROM usuarios WHERE empresa = :empresa");
+    $totalStmt = $pdo->prepare("SELECT COUNT(*) FROM clientes WHERE empresa = :empresa");
     $totalStmt->bindParam(':empresa', $empresa);
     $totalStmt->execute();
     $totalUsers = $totalStmt->fetchColumn();
     $totalPages = ceil($totalUsers / $limit);
 
     // Busca os usuários para a página atual filtrados pela empresa
-    $stmt = $pdo->prepare("SELECT id, nome, tipo, email FROM usuarios WHERE empresa = :empresa LIMIT :limit OFFSET :offset");
+    $stmt = $pdo->prepare("SELECT id, nome, identidade, contato, tipo, email FROM clientes WHERE empresa = :empresa LIMIT :limit OFFSET :offset");
     $stmt->bindParam(':empresa', $empresa);
     $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
     $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
