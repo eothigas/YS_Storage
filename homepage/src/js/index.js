@@ -14,18 +14,9 @@ document.addEventListener("scroll", () => {
     }
 });
   
-// Função para rolar suavemente ao topo ao clicar no botão
+// Função para rolar diretamente ao topo ao clicar no botão
 document.getElementById("btn-topo").addEventListener("click", () => {
-    const scrollToTop = () => {
-        const currentPosition = window.scrollY;
-        
-        if (currentPosition > 0) {
-        window.requestAnimationFrame(scrollToTop);
-        window.scrollTo(0, currentPosition - currentPosition / 0);
-        }
-    };
-
-    scrollToTop();
+    window.scrollTo(0, 0); // Rola instantaneamente para o topo
 });
 
 // Carrossel de Destaque imagens + texto
@@ -119,35 +110,76 @@ navBtnClose.addEventListener('click', () => {
 
 // Carrossel de Storages
 const swiper = new Swiper('.swiper', {
-    // Optional parameters
+    // Parametros opcionais
     direction: 'horizontal',
     grabCursor: true,
     loop: false,
   
-    // Navigation arrows
+    // Navegação
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
 });
 
+// Informações específicas de cada slide
+const slideInfo = [
+    {
+        title: "Storage Ondev 1",
+        height: "Altura: 10m",
+        width: "Largura: 10m",
+        length: "Comprimento: 20m"
+    },
+    {
+        title: "Storage Ondev 2",
+        height: "Altura: 15m",
+        width: "Largura: 12m",
+        length: "Comprimento: 25m"
+    },
+    {
+        title: "Storage Ondev 3",
+        height: "Altura: 12m",
+        width: "Largura: 15m",
+        length: "Comprimento: 30m"
+    }
+];
+
 const view = document.getElementById('view');
 const returnBtn = document.getElementById('return-btn');
+const infoView = document.getElementById('info-view');
+const infoTitle = document.getElementById('info-title');
+const infoHeight = document.getElementById('info-height');
+const infoWidth = document.getElementById('info-width');
+const infoLength = document.getElementById('info-length');
 
 view.addEventListener('click', () => {
-    document.getElementById('view').style.display = "none";
+    // Obter o índice do slide ativo
+    const currentSlideIndex = swiper.realIndex; // Índice do slide ativo
+    const currentInfo = slideInfo[currentSlideIndex]; // Informações do slide atual
+
+    // Atualizar a "info view" com as informações do slide ativo
+    infoTitle.innerText = currentInfo.title;
+    infoHeight.innerText = currentInfo.height;
+    infoWidth.innerText = currentInfo.width;
+    infoLength.innerText = currentInfo.length;
+
+    // Exibir a "info view" e esconder os botões de navegação
+    view.style.display = "none";
     document.getElementById('left-btn').style.display = "none";
     document.getElementById('right-btn').style.display = "none";
-    document.getElementById('info-view').style.display = "flex";
+    infoView.style.display = "flex";
 });
 
 returnBtn.addEventListener('click', () => {
-    document.getElementById('view').style.display = "flex";
+    // Mostrar novamente os botões e esconder a "info view"
+    view.style.display = "flex";
     document.getElementById('left-btn').style.display = "flex";
     document.getElementById('right-btn').style.display = "flex";
-    document.getElementById('info-view').style.display = "none";
+    infoView.style.display = "none";
 });
 
+
+// Efeito botão preencher formulário
 document.addEventListener('DOMContentLoaded', () => {
     const button = document.getElementById('link-form');
     const message = document.getElementById('contact-happiness');

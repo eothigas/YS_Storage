@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./src/images/Logo_reduzido.svg" type="image/svg">
+    <title>Your Storage - Formulário</title>
+    <link rel='stylesheet' href="./src/css/formulario.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const linkElement = document.getElementById('back');
+            
+            if (params.get('hideBack') === 'true' && linkElement) {
+                linkElement.style.display = 'none';
+            }
+        };
+
+        function goBack() {
+            // Verificar se o histórico de navegação tem páginas anteriores
+            if (window.history.length > 1) {
+                window.history.back(); 
+            } else {
+                window.location.href = "https://www.yourstorage.x10.mx/homepage/"; 
+            }
+        };
+    </script>
+</head>
+<body>
+    
+    <div id="container">
+        <div id="caixa-esquerda">
+            <img src="./src/images/Logo_reduzido.svg">
+        </div>
+
+        <div class="form">
+            <form id='form-orc' action="./php/process_form.php" method="POST">
+            
+                <div class="return">
+                    <a id='link' href="javascript:void(0);" onclick="goBack();" aria-hidden="true"><i class="bi bi-x" id="back"></i></a>
+                </div>
+
+                <div id="form-header">
+                    <div id="header">
+                        <h1>Preencha os campos</h1>
+                        <p>Ficamos felizes em seu interesse por nosso sistema! Complete o formulário abaixo
+                            para que um de nossos agentes comerciais entre em contato com você.
+                        </p>
+                    </div>               
+                </div>
+
+                <div class="input-group">
+                    <div class='input-box' id="input-name">
+                        <label for="nome">Nome*</label>
+                        <input type="text" id="nome" name="nome" required maxlength="35" 
+                        autocomplete="name" placeholder="Seu nome">
+                    </div>
+
+                    <div class='input-box' id="input-email">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" name="email" maxlength="35" required 
+                        autocomplete="email" placeholder="Seu email">
+                    </div>
+
+                    <div class='input-box' id="input-contact">
+                        <label for="telefone">Telefone*</label>
+                        <input type="tel" id="telefone" name="telefone" required
+                        autocomplete="tel" inputmode='tel' 
+                        maxlength="11" 
+                        placeholder="(00) 00000-0000"
+                        oninput="formatPhone(this)">
+                    </div>
+
+                    <div class='input-box' id="input-enterprise">
+                        <label for="enterprise">Empresa*</label>
+                        <input type="text" id="enterprise" name="enterprise" required maxlength="35" 
+                        autocomplete="enterprise" placeholder="Sua empresa">
+                    </div>
+
+                    <div class='input-box' id="input-cnpj">
+                        <label for="cnpj">CNPJ ou CPF*</label>
+                        <input type="text" id="cnpj" name="cnpj" required 
+                        autocomplete="off" placeholder="Seu CNPJ ou CPF"
+                        oninput="formatCNPJCPF(this)">
+                    </div>
+
+                    <div class='input-box' id="input-select">
+                        <label for="question">Motivo do envio*</label>
+                        <select id="question" name='question' required>
+                            <option value="">— Escolha uma opção —</option>
+                            <option value="duvidas_planos">Dúvidas sobre os planos</option>
+                            <option value="plano_basico">Interesse no plano Básico</option>
+                            <option value="plano_logistico">Interesse no plano Logístico</option>
+                            <option value="plano_premium">Interesse no plano Premium</option>
+                            <option value="duvidas_sistemas">Dúvidas sobre o sistema</option>
+                            <option value="outros_assuntos">Outros Assuntos</option>
+                        </select>
+                    </div>
+
+                    <div class='input-box' id="input-message" style="display: none;">
+                        <label for="mensagem">Digite aqui</label>
+                        <textarea id="mensagem" name="mensagem" rows="1" 
+                            maxlength="150" placeholder="Descreva brevemente..." ></textarea>
+                            <span id="charCount">150 caracteres restantes</span>
+                    </div>
+                </div>
+
+                <div class='input-box' id="input-send"> 
+                    <button type="submit" id="enviar">Enviar</button>
+                </div>
+                
+                <div id='message'>Oops! O CNPJ informado já está registrado. <br> Por favor, informe um novo CNPJ para prosseguir.</div>
+            </form>
+        </div>
+    </div>
+
+    <script src="./src/js/formulario.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+body {
+    background-image: linear-gradient(to right, rgba(4, 9, 21, 1), rgba(23, 53, 123, 1), rgba(4, 9, 21, 1));
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#container{
+    width: 80%;
+    height: 78vh;
+    display: flex;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
+    background-color: rgb(28, 33, 43);
+    border-radius: 30px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+#caixa-esquerda {
+    background-color: rgb(19, 24, 35);
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px 0 0 30px;
+}
+
+#caixa-direita {
+    background-color: rgb(28, 33, 43);
+    width: 100%;
+    padding-top: 5px;
+    border-radius: 30px;
+}
+
+#form-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#form-header h1, p {
+    padding: 10px 0;
+    margin: 0 0 5px 0px;
+}
+
+h1 {
+    font-size: 1.8rem;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 1rem 3rem;
+    position: relative;
+}
+
+#message {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 60px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#link {
+    display: flex;
+    position: absolute;
+    right: 1rem;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    /* margin: 5px 5px 0 0; */
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+}
+
+#link:hover {
+    background-color: red;
+    border-radius: 10%;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-right: 2rem;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    /* margin-bottom: 1.1rem ; */
+}
+
+label {
+    margin-top: 5px;
+}
+
+.input-box input, textarea {
+    background-color: transparent;
+    font-size: 14px;
+    margin: 0.6rem 0;
+    padding: 0.8rem;
+    border: 2px solid white;
+    border-radius: 5px;
+    resize: none;
+    width: 320px;
+}
+
+.input-box select, option {
+    background-color: rgb(28, 33, 43);
+    font-size: 14px;
+    margin: 0.6rem 0;
+    padding: 0.738rem;
+    border: 2px solid white;
+    border-radius: 5px;
+    resize: none;
+    width: 320px;
+}
+
+#input-message {
+    position: relative;
+}
+
+#charCount {
+    position: absolute;
+    right: 5px;
+    bottom: -8px;   
+    color: rgba(255, 255, 255, 0.497);   
+    font-size: 12px; 
+    pointer-events: none; 
+    z-index: 1;
+}
+
+textarea {
+    /* width: 1000px; */
+    padding-bottom: 20px;
+    min-height: 40px;
+}
+
+.input-box input, select, textarea:focus {
+    outline: none;
+}
+
+#input-send {
+    width: 200px;
+    margin: 20px auto 0;
+}
+
+button {
+    padding: 10px;
+    background-color: rgb(19, 24, 35);
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color:rgb(10, 14, 25, 1);
+}
+
+/* WebKit Scrollbar */
+#container::-webkit-scrollbar {
+    width: 0; /* Oculta a scrollbar */
+    height: 0; /* Oculta scrollbar horizontal */
+}
+
+#container, .input-group {
+    scrollbar-width: thin; /* Define a espessura da barra */
+    scrollbar-color: rgb(5, 10, 23) rgba(255, 255, 255, 0.378); /* Cor da barra e do track */
+}
+
+@media screen and (max-width: 1340px) {
+
+    #caixa-esquerda {
+        display: none;
+    }
+
+    form {
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width: 601px) and (max-width: 1080px) {
+
+    #container {
+        width: 75%;
+        height: 95%;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    form {
+        /* display: none; */
+        width: 100%;
+    }
+
+    #form-header {
+        text-align: center;
+    }
+
+    .input-group {
+        flex-direction: column;
+        overflow-y: scroll;
+        /* flex-wrap: nowrap; */
+        max-height: auto;
+        padding-right: 0rem;
+        margin: 0 auto;
+    }
+
+    .input-box input, select, option, textarea {
+        width: 490px !important;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    #container {
+        width: 90%;
+        height: 75%;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    form {
+        /* display: none; */
+        width: 100%;
+    }
+
+    .input-group {
+        flex-direction: column;
+        overflow-y: scroll;
+        /* flex-wrap: nowrap; */
+        max-height: auto;
+        padding-right: 2rem;
+    }
+
+    .input-box input, select, option, textarea {
+        width: 385px !important;
+    }
+
+    #link {
+        right: 3rem;
+    }
+
+}
