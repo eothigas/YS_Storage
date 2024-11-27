@@ -2,6 +2,8 @@
 // Iniciar sessão
 session_start();
 
+header('Content-Type: application/json; charset=utf-8');
+
 // Carregar configurações do php.ini da raiz
 $config = parse_ini_file('../../../PHP/php.ini', true);
 
@@ -24,7 +26,7 @@ try {
     // Cria a conexão com o banco de dados sem opções adicionais
     $conn = new PDO($dsn, $username, $password);
 } catch (PDOException $e) {
-    die(json_encode(["status" => "error", "message" => "Erro ao conectar ao banco de dados: " . $e->getMessage()]));
+    die(json_encode(["status" => "error", "message" => "Erro ao conectar ao banco de dados: " . $e->getMessage()])); 
 }
 
 // Verifica se o formulário foi enviado
@@ -39,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Preparar a consulta para verificar o usuário
-    $stmt = $conn->prepare("SELECT id, nome, tipo, email, plano, empresa, senha FROM usuarios WHERE email = ? LIMIT 1");
+    $stmt = $conn->prepare("SELECT id, nome, tipo, email, empresa, senha FROM clientes WHERE email = ? LIMIT 1");
     $stmt->execute([$email]);
     $user = $stmt->fetch();
 
@@ -47,17 +49,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($user) {
         // Verificar a senha
         if (password_verify($senha, $user['senha'])) {
-            // Se a senha estiver correta, iniciar a sessão e redirecionar
-            $_SESSION['id'] = $user['id'];
-            $_SESSION['nome'] = $user['nome'];
-            $_SESSION['tipo'] = $user['tipo'];
-            $_SESSION['email'] = $user['email'];
-            $_SESSION['plano'] = $user['plano'];
-            $_SESSION['empresa'] = $user['empresa'];
+            // Buscar a empresa na tabela empresa usando o valor da coluna `empresa` do cliente
+            $stmtEmpresa = $conn->prepare("SELECT status, plano, logo FROM empresa WHERE razao = ? LIMIT 1");
+            $stmtEmpresa->execute([$user['empresa']]);
+            $empresa = $stmtEmpresa->fetch();
 
-            // Enviar sucesso como resposta
-            echo json_encode(["status" => "success", "redirect" => "../sistema/home.html"]);
-            exit();
+            // Verificar o status da empresa
+            if ($empresa && strtolower(trim($empresa['status'])) === 'ativo') {
+                // Se a empresa estiver ativa, iniciar a sessão e armazenar os dados necessários
+                $_SESSION['id'] = $user['id'];
+                $_SESSION['nome'] = $user['nome'];
+                $_SESSION['tipo'] = $user['tipo'];
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['empresa'] = $user['empresa'];
+                $_SESSION['plano'] = $empresa['plano'];
+                $_SESSION['logo'] = $empresa['logo'];
+
+                // Enviar sucesso como resposta
+                echo json_encode(["status" => "success", "redirect" => "../sistema/home.html"]);
+                exit();
+            } else {
+                // Empresa suspensa
+                echo json_encode(["status" => "error", "message" => "Empresa suspensa."]);
+                exit();
+            }
         } else {
             // Senha incorreta
             echo json_encode(["status" => "error", "message" => "Senha incorreta."]);
