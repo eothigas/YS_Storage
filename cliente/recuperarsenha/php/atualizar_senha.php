@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $senhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
 
         // Preparar e executar a consulta para atualizar a senha
-        $sql = "UPDATE usuarios SET senha = :senhaHash WHERE email = :email";
+        $sql = "UPDATE clientes SET senha = :senhaHash WHERE email = :email";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':senhaHash', $senhaHash);
         $stmt->bindParam(':email', $email);
