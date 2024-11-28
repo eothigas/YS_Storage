@@ -18,6 +18,13 @@ body {
     gap: 20px; 
 }
 
+.title, .paragraph {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .fluxo-item-last {
     width: 100%;
     text-align: center;
