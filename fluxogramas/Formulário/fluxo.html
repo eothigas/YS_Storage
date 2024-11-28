@@ -11,7 +11,6 @@
     <div class="container">
 
         <div class="title">
-
             <img src="../../homepage/src/images/Logo_reduzido.svg"/>
             <h2>Your Storage</h2>
         </div>
@@ -20,7 +19,14 @@
 
             <p>Veja Fluxogramas e vídeos acerca de <b>Envio de Formulário.</b></p>
 
-        </div>        
+        </div>   
+        
+        <!-- Modal -->
+        <div id="imageModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modalImage">
+            <div id="caption"></div>
+        </div>
 
         <div class="fluxo-item-last">
             <h4>- Envio de Formulário (contato) -</h4>
@@ -28,11 +34,43 @@
                 <a href="https://youtu.be/fapHnlTCpQE" target="_blank" style='font-weight: bold;'> 📜 Envio de Formulário (Assista no YouTube)</a>
             </p>
             <p>Confira o fluxo deste processo:
-                <a href=" ">Clique aqui</a>
+                <a href="#" id="imageLink" data-image-src="images/envio_formulario.png">Clique aqui</a>
             </p>
         </div>
     </div>
 
+    <script>
+        // Elementos do modal
+        const modal = document.getElementById("imageModal");
+        const modalImage = document.getElementById("modalImage");
+        const closeBtn = document.querySelector(".close");
+
+        // Abrir modal ao clicar no link
+        document.querySelectorAll("#imageLink").forEach(link => {
+            link.addEventListener("click", function (event) {
+                event.preventDefault(); // Impede o redirecionamento padrão
+                const imageSrc = this.getAttribute("data-image-src"); // Obtém o caminho da imagem
+                if (imageSrc) {
+                    modal.style.display = "block"; // Exibe o modal
+                    modalImage.src = imageSrc; // Define o src da imagem
+                } else {
+                    console.error("Caminho da imagem não encontrado.");
+                }
+            });
+        });
+
+        // Fechar modal ao clicar no botão de fechar
+        closeBtn.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+
+        // Fechar modal ao clicar fora da imagem
+        window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
 
 </body>
 </html>
