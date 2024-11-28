@@ -32,10 +32,8 @@ Com sua abordagem inovadora e flexível, a Your Storage oferece às empresas a c
 
 <h3><a href='https://drive.google.com/drive/folders/13CWh8DLOfqSiTxicT4c0sElIxTnFvuTt?usp=sharing' target="_blank">Casos de Uso: Cliente</a></h3>
 
+<h3><a href='https://drive.google.com/drive/folders/1sPMHAmVBec5f9IZobbl5DtJP6rTAr2Cy?usp=sharing' target="_blank">Casos de Uso: Funcionário</a></h3>
 
-<a href='https://drive.google.com/drive/folders/1sPMHAmVBec5f9IZobbl5DtJP6rTAr2Cy?usp=sharing' target="_blank">
-    <h3>Casos de Uso: Funcionário</h3>
-</a>
 
 <h2>Processos e fluxos dentro do Sistema</h2>
 
