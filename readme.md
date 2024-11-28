@@ -4,9 +4,9 @@
 
 <div>
     <h3>Links para acesso:</h3>
-    <a href='https://www.yourstorage.x10.mx/homepage/' target='_blank'>Your storage - Homepage</a> / 
-    <a href='https://www.yourstorage.x10.mx/funcionario/' target='_blank'>Your storage - Funcionário</a> / 
-    <a href='https://www.yourstorage.x10.mx/cliente/login/' target='_blank'>Your storage - Cliente</a>
+    <a href='https://www.yourstorage.x10.mx/homepage/' target='_blank'> 🏠 Your Storage - Homepage</a> / 
+    <a href='https://www.yourstorage.x10.mx/funcionario/' target='_blank'> 👨‍💼 Your Storage - Funcionário</a> / 
+    <a href='https://www.yourstorage.x10.mx/cliente/login/' target='_blank'> 🤝 Your Storage - Cliente</a>
 </div>
 
 <br>
