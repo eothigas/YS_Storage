@@ -16,7 +16,6 @@
 
 <p>Combinando flexibilidade, segurança e facilidade de uso, Your Storage é a escolha ideal para otimizar a administração de estoques e garantir o controle eficiente dos recursos corporativos.</p>
 
-
 <h2>Existência e motivo do projeto</h2>
 
 <p>A gestão de estoques é uma atividade crucial para o sucesso de qualquer empresa, independentemente de seu porte ou segmento de atuação. O cenário atual revela um conjunto de desafios que dificultam o controle eficiente de bens e ativos, sejam físicos ou virtuais, impactando diretamente a operação e a lucratividade das organizações.
@@ -27,8 +26,13 @@ Diante dessa realidade, a necessidade de uma solução robusta e eficiente torna
 
 Com sua abordagem inovadora e flexível, a Your Storage oferece às empresas a capacidade de transformar a gestão de estoques em um diferencial estratégico, garantindo eficiência, segurança e controle total sobre os recursos corporativos.</p>
 
-<h2>Diagramas de Casos de Uso</h2>
+<hr>
 
+<h3><a href='https://drive.google.com/drive/folders/1dfj4NNPGmdXQXXErL4cJ_q0BKYWZ9i0D?usp=sharing' target="_blank"> 📁 Arquivos completos (Fluxogramas, Casos de Uso, e Vídeo Funcionalidades)</a></h3>
+
+<hr>
+
+<h2>Diagramas de Casos de Uso</h2>
 
 <h3><a href='https://drive.google.com/drive/folders/13CWh8DLOfqSiTxicT4c0sElIxTnFvuTt?usp=sharing' target="_blank">Casos de Uso: Cliente</a></h3>
 
