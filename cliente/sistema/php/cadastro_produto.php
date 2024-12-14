@@ -50,16 +50,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit();
         }
 
-        // Verifica se o código do produto já existe no banco de dados
-        $stmt = $pdo->prepare("SELECT COUNT(*) FROM produtos WHERE codigo = :codigo");
+        // Verificar se o código do produto já existe na empresa especificada
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM produtos WHERE codigo = :codigo AND empresa = :empresa");
         $stmt->bindParam(':codigo', $codigo);
+        $stmt->bindParam(':empresa', $empresa);
         $stmt->execute();
         $codigoExistente = $stmt->fetchColumn();
 
         if ($codigoExistente > 0) {
-            echo json_encode(["error" => "Já existe um produto com este código."]);
+            echo json_encode(["error" => "Já existe um produto com este código nesta empresa."]);
             exit();
-        }
+}
 
         // Verifica se uma imagem foi enviada
         if (!empty($_FILES['imagem']['tmp_name'])) {

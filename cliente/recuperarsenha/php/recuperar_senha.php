@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Preparar e executar a consulta para verificar o e-mail
-        $sql = "SELECT email FROM usuarios WHERE email = :email";
+        $sql = "SELECT email FROM clientes WHERE email = :email";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
@@ -109,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             // Definir uma mensagem de erro na sessão se o e-mail não for encontrado
-            $_SESSION['error'] = "Usuário não existe.";
+            $_SESSION['error'] = "Cliente não existe.";
             header("Location: ../recuperarsenha.html?error=usuario_nao_encontrado");
             exit();
         }

@@ -1,13 +1,7 @@
 <?php
-session_start(); // Inicia a sessão
-
-// Limpa todas as variáveis de sessão
-$_SESSION = [];
-
-// Destrói a sessão
-session_destroy();
-
-// Redireciona para a página de login ou homepage
-header("Location: ../../login/"); // Altere para a página desejada
-exit();
+session_start(); // Retoma a sessão (já iniciada)
+session_unset(); // Limpeza de variáveis que possam ter ficado (como dados de cadastro, etc...)
+session_destroy(); // Destrói a sessão atual
+header('Content-Type: application/json'); // Retorno JSON
+echo json_encode(['status' => 'success']); // Mensagem positiva
 ?>
